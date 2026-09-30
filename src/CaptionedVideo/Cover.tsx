@@ -23,6 +23,8 @@ export const coverSchema = z.object({
   scenes: z.array(z.object({ src: z.string(), label: z.string() })).max(4),
   footer: z.string(),
   footerStrong: z.string(),
+  // kiểu "ảnh": không có cảnh, nền là ảnh rõ nét (vd khuôn mặt người nói), tiêu đề + vài ý ở nửa dưới
+  points: z.array(z.string()).max(4).optional(),
 });
 type Props = z.infer<typeof coverSchema>;
 
@@ -41,7 +43,9 @@ export const Cover: React.FC<Props> = ({
   scenes,
   footer,
   footerStrong,
+  points = [],
 }) => {
+  const photo = scenes.length === 0;
   // chờ font tải xong mới chụp, nếu không chữ sẽ ra font dự phòng
   const { delayRender, continueRender } = useDelayRender();
   const [handle] = useState(() => delayRender("Tải font ảnh bìa"));
@@ -71,14 +75,15 @@ export const Cover: React.FC<Props> = ({
             width: 1200,
             height: 2040,
             objectFit: "cover",
-            filter: "blur(28px) brightness(0.6)",
+            filter: photo ? "none" : "blur(28px) brightness(0.6)",
           }}
         />
       ) : null}
       <AbsoluteFill
         style={{
-          background:
-            "linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.1) 40%, rgba(0,0,0,.6) 100%)",
+          background: photo
+            ? "linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.85) 100%)"
+            : "linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.1) 40%, rgba(0,0,0,.6) 100%)",
         }}
       />
 
@@ -91,12 +96,55 @@ export const Cover: React.FC<Props> = ({
               sec: 0,
               style: titleStyle,
               x: 0.5,
-              y: 0.205,
+              y: photo ? 0.6 : 0.205,
               scale: 1.05,
               ...splitHook(title),
             }}
           />
         </Sequence>
+      ) : null}
+
+      {/* kiểu ảnh: vài ý chính dưới tiêu đề */}
+      {photo && points.length ? (
+        <div
+          style={{
+            position: "absolute",
+            left: 70,
+            right: 70,
+            top: 1440,
+            display: "flex",
+            flexDirection: "column",
+            gap: 20,
+          }}
+        >
+          {points.map((p, i) => (
+            <div
+              key={i}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 18,
+                fontFamily: TheBoldFont,
+                fontWeight: 800,
+                fontSize: 46,
+                color: "#fff",
+                textShadow: "0 3px 10px rgba(0,0,0,.85)",
+              }}
+            >
+              <span
+                style={{
+                  width: 18,
+                  height: 18,
+                  borderRadius: 999,
+                  background: GOLD,
+                  flexShrink: 0,
+                  boxShadow: "0 0 14px rgba(255,210,63,.8)",
+                }}
+              />
+              {p}
+            </div>
+          ))}
+        </div>
       ) : null}
 
       {/* các cảnh tiêu biểu */}
