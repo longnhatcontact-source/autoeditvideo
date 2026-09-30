@@ -18,7 +18,7 @@ import {
 import { z } from "zod";
 import { loadFont } from "../load-font";
 import { BlurBoxes } from "./BlurBoxes";
-import { Callouts } from "./Callouts";
+import { CALLOUT_STYLES, CalloutAudio, Callouts, splitHook } from "./Callouts";
 import { Brand } from "./Brand";
 import { Hook } from "./Hook";
 import { InfoOverlay } from "./InfoOverlay";
@@ -47,6 +47,9 @@ export const captionedVideoSchema = z.object({
   musicVolume: z.number().min(0).max(1),
   musicDuck: z.boolean(),
   sfx: z.array(z.object({ src: z.string(), at: z.number(), volume: z.number() })),
+  // tiếng đi kèm chữ nhấn / tiêu đề theo từng kiểu chữ (gõ phím, vút, pop...): URL thư mục SFX ("" = public/sfx) + âm lượng (0 = tắt)
+  sfxBase: z.string().optional(),
+  calloutSfx: z.number().min(0).max(1).optional(),
   durationInFrames: z.number().nullable(),
   // cụm chữ không được ngắt xuống câu khác (tên dự án...)
   keepTogether: z.array(z.string()),
@@ -56,7 +59,7 @@ export const captionedVideoSchema = z.object({
   hookText: z.string(),
   hookSec: z.number().min(0),
   // kiểu chữ + vị trí tiêu đề (dùng chung bộ chữ với chữ nhấn)
-  hookStyle: z.enum(["red", "neon", "gold"]),
+  hookStyle: z.enum(CALLOUT_STYLES),
   hookX: z.number(),
   hookY: z.number(),
   hookScale: z.number(),
@@ -77,7 +80,7 @@ export const captionedVideoSchema = z.object({
     z.object({
       at: z.number(),
       sec: z.number(),
-      style: z.enum(["red", "neon", "gold"]),
+      style: z.enum(CALLOUT_STYLES),
       top: z.string(),
       main: z.string(),
       sub: z.string(),
@@ -142,6 +145,8 @@ export const CaptionedVideo: React.FC<Props> = ({
   musicVolume,
   musicDuck,
   sfx,
+  sfxBase = "",
+  calloutSfx = 0.8,
   keepTogether,
   blurs,
   hookText,
@@ -257,11 +262,16 @@ export const CaptionedVideo: React.FC<Props> = ({
       <InfoOverlay info={{ tenDuAn, gia, dienTich, phongNgu, diaChi }} cardDelaySec={hookFrames / FPS} />
 
       {/* chữ nhấn vẽ trên thẻ giá / tên kênh để không bị che */}
-      {callouts.length ? <Callouts items={callouts} /> : null}
+      {callouts.length ? <Callouts items={callouts} sfxBase={sfxBase} sfxVolume={calloutSfx} /> : null}
 
       {hookFrames ? (
         <Sequence durationInFrames={hookFrames} layout="none">
           <Hook text={hookText} style={hookStyle} x={hookX} y={hookY} scale={hookScale} />
+        </Sequence>
+      ) : null}
+      {hookFrames ? (
+        <Sequence durationInFrames={Math.max(hookFrames, 3 * FPS)} layout="none">
+          <CalloutAudio c={{ style: hookStyle, ...splitHook(hookText) }} base={sfxBase} volume={calloutSfx} />
         </Sequence>
       ) : null}
 

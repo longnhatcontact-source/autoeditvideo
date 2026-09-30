@@ -13,7 +13,7 @@ export type OverlayItem = {
   h: number;
 };
 export type Hook = { text: string; sec: number; style: CalloutStyle; x: number; y: number; scale: number };
-export type CalloutStyle = "red" | "neon" | "gold";
+export type CalloutStyle = "red" | "neon" | "gold" | "type" | "banner" | "pop" | "outline" | "editorial" | "stamp";
 export type Callout = {
   at: number;
   sec: number;
@@ -60,6 +60,7 @@ export type Project = ProjectSummary & {
   brand: Brand & { show: boolean };
   subStyle: SubStyle;
   punchZoom: boolean;
+  calloutSfx: number;
   overlays: OverlayItem[];
   callouts: Callout[];
   versions: { video: number; music: number };
@@ -110,6 +111,7 @@ export const api = {
       hideBrand: boolean;
       subStyle: SubStyle;
       punchZoom: boolean;
+      calloutSfx: number;
       overlays: OverlayItem[];
       callouts: Callout[];
     }>,

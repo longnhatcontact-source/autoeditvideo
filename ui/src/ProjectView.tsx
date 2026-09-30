@@ -57,12 +57,13 @@ export function ProjectView({
   const [sfx, setSfx] = useState<Sfx[]>([]);
   const [music, setMusic] = useState<Music | null>(null);
   const [blurs, setBlurs] = useState<Blur[]>([]);
-  const [hook, setHook] = useState<Hook>({ text: "", sec: 2.5, style: "gold", x: 0.5, y: 0.484, scale: 1 });
+  const [hook, setHook] = useState<Hook>({ text: "", sec: 2.5, style: "gold", x: 0.5, y: 0.3, scale: 1 });
   // đang dời khối chữ nào trên khung xem trước: "hook" = tiêu đề, số = chữ nhấn thứ i
   const [moving, setMoving] = useState<"hook" | number | null>(null);
   const [drawing, setDrawing] = useState(false);
   const [hideBrand, setHideBrand] = useState(false);
   const [punchZoom, setPunchZoom] = useState(false);
+  const [calloutSfx, setCalloutSfx] = useState(0.8);
   const [overlays, setOverlays] = useState<OverlayItem[]>([]);
   const [callouts, setCallouts] = useState<Callout[]>([]);
   const [subStyle, setSubStyle] = useState<SubStyle>({ highlight: "#39E508", position: "thap", box: false });
@@ -84,6 +85,7 @@ export function ProjectView({
     setHideBrand(p.hideBrand);
     setSubStyle(p.subStyle);
     setPunchZoom(p.punchZoom);
+    setCalloutSfx(p.calloutSfx ?? 0.8);
     setOverlays(p.overlays);
     setCallouts(p.callouts ?? []);
   }, [name]);
@@ -301,10 +303,12 @@ export function ProjectView({
       subPosition: subStyle.position,
       subBox: subStyle.box,
       punchZoom,
+      sfxBase: "/sfx",
+      calloutSfx,
       overlays: overlays.map((o) => ({ src: overlayUrl(project.name, o.file), at: o.at, sec: o.sec, kind: o.kind })),
       callouts,
     };
-  }, [project, info, captions, music, sfx, blurs, hook, showBrand, subStyle, punchZoom, overlays, callouts]);
+  }, [project, info, captions, music, sfx, blurs, hook, showBrand, subStyle, punchZoom, calloutSfx, overlays, callouts]);
 
   useEffect(() => {
     const p = playerRef.current;
@@ -601,6 +605,23 @@ export function ProjectView({
           ) : null}
 
           {tab === "callouts" ? (
+            <>
+            <label className="check" style={{ marginBottom: 10, gap: 10 }}>
+              🔊 Tiếng đi kèm chữ (gõ phím, vút, pop, con dấu…)
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.05}
+                value={calloutSfx}
+                onChange={(e) => {
+                  const v = Number(e.target.value);
+                  setCalloutSfx(v);
+                  queueSave({ calloutSfx: v });
+                }}
+              />
+              <span>{calloutSfx ? `${Math.round(calloutSfx * 100)}%` : "Tắt"}</span>
+            </label>
             <CalloutsTab
               project={project.name}
               items={callouts}
@@ -612,6 +633,7 @@ export function ProjectView({
               moving={typeof moving === "number" ? moving : null}
               onMove={(i) => (moving === i ? setMoving(null) : startMove(i))}
             />
+            </>
           ) : null}
 
           {tab === "overlay" ? (

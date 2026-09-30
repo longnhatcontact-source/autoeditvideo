@@ -54,7 +54,7 @@ export const RemotionRoot: React.FC = () => {
           hookSec: 2.5,
           hookStyle: "gold" as const,
           hookX: 0.5,
-          hookY: 0.484,
+          hookY: 0.3,
           hookScale: 1,
           brandText: "@nhatrealproperty",
           brandLogoSrc: "",
@@ -73,7 +73,7 @@ export const RemotionRoot: React.FC = () => {
               main: "Căn hộ",
               sub: "Đáng sống",
               x: 0.5,
-              y: 0.484,
+              y: 0.3,
               scale: 1,
             },
             {

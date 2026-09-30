@@ -2,15 +2,21 @@ import { useEffect, useState } from "react";
 import { api, fmtTime, type AiInfo, type Callout, type CalloutStyle } from "./api";
 
 export const STYLE_OPTIONS: [CalloutStyle, string][] = [
-  ["red", "🔴 Trắng viền đỏ"],
-  ["neon", "🔵 Neon xanh"],
-  ["gold", "🟡 Vàng ánh kim"],
+  ["red", "🔴 Trắng viền đỏ — bật mạnh"],
+  ["neon", "🔵 Neon xanh — nhấp nháy"],
+  ["gold", "🟡 Vàng ánh kim — vệt sáng"],
+  ["type", "⌨️ Đánh máy — thẻ tối"],
+  ["banner", "🟨 Băng vàng xiên"],
+  ["pop", "💥 Bật từng từ"],
+  ["outline", "⭕ Chữ rỗng → đổ đầy"],
+  ["editorial", "📰 Tạp chí — đường kẻ"],
+  ["stamp", "🟥 Con dấu đỏ"],
 ];
 const STYLES = STYLE_OPTIONS;
 const PRESETS: [string, number][] = [
   ["Trên", 0.3],
-  ["Giữa", 0.484],
-  ["Dưới", 0.66],
+  ["Giữa", 0.45],
+  ["Dưới", 0.62],
 ];
 
 export function CalloutsTab({
@@ -45,7 +51,7 @@ export function CalloutsTab({
 
   const add = () => {
     const at = Number(Math.min(currentSec, Math.max(0, durationSec - 2)).toFixed(1));
-    const next = [...items, { at, sec: 3.5, style: "red" as const, top: "", main: "Chữ nhấn", sub: "", x: 0.5, y: 0.484, scale: 1 }];
+    const next = [...items, { at, sec: 3.5, style: "red" as const, top: "", main: "Chữ nhấn", sub: "", x: 0.5, y: 0.3, scale: 1 }];
     onChange(next.sort((a, b) => a.at - b.at));
   };
 

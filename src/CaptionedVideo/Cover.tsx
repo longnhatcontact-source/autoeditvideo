@@ -9,7 +9,7 @@ import {
 } from "remotion";
 import { z } from "zod";
 import { loadFont, ScriptFont, TheBoldFont } from "../load-font";
-import { CalloutView, splitHook } from "./Callouts";
+import { CALLOUT_STYLES, CalloutView, splitHook } from "./Callouts";
 
 /**
  * Ảnh bìa video (1080×1920, xuất 1 khung hình): tiêu đề cùng bộ chữ với video,
@@ -18,12 +18,12 @@ import { CalloutView, splitHook } from "./Callouts";
  */
 export const coverSchema = z.object({
   title: z.string(), // "*chữ*" = chữ đậm chính, phần trước/sau = chữ viết tay
-  titleStyle: z.enum(["red", "neon", "gold"]),
+  titleStyle: z.enum(CALLOUT_STYLES),
   background: z.string(),
   scenes: z.array(z.object({ src: z.string(), label: z.string() })).max(4),
   footer: z.string(),
   footerStrong: z.string(),
-  // kiểu "ảnh": không có cảnh, nền là ảnh rõ nét (vd khuôn mặt người nói), tiêu đề + vài ý ở nửa dưới
+  // kiểu "ảnh": không có cảnh, nền là ảnh rõ nét (vd khuôn mặt người nói), tiêu đề + vài ý đặt giữa khung
   points: z.array(z.string()).max(4).optional(),
 });
 type Props = z.infer<typeof coverSchema>;
@@ -82,7 +82,7 @@ export const Cover: React.FC<Props> = ({
       <AbsoluteFill
         style={{
           background: photo
-            ? "linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.85) 100%)"
+            ? "radial-gradient(ellipse 95% 42% at 50% 52%, rgba(0,0,0,.72) 0%, rgba(0,0,0,.5) 60%, rgba(0,0,0,.15) 100%)"
             : "linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.1) 40%, rgba(0,0,0,.6) 100%)",
         }}
       />
@@ -96,7 +96,7 @@ export const Cover: React.FC<Props> = ({
               sec: 0,
               style: titleStyle,
               x: 0.5,
-              y: photo ? 0.6 : 0.205,
+              y: photo ? 0.4 : 0.205,
               scale: 1.05,
               ...splitHook(title),
             }}
@@ -111,9 +111,10 @@ export const Cover: React.FC<Props> = ({
             position: "absolute",
             left: 70,
             right: 70,
-            top: 1440,
+            top: 1090,
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
             gap: 20,
           }}
         >
@@ -230,7 +231,7 @@ export const Cover: React.FC<Props> = ({
             position: "absolute",
             left: 0,
             right: 0,
-            top: 1700,
+            top: photo ? 1110 + points.length * 76 + 30 : 1700,
             display: "flex",
             justifyContent: "center",
           }}
