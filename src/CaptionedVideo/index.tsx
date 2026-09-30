@@ -55,6 +55,11 @@ export const captionedVideoSchema = z.object({
   // tiêu đề mở đầu; "*chữ*" = tô vàng; text rỗng = không có
   hookText: z.string(),
   hookSec: z.number().min(0),
+  // kiểu chữ + vị trí tiêu đề (dùng chung bộ chữ với chữ nhấn)
+  hookStyle: z.enum(["red", "neon", "gold"]),
+  hookX: z.number(),
+  hookY: z.number(),
+  hookScale: z.number(),
   // tên kênh / logo; cả 2 rỗng = không hiện
   brandText: z.string(),
   brandLogoSrc: z.string(),
@@ -76,6 +81,9 @@ export const captionedVideoSchema = z.object({
       top: z.string(),
       main: z.string(),
       sub: z.string(),
+      x: z.number(),
+      y: z.number(),
+      scale: z.number(),
     }),
   ),
 });
@@ -137,6 +145,10 @@ export const CaptionedVideo: React.FC<Props> = ({
   blurs,
   hookText,
   hookSec,
+  hookStyle,
+  hookX,
+  hookY,
+  hookScale,
   brandText,
   brandLogoSrc,
   brandPosition,
@@ -215,8 +227,6 @@ export const CaptionedVideo: React.FC<Props> = ({
         <Overlays items={overlays.map((o) => ({ ...o, src: resolveSrc(o.src) }))} />
       ) : null}
 
-      {callouts.length ? <Callouts items={callouts} /> : null}
-
       {brandText || brandLogoSrc ? (
         <Brand text={brandText} logoSrc={brandLogoSrc ? resolveSrc(brandLogoSrc) : ""} position={brandPosition} />
       ) : null}
@@ -234,9 +244,12 @@ export const CaptionedVideo: React.FC<Props> = ({
 
       <InfoOverlay info={{ tenDuAn, gia, dienTich, phongNgu, diaChi }} cardDelaySec={hookFrames / FPS} />
 
+      {/* chữ nhấn vẽ trên thẻ giá / tên kênh để không bị che */}
+      {callouts.length ? <Callouts items={callouts} /> : null}
+
       {hookFrames ? (
         <Sequence durationInFrames={hookFrames} layout="none">
-          <Hook text={hookText} />
+          <Hook text={hookText} style={hookStyle} x={hookX} y={hookY} scale={hookScale} />
         </Sequence>
       ) : null}
 

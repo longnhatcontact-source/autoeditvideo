@@ -10,7 +10,22 @@ import { OVERLAY_BOX } from "./Overlays";
  * Kiểu: red = trắng viền sáng đỏ · neon = neon xanh nhấp nháy · gold = vàng ánh kim, vệt sáng chạy.
  */
 export type CalloutStyle = "red" | "neon" | "gold";
-export type Callout = { at: number; sec: number; style: CalloutStyle; top: string; main: string; sub: string };
+export type Callout = {
+  at: number;
+  sec: number;
+  style: CalloutStyle;
+  top: string;
+  main: string;
+  sub: string;
+  /** tâm khối chữ, tỉ lệ 0..1 theo chiều ngang / dọc khung 1080×1920 */
+  x: number;
+  y: number;
+  /** phóng to / thu nhỏ cả khối chữ (0.5..1.5) */
+  scale: number;
+};
+
+/** vị trí mặc định: giữa vùng video (chừa băng tên dự án phía trên, phụ đề phía dưới) */
+export const CALLOUT_DEFAULT_POS = { x: 0.5, y: 0.484, scale: 1 };
 
 const MAX_W = OVERLAY_BOX.width - 40;
 
@@ -43,7 +58,23 @@ const THEME: Record<CalloutStyle, { glow: string; script: string; mainColor: str
 };
 const GOLD_FILL = "linear-gradient(180deg,#fff0b0 0%,#e8bd5a 45%,#b98530 56%,#f7d77a 100%)";
 
-const One: React.FC<{ c: Callout }> = ({ c }) => {
+/**
+ * Tiêu đề mở đầu -> 3 dòng chữ nhấn: phần trong *…* là chữ đậm chính,
+ * phần trước là dòng viết tay phía trên, phần sau là dòng viết tay phía dưới.
+ * Không có *…*: cả câu là chữ đậm (nên ngắn), hoặc câu dài thì 2–3 chữ cuối làm chữ đậm.
+ */
+export function splitHook(text: string): { top: string; main: string; sub: string } {
+  const t = text.replace(/\s+/g, " ").trim();
+  const m = t.match(/^(.*?)\*([^*]+)\*(.*)$/);
+  if (m) return { top: m[1].replace(/\*/g, "").trim(), main: m[2].trim(), sub: m[3].replace(/\*/g, "").trim() };
+  const words = t.split(" ");
+  if (words.length <= 3) return { top: "", main: t, sub: "" };
+  const n = words.length >= 6 ? 3 : 2;
+  return { top: words.slice(0, -n).join(" "), main: words.slice(-n).join(" "), sub: "" };
+}
+
+/** Vẽ 1 khối chữ nhấn; thời lượng = Sequence bao ngoài */
+export const CalloutView: React.FC<{ c: Callout }> = ({ c }) => {
   const frame = useCurrentFrame();
   const { durationInFrames: total } = useVideoConfig();
   const t = THEME[c.style];
@@ -63,8 +94,10 @@ const One: React.FC<{ c: Callout }> = ({ c }) => {
     MAX_W,
     0.78,
   );
-  const topFs = size(top, ScriptFont, 700, 150, MAX_W * 0.8);
-  const subFs = size(sub, ScriptFont, 700, 150, MAX_W * 0.95);
+  // chữ viết tay luôn nhỏ hơn chữ chính để giữ thứ bậc
+  const scriptMax = Math.min(150, Math.max(80, mainFs * 0.85));
+  const topFs = size(top, ScriptFont, 700, scriptMax, MAX_W * 0.8);
+  const subFs = size(sub, ScriptFont, 700, scriptMax, MAX_W * 0.95);
 
   // --- dòng chính ---
   let mainEl: React.ReactNode;
@@ -181,19 +214,28 @@ const One: React.FC<{ c: Callout }> = ({ c }) => {
   const pTop = easeOut(prog(frame, 5, 24));
   const pSub = easeOut(prog(frame, 12, 36));
 
+  const { width: W, height: H } = useVideoConfig();
+  const x = c.x ?? CALLOUT_DEFAULT_POS.x;
+  const y = c.y ?? CALLOUT_DEFAULT_POS.y;
+  const scale = c.scale ?? 1;
+
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
-      {/* nền tối mềm phía sau cho chữ nổi trên mọi cảnh */}
+      {/* nền tối mềm phía sau cho chữ nổi trên mọi cảnh — đi theo vị trí khối chữ */}
       <AbsoluteFill
         style={{
           opacity: backdrop,
-          background: "radial-gradient(ellipse 70% 32% at 50% 48%, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 55%, transparent 100%)",
+          background: `radial-gradient(ellipse ${70 * scale}% ${32 * scale}% at ${x * 100}% ${y * 100}%, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 55%, transparent 100%)`,
         }}
       />
       <div
         style={{
           position: "absolute",
-          ...OVERLAY_BOX,
+          left: x * W - OVERLAY_BOX.width / 2,
+          top: y * H - OVERLAY_BOX.height / 2,
+          width: OVERLAY_BOX.width,
+          height: OVERLAY_BOX.height,
+          transform: `scale(${scale})`,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -248,7 +290,7 @@ export const Callouts: React.FC<{ items: Callout[] }> = ({ items }) => {
             durationInFrames={Math.max(15, Math.round(c.sec * fps))}
             layout="none"
           >
-            <One c={c} />
+            <CalloutView c={c} />
           </Sequence>
         ) : null,
       )}

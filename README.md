@@ -9,10 +9,11 @@ Dựng từ template chính thức `npx create-video --tiktok` của Remotion.
   chữ đang đọc, 1 cỡ chữ cho cả video, không ngắt đôi tên dự án; số liệu (giá, m², năm) tô vàng.
 - **Sửa trong app:** sửa chữ từng câu, kiểu phụ đề (màu/vị trí/hộp nền), hoàn tác Ctrl+Z / Ctrl+Y.
 - **Thông tin BĐS:** băng tên dự án + thẻ giá. Không có ô số điện thoại (tránh bị TikTok hạn chế).
-- **Tiêu đề mở đầu** vài giây đầu (`*chữ*` = tô vàng), **che vùng** (làm mờ SĐT dính sẵn trong clip),
+- **Tiêu đề mở đầu** vài giây đầu, cùng bộ chữ với Chữ nhấn (`*chữ*` = chữ đậm to; phần trước/sau = chữ viết tay
+  trên/dưới; chọn kiểu màu, dời chỗ, đổi cỡ), **che vùng** (làm mờ SĐT dính sẵn trong clip),
   **zoom nhẹ** ở chỗ nhấn mạnh, **ảnh/clip minh hoạ chèn**, **tên kênh / logo**.
 - **Chữ nhấn:** chữ hiệu ứng lớn giữa màn hình ở đoạn quan trọng (3 kiểu: trắng viền đỏ, neon xanh, vàng ánh kim;
-  dòng trên/dưới viết tay). Thêm tay tại giây đang xem, hoặc bấm ✨ để Claude đọc phụ đề và gợi ý (cần khoá API
+  dòng trên/dưới viết tay; kéo thả trên khung xem trước để dời chỗ, lăn chuột / thanh trượt để đổi cỡ). Thêm tay tại giây đang xem, hoặc bấm ✨ để Claude đọc phụ đề và gợi ý (cần khoá API
   Anthropic trong ⚙ Cài đặt; chỉ gửi chữ phụ đề + thông tin dự án, không gửi video). Chưa có trong bản xuất CapCut.
 - **Âm thanh:** nhạc nền từ máy (tự vặn nhỏ khi nói), 31 SFX CC0 + thêm SFX riêng.
 - **Mẫu dự án:** lưu thông tin, tiêu đề, vùng che, kiểu phụ đề, nhạc để dùng lại.

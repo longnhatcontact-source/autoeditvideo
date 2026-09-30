@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 import { api, fmtTime, type AiInfo, type Callout, type CalloutStyle } from "./api";
 
-const STYLES: [CalloutStyle, string][] = [
+export const STYLE_OPTIONS: [CalloutStyle, string][] = [
   ["red", "🔴 Trắng viền đỏ"],
   ["neon", "🔵 Neon xanh"],
   ["gold", "🟡 Vàng ánh kim"],
+];
+const STYLES = STYLE_OPTIONS;
+const PRESETS: [string, number][] = [
+  ["Trên", 0.3],
+  ["Giữa", 0.484],
+  ["Dưới", 0.66],
 ];
 
 export function CalloutsTab({
@@ -15,6 +21,8 @@ export function CalloutsTab({
   onChange,
   onSeek,
   onBeforeSuggest,
+  moving,
+  onMove,
 }: {
   project: string;
   items: Callout[];
@@ -23,6 +31,8 @@ export function CalloutsTab({
   onChange: (items: Callout[], undoKey?: string) => void;
   onSeek: (sec: number) => void;
   onBeforeSuggest: () => Promise<void>;
+  moving: number | null;
+  onMove: (i: number) => void;
 }) {
   const [ai, setAi] = useState<AiInfo | null>(null);
   const [busy, setBusy] = useState(false);
@@ -35,7 +45,7 @@ export function CalloutsTab({
 
   const add = () => {
     const at = Number(Math.min(currentSec, Math.max(0, durationSec - 2)).toFixed(1));
-    const next = [...items, { at, sec: 3.5, style: "red" as const, top: "", main: "Chữ nhấn", sub: "" }];
+    const next = [...items, { at, sec: 3.5, style: "red" as const, top: "", main: "Chữ nhấn", sub: "", x: 0.5, y: 0.484, scale: 1 }];
     onChange(next.sort((a, b) => a.at - b.at));
   };
 
@@ -162,6 +172,29 @@ export function CalloutsTab({
               <button className="link small" onClick={() => set(i, { at: Number(currentSec.toFixed(1)) })}>
                 đặt = {fmtTime(currentSec)}
               </button>
+            </div>
+            <div className="row">
+              <button className={`btn small ${moving === i ? "primary" : "ghost"}`} onClick={() => onMove(i)}>
+                {moving === i ? "✓ Xong dời" : "✥ Dời trên video"}
+              </button>
+              {PRESETS.map(([label, y]) => (
+                <button key={label} className="link small" onClick={() => set(i, { x: 0.5, y })}>
+                  {label}
+                </button>
+              ))}
+              <label className="small">
+                Cỡ{" "}
+                <input
+                  type="range"
+                  min={0.5}
+                  max={1.5}
+                  step={0.05}
+                  value={c.scale}
+                  onChange={(e) => set(i, { scale: Number(e.target.value) })}
+                  style={{ width: 80, verticalAlign: "middle" }}
+                />{" "}
+                {Math.round(c.scale * 100)}%
+              </label>
             </div>
           </div>
         ))}

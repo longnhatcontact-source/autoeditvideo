@@ -657,3 +657,11 @@ input[type="range"] {
 .corow .num {
   width: 64px;
 }
+.blurbox.mover {
+  border-width: 3px;
+  background: rgba(201, 162, 75, 0.12);
+  cursor: grab;
+}
+.blurhint button {
+  pointer-events: auto;
+}

@@ -12,9 +12,19 @@ export type OverlayItem = {
   w: number;
   h: number;
 };
-export type Hook = { text: string; sec: number };
+export type Hook = { text: string; sec: number; style: CalloutStyle; x: number; y: number; scale: number };
 export type CalloutStyle = "red" | "neon" | "gold";
-export type Callout = { at: number; sec: number; style: CalloutStyle; top: string; main: string; sub: string };
+export type Callout = {
+  at: number;
+  sec: number;
+  style: CalloutStyle;
+  top: string;
+  main: string;
+  sub: string;
+  x: number;
+  y: number;
+  scale: number;
+};
 export type AiInfo = { hasKey: boolean; fromEnv: boolean; keyHint: string; model: string };
 export type SubStyle = { highlight: string; position: "thap" | "cao"; box: boolean };
 export type BrandPosition = "duoi-video" | "tren-phai" | "tren-trai";

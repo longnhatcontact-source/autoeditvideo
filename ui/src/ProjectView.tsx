@@ -23,7 +23,8 @@ import {
   type Template,
 } from "./api";
 import { BlurEditor } from "./BlurEditor";
-import { CalloutsTab } from "./CalloutsTab";
+import { CalloutMover } from "./CalloutMover";
+import { CalloutsTab, STYLE_OPTIONS } from "./CalloutsTab";
 import { CaptionsTab } from "./CaptionsTab";
 import { OverlayTab } from "./OverlayTab";
 import { SoundTab } from "./SoundTab";
@@ -56,7 +57,9 @@ export function ProjectView({
   const [sfx, setSfx] = useState<Sfx[]>([]);
   const [music, setMusic] = useState<Music | null>(null);
   const [blurs, setBlurs] = useState<Blur[]>([]);
-  const [hook, setHook] = useState<Hook>({ text: "", sec: 2.5 });
+  const [hook, setHook] = useState<Hook>({ text: "", sec: 2.5, style: "gold", x: 0.5, y: 0.484, scale: 1 });
+  // đang dời khối chữ nào trên khung xem trước: "hook" = tiêu đề, số = chữ nhấn thứ i
+  const [moving, setMoving] = useState<"hook" | number | null>(null);
   const [drawing, setDrawing] = useState(false);
   const [hideBrand, setHideBrand] = useState(false);
   const [punchZoom, setPunchZoom] = useState(false);
@@ -287,6 +290,10 @@ export function ProjectView({
       blurs,
       hookText: hook.text,
       hookSec: hook.sec,
+      hookStyle: hook.style,
+      hookX: hook.x,
+      hookY: hook.y,
+      hookScale: hook.scale,
       brandText: showBrand ? project.brand.text : "",
       brandLogoSrc: showBrand && project.brand.logo ? brandUrl(project.brand.logo) : "",
       brandPosition: project.brand.position,
@@ -309,6 +316,25 @@ export function ProjectView({
 
   const seek = (sec: number) => {
     playerRef.current?.seekTo(Math.round(sec * FPS));
+  };
+
+  // bật chế độ dời chữ: dừng video ở lúc chữ đã hiện rõ
+  const startMove = (target: "hook" | number) => {
+    setDrawing(false);
+    playerRef.current?.pause();
+    if (target === "hook") seek(Math.min(1.2, Math.max(0.3, hook.sec - 0.4)));
+    else if (callouts[target]) seek(callouts[target].at + Math.min(1.3, callouts[target].sec - 0.4));
+    setMoving(target);
+  };
+  const movingItem =
+    moving === "hook" ? hook : typeof moving === "number" && callouts[moving] ? callouts[moving] : null;
+  const moveTo = (patch: Partial<{ x: number; y: number; scale: number }>) => {
+    if (moving === "hook") changeHook(patch);
+    else if (typeof moving === "number")
+      changeCallouts(
+        callouts.map((c, k) => (k === moving ? { ...c, ...patch } : c)),
+        `co.${moving}.pos`,
+      );
   };
 
   // ---- xuất ----
@@ -414,10 +440,13 @@ export function ProjectView({
                 compositionWidth={1080}
                 compositionHeight={1920}
                 style={{ width: "100%", aspectRatio: "9 / 16", borderRadius: 12, overflow: "hidden" }}
-                controls={!drawing}
+                controls={!drawing && movingItem === null}
                 acknowledgeRemotionLicense
               />
               {drawing ? <BlurEditor boxes={blurs} onChange={changeBlurs} /> : null}
+              {!drawing && movingItem ? (
+                <CalloutMover item={movingItem} onChange={moveTo} onDone={() => setMoving(null)} />
+              ) : null}
             </div>
           ) : null}
           <div className="row between blurbar">
@@ -425,6 +454,7 @@ export function ProjectView({
               className={`btn small ${drawing ? "primary" : "ghost"}`}
               onClick={() => {
                 if (!drawing) playerRef.current?.pause();
+                setMoving(null);
                 setDrawing(!drawing);
               }}
             >
@@ -502,7 +532,14 @@ export function ProjectView({
                   })
                 }
               />
-              <HookEditor hook={hook} info={info} onChange={changeHook} onPreview={() => seek(0)} />
+              <HookEditor
+                hook={hook}
+                info={info}
+                onChange={changeHook}
+                onPreview={() => seek(0)}
+                moving={moving === "hook"}
+                onMove={() => (moving === "hook" ? setMoving(null) : startMove("hook"))}
+              />
               {INFO_FIELDS.map(([k, label, ph]) => (
                 <label key={k} className="field">
                   <span>{label}</span>
@@ -572,6 +609,8 @@ export function ProjectView({
               onChange={changeCallouts}
               onSeek={seek}
               onBeforeSuggest={flush}
+              moving={typeof moving === "number" ? moving : null}
+              onMove={(i) => (moving === i ? setMoving(null) : startMove(i))}
             />
           ) : null}
 
@@ -754,11 +793,15 @@ function HookEditor({
   info,
   onChange,
   onPreview,
+  moving,
+  onMove,
 }: {
   hook: Hook;
   info: Info;
   onChange: (h: Partial<Hook>) => void;
   onPreview: () => void;
+  moving: boolean;
+  onMove: () => void;
 }) {
   return (
     <div className="card soft hookcard">
@@ -780,9 +823,22 @@ function HookEditor({
           </button>
         ))}
       </div>
+      <div className="row">
+        <select value={hook.style} onChange={(e) => onChange({ style: e.target.value as Hook["style"] })}>
+          {STYLE_OPTIONS.map(([v, l]) => (
+            <option key={v} value={v}>
+              {l}
+            </option>
+          ))}
+        </select>
+        <button className={`btn small ${moving ? "primary" : "ghost"}`} onClick={onMove}>
+          {moving ? "✓ Xong dời chữ" : "✥ Dời / đổi cỡ"}
+        </button>
+      </div>
       <label className="slider">
         <span className="small">
-          Hiện {hook.sec.toFixed(1)} giây đầu · để trống = không có tiêu đề · đặt chữ trong *…* để tô vàng
+          Hiện {hook.sec.toFixed(1)} giây đầu · để trống = không có tiêu đề · chữ trong *…* thành chữ đậm to, phần
+          trước/sau thành chữ viết tay phía trên/dưới
         </span>
         <input
           type="range"
