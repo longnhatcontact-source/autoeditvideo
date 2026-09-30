@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api, brandUrl, pickFiles, type Brand, type BrandPosition } from "./api";
+import { api, brandUrl, pickFiles, type AiInfo, type Brand, type BrandPosition } from "./api";
 
 const POSITIONS: [BrandPosition, string][] = [
   ["duoi-video", "Giữa, ngay dưới video"],
@@ -95,6 +95,8 @@ export function Settings() {
         </div>
       ) : null}
 
+      <AiKeyCard />
+
       <label className="field">
         <span>Từ khoá hay nói</span>
         <small className="muted">
@@ -116,6 +118,67 @@ export function Settings() {
         Lưu
       </button>
       <span className="ok">{saved}</span>
+    </div>
+  );
+}
+
+/** Khoá API Claude cho nút "Gợi ý chữ nhấn". Lưu trong settings.json trên máy, không hiện lại đầy đủ. */
+function AiKeyCard() {
+  const [ai, setAi] = useState<AiInfo | null>(null);
+  const [key, setKey] = useState("");
+  const [msg, setMsg] = useState("");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    api.ai().then(setAi).catch(() => {});
+  }, []);
+
+  const save = async (value: string) => {
+    setError("");
+    try {
+      setAi(await api.saveAi({ key: value }));
+      setKey("");
+      setMsg(value ? "Đã lưu khoá" : "Đã xoá khoá");
+      setTimeout(() => setMsg(""), 2000);
+    } catch (e) {
+      setError((e as Error).message);
+    }
+  };
+
+  if (!ai) return null;
+  return (
+    <div className="card soft" style={{ marginBottom: 20 }}>
+      <b>Claude gợi ý chữ nhấn</b>
+      <p className="muted small">
+        Tuỳ chọn. Có khoá thì tab “Chữ nhấn” có nút ✨ Gợi ý: Claude đọc <b>chữ phụ đề</b> và thông tin dự án (không gửi
+        video) rồi đề xuất chỗ gắn chữ. Mỗi lần gợi ý tốn một ít phí API trên tài khoản Anthropic của bạn. Lấy khoá tại
+        console.anthropic.com.
+      </p>
+      {ai.fromEnv ? (
+        <p className="small">Đang dùng khoá từ biến môi trường ANTHROPIC_API_KEY ({ai.keyHint}).</p>
+      ) : (
+        <div className="row">
+          <input
+            type="password"
+            autoComplete="off"
+            value={key}
+            placeholder={ai.hasKey ? `Đã có khoá (${ai.keyHint}) — dán khoá mới để thay` : "sk-ant-…"}
+            onChange={(e) => setKey(e.target.value)}
+            style={{ flex: 1 }}
+          />
+          <button className="btn small" disabled={!key.trim()} onClick={() => save(key)}>
+            Lưu khoá
+          </button>
+          {ai.hasKey ? (
+            <button className="btn ghost small danger" onClick={() => save("")}>
+              Xoá khoá
+            </button>
+          ) : null}
+        </div>
+      )}
+      <small className="muted">Model: {ai.model}</small>
+      {msg ? <span className="ok small"> {msg}</span> : null}
+      {error ? <div className="alert error">{error}</div> : null}
     </div>
   );
 }

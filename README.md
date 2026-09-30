@@ -11,6 +11,9 @@ Dựng từ template chính thức `npx create-video --tiktok` của Remotion.
 - **Thông tin BĐS:** băng tên dự án + thẻ giá. Không có ô số điện thoại (tránh bị TikTok hạn chế).
 - **Tiêu đề mở đầu** vài giây đầu (`*chữ*` = tô vàng), **che vùng** (làm mờ SĐT dính sẵn trong clip),
   **zoom nhẹ** ở chỗ nhấn mạnh, **ảnh/clip minh hoạ chèn**, **tên kênh / logo**.
+- **Chữ nhấn:** chữ hiệu ứng lớn giữa màn hình ở đoạn quan trọng (3 kiểu: trắng viền đỏ, neon xanh, vàng ánh kim;
+  dòng trên/dưới viết tay). Thêm tay tại giây đang xem, hoặc bấm ✨ để Claude đọc phụ đề và gợi ý (cần khoá API
+  Anthropic trong ⚙ Cài đặt; chỉ gửi chữ phụ đề + thông tin dự án, không gửi video). Chưa có trong bản xuất CapCut.
 - **Âm thanh:** nhạc nền từ máy (tự vặn nhỏ khi nói), 31 SFX CC0 + thêm SFX riêng.
 - **Mẫu dự án:** lưu thông tin, tiêu đề, vùng che, kiểu phụ đề, nhạc để dùng lại.
 - **Xuất:** MP4 1080×1920 (mặc định vào thư mục Downloads, đổi được) hoặc **draft CapCut** chỉnh tiếp được.

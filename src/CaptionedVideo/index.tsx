@@ -18,6 +18,7 @@ import {
 import { z } from "zod";
 import { loadFont } from "../load-font";
 import { BlurBoxes } from "./BlurBoxes";
+import { Callouts } from "./Callouts";
 import { Brand } from "./Brand";
 import { Hook } from "./Hook";
 import { InfoOverlay } from "./InfoOverlay";
@@ -66,6 +67,17 @@ export const captionedVideoSchema = z.object({
   punchZoom: z.boolean(),
   // ảnh / clip minh hoạ chèn lên (giây bắt đầu + thời lượng)
   overlays: z.array(z.object({ src: z.string(), at: z.number(), sec: z.number(), kind: z.enum(["image", "video"]) })),
+  // chữ nhấn: chữ hiệu ứng lớn ở đoạn quan trọng (xem Callouts.tsx)
+  callouts: z.array(
+    z.object({
+      at: z.number(),
+      sec: z.number(),
+      style: z.enum(["red", "neon", "gold"]),
+      top: z.string(),
+      main: z.string(),
+      sub: z.string(),
+    }),
+  ),
 });
 
 type Props = z.infer<typeof captionedVideoSchema>;
@@ -133,6 +145,7 @@ export const CaptionedVideo: React.FC<Props> = ({
   subBox,
   punchZoom,
   overlays,
+  callouts,
 }) => {
   const frame = useCurrentFrame();
   const subStyle = useMemo(
@@ -201,6 +214,8 @@ export const CaptionedVideo: React.FC<Props> = ({
       {overlays.length ? (
         <Overlays items={overlays.map((o) => ({ ...o, src: resolveSrc(o.src) }))} />
       ) : null}
+
+      {callouts.length ? <Callouts items={callouts} /> : null}
 
       {brandText || brandLogoSrc ? (
         <Brand text={brandText} logoSrc={brandLogoSrc ? resolveSrc(brandLogoSrc) : ""} position={brandPosition} />

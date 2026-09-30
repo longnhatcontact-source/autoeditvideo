@@ -7,11 +7,11 @@ import express from "express";
 import { FIX_FILE, PROJECTS_DIR, ROOT, VOCAB_FILE } from "../lib/paths.mjs";
 import {
   addOverlay, applyTemplate, capcutProject, compositionProps, createProject, deleteProject, getProject, listJobs, listProjects,
-  processProject, projectDir, reapplyFixes, renderProject, saveAsTemplate, setMusic, updateProject,
+  processProject, projectDir, reapplyFixes, renderProject, saveAsTemplate, setMusic, suggestProjectCallouts, updateProject,
 } from "../lib/projects.mjs";
 import { deleteTemplate, listTemplates } from "../lib/templates.mjs";
 import { BRAND_DIR, getBrand, saveBrand, setBrandLogo } from "../lib/brand.mjs";
-import { exportDirInfo, setExportDir } from "../lib/settings.mjs";
+import { aiInfo, exportDirInfo, setAiConfig, setExportDir } from "../lib/settings.mjs";
 import { addCustomSfx, listSfx, SFX_DIR } from "../lib/sfx.mjs";
 
 const argPort = process.argv.indexOf("--port");
@@ -78,6 +78,12 @@ app.post(
   "/api/projects/:name/template",
   wrap((req) => (applyTemplate(req.params.name, req.body.template), need(req.params.name)))
 );
+app.post(
+  "/api/projects/:name/callouts/suggest",
+  wrap(async (req) => ({ callouts: await suggestProjectCallouts(req.params.name) }))
+);
+app.get("/api/ai", wrap(() => aiInfo()));
+app.put("/api/ai", wrap((req) => setAiConfig(req.body || {})));
 app.get("/api/export-dir", wrap(() => exportDirInfo()));
 app.put("/api/export-dir", wrap((req) => setExportDir(req.body.dir || "")));
 app.get("/api/brand", wrap(() => getBrand()));

@@ -40,6 +40,11 @@ export const RemotionRoot: React.FC = () => {
         subBox: false,
         punchZoom: true,
         overlays: [],
+        callouts: [
+          { at: 2.8, sec: 2.5, style: "red" as const, top: "", main: "Căn hộ", sub: "Đáng sống" },
+          { at: 5.6, sec: 2.8, style: "neon" as const, top: "Biệt thự", main: "PHONG CÁCH", sub: "Hiện đại" },
+          { at: 8.6, sec: 3.2, style: "gold" as const, top: "Vị trí", main: "Đắc địa", sub: "Nhịp sống phồn thịnh" },
+        ],
       }}
     />
   );

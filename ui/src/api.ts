@@ -13,6 +13,9 @@ export type OverlayItem = {
   h: number;
 };
 export type Hook = { text: string; sec: number };
+export type CalloutStyle = "red" | "neon" | "gold";
+export type Callout = { at: number; sec: number; style: CalloutStyle; top: string; main: string; sub: string };
+export type AiInfo = { hasKey: boolean; fromEnv: boolean; keyHint: string; model: string };
 export type SubStyle = { highlight: string; position: "thap" | "cao"; box: boolean };
 export type BrandPosition = "duoi-video" | "tren-phai" | "tren-trai";
 export type Brand = { enabled: boolean; text: string; logo: string; position: BrandPosition };
@@ -48,6 +51,7 @@ export type Project = ProjectSummary & {
   subStyle: SubStyle;
   punchZoom: boolean;
   overlays: OverlayItem[];
+  callouts: Callout[];
   versions: { video: number; music: number };
   jobs: Job[];
   lastRender: string | null;
@@ -97,6 +101,7 @@ export const api = {
       subStyle: SubStyle;
       punchZoom: boolean;
       overlays: OverlayItem[];
+      callouts: Callout[];
     }>,
   ) =>
     call<Project>("PUT", P(name), body),
@@ -110,6 +115,9 @@ export const api = {
   render: (name: string) => call<Job>("POST", `${P(name)}/render`),
   capcut: (name: string) => call<Job>("POST", `${P(name)}/capcut`),
   open: (name: string, what: "render" | "project") => call("POST", `${P(name)}/open`, { what }),
+  suggestCallouts: (name: string) => call<{ callouts: Callout[] }>("POST", `${P(name)}/callouts/suggest`),
+  ai: () => call<AiInfo>("GET", "/api/ai"),
+  saveAi: (body: { key?: string; model?: string }) => call<AiInfo>("PUT", "/api/ai", body),
   jobs: () => call<Job[]>("GET", "/api/jobs"),
   sfx: () => call<SfxItem[]>("GET", "/api/sfx"),
   addSfx: (path: string) => call<{ id: string; list: SfxItem[] }>("POST", "/api/sfx", { path }),

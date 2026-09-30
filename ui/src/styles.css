@@ -632,3 +632,28 @@ input[type="range"] {
     max-width: 360px;
   }
 }
+
+/* ---- tab Chữ nhấn ---- */
+.colist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+.corow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+}
+.corow input.co-main {
+  font-weight: 800;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.corow input.co-script {
+  font-style: italic;
+}
+.corow .num {
+  width: 64px;
+}

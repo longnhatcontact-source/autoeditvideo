@@ -9,6 +9,7 @@ import {
   mediaUrl,
   sfxUrl,
   type Blur,
+  type Callout,
   type Hook,
   overlayUrl,
   pickFolder,
@@ -22,12 +23,13 @@ import {
   type Template,
 } from "./api";
 import { BlurEditor } from "./BlurEditor";
+import { CalloutsTab } from "./CalloutsTab";
 import { CaptionsTab } from "./CaptionsTab";
 import { OverlayTab } from "./OverlayTab";
 import { SoundTab } from "./SoundTab";
 
 const FPS = 30;
-type Tab = "info" | "captions" | "sound" | "overlay";
+type Tab = "info" | "captions" | "callouts" | "sound" | "overlay";
 
 const INFO_FIELDS: [keyof Info, string, string][] = [
   ["tenDuAn", "Tên dự án (băng trên cùng)", "Le Parc Place - Park City Hà Đông"],
@@ -59,6 +61,7 @@ export function ProjectView({
   const [hideBrand, setHideBrand] = useState(false);
   const [punchZoom, setPunchZoom] = useState(false);
   const [overlays, setOverlays] = useState<OverlayItem[]>([]);
+  const [callouts, setCallouts] = useState<Callout[]>([]);
   const [subStyle, setSubStyle] = useState<SubStyle>({ highlight: "#39E508", position: "thap", box: false });
   const showBrand = Boolean(project?.brand.enabled && !hideBrand && (project.brand.text || project.brand.logo));
   const [tab, setTab] = useState<Tab>("info");
@@ -79,6 +82,7 @@ export function ProjectView({
     setSubStyle(p.subStyle);
     setPunchZoom(p.punchZoom);
     setOverlays(p.overlays);
+    setCallouts(p.callouts ?? []);
   }, [name]);
 
   useEffect(() => {
@@ -135,9 +139,10 @@ export function ProjectView({
     hook: Hook;
     subStyle: SubStyle;
     overlays: OverlayItem[];
+    callouts: Callout[];
   };
   const current = useRef<Snap | null>(null);
-  current.current = info ? { info, captions, sfx, blurs, hook, subStyle, overlays } : null;
+  current.current = info ? { info, captions, sfx, blurs, hook, subStyle, overlays, callouts } : null;
   const history = useRef<{ past: Snap[]; future: Snap[]; lastKey: string; lastAt: number }>({
     past: [],
     future: [],
@@ -173,6 +178,7 @@ export function ProjectView({
     if (differs("hook")) (setHook(s.hook), (patch.hook = s.hook));
     if (differs("subStyle")) (setSubStyle(s.subStyle), (patch.subStyle = s.subStyle));
     if (differs("overlays")) (setOverlays(s.overlays), (patch.overlays = s.overlays));
+    if (differs("callouts")) (setCallouts(s.callouts), (patch.callouts = s.callouts));
     queueSave(patch);
   };
 
@@ -242,6 +248,11 @@ export function ProjectView({
     setOverlays(o);
     queueSave({ overlays: o });
   };
+  const changeCallouts = (c: Callout[], key = `co.${Date.now()}`) => {
+    remember(key);
+    setCallouts(c);
+    queueSave({ callouts: c });
+  };
   const addOverlay = async (path: string, at: number, sec: number) => {
     await flush();
     remember(`ov.add.${Date.now()}`);
@@ -284,8 +295,9 @@ export function ProjectView({
       subBox: subStyle.box,
       punchZoom,
       overlays: overlays.map((o) => ({ src: overlayUrl(project.name, o.file), at: o.at, sec: o.sec, kind: o.kind })),
+      callouts,
     };
-  }, [project, info, captions, music, sfx, blurs, hook, showBrand, subStyle, punchZoom, overlays]);
+  }, [project, info, captions, music, sfx, blurs, hook, showBrand, subStyle, punchZoom, overlays, callouts]);
 
   useEffect(() => {
     const p = playerRef.current;
@@ -465,6 +477,9 @@ export function ProjectView({
             <button className={tab === "captions" ? "on" : ""} onClick={() => setTab("captions")}>
               Phụ đề
             </button>
+            <button className={tab === "callouts" ? "on" : ""} onClick={() => setTab("callouts")}>
+              Chữ nhấn{callouts.length ? ` (${callouts.length})` : ""}
+            </button>
             <button className={tab === "sound" ? "on" : ""} onClick={() => setTab("sound")}>
               Nhạc & SFX
             </button>
@@ -545,6 +560,18 @@ export function ProjectView({
                   setCaptions(p.captions);
                 })
               }
+            />
+          ) : null}
+
+          {tab === "callouts" ? (
+            <CalloutsTab
+              project={project.name}
+              items={callouts}
+              currentSec={frame / FPS}
+              durationSec={project.durationSec}
+              onChange={changeCallouts}
+              onSeek={seek}
+              onBeforeSuggest={flush}
             />
           ) : null}
 
