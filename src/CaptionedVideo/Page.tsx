@@ -20,7 +20,21 @@ export const DEFAULT_SUB_STYLE: SubStyle = { highlight: "#39E508", position: "th
 const BOTTOM = { thap: 350, cao: 560 };
 
 export const SUB_FONT_WEIGHT = 800;
-export const SUB_MAX_FONT_SIZE = 100;
+// cỡ chữ tối đa (nhỏ hơn bản cũ 100 cho đỡ chiếm khung)
+export const SUB_MAX_FONT_SIZE = 78;
+const SUB_MAX_WIDTH = 0.82; // câu rộng nhất chiếm tối đa 82% bề ngang
+const WORD_FADE_MS = 90; // chữ hiện dần khi được nói tới
+
+// viền đen mịn: viền mảnh + vòng bóng đổ tròn đều quanh chữ (thay cho viền 20px bị gãy góc)
+const RING = Array.from({ length: 16 }, (_, i) => {
+  const a = (i / 16) * Math.PI * 2;
+  return `${(Math.cos(a) * 4.5).toFixed(1)}px ${(Math.sin(a) * 4.5).toFixed(1)}px 0 #000`;
+}).join(", ");
+const OUTLINE: React.CSSProperties = {
+  WebkitTextStroke: "7px #000",
+  paintOrder: "stroke fill",
+  textShadow: `${RING}, 0 6px 18px rgba(0,0,0,.55)`,
+};
 
 /** 1 cỡ chữ cho cả video: vừa khít câu rộng nhất (mọi câu cùng cỡ, không câu to câu nhỏ) */
 export function subtitleFontSize(pages: TikTokPage[], width: number) {
@@ -30,7 +44,7 @@ export function subtitleFontSize(pages: TikTokPage[], width: number) {
       fontFamily,
       fontWeight: SUB_FONT_WEIGHT,
       text: p.text,
-      withinWidth: width * 0.9,
+      withinWidth: width * SUB_MAX_WIDTH,
       textTransform: "uppercase",
     });
     size = Math.min(size, fontSize);
@@ -64,7 +78,7 @@ export const Page: React.FC<{
           color: "white",
           ...(subStyle.box
             ? { background: "rgba(0,0,0,0.62)", padding: "6px 28px 10px", borderRadius: 24, WebkitTextStroke: "0" }
-            : { WebkitTextStroke: "20px black", paintOrder: "stroke" }),
+            : OUTLINE),
           transform: makeTransform([
             scale(interpolate(enterProgress, [0, 1], [0.8, 1])),
             translateY(interpolate(enterProgress, [0, 1], [50, 0])),
@@ -90,6 +104,11 @@ export const Page: React.FC<{
             const active =
               startRelativeToSequence <= timeInMs &&
               endRelativeToSequence > timeInMs;
+            // chữ chưa nói tới thì ẩn (giữ chỗ để dòng không nhảy) -> phụ đề không chạy trước lời nói
+            const shown = interpolate(timeInMs, [startRelativeToSequence - 20, startRelativeToSequence + WORD_FADE_MS], [0, 1], {
+              extrapolateLeft: "clamp",
+              extrapolateRight: "clamp",
+            });
 
             return (
               <span
@@ -98,6 +117,7 @@ export const Page: React.FC<{
                   display: "inline",
                   whiteSpace: "pre",
                   color: active ? HIGHLIGHT_COLOR : isNumber ? NUMBER_COLOR : "white",
+                  opacity: shown,
                 }}
               >
                 {t.text}

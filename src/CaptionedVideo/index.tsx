@@ -91,6 +91,7 @@ export const captionedVideoSchema = z.object({
 type Props = z.infer<typeof captionedVideoSchema>;
 
 const FPS = 30;
+const SUB_DELAY_MS = 150;
 
 // Cho phép gõ tên file trong public/ (vd "nha1.mp4") hoặc URL đầy đủ
 const resolveSrc = (s: string) => (/^(https?:|data:|blob:|\/)/.test(s) ? s : staticFile(s));
@@ -192,7 +193,18 @@ export const CaptionedVideo: React.FC<Props> = ({
     load();
   }, [load]);
 
-  const captions = captionsProp ?? fileCaptions;
+  // whisper hay đánh dấu chữ sớm hơn lời nói một chút -> lùi phụ đề 150ms cho khớp miệng
+  const rawCaptions = captionsProp ?? fileCaptions;
+  const captions = useMemo(
+    () =>
+      rawCaptions.map((c) => ({
+        ...c,
+        startMs: c.startMs + SUB_DELAY_MS,
+        endMs: c.endMs + SUB_DELAY_MS,
+        timestampMs: c.timestampMs == null ? null : c.timestampMs + SUB_DELAY_MS,
+      })),
+    [rawCaptions],
+  );
 
   const pages = useMemo(() => makePages(captions, keepPhrases(keepTogether)), [captions, keepTogether]);
   // đo sau khi font đã tải, nếu không sẽ đo bằng font dự phòng
