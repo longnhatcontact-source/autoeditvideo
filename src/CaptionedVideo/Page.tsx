@@ -1,0 +1,111 @@
+import { makeTransform, scale, translateY } from "@remotion/animation-utils";
+import { TikTokPage } from "@remotion/captions";
+import { fitText } from "@remotion/layout-utils";
+import React from "react";
+import {
+  AbsoluteFill,
+  interpolate,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
+import { numberFlags } from "../../lib/captions-core.mjs";
+import { TheBoldFont } from "../load-font";
+
+const fontFamily = TheBoldFont;
+
+export type SubStyle = { highlight: string; position: "thap" | "cao"; box: boolean };
+export const DEFAULT_SUB_STYLE: SubStyle = { highlight: "#39E508", position: "thap", box: false };
+
+// "thấp": ngay trên vùng chú thích TikTok; "cao": giữa khoảng trống dưới video
+const BOTTOM = { thap: 350, cao: 560 };
+
+export const SUB_FONT_WEIGHT = 800;
+export const SUB_MAX_FONT_SIZE = 100;
+
+/** 1 cỡ chữ cho cả video: vừa khít câu rộng nhất (mọi câu cùng cỡ, không câu to câu nhỏ) */
+export function subtitleFontSize(pages: TikTokPage[], width: number) {
+  let size = SUB_MAX_FONT_SIZE;
+  for (const p of pages) {
+    const { fontSize } = fitText({
+      fontFamily,
+      fontWeight: SUB_FONT_WEIGHT,
+      text: p.text,
+      withinWidth: width * 0.9,
+      textTransform: "uppercase",
+    });
+    size = Math.min(size, fontSize);
+  }
+  return Math.floor(size);
+}
+
+// số liệu (giá, diện tích, năm...) luôn nổi bật; nếu màu đang đọc cũng là vàng thì số dùng cam
+export const numberColor = (highlight: string) => (highlight.toUpperCase() === "#FFD23F" ? "#FF9F1C" : "#FFD23F");
+
+export const Page: React.FC<{
+  readonly enterProgress: number;
+  readonly page: TikTokPage;
+  readonly fontSize: number;
+  readonly subStyle: SubStyle;
+}> = ({ enterProgress, page, fontSize, subStyle }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const timeInMs = (frame / fps) * 1000;
+  const numbers = numberFlags(page.tokens.map((t) => t.text));
+  const NUMBER_COLOR = numberColor(subStyle.highlight);
+  const HIGHLIGHT_COLOR = subStyle.highlight;
+
+  return (
+    <AbsoluteFill
+      style={{ justifyContent: "center", alignItems: "center", top: undefined, bottom: BOTTOM[subStyle.position], height: 150 }}
+    >
+      <div
+        style={{
+          fontSize,
+          color: "white",
+          ...(subStyle.box
+            ? { background: "rgba(0,0,0,0.62)", padding: "6px 28px 10px", borderRadius: 24, WebkitTextStroke: "0" }
+            : { WebkitTextStroke: "20px black", paintOrder: "stroke" }),
+          transform: makeTransform([
+            scale(interpolate(enterProgress, [0, 1], [0.8, 1])),
+            translateY(interpolate(enterProgress, [0, 1], [50, 0])),
+          ]),
+          fontFamily,
+          fontWeight: SUB_FONT_WEIGHT,
+          textTransform: "uppercase",
+        }}
+      >
+        <span
+          style={{
+            transform: makeTransform([
+              scale(interpolate(enterProgress, [0, 1], [0.8, 1])),
+              translateY(interpolate(enterProgress, [0, 1], [50, 0])),
+            ]),
+          }}
+        >
+          {page.tokens.map((t, index) => {
+            const isNumber = numbers[index];
+            const startRelativeToSequence = t.fromMs - page.startMs;
+            const endRelativeToSequence = t.toMs - page.startMs;
+
+            const active =
+              startRelativeToSequence <= timeInMs &&
+              endRelativeToSequence > timeInMs;
+
+            return (
+              <span
+                key={`${t.fromMs}-${index}`}
+                style={{
+                  display: "inline",
+                  whiteSpace: "pre",
+                  color: active ? HIGHLIGHT_COLOR : isNumber ? NUMBER_COLOR : "white",
+                }}
+              >
+                {t.text}
+              </span>
+            );
+          })}
+        </span>
+      </div>
+    </AbsoluteFill>
+  );
+};

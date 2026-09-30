@@ -1,0 +1,19 @@
+# Tự sửa phụ đề sai. Mỗi dòng: chữ sai => chữ đúng  (không phân biệt hoa thường)
+# Sửa xong chạy: npm run fix-captions -- <tên video>   (không cần chạy lại whisper)
+Le Pact => Le Parc
+Late Pact City => Park City
+Pact City => Park City
+Paktiara => Park Kiara
+Lơ Giác Đanh => Le Jardin
+phương khu => phân khu
+hướng nan => hướng nam
+chính nan => chính nam
+biệt thụy => biệt thự
+thương mị => thương mại
+chủ vật tư => chủ đầu tư
+chủ vấn tư => chủ đầu tư
+chuyển nhiệm => chuyển nhượng
+Tát bản giao => đã bàn giao
+thực tới => thực tế
+chặng điện => trạm điện
+check -in => check-in

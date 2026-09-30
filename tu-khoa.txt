@@ -1,0 +1,10 @@
+# Từ/cụm hay nói trong video — whisper sẽ ưu tiên nhận đúng. Mỗi dòng 1 cụm.
+Le Parc Place
+Park City
+Hà Đông
+view
+mansion
+check-in
+Park Kiara
+Park Avenue
+Park Mansion

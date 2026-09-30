@@ -1,0 +1,20 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# giao diện build ra (chạy: npm run build:ui)
+ui/dist
+
+# dữ liệu cá nhân / file nặng trên máy — không đưa lên GitHub
+projects/
+templates/
+out/
+.work/
+.claude/
+public/*.mp4
+public/*.json
+assets/brand/
+brand.json
+settings.json
+whisper.cpp
