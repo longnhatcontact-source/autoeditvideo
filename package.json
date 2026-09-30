@@ -40,6 +40,8 @@
   },
   "scripts": {
     "app": "electron .",
+    "dev": "node scripts/dev.mjs",
+    "dev:sync": "node scripts/dev.mjs --sync",
     "server": "node app/server.mjs --port 5190",
     "build:ui": "vite build --config ui/vite.config.ts",
     "studio": "remotion studio",

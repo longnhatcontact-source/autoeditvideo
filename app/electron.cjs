@@ -140,8 +140,16 @@ ipcMain.handle("pick-files", async (_e, { multi, kind }) => {
   return r.canceled ? [] : r.filePaths;
 });
 
+// Chế độ dev (npm run dev): server + giao diện đã chạy sẵn, app chỉ mở cửa sổ trỏ vào Vite
+const DEV_URL = process.env.BDS_DEV_URL;
+
 app.whenReady().then(async () => {
   try {
+    if (DEV_URL) {
+      baseUrl = process.env.BDS_DEV_API || "http://127.0.0.1:5190";
+      createWindow(DEV_URL);
+      return;
+    }
     const url = await startServer();
     createWindow(url);
   } catch (e) {

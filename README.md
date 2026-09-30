@@ -42,10 +42,13 @@ assets/sfx/ thư viện SFX (custom/ = SFX người dùng thêm)
 projects/   dữ liệu từng video (không đưa lên git)
 ```
 
-## Phát triển
-- Sửa giao diện: `npm run server` (cổng 5190) + `npx vite --config ui/vite.config.ts` (http://localhost:5191),
-  xong `npm run build:ui`.
-- Sửa `src/` hoặc `lib/`: khởi động lại app (server bundle composition 1 lần mỗi phiên).
+## Phát triển (tự cập nhật khi sửa code)
+- `npm run dev`: mở app ở chế độ dev. Sửa `ui/` hoặc `src/` → giao diện và khung xem trước đổi ngay; sửa `lib/`,
+  `app/`, `src/` → server tự khởi động lại (việc xuất MP4 đang chạy dở sẽ bị huỷ). Không cần `build:ui`.
+- `npm run dev:sync`: như trên, thêm tự `git pull` mỗi 30 giây khi GitHub có bản mới (chỉ khi máy không có thay
+  đổi chưa commit). `package.json` đổi thì tắt đi, `npm install`, mở lại.
+- Thêm `-- --no-app` để không mở cửa sổ Electron, dùng trình duyệt http://localhost:5191.
+- Dùng hằng ngày (ổn định): `npm run build:ui` rồi `npm run app`.
 - Kiểm tra kiểu: `npx tsc --noEmit -p .`
 
 ## Ghi chú kỹ thuật (lỗi đã gặp)
