@@ -77,7 +77,7 @@ export type Project = ProjectSummary & {
   lastRender: string | null;
   lastCapcut: string | null;
 };
-export type SfxItem = { id: string; label: string; group: string };
+export type SfxItem = { id: string; label: string; group: string; hint?: string };
 export type Template = { name: string; tenDuAn: string; gia: string; music: string | null; blurs: number; hook: string };
 
 async function call<T>(method: string, url: string, body?: unknown): Promise<T> {

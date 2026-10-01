@@ -130,7 +130,7 @@ export function SoundTab({
                 <optgroup key={g} label={g}>
                   {items.map((it) => (
                     <option key={it.id} value={it.id}>
-                      {it.label}
+                      {it.hint ? `${it.label} — ${it.hint}` : it.label}
                     </option>
                   ))}
                 </optgroup>
