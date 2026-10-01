@@ -4,14 +4,13 @@
   "version": "1.0",
   "created": "2026-10-01",
   "language": "vi",
-  "total": 50,
+  "total": 43,
   "purpose": "Danh mục sound effect dùng cho app auto edit video BĐS (TikTok/Reels). File này chỉ chứa thông tin mô tả; file âm thanh thật điền vào trường 'file' sau khi tải.",
   "notes": [
-   "Nhóm 'comedy' chỉ nên dùng cho series giải trí; video tư vấn/review nên dùng các nhóm còn lại.",
-   "Sound meme thường là clip có chủ sở hữu (license_risk = check): chỉ dùng bản tự do bản quyền, hoặc dùng sound có sẵn trong CapCut khi đăng TikTok.",
    "Điền source_url, author, license, downloaded_at cho từng file đã tải để có bằng chứng nguồn gốc.",
    "Kiểm tra lại giấy phép hiện tại của Pixabay (pixabay.com/service/license-summary) trước khi phát hành app cho người khác dùng.",
-   "Đã điền 2026-10-01: file nằm trong assets/sfx/. Âm 'Tự tổng hợp' là âm mô phỏng bằng code, không phải bản ghi thật. Mục còn 'todo' cần bản ghi thật (tiếng người, cửa, bước chân, thiên nhiên, phố xá...)."
+   "Đã điền 2026-10-01: file nằm trong assets/sfx/. Âm 'Tự tổng hợp' là âm mô phỏng bằng code, không phải bản ghi thật. Mục còn 'todo' cần bản ghi thật (tiếng người, cửa, bước chân, thiên nhiên, phố xá...).",
+   "Bỏ nhóm hài/meme theo yêu cầu (2026-10-01): thư viện chỉ giữ âm chuyên nghiệp."
   ],
   "groups": {
    "transition": "Chuyển cảnh",
@@ -19,8 +18,7 @@
    "hook_suspense": "Hook và hồi hộp",
    "reveal": "Tiết lộ sản phẩm",
    "ambience": "Không khí, cảnh thực tế",
-   "cta": "Chốt và kêu gọi hành động",
-   "comedy": "Hài nhẹ cho series giải trí"
+   "cta": "Chốt và kêu gọi hành động"
   },
   "status_values": [
    "todo",
@@ -761,125 +759,6 @@
    "tone": "professional",
    "license_risk": "low",
    "file": "fx-whoosh-ding.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_044",
-   "name": "Vine boom",
-   "group": "comedy",
-   "use_when": "Tung mức giá gây sốc",
-   "pixabay_keywords": [
-    "vine boom"
-   ],
-   "tone": "comedy",
-   "license_risk": "check",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_045",
-   "name": "Bruh",
-   "group": "comedy",
-   "use_when": "Khách mặc cả vô lý",
-   "pixabay_keywords": [
-    "bruh"
-   ],
-   "tone": "comedy",
-   "license_risk": "check",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_046",
-   "name": "Sad violin",
-   "group": "comedy",
-   "use_when": "Khách bỏ lỡ, giá tăng sau đó",
-   "pixabay_keywords": [
-    "sad violin"
-   ],
-   "tone": "comedy",
-   "license_risk": "check",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_047",
-   "name": "Anime wow",
-   "group": "comedy",
-   "use_when": "View quá đẹp",
-   "pixabay_keywords": [
-    "wow"
-   ],
-   "tone": "comedy",
-   "license_risk": "check",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_048",
-   "name": "Womp womp / fail",
-   "group": "comedy",
-   "use_when": "Tình huống dở khóc dở cười",
-   "pixabay_keywords": [
-    "fail trombone"
-   ],
-   "tone": "comedy",
-   "license_risk": "low",
-   "file": "fx-womp-womp.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_049",
-   "name": "Laugh nhẹ",
-   "group": "comedy",
-   "use_when": "Câu đùa trong series",
-   "pixabay_keywords": [
-    "laugh"
-   ],
-   "tone": "comedy",
-   "license_risk": "check",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_050",
-   "name": "Boing / cartoon pop",
-   "group": "comedy",
-   "use_when": "Chữ hài hiện lên",
-   "pixabay_keywords": [
-    "boing"
-   ],
-   "tone": "comedy",
-   "license_risk": "low",
-   "file": "fx-boing.mp3",
    "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
    "author": "Claude (cho BĐS Video Studio)",
    "license": "Tự tạo, không phụ thuộc bên thứ ba",

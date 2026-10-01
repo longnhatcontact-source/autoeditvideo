@@ -88,22 +88,11 @@ def jingle():
 def whoosh_ding(): return seq([(0, whoosh(.35, 400, 4000, 1200, peak=.6)), (.3, ding() * .6)], 1.3)
 def elevator(): return seq([(0, tone(1319, 1.2, .5, ((1, 1), (2, .3)))), (.0, tone(1047, 1.2, .5) * 0)], 1.2)
 
-# --- hài ---
-def boing():
-    d = .6; t = t_(d); f = 220 + 160 * np.sin(2 * np.pi * 14 * t) * np.exp(-t / .25) + 120 * t
-    return np.sin(2 * np.pi * np.cumsum(f) / SR) * env(len(t), .002, .25)
-def womp():
-    def note(f0, f1, d):
-        t = t_(d); f = np.linspace(f0, f1, len(t)) * (1 + .02 * np.sin(2 * np.pi * 6 * t))
-        saw = 2 * ((np.cumsum(f) / SR) % 1) - 1
-        return lp(saw, 1400) * np.minimum(1, t / .03) * np.minimum(1, (d - t) / .08)
-    return seq([(0, note(233, 228, .38)), (.42, note(220, 215, .38)), (.84, note(208, 203, .38)), (1.26, note(196, 175, 1.1))], 2.5)
 
 for name, fn, db in [("fx-glitch", glitch, -6), ("fx-rewind", rewind, -6), ("fx-page-flip", page_flip, -4), ("fx-zoom-whoosh", zoom_whoosh, -3),
                      ("fx-ding", ding, -8), ("fx-coin", coin, -8), ("fx-counter-tick", counter, -5), ("fx-notification", notification, -8),
                      ("fx-boom", boom, -2), ("fx-heartbeat", heartbeat, -3), ("fx-alert", alert, -12), ("fx-record-scratch", scratch, -4),
                      ("fx-suspense-drone", drone, -6), ("fx-magic-reveal", magic, -6), ("fx-success", success, -8),
                      ("fx-bell", bell, -8), ("fx-phone-ring", phone, -10), ("fx-message-pop", msg_pop, -6), ("fx-coin-drop", coin_drop, -8),
-                     ("fx-outro-jingle", jingle, -8), ("fx-whoosh-ding", whoosh_ding, -4), ("fx-elevator-ding", elevator, -9),
-                     ("fx-boing", boing, -5), ("fx-womp-womp", womp, -8)]:
+                     ("fx-outro-jingle", jingle, -8), ("fx-whoosh-ding", whoosh_ding, -4), ("fx-elevator-ding", elevator, -9)]:
     save2(name, fn(), db)
