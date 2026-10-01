@@ -35,6 +35,7 @@ export type Callout = {
   scale: number;
 };
 export type AiInfo = {
+  off?: boolean;
   hasKey: boolean;
   fromEnv: boolean;
   keyHint: string;
@@ -163,7 +164,7 @@ export const api = {
   open: (name: string, what: "render" | "project" | "cover") => call("POST", `${P(name)}/open`, { what }),
   suggestCallouts: (name: string) => call<{ callouts: Callout[] }>("POST", `${P(name)}/callouts/suggest`),
   ai: () => call<AiInfo>("GET", "/api/ai"),
-  saveAi: (body: { key?: string; model?: string }) => call<AiInfo>("PUT", "/api/ai", body),
+  saveAi: (body: { key?: string; model?: string; off?: boolean }) => call<AiInfo>("PUT", "/api/ai", body),
   jobs: () => call<Job[]>("GET", "/api/jobs"),
   sfx: () => call<SfxItem[]>("GET", "/api/sfx"),
   addSfx: (path: string) => call<{ id: string; list: SfxItem[] }>("POST", "/api/sfx", { path }),

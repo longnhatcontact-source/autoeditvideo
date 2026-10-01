@@ -149,8 +149,32 @@ function AiKeyCard() {
   if (!ai) return null;
   return (
     <div className="card soft" style={{ marginBottom: 20 }}>
-      <b>Claude tự dựng video</b>
-      <ClaudeCodeStatus cc={ai.claudeCode} />
+      <div className="row between">
+        <b>Claude tự dựng video</b>
+        <label className="row small" style={{ gap: 6, cursor: "pointer" }}>
+          <input
+            type="checkbox"
+            checked={!ai.off}
+            onChange={async (e) => {
+              try {
+                const next = await api.saveAi({ off: !e.target.checked });
+                setAi((old) => ({ ...next, claudeCode: old?.claudeCode }));
+              } catch (err) {
+                setError((err as Error).message);
+              }
+            }}
+          />
+          Dùng Claude
+        </label>
+      </div>
+      {ai.off ? (
+        <div className="alert small" style={{ margin: "6px 0 10px" }}>
+          Đang <b>tắt Claude</b>: “Tự dựng hoàn chỉnh” chỉ dùng quy tắc (không gọi Claude, không tốn hạn mức/phí). Chữ
+          nhấn, tiêu đề, ảnh bìa vẫn tự làm nhưng kém hơn — nên xem lại trước khi xuất bản nét.
+        </div>
+      ) : (
+        <ClaudeCodeStatus cc={ai.claudeCode} />
+      )}
       <p className="muted small">
         Cách 2 (tuỳ chọn, tốn phí theo lượt): khoá API lấy tại console.anthropic.com. Chỉ dùng khi máy không có Claude
         Code. Claude đọc chữ phụ đề, kịch bản và vài khung hình nhỏ, không gửi cả video.
