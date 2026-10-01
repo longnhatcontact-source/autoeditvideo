@@ -41,7 +41,7 @@ export type Brand = { enabled: boolean; text: string; logo: string; position: Br
 export type Music = { file: string; original: string; volume: number; duck: boolean };
 export type Job = {
   name: string;
-  kind: "process" | "render" | "capcut" | "cut" | "cover";
+  kind: "process" | "render" | "capcut" | "cut" | "cover" | "auto";
   progress: number;
   message: string;
   status: "queued" | "running" | "done" | "error";
@@ -80,6 +80,11 @@ export type Project = ProjectSummary & {
   cover?: Cover;
   /** số lần cắt còn hoàn tác được */
   cutUndo: number;
+  /** tự dựng: các câu có số liệu/pháp lý cần soát, ghi chú (vd chưa có khoá Claude) */
+  checks?: string[];
+  autoNote?: string;
+  autoEdit?: boolean;
+  script?: string;
 };
 export type Cover = { title: string; style: CalloutStyle; points: string[]; sec: number };
 export type CutRange = { from: number; to: number };
@@ -112,7 +117,7 @@ export const api = {
   deleteTemplate: (name: string) => call<Template[]>("DELETE", `/api/templates/${encodeURIComponent(name)}`),
   applyTemplate: (project: string, template: string) =>
     call<Project>("POST", `${P(project)}/template`, { template }),
-  create: (body: { name: string; clips: string[]; model: string; removeSilence: boolean; template: string }) =>
+  create: (body: { name: string; clips: string[]; model: string; removeSilence: boolean; template: string; script: string; autoEdit: boolean }) =>
     call<{ name: string }>("POST", "/api/projects", body),
   update: (
     name: string,
@@ -142,6 +147,7 @@ export const api = {
   render: (name: string, lite = false) => call<Job>("POST", `${P(name)}/render`, { lite }),
   peaks: (name: string) => call<{ step: number; peaks: number[] }>("GET", `${P(name)}/peaks`),
   cut: (name: string, ranges: CutRange[]) => call<Job>("POST", `${P(name)}/cut`, { ranges }),
+  reAutoEdit: (name: string) => call<Job>("POST", `${P(name)}/autoedit`),
   undoCut: (name: string) => call<Project>("POST", `${P(name)}/cut/undo`),
   saveCover: (name: string, cover: Partial<Cover>) => call<Project>("PUT", `${P(name)}/cover`, cover),
   suggestCover: (name: string) => call<Cover>("POST", `${P(name)}/cover/suggest`),

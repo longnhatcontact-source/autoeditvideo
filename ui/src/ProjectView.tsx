@@ -107,6 +107,11 @@ export function ProjectView({
 
   // cắt đoạn / làm ảnh bìa xong -> tải lại dự án (video, mốc thời gian, ảnh bìa đã đổi)
   const cutJob = jobs.find((j) => j.kind === "cut");
+  const autoJob = jobs.find((j) => j.kind === "auto");
+  const autoStatus = autoJob?.status;
+  useEffect(() => {
+    if (autoStatus === "done") load().catch(() => {});
+  }, [autoStatus, load]);
   const coverJob = jobs.find((j) => j.kind === "cover");
   const cutStatus = cutJob?.status;
   const coverStatus = coverJob?.status;
@@ -451,6 +456,15 @@ export function ProjectView({
           {error}
         </div>
       ) : null}
+      <AutoBanner
+        project={project}
+        job={autoJob}
+        renderJob={renderJob}
+        onRedo={() => {
+          if (!window.confirm("Tự dựng lại sẽ thay tiêu đề, chữ nổi bật, ảnh bìa hiện tại bằng bản mới. Tiếp tục?")) return;
+          run(() => api.reAutoEdit(project.name));
+        }}
+      />
       <div className="workspace">
         <div className="preview">
           {inputProps ? (
@@ -754,6 +768,47 @@ export function ProjectView({
         </div>
       ) : cutJob?.status === "error" ? (
         <div className="alert error">Cắt lỗi: {cutJob.error}</div>
+      ) : null}
+    </div>
+  );
+}
+
+/** Kết quả tự dựng: ghi chú + các câu cần soát số liệu + nút tự dựng lại */
+function AutoBanner({ project, job, renderJob, onRedo }: { project: Project; job?: Job; renderJob?: Job; onRedo: () => void }) {
+  const [open, setOpen] = useState(true);
+  const running = job?.status === "running" || job?.status === "queued";
+  const checks = project.checks ?? [];
+  if (!project.autoEdit && !checks.length && !project.autoNote && !running) return null;
+  return (
+    <div className="card soft autobanner">
+      <div className="row between">
+        <b>
+          ✨ Tự dựng{" "}
+          {running ? `— ${job?.message ?? "đang chạy"}` : renderJob?.status === "running" || renderJob?.status === "queued" ? "xong — đang xuất bản nhẹ…" : "xong"}
+        </b>
+        <div className="row">
+          {checks.length ? (
+            <button className="btn small ghost" onClick={() => setOpen(!open)}>
+              {open ? "Ẩn" : `Cần soát (${checks.length})`}
+            </button>
+          ) : null}
+          <button className="btn small" disabled={running} onClick={onRedo}>
+            Tự dựng lại
+          </button>
+        </div>
+      </div>
+      {project.autoNote ? <div className="small warn">{project.autoNote}</div> : null}
+      {open && checks.length ? (
+        <>
+          <div className="small muted" style={{ marginTop: 6 }}>
+            Soát lại các câu có số liệu / pháp lý trước khi đăng:
+          </div>
+          <ul className="checks">
+            {checks.map((c, i) => (
+              <li key={i}>{c}</li>
+            ))}
+          </ul>
+        </>
       ) : null}
     </div>
   );

@@ -850,3 +850,19 @@ input[type="range"] {
 .tl-help {
   margin: 6px 0 0;
 }
+
+.autobanner {
+  margin-bottom: 12px;
+}
+.autobanner .warn {
+  color: #f0a43a;
+  margin-top: 4px;
+}
+.checks {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+}
+.checks li {
+  margin: 2px 0;
+}

@@ -14,6 +14,8 @@ import {
   saveCover,
   suggestProjectCover,
   undoCut,
+  reAutoEdit,
+  setMediaBase,
 } from "../lib/projects.mjs";
 import { deleteTemplate, listTemplates } from "../lib/templates.mjs";
 import { BRAND_DIR, getBrand, saveBrand, setBrandLogo } from "../lib/brand.mjs";
@@ -65,6 +67,8 @@ app.post("/api/projects/:name/music", wrap((req) => (setMusic(req.params.name, r
 app.delete("/api/projects/:name/music", wrap((req) => (setMusic(req.params.name, null), need(req.params.name))));
 app.post("/api/projects/:name/refix", wrap((req) => (reapplyFixes(req.params.name), need(req.params.name))));
 app.post("/api/projects/:name/render", wrap((req) => renderProject(req.params.name, base, { lite: Boolean(req.body?.lite) })));
+// tự dựng lại toàn bộ chữ (Claude / quy tắc)
+app.post("/api/projects/:name/autoedit", wrap((req) => reAutoEdit(req.params.name)));
 // dòng thời gian
 app.get("/api/projects/:name/peaks", wrap((req) => projectPeaks(req.params.name)));
 app.post("/api/projects/:name/cut", wrap((req) => cutProject(req.params.name, req.body?.ranges)));
@@ -142,6 +146,7 @@ app.get(/^\/(?!api|media|sfx|brand).*/, (req, res) => {
 const server = app.listen(PORT, "127.0.0.1", () => {
   const { port } = server.address();
   base = `http://127.0.0.1:${port}`;
+  setMediaBase(base);
   console.log(`@@PORT ${port}`);
   console.log(`BĐS Video Studio: ${base}`);
 });

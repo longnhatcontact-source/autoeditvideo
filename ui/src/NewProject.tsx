@@ -10,6 +10,8 @@ export function NewProject({ existing, onCreated }: { existing: string[]; onCrea
   const [removeSilence, setRemoveSilence] = useState(true);
   const [templates, setTemplates] = useState<Template[]>([]);
   const [template, setTemplate] = useState("");
+  const [script, setScript] = useState("");
+  const [autoEdit, setAutoEdit] = useState(true);
 
   useEffect(() => {
     api.templates().then(setTemplates).catch(() => {});
@@ -40,7 +42,7 @@ export function NewProject({ existing, onCreated }: { existing: string[]; onCrea
     setError("");
     setSending(true);
     try {
-      const res = await api.create({ name: trimmed, clips, model, removeSilence, template });
+      const res = await api.create({ name: trimmed, clips, model, removeSilence, template, script, autoEdit });
       onCreated(res.name);
     } catch (e) {
       setError((e as Error).message);
@@ -119,6 +121,25 @@ export function NewProject({ existing, onCreated }: { existing: string[]; onCrea
           Cắt đoạn im lặng
         </label>
       </div>
+
+      <label className="check" style={{ margin: "6px 0 10px" }}>
+        <input type="checkbox" checked={autoEdit} onChange={(e) => setAutoEdit(e.target.checked)} />
+        <span>
+          <b>Tự dựng hoàn chỉnh</b> — sửa chữ nghe nhầm, tiêu đề mở đầu, chữ nổi bật + SFX, ảnh bìa, rồi tự xuất{" "}
+          <b>bản nhẹ + ảnh bìa</b> vào thư mục xuất. Xem ổn thì bấm “Bản nét”.
+        </span>
+      </label>
+      {autoEdit ? (
+        <label className="field">
+          <span>Kịch bản (không bắt buộc)</span>
+          <textarea
+            rows={6}
+            value={script}
+            onChange={(e) => setScript(e.target.value)}
+            placeholder={"Dán kịch bản nếu có — câu đầu dùng làm tiêu đề, và giúp sửa đúng chữ nghe nhầm.\nVD: Môi giới BĐS sẽ bị phạt rất nhiều nếu như..."}
+          />
+        </label>
+      ) : null}
 
       {error ? <div className="alert error">{error}</div> : null}
       <button className="btn primary big" disabled={!trimmed || !clips.length || dup || sending} onClick={start}>
