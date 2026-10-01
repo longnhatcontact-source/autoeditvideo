@@ -132,7 +132,8 @@ const geo = (fs: number, weight: number): React.CSSProperties => ({
   lineHeight: 1.1,
   whiteSpace: "pre",
 });
-const SHADOW = "drop-shadow(0 6px 10px rgba(0,0,0,.45))";
+// bóng đổ + quầng tối nhẹ: chữ chất liệu sáng (đá trắng, vàng) vẫn nổi trên tường / trời sáng
+const SHADOW = "drop-shadow(0 0 14px rgba(0,0,0,.45)) drop-shadow(0 6px 10px rgba(0,0,0,.5))";
 // quầng tối mềm quanh chữ trắng: đọc rõ cả khi nền là trời trắng / tường sáng (không dùng hộp nền)
 const HALO = "0 0 6px rgba(0,0,0,.55), 0 0 16px rgba(0,0,0,.45), 0 0 34px rgba(0,0,0,.3), 0 3px 6px rgba(0,0,0,.5)";
 
@@ -229,7 +230,7 @@ const BigYellow: React.FC<TemplateParts> = ({ frame, total, top, main, sub }) =>
           ...textFill(TEX.yellow()),
           transform: `scale(${1.5 - 0.5 * pIn})`,
           opacity: prog(frame, 0, 5),
-          filter: "drop-shadow(0 8px 14px rgba(0,0,0,.4))",
+          filter: "drop-shadow(0 0 14px rgba(0,0,0,.4)) drop-shadow(0 8px 14px rgba(0,0,0,.45))",
         }}
       >
         {m}
@@ -402,7 +403,7 @@ const LuxGold: React.FC<TemplateParts> = ({ frame, total, top, main, sub, seed }
       ) : null}
       <div style={{ clipPath: "inset(-60% -10% 0 -10%)", padding: "0 10px" }}>
         <div style={{ position: "relative", transform: `translateY(${(1 - pIn) * 105}%)` }}>
-          <div style={{ ...mainStyle, ...textFill(TEX.gold(seedNum(seed))), filter: "drop-shadow(0 6px 6px rgba(0,0,0,.6))" }}>{m}</div>
+          <div style={{ ...mainStyle, ...textFill(TEX.gold(seedNum(seed))), filter: `drop-shadow(0 0 14px rgba(0,0,0,.45)) drop-shadow(0 6px 6px rgba(0,0,0,.6))` }}>{m}</div>
           <Shine text={m} style={mainStyle} p={shine} />
         </div>
       </div>
@@ -505,7 +506,7 @@ const OrangeGold: React.FC<TemplateParts> = ({ frame, total, top, main, sub, see
           opacity: Math.min(pMain, 1 - ex),
         }}
       >
-        <div style={{ ...mainStyle, ...textFill(TEX.gold(seedNum(seed))), filter: "drop-shadow(0 6px 6px rgba(0,0,0,.65))" }}>{m}</div>
+        <div style={{ ...mainStyle, ...textFill(TEX.gold(seedNum(seed))), filter: `drop-shadow(0 0 14px rgba(0,0,0,.45)) drop-shadow(0 6px 6px rgba(0,0,0,.65))` }}>{m}</div>
         <Shine text={m} style={mainStyle} p={prog(frame, 18, 38)} />
       </div>
       {sub ? (
