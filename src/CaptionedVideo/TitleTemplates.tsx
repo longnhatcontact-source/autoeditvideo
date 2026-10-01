@@ -122,7 +122,7 @@ const sign = (fs: number): React.CSSProperties => ({
   lineHeight: 1,
   whiteSpace: "pre",
   color: "#fff",
-  textShadow: "0 3px 10px rgba(0,0,0,.45)",
+  textShadow: HALO,
   padding: `0 ${fs * 0.2}px`,
 });
 const geo = (fs: number, weight: number): React.CSSProperties => ({
@@ -133,6 +133,8 @@ const geo = (fs: number, weight: number): React.CSSProperties => ({
   whiteSpace: "pre",
 });
 const SHADOW = "drop-shadow(0 6px 10px rgba(0,0,0,.45))";
+// quầng tối mềm quanh chữ trắng: đọc rõ cả khi nền là trời trắng / tường sáng (không dùng hộp nền)
+const HALO = "0 0 6px rgba(0,0,0,.55), 0 0 16px rgba(0,0,0,.45), 0 0 34px rgba(0,0,0,.3), 0 3px 6px rgba(0,0,0,.5)";
 
 /** dòng chữ ký đè lên góc chữ khối: trái (mặc định) hoặc phải */
 const Signature: React.FC<{ text: string; fs: number; p: number; side?: "left" | "right"; overlap?: number }> = ({
@@ -200,7 +202,7 @@ const City: React.FC<TemplateParts> = ({ frame, total, top, main, sub, seed }) =
             fontStyle: "italic",
             transform: `skewX(-10deg) translateX(${(1 - eOut(prog(frame, 12, 24))) * 160}px)`,
             opacity: prog(frame, 12, 18),
-            textShadow: "0 4px 12px rgba(0,0,0,.5)",
+            textShadow: HALO,
           }}
         >
           {sub}
@@ -233,7 +235,7 @@ const BigYellow: React.FC<TemplateParts> = ({ frame, total, top, main, sub }) =>
         {m}
       </div>
       {sub ? (
-        <div style={{ ...geo(subFs, 700), color: "#fff", opacity: eOut(prog(frame, 12, 22)), textShadow: "0 3px 10px rgba(0,0,0,.6)" }}>
+        <div style={{ ...geo(subFs, 700), color: "#fff", opacity: eOut(prog(frame, 12, 22)), textShadow: HALO }}>
           {sub}
         </div>
       ) : null}
@@ -278,7 +280,7 @@ const RedBold: React.FC<TemplateParts> = ({ frame, total, top, main, sub }) => {
         </div>
       ))}
       {sub ? (
-        <div style={{ ...geo(subFs, 700), color: "#fff", opacity: Math.min(eOut(prog(frame, 16, 26)), 1 - prog(frame, total - 8, total - 1)), textShadow: "0 3px 10px rgba(0,0,0,.6)" }}>
+        <div style={{ ...geo(subFs, 700), color: "#fff", opacity: Math.min(eOut(prog(frame, 16, 26)), 1 - prog(frame, total - 8, total - 1)), textShadow: HALO }}>
           {sub}
         </div>
       ) : null}
@@ -311,7 +313,7 @@ const Sea: React.FC<TemplateParts> = ({ frame, total, top, main, sub, seed }) =>
         {m}
       </div>
       {sub ? (
-        <div style={{ ...geo(subFs, 500), color: "#fff", opacity: eOut(prog(frame, 14, 24)), textShadow: "0 3px 10px rgba(0,0,0,.6)" }}>{sub}</div>
+        <div style={{ ...geo(subFs, 500), color: "#fff", opacity: eOut(prog(frame, 14, 24)), textShadow: HALO }}>{sub}</div>
       ) : null}
     </Col>
   );
@@ -326,7 +328,7 @@ const Marble: React.FC<TemplateParts> = ({ frame, total, top, main, sub, seed })
   const pIn = eOut(prog(frame, 0, 20));
   const ex = eIn(prog(frame, total - OUT, total - 1));
   const track = (1 - pIn) * 0.25 + ex * 0.25;
-  const txt: React.CSSProperties = { color: "#fff", textShadow: "0 3px 8px rgba(0,0,0,.6)" };
+  const txt: React.CSSProperties = { color: "#fff", textShadow: HALO };
   return (
     <Col style={{ opacity: 1 - ex }}>
       {top ? (
@@ -405,7 +407,7 @@ const LuxGold: React.FC<TemplateParts> = ({ frame, total, top, main, sub, seed }
         </div>
       </div>
       {sub ? (
-        <div style={{ ...geo(subFs, 500), color: "#fff", opacity: eOut(prog(frame, 14, 24)), textShadow: "0 3px 10px rgba(0,0,0,.6)" }}>{sub}</div>
+        <div style={{ ...geo(subFs, 500), color: "#fff", opacity: eOut(prog(frame, 14, 24)), textShadow: HALO }}>{sub}</div>
       ) : null}
     </Col>
   );
@@ -458,7 +460,7 @@ const NeonSea: React.FC<TemplateParts> = ({ frame, total, top, main, sub, seed }
         {m}
       </div>
       {sub ? (
-        <div style={{ ...geo(subFs, 500), color: "#fff", opacity: Math.min(eOut(prog(frame, 16, 26)), k), textShadow: "0 3px 10px rgba(0,0,0,.6)" }}>{sub}</div>
+        <div style={{ ...geo(subFs, 500), color: "#fff", opacity: Math.min(eOut(prog(frame, 16, 26)), k), textShadow: HALO }}>{sub}</div>
       ) : null}
     </Col>
   );
@@ -507,7 +509,7 @@ const OrangeGold: React.FC<TemplateParts> = ({ frame, total, top, main, sub, see
         <Shine text={m} style={mainStyle} p={prog(frame, 18, 38)} />
       </div>
       {sub ? (
-        <div style={{ ...geo(subFs, 500), color: "#fff", opacity: Math.min(eOut(prog(frame, 16, 26)), 1 - ex), textShadow: "0 3px 10px rgba(0,0,0,.6)" }}>{sub}</div>
+        <div style={{ ...geo(subFs, 500), color: "#fff", opacity: Math.min(eOut(prog(frame, 16, 26)), 1 - ex), textShadow: HALO }}>{sub}</div>
       ) : null}
     </Col>
   );
