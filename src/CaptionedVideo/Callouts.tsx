@@ -59,9 +59,14 @@ export type Callout = {
   y: number;
   /** phóng to / thu nhỏ cả khối chữ (0.5..1.5) */
   scale: number;
+  /** độ sáng nền phía sau khối chữ (0 tối … 1 trắng), app tự đo từ video; nền sáng thì chữ tự thêm viền tối */
+  bg?: number;
 };
 
 /** vị trí mặc định: vùng trên đầu người nói (~30% từ trên xuống): không che mắt, tách hẳn khỏi phụ đề */
+/** từ mức sáng này trở lên coi là nền sáng (khớp lib/contrast.mjs) */
+export const LIGHT_BG = 0.55;
+
 export const CALLOUT_DEFAULT_POS = { x: 0.5, y: 0.3, scale: 1 };
 
 const MAX_W = OVERLAY_BOX.width - 40;
@@ -846,15 +851,29 @@ export const CalloutView: React.FC<{ c: Callout }> = ({ c }) => {
           opacity: boxOut,
         }}
       >
-        {template
-          ? React.createElement(template, {
+        {template ? (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              // nền sáng (tường trắng, trời): viền tối mảnh + quầng tối ôm sát mọi chữ, không dùng hộp nền
+              filter:
+                (c.bg ?? 0) >= LIGHT_BG
+                  ? "drop-shadow(0 0 1.5px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(0,0,0,.55)) drop-shadow(0 2px 10px rgba(0,0,0,.35))"
+                  : undefined,
+            }}
+          >
+            {React.createElement(template, {
               frame,
               total,
               top: c.top.trim(),
               main: c.main.trim(),
               sub: c.sub.trim(),
               seed: `${c.at}-${c.main}`,
-            })
+            })}
+          </div>
+        )
           : Body
             ? React.createElement(Body, { frame, top: c.top.trim(), main: c.main.trim(), sub: c.sub.trim(), c })
             : null}

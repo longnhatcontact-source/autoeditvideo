@@ -89,7 +89,7 @@ const TEX = {
     `${noise("m", "turbulence", "0.006 0.016", 4, s, "0 0 0 0 0.3  0 0 0 0 0.3  0 0 0 0 0.32  -6 0 0 0 1.25")}, ${noise("g", "fractalNoise", "0.5", 2, s + 3, "0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  1.4 0 0 0 -0.6")}, linear-gradient(180deg, #ffffff 0%, #e9e9e9 60%, #f7f7f7 100%)`,
   // vàng lá: dải kim loại + hạt lấp lánh
   gold: (s: number) =>
-    `${noise("y", "fractalNoise", "0.85", 2, s, "0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.8  2.4 0 0 0 -1.35")}, linear-gradient(180deg, #fff1b8 0%, #f2cf6a 30%, #c9962e 52%, #f6dc86 70%, #b8862b 100%)`,
+    `${noise("y", "fractalNoise", "0.85", 2, s, "0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.8  2.4 0 0 0 -1.35")}, linear-gradient(180deg, #ffeaa0 0%, #f0c14b 30%, #b07a1c 52%, #eabd52 70%, #9c6a18 100%)`,
   yellow: () => "linear-gradient(160deg, #fffbe6 0%, #ffe95a 35%, #ffe03a 70%, #fff4a8 100%)",
 };
 

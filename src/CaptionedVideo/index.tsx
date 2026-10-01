@@ -63,6 +63,8 @@ export const captionedVideoSchema = z.object({
   hookX: z.number(),
   hookY: z.number(),
   hookScale: z.number(),
+  // độ sáng nền sau tiêu đề (app tự đo); nền sáng -> chữ có viền tối
+  hookBg: z.number().optional(),
   // tên kênh / logo; cả 2 rỗng = không hiện
   brandText: z.string(),
   brandLogoSrc: z.string(),
@@ -87,6 +89,7 @@ export const captionedVideoSchema = z.object({
       x: z.number(),
       y: z.number(),
       scale: z.number(),
+      bg: z.number().optional(),
     }),
   ),
 });
@@ -155,6 +158,7 @@ export const CaptionedVideo: React.FC<Props> = ({
   hookX,
   hookY,
   hookScale,
+  hookBg,
   brandText,
   brandLogoSrc,
   brandPosition,
@@ -266,7 +270,7 @@ export const CaptionedVideo: React.FC<Props> = ({
 
       {hookFrames ? (
         <Sequence durationInFrames={hookFrames} layout="none">
-          <Hook text={hookText} style={hookStyle} x={hookX} y={hookY} scale={hookScale} />
+          <Hook text={hookText} style={hookStyle} x={hookX} y={hookY} scale={hookScale} bg={hookBg} />
         </Sequence>
       ) : null}
       {hookFrames ? (
