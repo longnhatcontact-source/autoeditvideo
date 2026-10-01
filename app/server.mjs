@@ -20,6 +20,7 @@ import {
 import { deleteTemplate, listTemplates } from "../lib/templates.mjs";
 import { BRAND_DIR, getBrand, saveBrand, setBrandLogo } from "../lib/brand.mjs";
 import { aiInfo, exportDirInfo, setAiConfig, setExportDir } from "../lib/settings.mjs";
+import { claudeCodeStatus } from "../lib/claude-code.mjs";
 import { addCustomSfx, listSfx, SFX_DIR } from "../lib/sfx.mjs";
 
 const argPort = process.argv.indexOf("--port");
@@ -105,7 +106,7 @@ app.post(
   "/api/projects/:name/callouts/suggest",
   wrap(async (req) => ({ callouts: await suggestProjectCallouts(req.params.name) }))
 );
-app.get("/api/ai", wrap(() => aiInfo()));
+app.get("/api/ai", wrap(async () => ({ ...aiInfo(), claudeCode: await claudeCodeStatus(true) })));
 app.put("/api/ai", wrap((req) => setAiConfig(req.body || {})));
 app.get("/api/export-dir", wrap(() => exportDirInfo()));
 app.put("/api/export-dir", wrap((req) => setExportDir(req.body.dir || "")));

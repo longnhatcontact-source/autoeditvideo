@@ -136,7 +136,8 @@ function AiKeyCard() {
   const save = async (value: string) => {
     setError("");
     try {
-      setAi(await api.saveAi({ key: value }));
+      const next = await api.saveAi({ key: value });
+      setAi((old) => ({ ...next, claudeCode: old?.claudeCode }));
       setKey("");
       setMsg(value ? "Đã lưu khoá" : "Đã xoá khoá");
       setTimeout(() => setMsg(""), 2000);
@@ -148,11 +149,11 @@ function AiKeyCard() {
   if (!ai) return null;
   return (
     <div className="card soft" style={{ marginBottom: 20 }}>
-      <b>Claude gợi ý chữ nhấn</b>
+      <b>Claude tự dựng video</b>
+      <ClaudeCodeStatus cc={ai.claudeCode} />
       <p className="muted small">
-        Tuỳ chọn. Có khoá thì tab “Chữ nhấn” có nút ✨ Gợi ý: Claude đọc <b>chữ phụ đề</b> và thông tin dự án (không gửi
-        video) rồi đề xuất chỗ gắn chữ. Mỗi lần gợi ý tốn một ít phí API trên tài khoản Anthropic của bạn. Lấy khoá tại
-        console.anthropic.com.
+        Cách 2 (tuỳ chọn, tốn phí theo lượt): khoá API lấy tại console.anthropic.com. Chỉ dùng khi máy không có Claude
+        Code. Claude đọc chữ phụ đề, kịch bản và vài khung hình nhỏ, không gửi cả video.
       </p>
       {ai.fromEnv ? (
         <p className="small">Đang dùng khoá từ biến môi trường ANTHROPIC_API_KEY ({ai.keyHint}).</p>
@@ -179,6 +180,28 @@ function AiKeyCard() {
       <small className="muted">Model: {ai.model}</small>
       {msg ? <span className="ok small"> {msg}</span> : null}
       {error ? <div className="alert error">{error}</div> : null}
+    </div>
+  );
+}
+
+function ClaudeCodeStatus({ cc }: { cc?: AiInfo["claudeCode"] }) {
+  if (cc?.ok && cc.loggedIn)
+    return (
+      <div className="alert ok small" style={{ margin: "6px 0 10px" }}>
+        ✓ Đang dùng Claude Code {cc.version} (gói Claude của anh, không tốn thêm phí). Video mới tick “Tự dựng hoàn
+        chỉnh” sẽ tự sửa chữ, làm tiêu đề, chữ nhấn và ảnh bìa.
+      </div>
+    );
+  return (
+    <div className="alert error small" style={{ margin: "6px 0 10px" }}>
+      {cc?.ok ? (
+        <>Claude Code đã cài ({cc.version}) nhưng chưa đăng nhập. Mở cửa sổ lệnh, gõ <code>claude</code>, đăng nhập tài khoản Claude rồi tải lại trang này.</>
+      ) : (
+        <>
+          Chưa có Claude Code, app sẽ dựng bằng quy tắc (chất lượng kém hơn). Cài: mở PowerShell, chạy{" "}
+          <code>npm install -g @anthropic-ai/claude-code</code>, rồi gõ <code>claude</code> để đăng nhập, sau đó tắt và mở lại app.
+        </>
+      )}
     </div>
   );
 }

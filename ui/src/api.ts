@@ -34,7 +34,13 @@ export type Callout = {
   y: number;
   scale: number;
 };
-export type AiInfo = { hasKey: boolean; fromEnv: boolean; keyHint: string; model: string };
+export type AiInfo = {
+  hasKey: boolean;
+  fromEnv: boolean;
+  keyHint: string;
+  model: string;
+  claudeCode?: { ok: boolean; version: string; loggedIn: boolean };
+};
 export type SubStyle = { highlight: string; position: "thap" | "cao"; box: boolean };
 export type BrandPosition = "duoi-video" | "tren-phai" | "tren-trai";
 export type Brand = { enabled: boolean; text: string; logo: string; position: BrandPosition };
