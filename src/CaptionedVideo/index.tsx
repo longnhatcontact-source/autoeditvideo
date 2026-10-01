@@ -90,6 +90,7 @@ export const captionedVideoSchema = z.object({
       y: z.number(),
       scale: z.number(),
       bg: z.number().optional(),
+      layout: z.string().optional(),
     }),
   ),
 });

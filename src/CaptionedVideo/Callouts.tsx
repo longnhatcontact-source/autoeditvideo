@@ -61,6 +61,8 @@ export type Callout = {
   scale: number;
   /** độ sáng nền phía sau khối chữ (0 tối … 1 trắng), app tự đo từ video; nền sáng thì chữ tự thêm viền tối */
   bg?: number;
+  /** bố cục (mẫu mở rộng): center | left | right | inline | side | zigzag | bar | brackets | underline | lines */
+  layout?: string;
 };
 
 /** vị trí mặc định: vùng trên đầu người nói (~30% từ trên xuống): không che mắt, tách hẳn khỏi phụ đề */
@@ -871,6 +873,7 @@ export const CalloutView: React.FC<{ c: Callout }> = ({ c }) => {
               main: c.main.trim(),
               sub: c.sub.trim(),
               seed: `${c.at}-${c.main}`,
+              layout: c.layout,
             })}
           </div>
         )

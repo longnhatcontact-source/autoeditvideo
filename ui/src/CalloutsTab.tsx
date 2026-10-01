@@ -1,17 +1,11 @@
+import { BASE_STYLES, LAYOUT_INFO, LAYOUTS, TEMPLATE_GROUPS, TEMPLATE_INFO } from "../../src/CaptionedVideo/TitleTemplates";
 import { useEffect, useState } from "react";
 import { api, fmtTime, type AiInfo, type Callout, type CalloutStyle } from "./api";
 
-export const STYLE_OPTIONS: [CalloutStyle, string][] = [
-  // bộ chữ ký + chữ khối
-  ["city", "✍️ Mây tím — Giữa lòng / TRUNG TÂM"],
-  ["bigyellow", "✍️ Vàng cực lớn — Temp Font / BĐS"],
-  ["redbold", "✍️ Đỏ đậm — Không biết / BẮT ĐẦU"],
-  ["sea", "✍️ Nước biển — Hay / NHÀ PHỐ MẶT BIỂN"],
-  ["marble", "✍️ Đá trắng — Nhà phố / SORA BAY / Hạ Long"],
-  ["luxgold", "✍️ Vàng lá — Định vị / ĐẲNG CẤP SỐNG"],
-  ["neonsea", "✍️ Neon xanh — Một bước / Chạm biển"],
-  ["orangegold", "✍️ Cam + vàng — BÀN GIAO / TIÊU CHUẨN"],
-];
+// 61 mẫu chữ ký + chữ khối (8 gốc + 53 mở rộng), chia nhóm
+export const STYLE_OPTIONS: [CalloutStyle, string][] = TEMPLATE_GROUPS.flatMap(([, ids]) =>
+  ids.map((id) => [id as CalloutStyle, `${TEMPLATE_INFO[id].label} — ${TEMPLATE_INFO[id].use}`] as [CalloutStyle, string]),
+);
 // kiểu cũ: không cho chọn mới nữa, chỉ hiện để dự án cũ còn đang dùng vẫn đọc được
 export const OLD_STYLE_OPTIONS: [CalloutStyle, string][] = [
   ["red", "🔴 Trắng viền đỏ — bật mạnh"],
@@ -24,7 +18,6 @@ export const OLD_STYLE_OPTIONS: [CalloutStyle, string][] = [
   ["editorial", "📰 Tạp chí — đường kẻ"],
   ["stamp", "🟥 Con dấu đỏ"],
 ];
-const STYLES = STYLE_OPTIONS;
 const PRESETS: [string, number][] = [
   ["Trên", 0.3],
   ["Giữa", 0.45],
@@ -130,12 +123,31 @@ export function CalloutsTab({
                 ▶ {fmtTime(c.at)}
               </button>
               <select value={c.style} onChange={(e) => set(i, { style: e.target.value as CalloutStyle })}>
-                {[...STYLES, ...OLD_STYLE_OPTIONS.filter(([v]) => v === c.style)].map(([v, l]) => (
+                {TEMPLATE_GROUPS.map(([g, ids]) => (
+                  <optgroup key={g} label={g}>
+                    {ids.map((id) => (
+                      <option key={id} value={id}>
+                        {TEMPLATE_INFO[id].label} — {TEMPLATE_INFO[id].use}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+                {OLD_STYLE_OPTIONS.filter(([v]) => v === c.style).map(([v, l]) => (
                   <option key={v} value={v}>
                     {l}
                   </option>
                 ))}
               </select>
+              {(BASE_STYLES as readonly string[]).includes(c.style) || !(c.style in TEMPLATE_INFO) ? null : (
+                <select value={c.layout ?? ""} title="Bố cục" onChange={(e) => set(i, { layout: e.target.value || undefined })} style={{ maxWidth: 150 }}>
+                  <option value="">Bố cục mặc định</option>
+                  {LAYOUTS.map((l) => (
+                    <option key={l} value={l}>
+                      {LAYOUT_INFO[l]}
+                    </option>
+                  ))}
+                </select>
+              )}
               <button className="icon" onClick={() => onChange(items.filter((_, k) => k !== i))} title="Bỏ chữ nhấn này">
                 ✕
               </button>
