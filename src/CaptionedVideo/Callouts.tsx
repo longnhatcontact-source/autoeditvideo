@@ -13,6 +13,9 @@ import {
 } from "remotion";
 import { ScriptFont, TheBoldFont } from "../load-font";
 import { OVERLAY_BOX } from "./Overlays";
+import { TEMPLATE_BODIES, TEMPLATE_STYLES, templateSounds, type TemplateStyle } from "./TitleTemplates";
+
+const isTemplate = (s: string): s is TemplateStyle => (TEMPLATE_STYLES as readonly string[]).includes(s);
 
 /**
  * "Chữ nhấn": chữ hiệu ứng lớn ở đoạn quan trọng.
@@ -29,7 +32,20 @@ import { OVERLAY_BOX } from "./Overlays";
  *  editorial kiểu tạp chí: 2 đường kẻ vàng mở ra, chữ khép dần từ mờ sang rõ
  *  stamp     con dấu đỏ đập xuống, rung nhẹ
  */
-export const CALLOUT_STYLES = ["red", "neon", "gold", "type", "banner", "pop", "outline", "editorial", "stamp"] as const;
+export const CALLOUT_STYLES = [
+  // bộ "chữ ký + chữ khối" (TitleTemplates.tsx)
+  ...TEMPLATE_STYLES,
+  // bộ chữ hiệu ứng
+  "red",
+  "neon",
+  "gold",
+  "type",
+  "banner",
+  "pop",
+  "outline",
+  "editorial",
+  "stamp",
+] as const;
 export type CalloutStyle = (typeof CALLOUT_STYLES)[number];
 export type Callout = {
   at: number;
@@ -116,6 +132,7 @@ export function calloutSounds(c: Pick<Callout, "style" | "main" | "sub">, fps = 
   const f = (frames: number) => frames / fps;
   const main = c.main.trim();
   const n = Array.from(main).length;
+  if (isTemplate(c.style)) return templateSounds(c.style, fps);
   switch (c.style) {
     case "red":
       return [
@@ -776,7 +793,7 @@ const StampBody: React.FC<Parts> = ({ frame, top, main: raw, sub, c }) => {
   );
 };
 
-const BODY: Record<CalloutStyle, React.FC<Parts>> = {
+const BODY: Record<Exclude<CalloutStyle, TemplateStyle>, React.FC<Parts>> = {
   red: ClassicBody,
   neon: ClassicBody,
   gold: ClassicBody,
@@ -792,9 +809,12 @@ const BODY: Record<CalloutStyle, React.FC<Parts>> = {
 export const CalloutView: React.FC<{ c: Callout }> = ({ c }) => {
   const frame = useCurrentFrame();
   const { durationInFrames: total, width: W, height: H } = useVideoConfig();
-  const Body = BODY[c.style] ?? ClassicBody;
+  const template = isTemplate(c.style) ? TEMPLATE_BODIES[c.style] : null;
+  const Body = template ? null : (BODY[c.style as keyof typeof BODY] ?? ClassicBody);
 
   const out = interpolate(frame, [total - 9, total - 1], [1, 0], clamp);
+  // mẫu chữ ký + chữ khối tự có hiệu ứng ra riêng
+  const boxOut = template ? 1 : out;
   const backdrop = easeOut(prog(frame, 0, 8)) * out;
   const x = c.x ?? CALLOUT_DEFAULT_POS.x;
   const y = c.y ?? CALLOUT_DEFAULT_POS.y;
@@ -822,10 +842,21 @@ export const CalloutView: React.FC<{ c: Callout }> = ({ c }) => {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          opacity: out,
+          opacity: boxOut,
         }}
       >
-        <Body frame={frame} top={c.top.trim()} main={c.main.trim()} sub={c.sub.trim()} c={c} />
+        {template
+          ? React.createElement(template, {
+              frame,
+              total,
+              top: c.top.trim(),
+              main: c.main.trim(),
+              sub: c.sub.trim(),
+              seed: `${c.at}-${c.main}`,
+            })
+          : Body
+            ? React.createElement(Body, { frame, top: c.top.trim(), main: c.main.trim(), sub: c.sub.trim(), c })
+            : null}
       </div>
     </AbsoluteFill>
   );

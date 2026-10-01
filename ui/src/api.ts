@@ -13,7 +13,16 @@ export type OverlayItem = {
   h: number;
 };
 export type Hook = { text: string; sec: number; style: CalloutStyle; x: number; y: number; scale: number };
-export type CalloutStyle = "red" | "neon" | "gold" | "type" | "banner" | "pop" | "outline" | "editorial" | "stamp";
+export type CalloutStyle =
+  | "city"
+  | "bigyellow"
+  | "redbold"
+  | "sea"
+  | "marble"
+  | "luxgold"
+  | "neonsea"
+  | "orangegold"
+  | "red" | "neon" | "gold" | "type" | "banner" | "pop" | "outline" | "editorial" | "stamp";
 export type Callout = {
   at: number;
   sec: number;

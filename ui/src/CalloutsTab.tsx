@@ -2,6 +2,16 @@ import { useEffect, useState } from "react";
 import { api, fmtTime, type AiInfo, type Callout, type CalloutStyle } from "./api";
 
 export const STYLE_OPTIONS: [CalloutStyle, string][] = [
+  // bộ chữ ký + chữ khối
+  ["city", "✍️ Mây tím — Giữa lòng / TRUNG TÂM"],
+  ["bigyellow", "✍️ Vàng cực lớn — Temp Font / BĐS"],
+  ["redbold", "✍️ Đỏ đậm — Không biết / BẮT ĐẦU"],
+  ["sea", "✍️ Nước biển — Hay / NHÀ PHỐ MẶT BIỂN"],
+  ["marble", "✍️ Đá trắng — Nhà phố / SORA BAY / Hạ Long"],
+  ["luxgold", "✍️ Vàng lá — Định vị / ĐẲNG CẤP SỐNG"],
+  ["neonsea", "✍️ Neon xanh — Một bước / Chạm biển"],
+  ["orangegold", "✍️ Cam + vàng — BÀN GIAO / TIÊU CHUẨN"],
+  // bộ hiệu ứng
   ["red", "🔴 Trắng viền đỏ — bật mạnh"],
   ["neon", "🔵 Neon xanh — nhấp nháy"],
   ["gold", "🟡 Vàng ánh kim — vệt sáng"],
