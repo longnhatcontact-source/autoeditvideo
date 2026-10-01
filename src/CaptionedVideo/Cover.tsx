@@ -71,9 +71,11 @@ export const Cover: React.FC<Props> = ({
           src={src(background)}
           style={{
             position: "absolute",
-            inset: -60,
-            width: 1200,
-            height: 2040,
+            // nền mờ thì phóng ra ngoài khung để mép không bị nhạt; ảnh rõ thì vừa khít khung
+            left: photo ? 0 : -60,
+            top: photo ? 0 : -60,
+            width: photo ? 1080 : 1200,
+            height: photo ? 1920 : 2040,
             objectFit: "cover",
             filter: photo ? "none" : "blur(28px) brightness(0.6)",
           }}
