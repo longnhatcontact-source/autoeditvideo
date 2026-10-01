@@ -24,7 +24,7 @@ import {
 } from "./api";
 import { BlurEditor } from "./BlurEditor";
 import { CalloutMover } from "./CalloutMover";
-import { CalloutsTab, STYLE_OPTIONS } from "./CalloutsTab";
+import { CalloutsTab, OLD_STYLE_OPTIONS, STYLE_OPTIONS } from "./CalloutsTab";
 import { CaptionsTab } from "./CaptionsTab";
 import { OverlayTab } from "./OverlayTab";
 import { SoundTab } from "./SoundTab";
@@ -847,7 +847,7 @@ function HookEditor({
       </div>
       <div className="row">
         <select value={hook.style} onChange={(e) => onChange({ style: e.target.value as Hook["style"] })}>
-          {STYLE_OPTIONS.map(([v, l]) => (
+          {[...STYLE_OPTIONS, ...OLD_STYLE_OPTIONS.filter(([v]) => v === hook.style)].map(([v, l]) => (
             <option key={v} value={v}>
               {l}
             </option>

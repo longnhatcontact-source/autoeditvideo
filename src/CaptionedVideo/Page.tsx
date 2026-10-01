@@ -21,8 +21,8 @@ const BOTTOM = { thap: 350, cao: 560 };
 
 export const SUB_FONT_WEIGHT = 800;
 // cỡ chữ tối đa (nhỏ hơn bản cũ 100 cho đỡ chiếm khung)
-export const SUB_MAX_FONT_SIZE = 78;
-const SUB_MAX_WIDTH = 0.82; // câu rộng nhất chiếm tối đa 82% bề ngang
+export const SUB_MAX_FONT_SIZE = 66;
+const SUB_MAX_WIDTH = 0.74; // câu rộng nhất chiếm tối đa 74% bề ngang
 const WORD_FADE_MS = 90; // chữ hiện dần khi được nói tới
 
 // viền đen mịn: viền mảnh + vòng bóng đổ tròn đều quanh chữ (thay cho viền 20px bị gãy góc)

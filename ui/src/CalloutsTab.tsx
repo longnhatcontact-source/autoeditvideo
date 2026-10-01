@@ -11,7 +11,9 @@ export const STYLE_OPTIONS: [CalloutStyle, string][] = [
   ["luxgold", "✍️ Vàng lá — Định vị / ĐẲNG CẤP SỐNG"],
   ["neonsea", "✍️ Neon xanh — Một bước / Chạm biển"],
   ["orangegold", "✍️ Cam + vàng — BÀN GIAO / TIÊU CHUẨN"],
-  // bộ hiệu ứng
+];
+// kiểu cũ: không cho chọn mới nữa, chỉ hiện để dự án cũ còn đang dùng vẫn đọc được
+export const OLD_STYLE_OPTIONS: [CalloutStyle, string][] = [
   ["red", "🔴 Trắng viền đỏ — bật mạnh"],
   ["neon", "🔵 Neon xanh — nhấp nháy"],
   ["gold", "🟡 Vàng ánh kim — vệt sáng"],
@@ -128,7 +130,7 @@ export function CalloutsTab({
                 ▶ {fmtTime(c.at)}
               </button>
               <select value={c.style} onChange={(e) => set(i, { style: e.target.value as CalloutStyle })}>
-                {STYLES.map(([v, l]) => (
+                {[...STYLES, ...OLD_STYLE_OPTIONS.filter(([v]) => v === c.style)].map(([v, l]) => (
                   <option key={v} value={v}>
                     {l}
                   </option>

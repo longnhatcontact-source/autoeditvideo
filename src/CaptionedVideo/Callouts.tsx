@@ -815,7 +815,8 @@ export const CalloutView: React.FC<{ c: Callout }> = ({ c }) => {
   const out = interpolate(frame, [total - 9, total - 1], [1, 0], clamp);
   // mẫu chữ ký + chữ khối tự có hiệu ứng ra riêng
   const boxOut = template ? 1 : out;
-  const backdrop = easeOut(prog(frame, 0, 8)) * out;
+  // mẫu chữ ký + chữ khối không phủ nền tối (chữ đã có bóng đổ riêng)
+  const backdrop = template ? 0 : easeOut(prog(frame, 0, 8)) * out;
   const x = c.x ?? CALLOUT_DEFAULT_POS.x;
   const y = c.y ?? CALLOUT_DEFAULT_POS.y;
   const scale = c.scale ?? 1;
