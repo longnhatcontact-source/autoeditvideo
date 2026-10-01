@@ -5,7 +5,18 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.join(__dirname, "..");
-const LOG = path.join(ROOT, "projects", "app.log");
+// bản cài .exe: công cụ đi kèm nằm trong resources/, dữ liệu người dùng ở AppData (không mất khi cập nhật)
+const PACKAGED = app.isPackaged;
+const RES = process.resourcesPath;
+const DATA_DIR = PACKAGED ? path.join(app.getPath("userData"), "data") : ROOT;
+const LOG = path.join(DATA_DIR, "projects", "app.log");
+
+/** thư mục tạm cho Remotion: đường dẫn phải không dấu (Chrome/ffmpeg) */
+function asciiTmp() {
+  const ok = (p) => /^[\x20-\x7e]+$/.test(p);
+  const cands = [path.join(app.getPath("userData"), "tmp"), path.join(process.env.ProgramData || "C:\\ProgramData", "BDSVideoStudio", "tmp"), path.join(process.env.SystemDrive || "C:", "BDSVideoStudio", "tmp")];
+  return cands.find(ok) || cands[cands.length - 1];
+}
 let server = null;
 let baseUrl = null;
 let win = null;
@@ -35,11 +46,20 @@ function startServer() {
     fs.mkdirSync(path.dirname(LOG), { recursive: true });
     const log = fs.createWriteStream(LOG, { flags: "a" });
     log.write(`\n=== ${new Date().toISOString()} ===\n`);
-    server = spawn(findNode(), [path.join(ROOT, "app", "server.mjs"), "--port", "0"], {
+    const env = { ...process.env, ELECTRON_RUN_AS_NODE: undefined, BDS_DOWNLOADS: app.getPath("downloads") };
+    if (PACKAGED) {
+      Object.assign(env, {
+        ELECTRON_RUN_AS_NODE: "1", // dùng chính app làm Node, máy không cần cài Node
+        BDS_DATA_DIR: DATA_DIR,
+        BDS_TMP_DIR: asciiTmp(),
+        BDS_WHISPER_DIR: path.join(RES, "whisper"),
+        PATH: `${path.join(RES, "ffmpeg")}${path.delimiter}${process.env.PATH || ""}`,
+      });
+    }
+    server = spawn(PACKAGED ? process.execPath : findNode(), [path.join(ROOT, "app", "server.mjs"), "--port", "0"], {
       cwd: ROOT,
       windowsHide: true,
-      // BDS_DOWNLOADS: thư mục Downloads thật của Windows = nơi lưu video xuất mặc định
-      env: { ...process.env, ELECTRON_RUN_AS_NODE: undefined, BDS_DOWNLOADS: app.getPath("downloads") },
+      env,
     });
     let buf = "";
     const timeout = setTimeout(() => reject(new Error("Phần xử lý không khởi động được (quá 30 giây)")), 30000);
