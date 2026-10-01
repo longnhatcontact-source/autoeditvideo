@@ -88,6 +88,7 @@ export type Project = ProjectSummary & {
   cutUndo: number;
   /** tự dựng: các câu có số liệu/pháp lý cần soát, ghi chú (vd chưa có khoá Claude) */
   checks?: string[];
+  reviewNotes?: string[];
   autoNote?: string;
   autoEdit?: boolean;
   script?: string;

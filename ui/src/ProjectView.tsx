@@ -798,6 +798,18 @@ function AutoBanner({ project, job, renderJob, onRedo }: { project: Project; job
         </div>
       </div>
       {project.autoNote ? <div className="small warn">{project.autoNote}</div> : null}
+      {open && project.reviewNotes?.length ? (
+        <>
+          <div className="small muted" style={{ marginTop: 6 }}>
+            Claude đã tự soát bản nháp và sửa:
+          </div>
+          <ul className="checks">
+            {project.reviewNotes.map((c, i) => (
+              <li key={i}>{c}</li>
+            ))}
+          </ul>
+        </>
+      ) : null}
       {open && checks.length ? (
         <>
           <div className="small muted" style={{ marginTop: 6 }}>
