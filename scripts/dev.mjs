@@ -75,7 +75,10 @@ if (!NO_APP) {
 if (SYNC) {
   const git = (...a) => spawnSync("git", a, { cwd: ROOT, encoding: "utf8" });
   const tick = () => {
-    if (git("status", "--porcelain").stdout.trim()) return; // đang sửa dở -> không đụng
+    // npm install hay tự sửa package-lock.json -> trả về bản trên GitHub, không coi là "đang sửa dở"
+    const changed = git("status", "--porcelain").stdout.trim().split(/\r?\n/).filter(Boolean);
+    if (changed.length && changed.every((l) => l.endsWith("package-lock.json"))) git("checkout", "--", "package-lock.json");
+    else if (changed.length) return; // đang sửa dở -> không đụng
     if (git("fetch", "--quiet").status !== 0) return;
     const behind = Number(git("rev-list", "--count", "HEAD..@{u}").stdout.trim() || 0);
     if (!behind) return;
