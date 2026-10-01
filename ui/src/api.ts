@@ -41,12 +41,12 @@ export type Brand = { enabled: boolean; text: string; logo: string; position: Br
 export type Music = { file: string; original: string; volume: number; duck: boolean };
 export type Job = {
   name: string;
-  kind: "process" | "render" | "capcut";
+  kind: "process" | "render" | "capcut" | "cut" | "cover";
   progress: number;
   message: string;
   status: "queued" | "running" | "done" | "error";
   error: string | null;
-  result: { path?: string; draftName?: string; draftDir?: string; pages?: number; durationSec?: number } | null;
+  result: { path?: string; draftName?: string; draftDir?: string; pages?: number; durationSec?: number; removedSec?: number } | null;
 };
 export type ProjectSummary = {
   name: string;
@@ -76,7 +76,13 @@ export type Project = ProjectSummary & {
   jobs: Job[];
   lastRender: string | null;
   lastCapcut: string | null;
+  lastCover?: string | null;
+  cover?: Cover;
+  /** số lần cắt còn hoàn tác được */
+  cutUndo: number;
 };
+export type Cover = { title: string; style: CalloutStyle; points: string[]; sec: number };
+export type CutRange = { from: number; to: number };
 export type SfxItem = { id: string; label: string; group: string; hint?: string };
 export type Template = { name: string; tenDuAn: string; gia: string; music: string | null; blurs: number; hook: string };
 
@@ -133,9 +139,15 @@ export const api = {
   setMusic: (name: string, path: string) => call<Project>("POST", `${P(name)}/music`, { path }),
   removeMusic: (name: string) => call<Project>("DELETE", `${P(name)}/music`),
   refix: (name: string) => call<Project>("POST", `${P(name)}/refix`),
-  render: (name: string) => call<Job>("POST", `${P(name)}/render`),
+  render: (name: string, lite = false) => call<Job>("POST", `${P(name)}/render`, { lite }),
+  peaks: (name: string) => call<{ step: number; peaks: number[] }>("GET", `${P(name)}/peaks`),
+  cut: (name: string, ranges: CutRange[]) => call<Job>("POST", `${P(name)}/cut`, { ranges }),
+  undoCut: (name: string) => call<Project>("POST", `${P(name)}/cut/undo`),
+  saveCover: (name: string, cover: Partial<Cover>) => call<Project>("PUT", `${P(name)}/cover`, cover),
+  suggestCover: (name: string) => call<Cover>("POST", `${P(name)}/cover/suggest`),
+  renderCover: (name: string, auto = false) => call<Job>("POST", `${P(name)}/cover/render`, { auto }),
   capcut: (name: string) => call<Job>("POST", `${P(name)}/capcut`),
-  open: (name: string, what: "render" | "project") => call("POST", `${P(name)}/open`, { what }),
+  open: (name: string, what: "render" | "project" | "cover") => call("POST", `${P(name)}/open`, { what }),
   suggestCallouts: (name: string) => call<{ callouts: Callout[] }>("POST", `${P(name)}/callouts/suggest`),
   ai: () => call<AiInfo>("GET", "/api/ai"),
   saveAi: (body: { key?: string; model?: string }) => call<AiInfo>("PUT", "/api/ai", body),

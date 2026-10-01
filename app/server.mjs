@@ -8,6 +8,12 @@ import { FIX_FILE, PROJECTS_DIR, ROOT, VOCAB_FILE } from "../lib/paths.mjs";
 import {
   addOverlay, applyTemplate, capcutProject, compositionProps, createProject, deleteProject, getProject, listJobs, listProjects,
   processProject, projectDir, reapplyFixes, renderProject, saveAsTemplate, setMusic, suggestProjectCallouts, updateProject,
+  cutProject,
+  projectPeaks,
+  renderProjectCover,
+  saveCover,
+  suggestProjectCover,
+  undoCut,
 } from "../lib/projects.mjs";
 import { deleteTemplate, listTemplates } from "../lib/templates.mjs";
 import { BRAND_DIR, getBrand, saveBrand, setBrandLogo } from "../lib/brand.mjs";
@@ -58,13 +64,26 @@ app.post("/api/projects/:name/reprocess", wrap((req) => (need(req.params.name), 
 app.post("/api/projects/:name/music", wrap((req) => (setMusic(req.params.name, req.body.path), need(req.params.name))));
 app.delete("/api/projects/:name/music", wrap((req) => (setMusic(req.params.name, null), need(req.params.name))));
 app.post("/api/projects/:name/refix", wrap((req) => (reapplyFixes(req.params.name), need(req.params.name))));
-app.post("/api/projects/:name/render", wrap((req) => renderProject(req.params.name, base)));
+app.post("/api/projects/:name/render", wrap((req) => renderProject(req.params.name, base, { lite: Boolean(req.body?.lite) })));
+// dòng thời gian
+app.get("/api/projects/:name/peaks", wrap((req) => projectPeaks(req.params.name)));
+app.post("/api/projects/:name/cut", wrap((req) => cutProject(req.params.name, req.body?.ranges)));
+app.post("/api/projects/:name/cut/undo", wrap((req) => undoCut(req.params.name)));
+// ảnh bìa
+app.put("/api/projects/:name/cover", wrap((req) => (saveCover(req.params.name, req.body || {}), need(req.params.name))));
+app.post("/api/projects/:name/cover/suggest", wrap((req) => suggestProjectCover(req.params.name)));
+app.post("/api/projects/:name/cover/render", wrap((req) => renderProjectCover(req.params.name, base, { auto: Boolean(req.body?.auto) })));
 app.post("/api/projects/:name/capcut", wrap((req) => capcutProject(req.params.name)));
 app.post(
   "/api/projects/:name/open",
   wrap((req) => {
     const p = need(req.params.name);
-    const target = req.body?.what === "render" && p.lastRender ? p.lastRender : projectDir(p.name);
+    const target =
+      req.body?.what === "render" && p.lastRender
+        ? p.lastRender
+        : req.body?.what === "cover" && p.lastCover
+          ? p.lastCover
+          : projectDir(p.name);
     const args = fs.existsSync(target) && fs.statSync(target).isFile() ? [`/select,${target}`] : [target];
     spawn("explorer.exe", args, { detached: true, stdio: "ignore" }).unref();
   })

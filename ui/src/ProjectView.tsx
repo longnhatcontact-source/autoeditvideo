@@ -28,9 +28,11 @@ import { CalloutsTab, OLD_STYLE_OPTIONS, STYLE_OPTIONS } from "./CalloutsTab";
 import { CaptionsTab } from "./CaptionsTab";
 import { OverlayTab } from "./OverlayTab";
 import { SoundTab } from "./SoundTab";
+import { CoverTab } from "./CoverTab";
+import { Timeline } from "./Timeline";
 
 const FPS = 30;
-type Tab = "info" | "captions" | "callouts" | "sound" | "overlay";
+type Tab = "info" | "captions" | "callouts" | "sound" | "overlay" | "cover";
 
 const INFO_FIELDS: [keyof Info, string, string][] = [
   ["tenDuAn", "Tên dự án (băng trên cùng)", "Le Parc Place - Park City Hà Đông"],
@@ -93,6 +95,24 @@ export function ProjectView({
   useEffect(() => {
     load().catch((e) => setError(e.message));
   }, [load]);
+
+  // nhãn SFX cho dòng thời gian
+  const [sfxNames, setSfxNames] = useState<Record<string, string>>({});
+  useEffect(() => {
+    api
+      .sfx()
+      .then((l) => setSfxNames(Object.fromEntries(l.map((x) => [x.id, x.label]))))
+      .catch(() => {});
+  }, []);
+
+  // cắt đoạn / làm ảnh bìa xong -> tải lại dự án (video, mốc thời gian, ảnh bìa đã đổi)
+  const cutJob = jobs.find((j) => j.kind === "cut");
+  const coverJob = jobs.find((j) => j.kind === "cover");
+  const cutStatus = cutJob?.status;
+  const coverStatus = coverJob?.status;
+  useEffect(() => {
+    if (cutStatus === "done" || coverStatus === "done") load().catch(() => {});
+  }, [cutStatus, coverStatus, load]);
 
   // Xử lý xong / lỗi -> tải lại dữ liệu dự án
   const processJob = jobs.find((j) => j.kind === "process");
@@ -475,11 +495,20 @@ export function ProjectView({
           </div>
           <div className="exports">
             <button
+              className="btn"
+              disabled={running(renderJob)}
+              onClick={() => run(() => api.render(project.name, true))}
+              title="720p, nhẹ ~10MB — gửi duyệt nhanh"
+            >
+              ⬇ Bản nhẹ
+            </button>
+            <button
               className="btn primary"
               disabled={running(renderJob)}
               onClick={() => run(() => api.render(project.name))}
+              title="1080p — để đăng"
             >
-              ⬇ Xuất MP4
+              ⬇ Bản nét
             </button>
             <button
               className="btn"
@@ -519,6 +548,9 @@ export function ProjectView({
             </button>
             <button className={tab === "overlay" ? "on" : ""} onClick={() => setTab("overlay")}>
               Ảnh chèn{overlays.length ? ` (${overlays.length})` : ""}
+            </button>
+            <button className={tab === "cover" ? "on" : ""} onClick={() => setTab("cover")}>
+              Ảnh bìa
             </button>
           </nav>
 
@@ -674,8 +706,55 @@ export function ProjectView({
               onSeek={seek}
             />
           ) : null}
+
+          {tab === "cover" ? (
+            <CoverTab
+              project={project}
+              currentSec={frame / FPS}
+              job={coverJob}
+              onSeek={seek}
+              onBeforeRun={flush}
+              onChanged={onChanged}
+            />
+          ) : null}
         </div>
       </div>
+
+      <Timeline
+        project={project.name}
+        version={project.versions.video}
+        durationSec={project.durationSec}
+        currentSec={frame / FPS}
+        hook={hook}
+        callouts={callouts}
+        sfx={sfx}
+        sfxLabel={(id) => sfxNames[id] ?? id}
+        cutUndo={project.cutUndo ?? 0}
+        busy={running(cutJob) || running(renderJob)}
+        onSeek={seek}
+        onCallouts={changeCallouts}
+        onHook={changeHook}
+        onSfx={changeSfx}
+        onCut={(ranges) => {
+          const sec = ranges.reduce((a, r) => a + r.to - r.from, 0);
+          if (!window.confirm(`Cắt bỏ ${ranges.length} đoạn (${sec.toFixed(1)} giây)? Phụ đề, chữ nhấn, SFX sẽ tự dời theo. Có thể hoàn tác.`)) return;
+          playerRef.current?.pause();
+          run(() => api.cut(project.name, ranges));
+        }}
+        onUndoCut={() =>
+          run(async () => {
+            await api.undoCut(project.name);
+            await load();
+          })
+        }
+      />
+      {running(cutJob) ? (
+        <div className="card">
+          <Progress job={cutJob} />
+        </div>
+      ) : cutJob?.status === "error" ? (
+        <div className="alert error">Cắt lỗi: {cutJob.error}</div>
+      ) : null}
     </div>
   );
 }
