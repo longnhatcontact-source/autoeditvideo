@@ -763,7 +763,10 @@ export const TEMPLATE_INFO: Record<TemplateStyle, { label: string; use: string }
 
 /** viết hoa nhưng giữ đơn vị đo (m², km, ha) */
 const upperKeepUnits = (t: string) =>
-  t.toUpperCase().replace(/(\d)(\s?)(M²|M2|KM|HA)(?![A-ZÀ-Ỹ])/g, (_, d, sp, u) => d + sp + (u === "M2" ? "m²" : u.toLowerCase()));
+  t
+    .toUpperCase()
+    .replace(/(\d)(\s?)(M²|M2|KM|HA)(?![A-ZÀ-Ỹ])/g, (_, d, sp, u) => d + sp + (u === "M2" ? "m²" : u.toLowerCase()))
+    .replace(/\/(M²|M2)(?![A-ZÀ-Ỹ])/g, "/m²");
 
 // chất liệu sáng: thêm viền mảnh tối để không chìm trên tường / trời sáng
 const LIGHT_TEX = new Set(["chrome", "champagne", "pearl", "ice", "concrete", "silverwhite", "mint", "pastel", "holo", "sky", "sand", "jade", "lime", "cyan"]);

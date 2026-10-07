@@ -12329,7 +12329,7 @@ const TEMPLATE_INFO = {
   orangegold: { label: "Cam + v\xE0ng", use: "ph\xE1p l\xFD, quy \u0111\u1ECBnh, b\xE0n giao, ch\xEDnh s\xE1ch" },
   ...Object.fromEntries(Object.entries(PRESETS).map(([k, v]) => [k, { label: v.label, use: v.use }]))
 };
-const upperKeepUnits = (t) => t.toUpperCase().replace(/(\d)(\s?)(M²|M2|KM|HA)(?![A-ZÀ-Ỹ])/g, (_, d, sp, u) => d + sp + (u === "M2" ? "m\xB2" : u.toLowerCase()));
+const upperKeepUnits = (t) => t.toUpperCase().replace(/(\d)(\s?)(M²|M2|KM|HA)(?![A-ZÀ-Ỹ])/g, (_, d, sp, u) => d + sp + (u === "M2" ? "m\xB2" : u.toLowerCase())).replace(/\/(M²|M2)(?![A-ZÀ-Ỹ])/g, "/m\xB2");
 const LIGHT_TEX = /* @__PURE__ */ new Set(["chrome", "champagne", "pearl", "ice", "concrete", "silverwhite", "mint", "pastel", "holo", "sky", "sand", "jade", "lime", "cyan"]);
 const TEMPLATE_GROUPS = [
   ["G\u1ED1c (8 m\u1EABu \u0111\u1EA7u)", [...BASE_STYLES]],
