@@ -4,7 +4,7 @@
 # KHÔNG dùng dynaudnorm/loudnorm sau khi lọc (kéo tiếng nền lên lại). KHÔNG dùng gate (nghe phập phồng).
 set -e
 IN="$1"; OUT="$2"; D="$(mktemp -d)"
-DF="${DEEP_FILTER:-$D/deep-filter}"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"; DF="${DEEP_FILTER:-$ROOT/.work/cloud/bin/deep-filter}"; mkdir -p "$(dirname "$DF")"
 if [ ! -x "$DF" ]; then
   curl -sSL -o "$DF" "https://github.com/Rikorose/DeepFilterNet/releases/download/v0.5.6/deep-filter-0.5.6-x86_64-unknown-linux-musl"
   chmod +x "$DF"
