@@ -1,769 +1,1070 @@
 {
- "meta": {
-  "name": "Thư viện sound effect video bất động sản",
-  "version": "1.0",
-  "created": "2026-10-01",
-  "language": "vi",
-  "total": 43,
-  "purpose": "Danh mục sound effect dùng cho app auto edit video BĐS (TikTok/Reels). File này chỉ chứa thông tin mô tả; file âm thanh thật điền vào trường 'file' sau khi tải.",
-  "notes": [
-   "Điền source_url, author, license, downloaded_at cho từng file đã tải để có bằng chứng nguồn gốc.",
-   "Kiểm tra lại giấy phép hiện tại của Pixabay (pixabay.com/service/license-summary) trước khi phát hành app cho người khác dùng.",
-   "Đã điền 2026-10-01: file nằm trong assets/sfx/. Âm 'Tự tổng hợp' là âm mô phỏng bằng code, không phải bản ghi thật. Mục còn 'todo' cần bản ghi thật (tiếng người, cửa, bước chân, thiên nhiên, phố xá...).",
-   "Bỏ nhóm hài/meme theo yêu cầu (2026-10-01): thư viện chỉ giữ âm chuyên nghiệp."
-  ],
-  "groups": {
-   "transition": "Chuyển cảnh",
-   "text_data": "Chữ và số liệu",
-   "hook_suspense": "Hook và hồi hộp",
-   "reveal": "Tiết lộ sản phẩm",
-   "ambience": "Không khí, cảnh thực tế",
-   "cta": "Chốt và kêu gọi hành động"
+  "meta": {
+    "name": "Thư viện sound effect video bất động sản",
+    "version": "1.0",
+    "created": "2026-10-01",
+    "language": "vi",
+    "total": 63,
+    "purpose": "Danh mục sound effect dùng cho app auto edit video BĐS (TikTok/Reels). File này chỉ chứa thông tin mô tả; file âm thanh thật điền vào trường 'file' sau khi tải.",
+    "notes": [
+      "Điền source_url, author, license, downloaded_at cho từng file đã tải để có bằng chứng nguồn gốc.",
+      "Kiểm tra lại giấy phép hiện tại của Pixabay (pixabay.com/service/license-summary) trước khi phát hành app cho người khác dùng.",
+      "Đã điền 2026-10-01: file nằm trong assets/sfx/. Âm 'Tự tổng hợp' là âm mô phỏng bằng code, không phải bản ghi thật. Mục còn 'todo' cần bản ghi thật (tiếng người, cửa, bước chân, thiên nhiên, phố xá...).",
+      "Bỏ nhóm hài/meme theo yêu cầu (2026-10-01): thư viện chỉ giữ âm chuyên nghiệp."
+    ],
+    "groups": {
+      "transition": "Chuyển cảnh",
+      "text_data": "Chữ và số liệu",
+      "hook_suspense": "Hook và hồi hộp",
+      "reveal": "Tiết lộ sản phẩm",
+      "ambience": "Không khí, cảnh thực tế",
+      "cta": "Chốt và kêu gọi hành động",
+      "nhat": "Bộ anh Nhật chọn (dùng cho chữ nhấn)"
+    },
+    "status_values": [
+      "todo",
+      "downloaded",
+      "rejected"
+    ]
   },
-  "status_values": [
-   "todo",
-   "downloaded",
-   "rejected"
+  "sounds": [
+    {
+      "id": "sfx_001",
+      "name": "Whoosh nhanh",
+      "group": "transition",
+      "use_when": "Cắt giữa các phòng, các góc quay",
+      "pixabay_keywords": [
+        "whoosh fast"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fast-whoosh.mp3",
+      "source_url": "Có sẵn trong repo autoeditvideo (README ghi CC0) — chưa có link gốc",
+      "author": "Chưa rõ",
+      "license": "CC0 (theo README repo)",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_002",
+      "name": "Whoosh dài, nhẹ",
+      "group": "transition",
+      "use_when": "Từ cảnh ngoài vào trong, từ tổng quan sang chi tiết",
+      "pixabay_keywords": [
+        "airy whoosh"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "cn-whoosh-soft.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_003",
+      "name": "Swipe / slide",
+      "group": "transition",
+      "use_when": "Lướt qua nhiều ảnh, mặt bằng",
+      "pixabay_keywords": [
+        "swipe",
+        "slide"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "swipe.mp3",
+      "source_url": "Có sẵn trong repo autoeditvideo (README ghi CC0) — chưa có link gốc",
+      "author": "Chưa rõ",
+      "license": "CC0 (theo README repo)",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_004",
+      "name": "Camera shutter",
+      "group": "transition",
+      "use_when": "Chuyển sang ảnh tĩnh, 'chụp' căn hộ",
+      "pixabay_keywords": [
+        "camera shutter"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "camera-1.mp3",
+      "source_url": "Có sẵn trong repo autoeditvideo (README ghi CC0) — chưa có link gốc",
+      "author": "Chưa rõ",
+      "license": "CC0 (theo README repo)",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_005",
+      "name": "Glitch",
+      "group": "transition",
+      "use_when": "So sánh trước/sau, chuyển ý bất ngờ",
+      "pixabay_keywords": [
+        "glitch"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-glitch.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_006",
+      "name": "Rewind",
+      "group": "transition",
+      "use_when": "Nhắc lại, so với dự án hoặc giá cũ",
+      "pixabay_keywords": [
+        "rewind"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-rewind.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_007",
+      "name": "Page flip",
+      "group": "transition",
+      "use_when": "Lật bảng giá, hồ sơ pháp lý",
+      "pixabay_keywords": [
+        "page turn"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-page-flip.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_008",
+      "name": "Zoom whoosh",
+      "group": "transition",
+      "use_when": "Zoom vào vị trí trên bản đồ",
+      "pixabay_keywords": [
+        "zoom whoosh"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-zoom-whoosh.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_009",
+      "name": "Pop",
+      "group": "text_data",
+      "use_when": "Chữ hiện lên (tên dự án, diện tích, số phòng)",
+      "pixabay_keywords": [
+        "pop"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "cn-pop.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_010",
+      "name": "Click nhẹ",
+      "group": "text_data",
+      "use_when": "Từng gạch đầu dòng hiện ra",
+      "pixabay_keywords": [
+        "click"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "kn-select.mp3",
+      "source_url": "https://github.com/Calinou/kenney-interface-sounds",
+      "author": "Kenney (kenney.nl)",
+      "license": "CC0 1.0",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_011",
+      "name": "Keyboard typing",
+      "group": "text_data",
+      "use_when": "Dòng giá, câu hỏi gõ ra màn hình",
+      "pixabay_keywords": [
+        "keyboard typing"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "cn-typing-14.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_012",
+      "name": "Ding chữ",
+      "group": "text_data",
+      "use_when": "Con số quan trọng (giá/m², chiết khấu)",
+      "pixabay_keywords": [
+        "ding",
+        "notification"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-ding.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_013",
+      "name": "Coin / máy tính tiền",
+      "group": "text_data",
+      "use_when": "Nói về giá, lợi nhuận, dòng tiền thuê",
+      "pixabay_keywords": [
+        "coin",
+        "cash register"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-coin.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_014",
+      "name": "Counter tick",
+      "group": "text_data",
+      "use_when": "Số chạy tăng (giá tăng %, số căn đã bán)",
+      "pixabay_keywords": [
+        "counter",
+        "tick"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-counter-tick.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_015",
+      "name": "Mouse click",
+      "group": "text_data",
+      "use_when": "Mô phỏng bấm đăng ký, xem bảng hàng",
+      "pixabay_keywords": [
+        "mouse click"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "cn-click.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_016",
+      "name": "Notification",
+      "group": "text_data",
+      "use_when": "'Có căn mới', tin nóng",
+      "pixabay_keywords": [
+        "notification"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-notification.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_017",
+      "name": "Impact / boom",
+      "group": "hook_suspense",
+      "use_when": "Câu hook đầu video",
+      "pixabay_keywords": [
+        "impact",
+        "boom"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-boom.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_018",
+      "name": "Riser",
+      "group": "hook_suspense",
+      "use_when": "Ngay trước khi tiết lộ giá hoặc kết luận",
+      "pixabay_keywords": [
+        "riser"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "cn-riser.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_019",
+      "name": "Heartbeat",
+      "group": "hook_suspense",
+      "use_when": "Chủ đề rủi ro: 'đừng mua nếu...' (không dùng cho nội dung quảng bá thuần túy)",
+      "pixabay_keywords": [
+        "heartbeat"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-heartbeat.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_020",
+      "name": "Alert / warning",
+      "group": "hook_suspense",
+      "use_when": "Cảnh báo pháp lý, quy hoạch, chiêu bán hàng",
+      "pixabay_keywords": [
+        "warning alert"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-alert.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_021",
+      "name": "Record scratch",
+      "group": "hook_suspense",
+      "use_when": "'Khoan đã', đảo ý giữa chừng",
+      "pixabay_keywords": [
+        "record scratch"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-record-scratch.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_022",
+      "name": "Suspense drone",
+      "group": "hook_suspense",
+      "use_when": "Phần nói về rủi ro, hậu quả",
+      "pixabay_keywords": [
+        "suspense"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-suspense-drone.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_023",
+      "name": "Magic reveal",
+      "group": "reveal",
+      "use_when": "Lộ view, mở cửa vào căn hộ",
+      "pixabay_keywords": [
+        "magic reveal"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-magic-reveal.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_024",
+      "name": "Door open",
+      "group": "reveal",
+      "use_when": "Mở cửa vào nhà",
+      "pixabay_keywords": [
+        "door open"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_025",
+      "name": "Keys jingle",
+      "group": "reveal",
+      "use_when": "Bàn giao nhà, nhận chìa khóa",
+      "pixabay_keywords": [
+        "keys"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_026",
+      "name": "Sparkle / chime",
+      "group": "reveal",
+      "use_when": "Điểm nổi bật: view, nội thất, tiện ích",
+      "pixabay_keywords": [
+        "sparkle",
+        "chime"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "cn-shimmer.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_027",
+      "name": "Success ding",
+      "group": "reveal",
+      "use_when": "Điểm cộng: pháp lý sạch, vị trí đẹp",
+      "pixabay_keywords": [
+        "success"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-success.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_028",
+      "name": "Stamp",
+      "group": "reveal",
+      "use_when": "'Đã có sổ', 'pháp lý đầy đủ'",
+      "pixabay_keywords": [
+        "stamp"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "cn-stamp.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_029",
+      "name": "Applause nhẹ",
+      "group": "reveal",
+      "use_when": "Chốt giao dịch, khách nhận nhà",
+      "pixabay_keywords": [
+        "applause"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_030",
+      "name": "Bước chân sàn gỗ",
+      "group": "ambience",
+      "use_when": "Quay walkthrough trong căn",
+      "pixabay_keywords": [
+        "footsteps wood"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_031",
+      "name": "Door close",
+      "group": "ambience",
+      "use_when": "Kết thúc một cảnh trong nhà",
+      "pixabay_keywords": [
+        "door close"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_032",
+      "name": "Phố xá, xe cộ",
+      "group": "ambience",
+      "use_when": "Cảnh mặt tiền, đường lớn",
+      "pixabay_keywords": [
+        "city traffic"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_033",
+      "name": "Chim, thiên nhiên",
+      "group": "ambience",
+      "use_when": "Khu đô thị xanh, công viên",
+      "pixabay_keywords": [
+        "birds"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_034",
+      "name": "Nước, đài phun",
+      "group": "ambience",
+      "use_when": "Hồ bơi, cảnh quan nội khu",
+      "pixabay_keywords": [
+        "water fountain"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_035",
+      "name": "Trẻ em chơi",
+      "group": "ambience",
+      "use_when": "Khu vui chơi, nhấn mạnh an cư cho gia đình",
+      "pixabay_keywords": [
+        "kids playing"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_036",
+      "name": "Thang máy ding",
+      "group": "ambience",
+      "use_when": "Cảnh tòa nhà, sảnh",
+      "pixabay_keywords": [
+        "elevator ding"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-elevator-ding.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_037",
+      "name": "Công trường",
+      "group": "ambience",
+      "use_when": "Tiến độ thi công",
+      "pixabay_keywords": [
+        "construction"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "",
+      "source_url": "",
+      "author": "",
+      "license": "",
+      "downloaded_at": "",
+      "status": "todo"
+    },
+    {
+      "id": "sfx_038",
+      "name": "Phone ring",
+      "group": "cta",
+      "use_when": "'Gọi ngay', hiện số điện thoại",
+      "pixabay_keywords": [
+        "phone ring"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-phone-ring.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_039",
+      "name": "Message pop",
+      "group": "cta",
+      "use_when": "'Inbox mình', hiện Zalo",
+      "pixabay_keywords": [
+        "message notification"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-message-pop.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_040",
+      "name": "Coin drop",
+      "group": "cta",
+      "use_when": "Ưu đãi, chiết khấu",
+      "pixabay_keywords": [
+        "coin drop"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-coin-drop.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_041",
+      "name": "Bell ding",
+      "group": "cta",
+      "use_when": "Câu CTA cuối",
+      "pixabay_keywords": [
+        "bell"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-bell.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_042",
+      "name": "Outro jingle ngắn",
+      "group": "cta",
+      "use_when": "Kết video, hiện logo",
+      "pixabay_keywords": [
+        "short jingle"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-outro-jingle.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "sfx_043",
+      "name": "Whoosh + ding",
+      "group": "cta",
+      "use_when": "Hiện khung thông tin liên hệ",
+      "pixabay_keywords": [
+        "whoosh",
+        "ding"
+      ],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "fx-whoosh-ding.mp3",
+      "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
+      "author": "Claude (cho BĐS Video Studio)",
+      "license": "Tự tạo, không phụ thuộc bên thứ ba",
+      "downloaded_at": "2026-10-01",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_001",
+      "name": "Impact trầm",
+      "group": "nhat",
+      "use_when": "Nhấn mạnh",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-impact.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_002",
+      "name": "Màn trập (click)",
+      "group": "nhat",
+      "use_when": "Chụp ảnh",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-shutter-click.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_003",
+      "name": "Whoosh nhanh",
+      "group": "nhat",
+      "use_when": "Whoosh",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-whoosh-quick.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_004",
+      "name": "Màn trập máy ảnh",
+      "group": "nhat",
+      "use_when": "Chụp ảnh",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-shutter.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_005",
+      "name": "Pop",
+      "group": "nhat",
+      "use_when": "Bật",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-pop.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_006",
+      "name": "Đồng xu",
+      "group": "nhat",
+      "use_when": "Tiền / con số",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-coin.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_007",
+      "name": "Gõ + gửi tin",
+      "group": "nhat",
+      "use_when": "Gõ chữ",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-text-send.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_008",
+      "name": "Pick (gảy)",
+      "group": "nhat",
+      "use_when": "Bật",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-pick.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_009",
+      "name": "Chuông thành công",
+      "group": "nhat",
+      "use_when": "Tích cực",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-success.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_010",
+      "name": "Swish",
+      "group": "nhat",
+      "use_when": "Whoosh",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-swish.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_011",
+      "name": "Sai / cảnh báo",
+      "group": "nhat",
+      "use_when": "Cảnh báo",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-wrong.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_012",
+      "name": "Tin nhắn",
+      "group": "nhat",
+      "use_when": "Thông báo",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-message.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_013",
+      "name": "Gõ bàn phím",
+      "group": "nhat",
+      "use_when": "Gõ chữ",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-typing-keyboard.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_014",
+      "name": "Whoosh vải",
+      "group": "nhat",
+      "use_when": "Whoosh",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-whoosh-cape.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_015",
+      "name": "Whoosh nặng",
+      "group": "nhat",
+      "use_when": "Whoosh",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-whoosh-hammer.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_016",
+      "name": "Whoosh mảnh",
+      "group": "nhat",
+      "use_when": "Whoosh",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-whoosh-rod.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_017",
+      "name": "Gõ phím",
+      "group": "nhat",
+      "use_when": "Gõ chữ",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-typing.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_018",
+      "name": "Click chuột",
+      "group": "nhat",
+      "use_when": "Bật",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-click.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_019",
+      "name": "Thông báo mới",
+      "group": "nhat",
+      "use_when": "Thông báo",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-notify.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    },
+    {
+      "id": "nr_020",
+      "name": "Lật trang",
+      "group": "nhat",
+      "use_when": "Chuyển ý",
+      "pixabay_keywords": [],
+      "tone": "professional",
+      "license_risk": "low",
+      "file": "nr-page.mp3",
+      "source_url": "Anh Nhật tải và gửi 2026-10-07 (tên file gốc dạng Pixabay: tác giả-tên-mã số)",
+      "author": "Xem tên file gốc",
+      "license": "Theo giấy phép nơi anh Nhật tải (Pixabay Content License nếu từ Pixabay)",
+      "downloaded_at": "2026-10-07",
+      "status": "downloaded"
+    }
   ]
- },
- "sounds": [
-  {
-   "id": "sfx_001",
-   "name": "Whoosh nhanh",
-   "group": "transition",
-   "use_when": "Cắt giữa các phòng, các góc quay",
-   "pixabay_keywords": [
-    "whoosh fast"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fast-whoosh.mp3",
-   "source_url": "Có sẵn trong repo autoeditvideo (README ghi CC0) — chưa có link gốc",
-   "author": "Chưa rõ",
-   "license": "CC0 (theo README repo)",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_002",
-   "name": "Whoosh dài, nhẹ",
-   "group": "transition",
-   "use_when": "Từ cảnh ngoài vào trong, từ tổng quan sang chi tiết",
-   "pixabay_keywords": [
-    "airy whoosh"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "cn-whoosh-soft.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_003",
-   "name": "Swipe / slide",
-   "group": "transition",
-   "use_when": "Lướt qua nhiều ảnh, mặt bằng",
-   "pixabay_keywords": [
-    "swipe",
-    "slide"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "swipe.mp3",
-   "source_url": "Có sẵn trong repo autoeditvideo (README ghi CC0) — chưa có link gốc",
-   "author": "Chưa rõ",
-   "license": "CC0 (theo README repo)",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_004",
-   "name": "Camera shutter",
-   "group": "transition",
-   "use_when": "Chuyển sang ảnh tĩnh, 'chụp' căn hộ",
-   "pixabay_keywords": [
-    "camera shutter"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "camera-1.mp3",
-   "source_url": "Có sẵn trong repo autoeditvideo (README ghi CC0) — chưa có link gốc",
-   "author": "Chưa rõ",
-   "license": "CC0 (theo README repo)",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_005",
-   "name": "Glitch",
-   "group": "transition",
-   "use_when": "So sánh trước/sau, chuyển ý bất ngờ",
-   "pixabay_keywords": [
-    "glitch"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-glitch.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_006",
-   "name": "Rewind",
-   "group": "transition",
-   "use_when": "Nhắc lại, so với dự án hoặc giá cũ",
-   "pixabay_keywords": [
-    "rewind"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-rewind.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_007",
-   "name": "Page flip",
-   "group": "transition",
-   "use_when": "Lật bảng giá, hồ sơ pháp lý",
-   "pixabay_keywords": [
-    "page turn"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-page-flip.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_008",
-   "name": "Zoom whoosh",
-   "group": "transition",
-   "use_when": "Zoom vào vị trí trên bản đồ",
-   "pixabay_keywords": [
-    "zoom whoosh"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-zoom-whoosh.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_009",
-   "name": "Pop",
-   "group": "text_data",
-   "use_when": "Chữ hiện lên (tên dự án, diện tích, số phòng)",
-   "pixabay_keywords": [
-    "pop"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "cn-pop.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_010",
-   "name": "Click nhẹ",
-   "group": "text_data",
-   "use_when": "Từng gạch đầu dòng hiện ra",
-   "pixabay_keywords": [
-    "click"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "kn-select.mp3",
-   "source_url": "https://github.com/Calinou/kenney-interface-sounds",
-   "author": "Kenney (kenney.nl)",
-   "license": "CC0 1.0",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_011",
-   "name": "Keyboard typing",
-   "group": "text_data",
-   "use_when": "Dòng giá, câu hỏi gõ ra màn hình",
-   "pixabay_keywords": [
-    "keyboard typing"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "cn-typing-14.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_012",
-   "name": "Ding chữ",
-   "group": "text_data",
-   "use_when": "Con số quan trọng (giá/m², chiết khấu)",
-   "pixabay_keywords": [
-    "ding",
-    "notification"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-ding.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_013",
-   "name": "Coin / máy tính tiền",
-   "group": "text_data",
-   "use_when": "Nói về giá, lợi nhuận, dòng tiền thuê",
-   "pixabay_keywords": [
-    "coin",
-    "cash register"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-coin.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_014",
-   "name": "Counter tick",
-   "group": "text_data",
-   "use_when": "Số chạy tăng (giá tăng %, số căn đã bán)",
-   "pixabay_keywords": [
-    "counter",
-    "tick"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-counter-tick.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_015",
-   "name": "Mouse click",
-   "group": "text_data",
-   "use_when": "Mô phỏng bấm đăng ký, xem bảng hàng",
-   "pixabay_keywords": [
-    "mouse click"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "cn-click.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_016",
-   "name": "Notification",
-   "group": "text_data",
-   "use_when": "'Có căn mới', tin nóng",
-   "pixabay_keywords": [
-    "notification"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-notification.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_017",
-   "name": "Impact / boom",
-   "group": "hook_suspense",
-   "use_when": "Câu hook đầu video",
-   "pixabay_keywords": [
-    "impact",
-    "boom"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-boom.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_018",
-   "name": "Riser",
-   "group": "hook_suspense",
-   "use_when": "Ngay trước khi tiết lộ giá hoặc kết luận",
-   "pixabay_keywords": [
-    "riser"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "cn-riser.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_019",
-   "name": "Heartbeat",
-   "group": "hook_suspense",
-   "use_when": "Chủ đề rủi ro: 'đừng mua nếu...' (không dùng cho nội dung quảng bá thuần túy)",
-   "pixabay_keywords": [
-    "heartbeat"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-heartbeat.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_020",
-   "name": "Alert / warning",
-   "group": "hook_suspense",
-   "use_when": "Cảnh báo pháp lý, quy hoạch, chiêu bán hàng",
-   "pixabay_keywords": [
-    "warning alert"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-alert.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_021",
-   "name": "Record scratch",
-   "group": "hook_suspense",
-   "use_when": "'Khoan đã', đảo ý giữa chừng",
-   "pixabay_keywords": [
-    "record scratch"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-record-scratch.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_022",
-   "name": "Suspense drone",
-   "group": "hook_suspense",
-   "use_when": "Phần nói về rủi ro, hậu quả",
-   "pixabay_keywords": [
-    "suspense"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-suspense-drone.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_023",
-   "name": "Magic reveal",
-   "group": "reveal",
-   "use_when": "Lộ view, mở cửa vào căn hộ",
-   "pixabay_keywords": [
-    "magic reveal"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-magic-reveal.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_024",
-   "name": "Door open",
-   "group": "reveal",
-   "use_when": "Mở cửa vào nhà",
-   "pixabay_keywords": [
-    "door open"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_025",
-   "name": "Keys jingle",
-   "group": "reveal",
-   "use_when": "Bàn giao nhà, nhận chìa khóa",
-   "pixabay_keywords": [
-    "keys"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_026",
-   "name": "Sparkle / chime",
-   "group": "reveal",
-   "use_when": "Điểm nổi bật: view, nội thất, tiện ích",
-   "pixabay_keywords": [
-    "sparkle",
-    "chime"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "cn-shimmer.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_027",
-   "name": "Success ding",
-   "group": "reveal",
-   "use_when": "Điểm cộng: pháp lý sạch, vị trí đẹp",
-   "pixabay_keywords": [
-    "success"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-success.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_028",
-   "name": "Stamp",
-   "group": "reveal",
-   "use_when": "'Đã có sổ', 'pháp lý đầy đủ'",
-   "pixabay_keywords": [
-    "stamp"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "cn-stamp.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_029",
-   "name": "Applause nhẹ",
-   "group": "reveal",
-   "use_when": "Chốt giao dịch, khách nhận nhà",
-   "pixabay_keywords": [
-    "applause"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_030",
-   "name": "Bước chân sàn gỗ",
-   "group": "ambience",
-   "use_when": "Quay walkthrough trong căn",
-   "pixabay_keywords": [
-    "footsteps wood"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_031",
-   "name": "Door close",
-   "group": "ambience",
-   "use_when": "Kết thúc một cảnh trong nhà",
-   "pixabay_keywords": [
-    "door close"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_032",
-   "name": "Phố xá, xe cộ",
-   "group": "ambience",
-   "use_when": "Cảnh mặt tiền, đường lớn",
-   "pixabay_keywords": [
-    "city traffic"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_033",
-   "name": "Chim, thiên nhiên",
-   "group": "ambience",
-   "use_when": "Khu đô thị xanh, công viên",
-   "pixabay_keywords": [
-    "birds"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_034",
-   "name": "Nước, đài phun",
-   "group": "ambience",
-   "use_when": "Hồ bơi, cảnh quan nội khu",
-   "pixabay_keywords": [
-    "water fountain"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_035",
-   "name": "Trẻ em chơi",
-   "group": "ambience",
-   "use_when": "Khu vui chơi, nhấn mạnh an cư cho gia đình",
-   "pixabay_keywords": [
-    "kids playing"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_036",
-   "name": "Thang máy ding",
-   "group": "ambience",
-   "use_when": "Cảnh tòa nhà, sảnh",
-   "pixabay_keywords": [
-    "elevator ding"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-elevator-ding.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_037",
-   "name": "Công trường",
-   "group": "ambience",
-   "use_when": "Tiến độ thi công",
-   "pixabay_keywords": [
-    "construction"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "",
-   "source_url": "",
-   "author": "",
-   "license": "",
-   "downloaded_at": "",
-   "status": "todo"
-  },
-  {
-   "id": "sfx_038",
-   "name": "Phone ring",
-   "group": "cta",
-   "use_when": "'Gọi ngay', hiện số điện thoại",
-   "pixabay_keywords": [
-    "phone ring"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-phone-ring.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_039",
-   "name": "Message pop",
-   "group": "cta",
-   "use_when": "'Inbox mình', hiện Zalo",
-   "pixabay_keywords": [
-    "message notification"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-message-pop.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_040",
-   "name": "Coin drop",
-   "group": "cta",
-   "use_when": "Ưu đãi, chiết khấu",
-   "pixabay_keywords": [
-    "coin drop"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-coin-drop.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_041",
-   "name": "Bell ding",
-   "group": "cta",
-   "use_when": "Câu CTA cuối",
-   "pixabay_keywords": [
-    "bell"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-bell.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_042",
-   "name": "Outro jingle ngắn",
-   "group": "cta",
-   "use_when": "Kết video, hiện logo",
-   "pixabay_keywords": [
-    "short jingle"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-outro-jingle.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  },
-  {
-   "id": "sfx_043",
-   "name": "Whoosh + ding",
-   "group": "cta",
-   "use_when": "Hiện khung thông tin liên hệ",
-   "pixabay_keywords": [
-    "whoosh",
-    "ding"
-   ],
-   "tone": "professional",
-   "license_risk": "low",
-   "file": "fx-whoosh-ding.mp3",
-   "source_url": "Tự tổng hợp bằng code (scripts/synth-sfx.py, synth-sfx-2.py)",
-   "author": "Claude (cho BĐS Video Studio)",
-   "license": "Tự tạo, không phụ thuộc bên thứ ba",
-   "downloaded_at": "2026-10-01",
-   "status": "downloaded"
-  }
- ]
 }

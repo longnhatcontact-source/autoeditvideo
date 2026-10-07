@@ -529,54 +529,6 @@ const BASE_BODIES: Record<BaseStyle, React.FC<TemplateParts>> = {
   orangegold: OrangeGold,
 };
 
-/** tiếng đi kèm (giây tính từ lúc chữ hiện) — khớp nhịp hình ở trên */
-function baseSounds(style: BaseStyle, fps = 30): { id: string; at: number; volume: number }[] {
-  const f = (n: number) => n / fps;
-  switch (style) {
-    case "city":
-      return [
-        { id: "cn-whoosh-soft.mp3", at: -0.05, volume: 0.5 },
-        { id: "kn-pluck.mp3", at: f(13), volume: 0.35 },
-      ];
-    case "bigyellow":
-      return [
-        { id: "cn-whoosh-fast.mp3", at: -0.12, volume: 0.55 },
-        { id: "impact-hit-3.mp3", at: f(3), volume: 0.4 },
-      ];
-    case "redbold":
-      return [
-        { id: "cn-whoosh-fast.mp3", at: -0.05, volume: 0.45 },
-        { id: "cn-stamp.mp3", at: f(12), volume: 0.45 },
-      ];
-    case "sea":
-      return [
-        { id: "cn-whoosh-soft.mp3", at: 0, volume: 0.55 },
-        { id: "cn-shimmer.mp3", at: f(16), volume: 0.35 },
-      ];
-    case "marble":
-      return [
-        { id: "cn-riser.mp3", at: f(20) - 0.7, volume: 0.35 },
-        { id: "kn-select.mp3", at: f(18), volume: 0.4 },
-      ];
-    case "luxgold":
-      return [
-        { id: "cn-whoosh-soft.mp3", at: 0, volume: 0.5 },
-        { id: "cn-shimmer.mp3", at: f(16), volume: 0.45 },
-      ];
-    case "neonsea":
-      return [
-        { id: "cn-click.mp3", at: 0, volume: 0.55 },
-        { id: "cn-neon.mp3", at: f(4), volume: 0.45 },
-      ];
-    case "orangegold":
-      return [
-        { id: "cn-whoosh-fast.mp3", at: -0.08, volume: 0.45 },
-        { id: "cn-whoosh-fast.mp3", at: f(4) - 0.08, volume: 0.4 },
-        { id: "cn-shimmer.mp3", at: f(18), volume: 0.4 },
-      ];
-  }
-}
-
 // ======================================================================================
 // 50 mẫu mở rộng — cùng tinh thần 8 mẫu gốc (dòng trên nhỏ + chữ chính lớn có chất liệu, KHÔNG có nền/thẻ đen),
 // ghép từ: kiểu dòng trên · font chữ chính · chất liệu · hiệu ứng vào · hiệu ứng ra.
@@ -1149,41 +1101,78 @@ export const TEMPLATE_BODIES: Record<TemplateStyle, React.FC<TemplateParts>> = {
   ...(Object.fromEntries(Object.entries(PRESETS).map(([k, v]) => [k, PresetBody(v)])) as Record<PresetStyle, React.FC<TemplateParts>>),
 };
 
-/** tiếng đi kèm (giây tính từ lúc chữ hiện) — khớp nhịp hình */
-export function templateSounds(style: TemplateStyle, fps = 30): { id: string; at: number; volume: number }[] {
-  if ((BASE_STYLES as readonly string[]).includes(style)) return baseSounds(style as BaseStyle, fps);
-  const cfg = PRESETS[style as PresetStyle];
+/**
+ * Tiếng đi kèm chữ nhấn (giây tính từ lúc chữ hiện) — dùng bộ SFX anh Nhật chọn (assets/sfx/nr-*.mp3).
+ * Mỗi chữ nhấn 1 tiếng chính gọn (thêm 1 tiếng whoosh dẫn nếu cần), không chồng nhiều lớp.
+ */
+type Snd = { id: string; at: number; volume: number };
+const S = (id: string, at = 0, volume = 0.6): Snd => ({ id: `nr-${id}.mp3`, at, volume });
+const STYLE_SOUNDS: Partial<Record<TemplateStyle, (f: (n: number) => number) => Snd[]>> = {
+  // 8 mẫu gốc
+  city: () => [S("whoosh-cape", 0, 0.5)],
+  bigyellow: (f) => [S("pop", f(1), 0.6)],
+  redbold: (f) => [S("whoosh-hammer", 0, 0.45), S("impact", f(10), 0.5)],
+  sea: () => [S("swish", 0, 0.6)],
+  marble: (f) => [S("shutter-click", f(14), 0.55)],
+  luxgold: (f) => [S("whoosh-quick", f(2), 0.5), S("success", f(14), 0.35)],
+  neonsea: (f) => [S("click", f(3), 0.6)],
+  orangegold: (f) => [S("whoosh-quick", 0, 0.5)],
+  // giá / tiền
+  goldnumber: (f) => [S("whoosh-quick", 0, 0.4), S("coin", f(10), 0.55)],
+  investor: (f) => [S("whoosh-quick", 0, 0.4), S("coin", f(12), 0.5)],
+  countdown: (f) => [S("impact", f(4), 0.5)],
+  // cảnh báo
+  redseal: (f) => [S("whoosh-hammer", 0, 0.4), S("impact", f(6), 0.5)],
+  alarm: (f) => [S("wrong", f(4), 0.4)],
+  warning: (f) => [S("notify", f(4), 0.45)],
+  // hỏi / kêu gọi / tin
+  question: (f) => [S("message", f(4), 0.6)],
+  headline: (f) => [S("notify", f(2), 0.45)],
+  // tên dự án / ảnh đẹp
+  pearl: (f) => [S("shutter-click", f(12), 0.5)],
+  champagne: (f) => [S("shutter", f(12), 0.5)],
+  silverserif: (f) => [S("shutter-click", f(14), 0.5)],
+  // kể chuyện / giấy tờ
+  magazine: (f) => [S("page", f(2), 0.6)],
+  handwritten: (f) => [S("pick", f(2), 0.55)],
+  goldscript: (f) => [S("pick", f(2), 0.5), S("success", f(18), 0.3)],
+  typewriter: (f) => [S("typing", f(2), 0.5)],
+  tealdata: (f) => [S("typing-keyboard", f(2), 0.5)],
+};
+
+export function templateSounds(style: TemplateStyle, fps = 30): Snd[] {
   const f = (n: number) => n / fps;
-  const tail = cfg.shine ? [{ id: "cn-shimmer.mp3", at: f(16), volume: 0.4 }] : [];
+  const own = STYLE_SOUNDS[style];
+  if (own) return own(f);
+  const cfg = PRESETS[style as PresetStyle];
+  if (!cfg) return [];
   switch (cfg.anim) {
     case "rise":
     case "wipe":
     case "slideL":
     case "slideR":
     case "split":
-      return [{ id: "cn-whoosh-soft.mp3", at: 0, volume: 0.5 }, ...(tail.length ? tail : [{ id: "kn-pluck.mp3", at: f(14), volume: 0.3 }])];
+      return [S("whoosh-quick", f(1), 0.5)];
     case "pop":
     case "zoom":
     case "bounce":
-      return [{ id: "cn-whoosh-fast.mp3", at: -0.1, volume: 0.5 }, { id: "impact-hit-3.mp3", at: f(3), volume: 0.35 }, ...tail];
+      return [S("pop", f(1), 0.6)];
     case "slam":
     case "stamp":
-      return [{ id: "cn-whoosh-fast.mp3", at: -0.1, volume: 0.45 }, { id: "cn-stamp.mp3", at: f(6), volume: 0.45 }];
     case "drop":
-      return [{ id: "cn-whoosh-fast.mp3", at: -0.05, volume: 0.45 }, { id: "cn-stamp.mp3", at: f(12), volume: 0.45 }];
+    case "shake":
+      return [S("whoosh-hammer", 0, 0.4), S("impact", f(6), 0.45)];
     case "type":
-      return [{ id: "cn-typing-14.mp3", at: f(2), volume: 0.45 }];
+      return [S("typing", f(2), 0.5)];
     case "flicker":
-      return [{ id: "cn-click.mp3", at: 0, volume: 0.55 }, { id: "cn-neon.mp3", at: f(4), volume: 0.45 }];
+      return [S("click", f(3), 0.6)];
     case "blur":
     case "track":
-      return [{ id: "cn-riser.mp3", at: f(16) - 0.7, volume: 0.35 }, { id: "kn-select.mp3", at: f(16), volume: 0.4 }, ...tail];
+      return [S("swish", f(2), 0.6)];
     case "write":
-      return [{ id: "cn-whoosh-soft.mp3", at: 0, volume: 0.45 }, { id: "cn-ting.mp3", at: f(22), volume: 0.3 }];
-    case "shake":
-      return [{ id: "cn-whoosh-fast.mp3", at: -0.05, volume: 0.45 }, { id: "impact-hit-1.mp3", at: f(2), volume: 0.35 }];
+      return [S("pick", f(2), 0.55)];
     case "wave":
-      return [{ id: "cn-whoosh-soft.mp3", at: 0, volume: 0.5 }, { id: "kn-pluck.mp3", at: f(14), volume: 0.3 }];
+      return [S("whoosh-rod", f(2), 0.6)];
   }
   return [];
 }

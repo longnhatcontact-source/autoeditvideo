@@ -12147,52 +12147,6 @@ const BASE_BODIES = {
   neonsea: NeonSea,
   orangegold: OrangeGold
 };
-function baseSounds(style, fps = 30) {
-  const f = (n) => n / fps;
-  switch (style) {
-    case "city":
-      return [
-        { id: "cn-whoosh-soft.mp3", at: -0.05, volume: 0.5 },
-        { id: "kn-pluck.mp3", at: f(13), volume: 0.35 }
-      ];
-    case "bigyellow":
-      return [
-        { id: "cn-whoosh-fast.mp3", at: -0.12, volume: 0.55 },
-        { id: "impact-hit-3.mp3", at: f(3), volume: 0.4 }
-      ];
-    case "redbold":
-      return [
-        { id: "cn-whoosh-fast.mp3", at: -0.05, volume: 0.45 },
-        { id: "cn-stamp.mp3", at: f(12), volume: 0.45 }
-      ];
-    case "sea":
-      return [
-        { id: "cn-whoosh-soft.mp3", at: 0, volume: 0.55 },
-        { id: "cn-shimmer.mp3", at: f(16), volume: 0.35 }
-      ];
-    case "marble":
-      return [
-        { id: "cn-riser.mp3", at: f(20) - 0.7, volume: 0.35 },
-        { id: "kn-select.mp3", at: f(18), volume: 0.4 }
-      ];
-    case "luxgold":
-      return [
-        { id: "cn-whoosh-soft.mp3", at: 0, volume: 0.5 },
-        { id: "cn-shimmer.mp3", at: f(16), volume: 0.45 }
-      ];
-    case "neonsea":
-      return [
-        { id: "cn-click.mp3", at: 0, volume: 0.55 },
-        { id: "cn-neon.mp3", at: f(4), volume: 0.45 }
-      ];
-    case "orangegold":
-      return [
-        { id: "cn-whoosh-fast.mp3", at: -0.08, volume: 0.45 },
-        { id: "cn-whoosh-fast.mp3", at: f(4) - 0.08, volume: 0.4 },
-        { id: "cn-shimmer.mp3", at: f(18), volume: 0.4 }
-      ];
-  }
-}
 const lg = (deg, ...stops) => `linear-gradient(${deg}deg, ${stops.join(", ")})`;
 const sparkle = (s, r = "1", g = "1", b = "1", a = "2.4", o = "-1.35") => noise("k", "fractalNoise", "0.85", 2, s, `0 0 0 0 ${r}  0 0 0 0 ${g}  0 0 0 0 ${b}  ${a} 0 0 0 ${o}`);
 const metal = (...c) => lg(180, `${c[0]} 0%`, `${c[1]} 30%`, `${c[2]} 52%`, `${c[3]} 70%`, `${c[4]} 100%`);
@@ -12657,40 +12611,72 @@ const TEMPLATE_BODIES = {
   ...BASE_BODIES,
   ...Object.fromEntries(Object.entries(PRESETS).map(([k, v]) => [k, PresetBody(v)]))
 };
+const S = (id, at = 0, volume = 0.6) => ({ id: `nr-${id}.mp3`, at, volume });
+const STYLE_SOUNDS = {
+  // 8 mẫu gốc
+  city: () => [S("whoosh-cape", 0, 0.5)],
+  bigyellow: (f) => [S("pop", f(1), 0.6)],
+  redbold: (f) => [S("whoosh-hammer", 0, 0.45), S("impact", f(10), 0.5)],
+  sea: () => [S("swish", 0, 0.6)],
+  marble: (f) => [S("shutter-click", f(14), 0.55)],
+  luxgold: (f) => [S("whoosh-quick", f(2), 0.5), S("success", f(14), 0.35)],
+  neonsea: (f) => [S("click", f(3), 0.6)],
+  orangegold: (f) => [S("whoosh-quick", 0, 0.5)],
+  // giá / tiền
+  goldnumber: (f) => [S("whoosh-quick", 0, 0.4), S("coin", f(10), 0.55)],
+  investor: (f) => [S("whoosh-quick", 0, 0.4), S("coin", f(12), 0.5)],
+  countdown: (f) => [S("impact", f(4), 0.5)],
+  // cảnh báo
+  redseal: (f) => [S("whoosh-hammer", 0, 0.4), S("impact", f(6), 0.5)],
+  alarm: (f) => [S("wrong", f(4), 0.4)],
+  warning: (f) => [S("notify", f(4), 0.45)],
+  // hỏi / kêu gọi / tin
+  question: (f) => [S("message", f(4), 0.6)],
+  headline: (f) => [S("notify", f(2), 0.45)],
+  // tên dự án / ảnh đẹp
+  pearl: (f) => [S("shutter-click", f(12), 0.5)],
+  champagne: (f) => [S("shutter", f(12), 0.5)],
+  silverserif: (f) => [S("shutter-click", f(14), 0.5)],
+  // kể chuyện / giấy tờ
+  magazine: (f) => [S("page", f(2), 0.6)],
+  handwritten: (f) => [S("pick", f(2), 0.55)],
+  goldscript: (f) => [S("pick", f(2), 0.5), S("success", f(18), 0.3)],
+  typewriter: (f) => [S("typing", f(2), 0.5)],
+  tealdata: (f) => [S("typing-keyboard", f(2), 0.5)]
+};
 function templateSounds(style, fps = 30) {
-  if (BASE_STYLES.includes(style)) return baseSounds(style, fps);
-  const cfg = PRESETS[style];
   const f = (n) => n / fps;
-  const tail = cfg.shine ? [{ id: "cn-shimmer.mp3", at: f(16), volume: 0.4 }] : [];
+  const own = STYLE_SOUNDS[style];
+  if (own) return own(f);
+  const cfg = PRESETS[style];
+  if (!cfg) return [];
   switch (cfg.anim) {
     case "rise":
     case "wipe":
     case "slideL":
     case "slideR":
     case "split":
-      return [{ id: "cn-whoosh-soft.mp3", at: 0, volume: 0.5 }, ...tail.length ? tail : [{ id: "kn-pluck.mp3", at: f(14), volume: 0.3 }]];
+      return [S("whoosh-quick", f(1), 0.5)];
     case "pop":
     case "zoom":
     case "bounce":
-      return [{ id: "cn-whoosh-fast.mp3", at: -0.1, volume: 0.5 }, { id: "impact-hit-3.mp3", at: f(3), volume: 0.35 }, ...tail];
+      return [S("pop", f(1), 0.6)];
     case "slam":
     case "stamp":
-      return [{ id: "cn-whoosh-fast.mp3", at: -0.1, volume: 0.45 }, { id: "cn-stamp.mp3", at: f(6), volume: 0.45 }];
     case "drop":
-      return [{ id: "cn-whoosh-fast.mp3", at: -0.05, volume: 0.45 }, { id: "cn-stamp.mp3", at: f(12), volume: 0.45 }];
+    case "shake":
+      return [S("whoosh-hammer", 0, 0.4), S("impact", f(6), 0.45)];
     case "type":
-      return [{ id: "cn-typing-14.mp3", at: f(2), volume: 0.45 }];
+      return [S("typing", f(2), 0.5)];
     case "flicker":
-      return [{ id: "cn-click.mp3", at: 0, volume: 0.55 }, { id: "cn-neon.mp3", at: f(4), volume: 0.45 }];
+      return [S("click", f(3), 0.6)];
     case "blur":
     case "track":
-      return [{ id: "cn-riser.mp3", at: f(16) - 0.7, volume: 0.35 }, { id: "kn-select.mp3", at: f(16), volume: 0.4 }, ...tail];
+      return [S("swish", f(2), 0.6)];
     case "write":
-      return [{ id: "cn-whoosh-soft.mp3", at: 0, volume: 0.45 }, { id: "cn-ting.mp3", at: f(22), volume: 0.3 }];
-    case "shake":
-      return [{ id: "cn-whoosh-fast.mp3", at: -0.05, volume: 0.45 }, { id: "impact-hit-1.mp3", at: f(2), volume: 0.35 }];
+      return [S("pick", f(2), 0.55)];
     case "wave":
-      return [{ id: "cn-whoosh-soft.mp3", at: 0, volume: 0.5 }, { id: "kn-pluck.mp3", at: f(14), volume: 0.3 }];
+      return [S("whoosh-rod", f(2), 0.6)];
   }
   return [];
 }
@@ -14640,7 +14626,6 @@ const CaptionedVideo = ({
     /* @__PURE__ */ (0,jsx_runtime.jsx)(InfoOverlay, { info: { tenDuAn, gia, dienTich, phongNgu, diaChi }, cardDelaySec: hookFrames / FPS }),
     callouts.length ? /* @__PURE__ */ (0,jsx_runtime.jsx)(Callouts, { items: callouts, sfxBase, sfxVolume: calloutSfx }) : null,
     hookFrames ? /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.Sequence, { durationInFrames: hookFrames, layout: "none", children: /* @__PURE__ */ (0,jsx_runtime.jsx)(Hook, { text: hookText, style: hookStyle, x: hookX, y: hookY, scale: hookScale, bg: hookBg }) }) : null,
-    hookFrames ? /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.Sequence, { durationInFrames: Math.max(hookFrames, 3 * FPS), layout: "none", children: /* @__PURE__ */ (0,jsx_runtime.jsx)(CalloutAudio, { c: { style: hookStyle, ...splitHook(hookText) }, base: sfxBase, volume: calloutSfx }) }) : null,
     musicSrc ? /* @__PURE__ */ (0,jsx_runtime.jsx)(
       Audio,
       {

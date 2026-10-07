@@ -18,7 +18,7 @@ import {
 import { z } from "zod";
 import { loadFont } from "../load-font";
 import { BlurBoxes } from "./BlurBoxes";
-import { CALLOUT_STYLES, CalloutAudio, Callouts, splitHook } from "./Callouts";
+import { CALLOUT_STYLES, Callouts } from "./Callouts";
 import { Brand } from "./Brand";
 import { Hook } from "./Hook";
 import { InfoOverlay } from "./InfoOverlay";
@@ -274,11 +274,7 @@ export const CaptionedVideo: React.FC<Props> = ({
           <Hook text={hookText} style={hookStyle} x={hookX} y={hookY} scale={hookScale} bg={hookBg} />
         </Sequence>
       ) : null}
-      {hookFrames ? (
-        <Sequence durationInFrames={Math.max(hookFrames, 3 * FPS)} layout="none">
-          <CalloutAudio c={{ style: hookStyle, ...splitHook(hookText) }} base={sfxBase} volume={calloutSfx} />
-        </Sequence>
-      ) : null}
+      {/* tiêu đề mở đầu KHÔNG có tiếng: SFX chỉ gắn vào chữ nhấn (anh Nhật chốt 7/10) */}
 
       {musicSrc ? (
         <Audio
