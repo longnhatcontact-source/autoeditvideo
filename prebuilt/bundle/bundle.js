@@ -12618,7 +12618,7 @@ const STYLE_SOUNDS = {
   bigyellow: (f) => [S("pop", f(1), 0.6)],
   redbold: (f) => [S("whoosh-hammer", 0, 0.45), S("impact", f(10), 0.5)],
   sea: () => [S("swish", 0, 0.6)],
-  marble: (f) => [S("shutter-click", f(14), 0.55)],
+  marble: () => [S("whoosh-cape", 0, 0.5)],
   luxgold: (f) => [S("whoosh-quick", f(2), 0.5), S("success", f(14), 0.35)],
   neonsea: (f) => [S("click", f(3), 0.6)],
   orangegold: (f) => [S("whoosh-quick", 0, 0.5)],
@@ -12634,9 +12634,9 @@ const STYLE_SOUNDS = {
   question: (f) => [S("message", f(4), 0.6)],
   headline: (f) => [S("notify", f(2), 0.45)],
   // tên dự án / ảnh đẹp
-  pearl: (f) => [S("shutter-click", f(12), 0.5)],
+  pearl: (f) => [S("whoosh-rod", f(2), 0.6)],
   champagne: (f) => [S("shutter", f(12), 0.5)],
-  silverserif: (f) => [S("shutter-click", f(14), 0.5)],
+  silverserif: (f) => [S("swish", f(2), 0.6)],
   // kể chuyện / giấy tờ
   magazine: (f) => [S("page", f(2), 0.6)],
   handwritten: (f) => [S("pick", f(2), 0.55)],
