@@ -14331,7 +14331,6 @@ const BOTTOM = { thap: 350, cao: 560 };
 const SUB_FONT_WEIGHT = 800;
 const SUB_MAX_FONT_SIZE = 66;
 const SUB_MAX_WIDTH = 0.74;
-const WORD_FADE_MS = 90;
 const RING = Array.from({ length: 16 }, (_, i) => {
   const a = i / 16 * Math.PI * 2;
   return `${(Math.cos(a) * 4.5).toFixed(1)}px ${(Math.sin(a) * 4.5).toFixed(1)}px 0 #000`;
@@ -14357,12 +14356,8 @@ function subtitleFontSize(pages, width) {
 }
 const numberColor = (highlight) => highlight.toUpperCase() === "#FFD23F" ? "#FF9F1C" : "#FFD23F";
 const Page = ({ enterProgress, page, fontSize, subStyle }) => {
-  const frame = (0,esm.useCurrentFrame)();
-  const { fps } = (0,esm.useVideoConfig)();
-  const timeInMs = frame / fps * 1e3;
   const numbers = numberFlags(page.tokens.map((t) => t.text));
   const NUMBER_COLOR = numberColor(subStyle.highlight);
-  const HIGHLIGHT_COLOR = subStyle.highlight;
   return /* @__PURE__ */ (0,jsx_runtime.jsx)(
     esm.AbsoluteFill,
     {
@@ -14393,21 +14388,13 @@ const Page = ({ enterProgress, page, fontSize, subStyle }) => {
               },
               children: page.tokens.map((t, index) => {
                 const isNumber = numbers[index];
-                const startRelativeToSequence = t.fromMs - page.startMs;
-                const endRelativeToSequence = t.toMs - page.startMs;
-                const active = startRelativeToSequence <= timeInMs && endRelativeToSequence > timeInMs;
-                const shown = (0,esm.interpolate)(timeInMs, [startRelativeToSequence - 20, startRelativeToSequence + WORD_FADE_MS], [0, 1], {
-                  extrapolateLeft: "clamp",
-                  extrapolateRight: "clamp"
-                });
                 return /* @__PURE__ */ (0,jsx_runtime.jsx)(
                   "span",
                   {
                     style: {
                       display: "inline",
                       whiteSpace: "pre",
-                      color: active ? HIGHLIGHT_COLOR : isNumber ? NUMBER_COLOR : "white",
-                      opacity: shown
+                      color: isNumber ? NUMBER_COLOR : "white"
                     },
                     children: t.text
                   },
@@ -14431,19 +14418,7 @@ const SubtitlePage = ({
   page,
   fontSize,
   subStyle
-}) => {
-  const frame = (0,esm.useCurrentFrame)();
-  const { fps } = (0,esm.useVideoConfig)();
-  const enter = (0,esm.spring)({
-    frame,
-    fps,
-    config: {
-      damping: 200
-    },
-    durationInFrames: 5
-  });
-  return /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.AbsoluteFill, { children: /* @__PURE__ */ (0,jsx_runtime.jsx)(Page, { enterProgress: enter, page, fontSize, subStyle }) });
-};
+}) => /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.AbsoluteFill, { children: /* @__PURE__ */ (0,jsx_runtime.jsx)(Page, { enterProgress: 1, page, fontSize, subStyle }) });
 /* harmony default export */ const CaptionedVideo_SubtitlePage = (SubtitlePage);
 
 ;// ./src/CaptionedVideo/index.tsx

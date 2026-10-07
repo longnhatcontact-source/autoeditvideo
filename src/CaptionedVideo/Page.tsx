@@ -2,12 +2,7 @@ import { makeTransform, scale, translateY } from "@remotion/animation-utils";
 import { TikTokPage } from "@remotion/captions";
 import { fitText } from "@remotion/layout-utils";
 import React from "react";
-import {
-  AbsoluteFill,
-  interpolate,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { AbsoluteFill, interpolate } from "remotion";
 import { numberFlags } from "../../lib/captions-core.mjs";
 import { TheBoldFont } from "../load-font";
 
@@ -23,7 +18,6 @@ export const SUB_FONT_WEIGHT = 800;
 // cỡ chữ tối đa (nhỏ hơn bản cũ 100 cho đỡ chiếm khung)
 export const SUB_MAX_FONT_SIZE = 66;
 const SUB_MAX_WIDTH = 0.74; // câu rộng nhất chiếm tối đa 74% bề ngang
-const WORD_FADE_MS = 90; // chữ hiện dần khi được nói tới
 
 // viền đen mịn: viền mảnh + vòng bóng đổ tròn đều quanh chữ (thay cho viền 20px bị gãy góc)
 const RING = Array.from({ length: 16 }, (_, i) => {
@@ -61,12 +55,8 @@ export const Page: React.FC<{
   readonly fontSize: number;
   readonly subStyle: SubStyle;
 }> = ({ enterProgress, page, fontSize, subStyle }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const timeInMs = (frame / fps) * 1000;
   const numbers = numberFlags(page.tokens.map((t) => t.text));
   const NUMBER_COLOR = numberColor(subStyle.highlight);
-  const HIGHLIGHT_COLOR = subStyle.highlight;
 
   return (
     <AbsoluteFill
@@ -98,26 +88,14 @@ export const Page: React.FC<{
         >
           {page.tokens.map((t, index) => {
             const isNumber = numbers[index];
-            const startRelativeToSequence = t.fromMs - page.startMs;
-            const endRelativeToSequence = t.toMs - page.startMs;
-
-            const active =
-              startRelativeToSequence <= timeInMs &&
-              endRelativeToSequence > timeInMs;
-            // chữ chưa nói tới thì ẩn (giữ chỗ để dòng không nhảy) -> phụ đề không chạy trước lời nói
-            const shown = interpolate(timeInMs, [startRelativeToSequence - 20, startRelativeToSequence + WORD_FADE_MS], [0, 1], {
-              extrapolateLeft: "clamp",
-              extrapolateRight: "clamp",
-            });
-
+            // phụ đề đứng yên: cả câu hiện cùng lúc, không tô chữ đang đọc, không hiện dần (anh Nhật chốt 7/10)
             return (
               <span
                 key={`${t.fromMs}-${index}`}
                 style={{
                   display: "inline",
                   whiteSpace: "pre",
-                  color: active ? HIGHLIGHT_COLOR : isNumber ? NUMBER_COLOR : "white",
-                  opacity: shown,
+                  color: isNumber ? NUMBER_COLOR : "white",
                 }}
               >
                 {t.text}
