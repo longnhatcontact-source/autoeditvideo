@@ -150,7 +150,7 @@ export const CaptionedVideo: React.FC<Props> = ({
   musicDuck,
   sfx,
   sfxBase = "",
-  calloutSfx = 0.8,
+  calloutSfx = 1,
   keepTogether,
   blurs,
   hookText,

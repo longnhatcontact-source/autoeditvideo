@@ -1106,7 +1106,7 @@ export const TEMPLATE_BODIES: Record<TemplateStyle, React.FC<TemplateParts>> = {
  * Mỗi chữ nhấn 1 tiếng chính gọn (thêm 1 tiếng whoosh dẫn nếu cần), không chồng nhiều lớp.
  */
 type Snd = { id: string; at: number; volume: number };
-const S = (id: string, at = 0, volume = 0.6): Snd => ({ id: `nr-${id}.mp3`, at, volume });
+const S = (id: string, at = 0, volume = 0.6): Snd => ({ id: `nr-${id}.mp3`, at, volume: Math.min(1, volume * 1.5) });
 const STYLE_SOUNDS: Partial<Record<TemplateStyle, (f: (n: number) => number) => Snd[]>> = {
   // 8 mẫu gốc
   city: () => [S("whoosh-cape", 0, 0.5)],

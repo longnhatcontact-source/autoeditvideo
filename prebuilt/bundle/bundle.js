@@ -12611,7 +12611,7 @@ const TEMPLATE_BODIES = {
   ...BASE_BODIES,
   ...Object.fromEntries(Object.entries(PRESETS).map(([k, v]) => [k, PresetBody(v)]))
 };
-const S = (id, at = 0, volume = 0.6) => ({ id: `nr-${id}.mp3`, at, volume });
+const S = (id, at = 0, volume = 0.6) => ({ id: `nr-${id}.mp3`, at, volume: Math.min(1, volume * 1.5) });
 const STYLE_SOUNDS = {
   // 8 mẫu gốc
   city: () => [S("whoosh-cape", 0, 0.5)],
@@ -14537,7 +14537,7 @@ const CaptionedVideo = ({
   musicDuck,
   sfx,
   sfxBase = "",
-  calloutSfx = 0.8,
+  calloutSfx = 1,
   keepTogether,
   blurs,
   hookText,
