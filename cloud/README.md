@@ -35,3 +35,11 @@ bash cloud/setup.sh        # npm install, phông + SFX, deep-filter, faster-whis
 - **File >30MB không gửi được qua chat**: gửi bản 1080p nén (`-b:v 2400k`), bản gốc chép vào thư mục đã kết nối trên máy người dùng. Khi chia mảnh để chép, mảnh đầu của file mp4 bị sửa trên đường truyền → thêm 16 byte đệm vào đầu mảnh rồi `tail -c +17` khi ghép, và so mã sha256.
 - **Google Drive**: thường không tải được từ phiên cloud → nhờ người dùng nén zip gửi vào chat.
 - Sửa gì trong `src/` thì chạy `node scripts/prebuild-bundle.mjs` rồi commit (app trên Windows dùng gói dựng sẵn).
+
+## Bảng mẫu chữ (xem trước khi chọn)
+`cloud/catalog/mau-chu-*.jpg`: ảnh chụp đủ 104 mẫu, đánh số + tên mẫu (sinh lại bằng `cloud/render.mjs stills` mỗi khi thêm/sửa mẫu).
+- Quy tắc chữ (đã chốt 8/10/2026): **không dùng kiểu "AI"** (chữ mảnh, viết thường kiểu câu văn, phát sáng neon tràn lan); ưu tiên chữ IN HOA đậm (Montserrat Black, Anton, Oswald, League Spartan) + dòng chữ ký viết tay / nhãn màu.
+- Số chỉ chạy (đếm lên) khi con số hiển thị ≥ 10.000; số nhỏ đứng yên.
+- Phụ đề phía dưới **tắt mặc định** (`subPosition: "tat"`); ý chính nhấn bằng khung chữ.
+- Chữ sáng trên nền sáng tự đảo thành chữ đậm quầng sáng (`bg` ≥ 0,55); nền rất sáng (≥ 0,68) đảo mọi mẫu trừ mẫu có nền riêng (thẻ, mảng, bong bóng).
+- Phông: chỉ dùng phông CÓ bộ chữ tiếng Việt (Poppins không có → dùng Be Vietnam Pro).
