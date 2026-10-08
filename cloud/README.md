@@ -43,3 +43,6 @@ bash cloud/setup.sh        # npm install, phông + SFX, deep-filter, faster-whis
 - Phụ đề phía dưới **tắt mặc định** (`subPosition: "tat"`); ý chính nhấn bằng khung chữ.
 - Chữ sáng trên nền sáng tự đảo thành chữ đậm quầng sáng (`bg` ≥ 0,55); nền rất sáng (≥ 0,68) đảo mọi mẫu trừ mẫu có nền riêng (thẻ, mảng, bong bóng).
 - Phông: chỉ dùng phông CÓ bộ chữ tiếng Việt (Poppins không có → dùng Be Vietnam Pro).
+- **Tên riêng (dự án, đường, người) nghe chưa chắc → tra web hoặc hỏi người dùng TRƯỚC khi đưa lên chữ.** Vd whisper nghe "Metro Green Street" nhưng dự án thật là "Metro Grand Street"; "Tây Ba Vì" là trục "Hồ Tây – Ba Vì".
+- Ảnh bìa khi mặt nằm giữa khung: làm nền = khung hình mờ + khung hình rõ dời xuống ~620px (xem `cloud/example/cover.phudien.json` và lệnh trong make-props.phudien), để chữ ở nửa trên không che mặt.
+- Đừng chạy 2 lệnh `cloud/render.mjs` cùng lúc (mỗi lần chạy dọn thư mục tạm của Remotion → lệnh kia lỗi 404).
