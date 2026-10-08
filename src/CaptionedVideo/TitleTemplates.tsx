@@ -731,7 +731,7 @@ export const PRESETS = {
   wordsyellow: P({ label: "Từng từ bật vàng", use: "khẩu hiệu 2–4 từ, lời kêu gọi", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "words", exit: "shrink", top: "sign", layout: "underline" }),
   // --- theo video tham khảo ---
   sweepblue: P({ label: "Nhãn xanh + chữ trắng sáng", use: "giới thiệu mục mới, tên chương", font: "mont", upper: true, fill: { solid: "#ffffff" }, anim: "wipe", exit: "sweep", top: "tag", topBg: "#1f6fd6", shine: true }),
-  duoyellow: P({ label: "Trắng nhỏ + vàng lớn", use: "khái niệm 2 tầng: tài sản / thế chấp, hạn mức / vay", font: "viet", fill: { solid: "#ffe600" }, anim: "pop", exit: "shrink", top: "heavy", topColor: "#ffffff" }),
+  duoyellow: P({ label: "Trắng nhỏ + vàng lớn", use: "khái niệm 2 tầng: tài sản / thế chấp, hạn mức / vay", font: "mont", upper: true, fill: { solid: "#ffe600" }, anim: "pop", exit: "shrink", top: "heavy", topColor: "#ffffff" }),
   strikered: P({ label: "Gạch ngang đỏ", use: "sai lầm, hiểu sai, điều không nên tin", font: "viet", fill: { solid: "#ffffff" }, anim: "slam", exit: "fade", top: "bold", topColor: "#ff3b3b", layout: "strike", decoColor: "#ff2a3d" }),
   neonyellow: P({ label: "Vàng đậm + viết tay trắng", use: "điểm sáng, ưu điểm nổi bật", font: "mont", upper: true, fill: { solid: "#ffe600" }, anim: "rise", exit: "up", top: "brush", topColor: "#ffffff" }),
   whitered: P({ label: "Trắng đậm + viết tay đỏ", use: "khẳng định, không bao giờ, chưa từng", font: "mont", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "up", top: "brush", topColor: "#ff2d55" }),
