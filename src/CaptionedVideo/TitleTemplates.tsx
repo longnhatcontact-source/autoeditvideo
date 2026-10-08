@@ -1,7 +1,7 @@
 import { fitText } from "@remotion/layout-utils";
 import React from "react";
 import { Easing, interpolate, random } from "remotion";
-import { AntonFont, BrushFont, CondFont, GeoFont, HeavyFont, RetroFont, SerifFont, SignFont, VietFont } from "../load-font";
+import { AntonFont, BalooFont, BrushFont, CondFont, TheBoldFont, GeoFont, HeavyFont, RetroFont, SerifFont, SignFont, VietFont } from "../load-font";
 
 /**
  * Bộ "chữ ký + chữ khối" kiểu tiêu đề BĐS: dòng chữ ký viết tay đè lên góc chữ khối lớn có chất liệu
@@ -579,11 +579,11 @@ const TEX2: Record<string, (s: number) => string> = {
   silverwhite: () => lg(180, "#ffffff 0%", "#ffffff 55%", "#dfe6ee 100%"),
 };
 
-type Fill = { tex: keyof typeof TEX2 } | { solid: string } | { neon: string };
-type Anim = "rise" | "pop" | "zoom" | "blur" | "track" | "wipe" | "slideL" | "slideR" | "drop" | "wave" | "type" | "flicker" | "slam" | "shake" | "stamp" | "write" | "split" | "bounce" | "flip" | "lrise" | "words";
+type Fill = { tex: keyof typeof TEX2 } | { solid: string } | { neon: string } | { outline: string } | { sticker: string; stroke?: string };
+type Anim = "rise" | "pop" | "zoom" | "blur" | "track" | "wipe" | "slideL" | "slideR" | "drop" | "wave" | "type" | "flicker" | "slam" | "shake" | "stamp" | "write" | "split" | "bounce" | "flip" | "lrise" | "words" | "glitch" | "streak" | "zip";
 type Exit = "up" | "shrink" | "sweep" | "blur" | "fall" | "down" | "fade" | "off";
-type TopKind = "sign" | "brush" | "light" | "bold" | "heavy" | "serif" | "retro";
-export const LAYOUTS = ["center", "left", "right", "inline", "side", "zigzag", "bar", "brackets", "underline", "lines", "frame", "pill", "stat", "progress", "corner"] as const;
+type TopKind = "sign" | "brush" | "light" | "bold" | "heavy" | "serif" | "retro" | "tag";
+export const LAYOUTS = ["center", "left", "right", "inline", "side", "zigzag", "bar", "brackets", "underline", "lines", "frame", "pill", "stat", "progress", "corner", "marker", "slab", "bubble", "card", "selbox", "strike", "scribble", "offset"] as const;
 export type Layout = (typeof LAYOUTS)[number];
 export const LAYOUT_INFO: Record<Layout, string> = {
   center: "Giữa (dòng trên · chữ chính · dòng dưới)",
@@ -601,8 +601,16 @@ export const LAYOUT_INFO: Record<Layout, string> = {
   stat: "Con số thật to + đơn vị nhỏ bên cạnh (hợp số liệu)",
   progress: "Con số + thanh tiến độ chạy đầy (hợp phần trăm)",
   corner: "Hai góc chéo ôm chữ",
+  marker: "Vệt màu xiên tô sau chữ (bôi chữ)",
+  slab: "Chữ nằm trên mảng màu nghiêng",
+  bubble: "Bong bóng thoại màu",
+  card: "Thẻ thông báo trắng kiểu tin nhắn điện thoại",
+  selbox: "Khung chọn chữ có tay nắm 4 góc",
+  strike: "Gạch ngang chữ (đáp án sai)",
+  scribble: "Nét gạch chân viết tay",
+  offset: "Bóng viền lệch phía sau chữ",
 };
-type FontKey = "heavy" | "anton" | "serif" | "viet" | "brush" | "retro" | "cond" | "geo" | "geoLight";
+type FontKey = "baloo" | "mont" | "heavy" | "anton" | "serif" | "viet" | "brush" | "retro" | "cond" | "geo" | "geoLight";
 
 type Preset = {
   label: string; // tên hiện trong app
@@ -623,10 +631,20 @@ type Preset = {
   layout?: Layout;
   /** số trong chữ chính chạy từ ít đến con số thật ("down": chạy từ cao xuống) */
   count?: boolean | "down";
+  /** nền của nhãn kiểu "tag" */
+  topBg?: string;
+  /** màu nhấn riêng (khung, vạch, gạch) */
+  accent?: string;
+  /** màu mảng trang trí (vệt, mảng, bong bóng, gạch ngang…) */
+  decoColor?: string;
+  /** giãn chữ (em) */
+  track?: number;
 };
 
 const FONTS: Record<FontKey, { family: string; weight: number; per: number; lh: number }> = {
   heavy: { family: HeavyFont, weight: 900, per: 0.62, lh: 0.98 },
+  baloo: { family: BalooFont, weight: 800, per: 0.6, lh: 1.0 },
+  mont: { family: TheBoldFont, weight: 900, per: 0.7, lh: 1.02 },
   anton: { family: AntonFont, weight: 400, per: 0.5, lh: 1.02 },
   serif: { family: SerifFont, weight: 900, per: 0.64, lh: 1.04 },
   viet: { family: VietFont, weight: 800, per: 0.66, lh: 1.02 },
@@ -711,6 +729,38 @@ export const PRESETS = {
   flipwhite: P({ label: "Lật chữ trắng", use: "chuyển ý mạnh, nhưng, tuy nhiên", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "flip", exit: "down", top: "bold", topColor: "#ffd23f" }),
   letterrose: P({ label: "Chữ mọc vàng hồng", use: "thông điệp cảm xúc, tổ ấm, gia đình", font: "serif", fill: { tex: "rosegold" }, anim: "lrise", exit: "blur", top: "sign" }),
   wordsyellow: P({ label: "Từng từ bật vàng", use: "khẩu hiệu 2–4 từ, lời kêu gọi", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "words", exit: "shrink", top: "sign", layout: "underline" }),
+  // --- bộ mẫu theo video tham khảo (8/10)
+  sweepblue: P({ label: "Nhãn xanh + chữ phát sáng", use: "giới thiệu mục mới, tên chương", font: "viet", fill: { neon: "#6fc3ff" }, anim: "wipe", exit: "sweep", top: "tag", topBg: "#1f6fd6", shine: true }),
+  duoyellow: P({ label: "Trắng nhỏ + vàng lớn", use: "khái niệm 2 tầng: tài sản / thế chấp, hạn mức / vay", font: "viet", fill: { solid: "#ffe600" }, anim: "pop", exit: "shrink", top: "heavy", topColor: "#ffffff" }),
+  strikered: P({ label: "Gạch ngang đỏ", use: "sai lầm, hiểu sai, điều không nên tin", font: "viet", fill: { solid: "#ffffff" }, anim: "slam", exit: "fade", top: "bold", topColor: "#ff3b3b", layout: "strike", decoColor: "#ff2a3d" }),
+  neonyellow: P({ label: "Vàng phát sáng thanh lịch", use: "điểm sáng, ưu điểm nổi bật", font: "viet", fill: { neon: "#ffe600" }, anim: "blur", exit: "blur", top: "light" }),
+  whitered: P({ label: "Trắng đậm + viết tay đỏ", use: "khẳng định, không bao giờ, chưa từng", font: "mont", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "up", top: "brush", topColor: "#ff2d55" }),
+  offsetyellow: P({ label: "Vàng bóng viền lệch", use: "từ khoá trẻ trung, xu hướng", font: "heavy", upper: true, fill: { solid: "#f4ff3a" }, anim: "pop", exit: "shrink", top: "light", layout: "offset", decoColor: "#f4ff3a" }),
+  cardmsg: P({ label: "Thẻ tin nhắn", use: "câu hỏi khách hay hỏi, lời khách hàng, thông báo", font: "viet", fill: { solid: "#15171c" }, anim: "rise", exit: "up", top: "light", layout: "card", accent: "#33c759" }),
+  minimal: P({ label: "Trắng tối giản", use: "câu dẫn nhẹ, thông tin gọn", font: "geo", fill: { solid: "#ffffff" }, anim: "blur", exit: "blur", top: "light", track: 0.01 }),
+  flickerprice: P({ label: "Giá trắng chớp sáng + vạch đỏ", use: "giá sốc, giá ưu đãi", font: "mont", upper: true, fill: { neon: "#ffffff" }, anim: "flicker", exit: "off", top: "light", layout: "underline", accent: "#ff1f2d", max: 260 }),
+  selboxblue: P({ label: "Khung chọn chữ xanh", use: "định nghĩa, thuật ngữ, từ khoá cần nhớ", font: "geo", fill: { solid: "#ffffff" }, anim: "type", exit: "fade", top: "light", layout: "selbox", decoColor: "#2f8cff" }),
+  scribblered: P({ label: "Gạch chân viết tay đỏ", use: "câu hỏi gợi mở, điều ít ai biết", font: "geo", fill: { solid: "#ffffff" }, anim: "blur", exit: "fade", top: "light", layout: "scribble", decoColor: "#e5243b" }),
+  blueglow: P({ label: "Xanh dương phát sáng", use: "công nghệ, kết nối, hiện đại", font: "viet", fill: { neon: "#3aa0ff" }, anim: "zoom", exit: "blur", top: "light" }),
+  pillglow: P({ label: "Nhãn tím phát sáng", use: "tiêu chí, gợi ý, mẹo nhỏ", font: "geo", fill: { solid: "#ffffff" }, anim: "pop", exit: "shrink", top: "bold", topColor: "#ffffff", layout: "pill", accent: "#a86bff" }),
+  nextlevel: P({ label: "Nhãn đỏ + mảng trắng chữ tím", use: "nâng cấp, ra mắt, cấp độ mới", font: "viet", upper: true, fill: { solid: "#7b2ff7" }, anim: "slideL", exit: "sweep", top: "tag", topBg: "#e8112d", layout: "slab", decoColor: "#ffffff" }),
+  eventtag: P({ label: "Nhãn ngày + chữ giãn", use: "sự kiện, ngày mở bán, lịch tham quan", font: "geo", upper: true, fill: { solid: "#ffffff" }, anim: "track", exit: "blur", top: "tag", topBg: "#ffe600", topColor: "#111111", track: 0.12 }),
+  slabpurple: P({ label: "Mảng tím chữ trắng", use: "ra mắt, sự kiện lớn, công bố", font: "viet", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "sweep", top: "tag", topBg: "#ffd400", topColor: "#111111", layout: "slab", decoColor: "#8a4dff" }),
+  comicred: P({ label: "Hoạt hình đỏ viền trắng", use: "bất ngờ, gây chú ý mạnh", font: "baloo", upper: true, fill: { sticker: "#ff2a2a" }, anim: "bounce", exit: "shrink", top: "heavy", topColor: "#ffffff" }),
+  cartoonblue: P({ label: "Hoạt hình xanh viền trắng", use: "gia đình, trẻ em, vui vẻ", font: "baloo", upper: true, fill: { sticker: "#2b7bff" }, anim: "drop", exit: "fall", top: "sign" }),
+  cartoonyellow: P({ label: "Hoạt hình vàng viền xanh", use: "ưu đãi vui, quà tặng", font: "baloo", upper: true, fill: { sticker: "#ffd400", stroke: "#1b3fa0" }, anim: "bounce", exit: "shrink", top: "sign" }),
+  filmic: P({ label: "Điện ảnh: vàng + chữ có chân lớn", use: "kể chuyện, phong cách sống, cảm hứng", font: "serif", fill: { solid: "#ffffff" }, anim: "streak", exit: "blur", top: "heavy", topColor: "#ffe600" }),
+  flickerlime: P({ label: "Chớp xanh chanh", use: "mới, tươi, năng động", font: "viet", fill: { tex: "lime" }, anim: "flicker", exit: "off", top: "light" }),
+  stickerblue: P({ label: "Nhãn dán xanh", use: "điểm nổi bật, tính năng", font: "viet", fill: { sticker: "#2f8cff" }, anim: "pop", exit: "shrink", top: "light" }),
+  shinyblue: P({ label: "Xanh bóng viền trắng", use: "điểm cộng lớn, bật mí", font: "baloo", fill: { sticker: "#1f6fff" }, anim: "zoom", exit: "shrink", top: "heavy", topColor: "#ffffff", shine: true }),
+  markerblue: P({ label: "Bôi chữ xanh", use: "nhấn 1 cụm từ quan trọng", font: "brush", fill: { solid: "#eaf6ff" }, anim: "write", exit: "fade", top: "light", layout: "marker", decoColor: "#2f8cff", max: 190 }),
+  zipblue: P({ label: "Lướt nhanh xanh", use: "chuyển ý nhanh, tốc độ, ngay lập tức", font: "heavy", upper: true, fill: { solid: "#2f8cff" }, anim: "zip", exit: "sweep", top: "bold", topColor: "#ffffff" }),
+  yellowwhite: P({ label: "Vàng đậm + dòng trắng lệch", use: "hạn mức, khoản vay, điều kiện", font: "viet", fill: { solid: "#ffe600" }, anim: "slideL", exit: "sweep", top: "light", layout: "left", subColor: "#ffffff" }),
+  glitchred: P({ label: "Nhiễu sóng đỏ", use: "đáp án sai, sự thật, bóc phốt", font: "cond", upper: true, fill: { solid: "#ff4d5e" }, anim: "glitch", exit: "off", top: "bold", topColor: "#ffffff" }),
+  streakwhite: P({ label: "Kéo dọc trắng", use: "khẳng định mạnh, không bao giờ", font: "mont", upper: true, fill: { solid: "#ffffff" }, anim: "streak", exit: "blur", top: "bold", topColor: "#ff4d5e" }),
+  bubbleorange: P({ label: "Bong bóng thoại cam", use: "kể chuyện, mở đầu câu chuyện", font: "baloo", fill: { solid: "#ffffff" }, anim: "pop", exit: "shrink", top: "light", layout: "bubble", decoColor: "#e07a1a" }),
+  outlineyellow: P({ label: "Chữ rỗng viền vàng", use: "tiêu đề phong cách, từ khoá lớn", font: "heavy", upper: true, fill: { outline: "#f4ff3a" }, anim: "wipe", exit: "sweep", top: "light" }),
+  whiteredbrush: P({ label: "Trắng + viết tay đỏ lớn", use: "sự thật rằng…, điều quan trọng nhất", font: "brush", fill: { solid: "#ff2a2a" }, anim: "write", exit: "fade", top: "heavy", topColor: "#ffffff", max: 200 }),
 } satisfies Record<string, Preset>;
 
 export type PresetStyle = keyof typeof PRESETS;
@@ -743,14 +793,18 @@ const upperKeepUnits = (t: string) =>
 // chất liệu sáng: thêm viền mảnh tối để không chìm trên tường / trời sáng
 const LIGHT_TEX = new Set(["chrome", "champagne", "pearl", "ice", "concrete", "silverwhite", "mint", "pastel", "holo", "sky", "sand", "jade", "lime", "cyan"]);
 
+/** mẫu có nền riêng (thẻ trắng, mảng màu): không đảo màu dù nền sáng */
+export const hasOwnBg = (style: string): boolean => ["card", "slab", "bubble"].includes((PRESETS as Record<string, Preset>)[style]?.layout ?? "");
 /** mẫu chữ SÁNG (trắng / bạc / vàng nhạt…): trên nền sáng sẽ chìm → Callouts đổi sang chữ ĐẬM viền sáng */
 export const isLightStyle = (style: string): boolean => {
   if (style === "marble" || style === "bigyellow" || style === "city") return true;
   const cfg = (PRESETS as Record<string, Preset>)[style];
   if (!cfg) return false;
   const f = cfg.fill;
-  if ("solid" in f) return ["#ffffff", "#3ff0d0"].includes(f.solid.toLowerCase());
-  if ("neon" in f) return true;
+  if (cfg.layout === "card" || cfg.layout === "slab" || cfg.layout === "bubble") return false;
+  if ("solid" in f) return ["#ffffff", "#3ff0d0", "#ffe600", "#f4ff3a", "#eaf6ff", "#d8f0ff"].includes(f.solid.toLowerCase());
+  if ("neon" in f || "outline" in f) return true;
+  if ("sticker" in f) return false;
   return LIGHT_TEX.has(f.tex) || f.tex === "yellow";
 };
 
@@ -763,6 +817,7 @@ export const TEMPLATE_GROUPS: [string, TemplateStyle[]][] = [
   ["Con số / dữ liệu", ["bignumber", "cyanfigure", "limefigure", "goldnumber", "tealdata", "countdown"]],
   ["Neon / hiện đại", ["neonpink", "neongreen", "neongold", "neonpurple", "neonwhite", "neonred"]],
   ["Khung chữ / số chạy (mới)", ["statgold", "statwhite", "statred", "percentlime", "progresscyan", "framegold", "framewhite", "pillorange", "cornermint", "flipwhite", "letterrose", "wordsyellow"]],
+  ["Theo video tham khảo (mới)", ["sweepblue", "duoyellow", "strikered", "neonyellow", "whitered", "offsetyellow", "cardmsg", "minimal", "flickerprice", "selboxblue", "scribblered", "blueglow", "pillglow", "nextlevel", "eventtag", "slabpurple", "comicred", "cartoonblue", "cartoonyellow", "filmic", "flickerlime", "stickerblue", "shinyblue", "markerblue", "zipblue", "yellowwhite", "glitchred", "streakwhite", "bubbleorange", "outlineyellow", "whiteredbrush"]],
   ["Sạch / thông tin / kể chuyện", ["cleanwhite", "magazine", "typewriter", "stack", "handwritten", "retro", "headline", "pastel", "silverserif", "ice", "concrete", "wood", "holo", "investor"]],
 ];
 
@@ -788,17 +843,27 @@ const fillCss = (fill: Fill, seed: string, frame: number, scroll = 0): React.CSS
       ...(scroll ? { backgroundSize: "160% 100%", backgroundPosition: `${(frame * scroll) % 100}% 50%` } : {}),
     };
   }
+  if ("outline" in fill) return { color: "transparent", WebkitTextStroke: `0.03em ${fill.outline}` };
+  if ("sticker" in fill) return { color: fill.sticker, WebkitTextStroke: `0.17em ${fill.stroke ?? "#ffffff"}`, paintOrder: "stroke fill" };
   if ("neon" in fill) {
     const c = fill.neon;
     return { color: c, textShadow: `0 0 10px ${c}, 0 0 26px ${c}cc, 0 0 54px ${c}88, 0 2px 4px rgba(0,0,0,.45)` };
   }
   return { color: fill.solid, textShadow: fill.solid.toLowerCase() === "#ffffff" ? HALO : SOLID_SHADOW };
 };
-const fillFilter = (fill: Fill) => ("tex" in fill ? SHADOW : "none");
+const fillFilter = (fill: Fill) => ("tex" in fill || "outline" in fill || "sticker" in fill ? SHADOW : "none");
 
 /** dòng trên theo kiểu */
-const TopLine: React.FC<{ kind: TopKind; text: string; fs: number; frame: number; color?: string; side?: "left" | "right" }> = ({ kind, text, fs, frame, color, side = "left" }) => {
+const TopLine: React.FC<{ kind: TopKind; text: string; fs: number; frame: number; color?: string; side?: "left" | "right"; bg?: string }> = ({ kind, text, fs, frame, color, side = "left", bg }) => {
   if (!text) return null;
+  if (kind === "tag") {
+    const pp = eBack(prog(frame, 0, 10));
+    return (
+      <div style={{ ...geo(fs, 700), textTransform: "uppercase", letterSpacing: "0.03em", color: color ?? "#fff", background: bg ?? "#e8112d", padding: `${fs * 0.3}px ${fs * 0.42}px ${fs * 0.08}px`, lineHeight: 1.05, transform: `rotate(-4deg) scale(${pp})`, opacity: prog(frame, 0, 4), alignSelf: side === "right" ? "flex-end" : "center", marginBottom: fs * 0.12, boxShadow: "0 4px 12px rgba(0,0,0,.35)", whiteSpace: "pre", position: "relative", zIndex: 3 }}>
+        {text}
+      </div>
+    );
+  }
   const p = eOut(prog(frame, 0, 16));
   if (kind === "sign") return <Signature text={text} fs={fs} p={eOut(prog(frame, 0, 20))} side={side} />;
   const base: React.CSSProperties = { whiteSpace: "pre", lineHeight: 1.05, position: "relative", zIndex: 2 };
@@ -828,6 +893,8 @@ const TopLine: React.FC<{ kind: TopKind; text: string; fs: number; frame: number
 
 const topSize = (kind: TopKind, text: string, fs: number) => {
   switch (kind) {
+    case "tag":
+      return fit(text.toUpperCase(), GeoFont, 700, Math.max(44, fs * 0.3), W * 0.6, 0.68);
     case "sign":
       return fit(text, SignFont, 400, fs * 1.8, W * 0.62, 0.3);
     case "brush":
@@ -877,6 +944,8 @@ const countText = (text: string, k: number, down = false) => {
 };
 
 const accentOf = (fill: Fill): string => {
+  if ("outline" in fill) return fill.outline;
+  if ("sticker" in fill) return fill.sticker;
   if ("neon" in fill) return fill.neon;
   if ("solid" in fill) return fill.solid.toLowerCase() === "#ffffff" ? "#ffd23f" : fill.solid;
   const map: Record<string, string> = {
@@ -905,13 +974,14 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
     const shown = cfg.count ? countText(m, countK, cfg.count === "down") : m;
     // bề ngang dành cho chữ chính theo bố cục
     const mW = isStat ? W * 0.56 : layout === "frame" ? W * 0.7 : layout === "side" ? W * 0.6 : layout === "inline" ? W * 0.66 : zig ? W * 0.72 : layout === "bar" ? W - 40 : W;
-    const fs = fit(m, F.family, F.weight, (cfg.max ?? 210) * (zig ? 0.62 : 1), mW, F.per);
+    const fs = fit(m, F.family, F.weight, (cfg.max ?? 210) * (zig ? 0.62 : 1), layout === "card" ? W * 0.7 : mW, F.per + (cfg.track ?? 0) * 1.1);
     const tfs = layout === "side" || layout === "inline" ? fit(top, GeoFont, 700, Math.max(56, fs * 0.42), W * 0.34, 0.62) : topSize(cfg.top, top, fs);
     const subFs = fit(sub, GeoFont, 600, Math.min(60, Math.max(40, fs * 0.36)), layout === "side" ? W * 0.36 : W * 0.85, 0.6);
     const ex = eIn(prog(frame, total - OUT, total - 1));
-    const accent = accentOf(cfg.fill);
+    const accent = cfg.accent ?? accentOf(cfg.fill);
+    const deco = cfg.decoColor ?? accent;
     const align: React.CSSProperties["textAlign"] = layout === "left" || layout === "bar" ? "left" : layout === "right" ? "right" : "center";
-    const mStyle: React.CSSProperties = { ...mainCss(cfg.font, fs, cfg.upper), ...fillCss(cfg.fill, seed, frame, cfg.scroll), textAlign: align };
+    const mStyle: React.CSSProperties = { ...mainCss(cfg.font, fs, cfg.upper), ...fillCss(cfg.fill, seed, frame, cfg.scroll), textAlign: align, ...(cfg.track ? { letterSpacing: `${cfg.track}em` } : {}) };
 
     // ---- hiệu ứng ra (khối ngoài)
     let outer: React.CSSProperties = {};
@@ -1072,6 +1142,24 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
         case "write":
           inner = writeOn(p(0, 24), 8);
           break;
+        case "glitch": {
+          const g = 1 - prog(frame, 2, 18);
+          const r = (n: number) => random(`g-${seed}-${frame}-${n}`) - 0.5;
+          const dx = g * fs * 0.07 * (Math.abs(r(1)) + 0.4);
+          inner = { transform: `translateX(${r(2) * g * fs * 0.1}px) skewX(${r(3) * g * 18}deg)`, opacity: frame < 2 ? 0 : g > 0.1 && r(4) < -0.3 ? 0.4 : 1 };
+          if (g > 0.02) extraLetter = { textShadow: `${dx}px 0 rgba(255,40,80,.9), ${-dx}px 0 rgba(0,230,255,.9)` };
+          break;
+        }
+        case "streak": {
+          const q = eOut(prog(frame, 0, 14));
+          inner = { transform: `scaleY(${1 + (1 - q) * 3}) scaleX(${1 - (1 - q) * 0.25})`, filter: `blur(${(1 - q) * 12}px)`, opacity: prog(frame, 0, 6) };
+          break;
+        }
+        case "zip": {
+          const q = eOut(prog(frame, 0, 9));
+          inner = { transform: `translateX(${(1 - q) * -520}px) skewX(${(1 - q) * -25}deg)`, filter: `blur(${(1 - q) * 16}px)`, opacity: prog(frame, 0, 4) };
+          break;
+        }
         case "flip": {
           const q = eBack(prog(frame, 0, 14));
           inner = { transform: `perspective(900px) rotateX(${(1 - q) * -88}deg)`, transformOrigin: "50% 100%", opacity: prog(frame, 0, 5) };
@@ -1158,7 +1246,7 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
       const barW = W * 0.72;
       return (
         <Col style={colStyle}>
-          <TopLine kind={cfg.top} text={top} fs={tfs} frame={frame} color={cfg.topColor} />
+          <TopLine kind={cfg.top} text={top} fs={tfs} frame={frame} color={cfg.topColor} bg={cfg.topBg} />
           {mainEl}
           <div style={{ width: barW, height: Math.max(14, fs * 0.075), borderRadius: 99, background: "rgba(255,255,255,.3)", boxShadow: "0 0 10px rgba(0,0,0,.45)", overflow: "hidden", marginTop: fs * 0.02, marginBottom: fs * 0.05 }}>
             <div style={{ width: barW * pct * eOut(prog(frame, 3, 30)), height: "100%", borderRadius: 99, background: `linear-gradient(90deg, ${accent}cc, ${accent})` }} />
@@ -1214,10 +1302,92 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
           <div style={{ width: 90 * grow, height: Math.max(3, tfs * 0.06), background: accent, boxShadow: "0 0 8px rgba(0,0,0,.5)" }} />
         </div>
       ) : (
-        <TopLine kind={cfg.top} text={top} fs={tfs} frame={frame} color={cfg.topColor} side={sideTop} />
+        <TopLine kind={cfg.top} text={top} fs={tfs} frame={frame} color={cfg.topColor} side={sideTop} bg={cfg.topBg} />
       );
 
     let body: React.ReactNode = zig ? <div style={{ width: Math.min(mW, W * 0.62), display: "flex", flexDirection: "column" }}>{mainEl}</div> : mainEl;
+    if (layout === "card") {
+      const pp = eBack(prog(frame, 0, 14));
+      const hf = Math.max(30, Math.min(40, fs * 0.3));
+      return (
+        <Col style={colStyle}>
+          <div style={{ width: W * 0.88, background: "rgba(250,250,252,.97)", borderRadius: 38, padding: "26px 38px 30px", boxShadow: "0 18px 40px rgba(0,0,0,.35)", transform: `translateY(${(1 - pp) * -90}px) scale(${0.9 + 0.1 * pp})`, opacity: prog(frame, 0, 5), display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+            <div style={{ display: "flex", alignItems: "center", width: "100%", gap: 14, marginBottom: 6 }}>
+              <div style={{ width: hf * 1.25, height: hf * 1.25, borderRadius: hf * 0.32, background: `linear-gradient(135deg, ${accent}, ${accent}aa)` }} />
+              <div style={{ ...geo(hf, 600), color: "#6b7079", textTransform: "uppercase", letterSpacing: "0.04em", lineHeight: 1.1, paddingTop: hf * 0.25, flex: 1, whiteSpace: "pre" }}>{top}</div>
+              <div style={{ ...geo(hf * 0.9, 500), color: "#9aa0a8", lineHeight: 1.1, paddingTop: hf * 0.25 }}>bây giờ</div>
+            </div>
+            <div style={{ ...mainCss(cfg.font, fs, cfg.upper), color: "#15171c", textAlign: "left" }}>{m}</div>
+            {sub ? <div style={{ ...geo(subFs * 0.9, 500), color: "#4a4f57", lineHeight: 1.2, paddingTop: subFs * 0.2, opacity: eOut(prog(frame, 10, 20)) }}>{sub}</div> : null}
+          </div>
+        </Col>
+      );
+    }
+    const draw = eOut(prog(frame, 10, 24));
+    if (layout === "marker" || layout === "slab" || layout === "bubble" || layout === "selbox" || layout === "strike" || layout === "scribble" || layout === "offset") {
+      let wrapEl: React.ReactNode;
+      const pp = eBack(prog(frame, 0, 12));
+      if (layout === "marker") {
+        wrapEl = (
+          <div style={{ position: "relative", padding: `0 ${fs * 0.12}px` }}>
+            <div style={{ position: "absolute", left: 0, right: 0, top: "40%", bottom: "6%", background: deco, transform: `skewX(-14deg) scaleX(${grow})`, transformOrigin: "0 50%", boxShadow: "0 6px 14px rgba(0,0,0,.3)" }} />
+            <div style={{ position: "relative" }}>{mainEl}</div>
+          </div>
+        );
+      } else if (layout === "slab" || layout === "bubble") {
+        const bubble = layout === "bubble";
+        wrapEl = (
+          <div style={{ position: "relative", background: deco, borderRadius: bubble ? fs * 0.18 : 4, padding: `${fs * 0.04}px ${fs * 0.26}px ${fs * 0.04}px`, transform: bubble ? `rotate(-4deg) scale(${pp})` : `rotate(-2deg)`, clipPath: bubble ? undefined : `inset(-30% ${(1 - grow) * 100}% -30% 0)`, boxShadow: "0 10px 24px rgba(0,0,0,.35)", opacity: bubble ? prog(frame, 0, 5) : 1 }}>
+            {bubble ? <div style={{ position: "absolute", left: fs * 0.45, bottom: -fs * 0.22, width: fs * 0.34, height: fs * 0.26, background: deco, clipPath: "polygon(0 0, 100% 0, 10% 100%)" }} /> : null}
+            {mainEl}
+          </div>
+        );
+      } else if (layout === "selbox") {
+        const h = 16;
+        const hd = (pos: React.CSSProperties) => <div style={{ position: "absolute", width: h, height: h, background: "#fff", border: `3px solid ${deco}`, ...pos }} />;
+        wrapEl = (
+          <div style={{ position: "relative", padding: `${fs * 0.04}px ${fs * 0.16}px`, border: `3px solid ${deco}`, opacity: grow, boxShadow: "0 0 10px rgba(0,0,0,.35)" }}>
+            {hd({ left: -h / 2 - 2, top: -h / 2 - 2 })}
+            {hd({ right: -h / 2 - 2, top: -h / 2 - 2 })}
+            {hd({ left: -h / 2 - 2, bottom: -h / 2 - 2 })}
+            {hd({ right: -h / 2 - 2, bottom: -h / 2 - 2 })}
+            {mainEl}
+          </div>
+        );
+      } else if (layout === "strike") {
+        wrapEl = (
+          <div style={{ position: "relative" }}>
+            {mainEl}
+            <div style={{ position: "absolute", left: "-3%", top: "50%", height: Math.max(7, fs * 0.08), width: `${draw * 106}%`, background: deco, transform: "rotate(-3deg)", boxShadow: "0 3px 8px rgba(0,0,0,.4)" }} />
+          </div>
+        );
+      } else if (layout === "scribble") {
+        wrapEl = (
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            {mainEl}
+            <svg width={Math.min(W * 0.85, fs * 4.5)} height={fs * 0.32} viewBox="0 0 300 40" preserveAspectRatio="none" style={{ marginTop: -fs * 0.08, overflow: "visible", filter: "drop-shadow(0 2px 4px rgba(0,0,0,.5))" }}>
+              <path d="M5 26 C 60 6, 95 38, 150 22 S 240 6, 295 20" fill="none" stroke={deco} strokeWidth={6} strokeLinecap="round" strokeDasharray={420} strokeDashoffset={420 * (1 - draw)} />
+            </svg>
+          </div>
+        );
+      } else {
+        const o = eOut(prog(frame, 6, 16));
+        wrapEl = (
+          <div style={{ position: "relative" }}>
+            <div style={{ ...mainCss(cfg.font, fs, cfg.upper), position: "absolute", inset: 0, color: "transparent", WebkitTextStroke: `0.03em ${deco}`, textAlign: align, transform: `translate(${fs * 0.07 * o}px, ${fs * 0.08 * o}px)`, opacity: o * 0.9, ...(cfg.track ? { letterSpacing: `${cfg.track}em` } : {}) }}>{m}</div>
+            <div style={{ position: "relative" }}>{mainEl}</div>
+          </div>
+        );
+      }
+      const topEl2 = <TopLine kind={cfg.top} text={top} fs={tfs} frame={frame} color={cfg.topColor} bg={cfg.topBg} />;
+      return (
+        <Col style={colStyle}>
+          {topEl2}
+          {wrapEl}
+          {sub ? <div style={{ marginTop: layout === "bubble" ? fs * 0.22 : 0 }}>{subEl}</div> : null}
+        </Col>
+      );
+    }
     if (layout === "corner") {
       const L = Math.max(46, fs * 0.6) * grow;
       const t = Math.max(5, fs * 0.055);
@@ -1354,7 +1524,11 @@ export function templateSounds(style: TemplateStyle, fps = 30): Snd[] {
     case "lrise":
       return [S("whoosh-rod", f(2), 0.6)];
     case "flip":
+    case "streak":
+    case "zip":
       return [S("whoosh-quick", f(1), 0.5)];
+    case "glitch":
+      return [S("click", f(2), 0.6)];
     case "words":
       return [S("pop", f(1), 0.6)];
   }

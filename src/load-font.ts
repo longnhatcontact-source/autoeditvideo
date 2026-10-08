@@ -9,6 +9,7 @@ import { loadFont as loadBeVietnam } from "@remotion/google-fonts/BeVietnamPro";
 import { loadFont as loadPattaya } from "@remotion/google-fonts/Pattaya";
 import { loadFont as loadLobster } from "@remotion/google-fonts/Lobster";
 import { loadFont as loadOswald } from "@remotion/google-fonts/Oswald";
+import { loadFont as loadBaloo } from "@remotion/google-fonts/Baloo2";
 
 const { fontFamily, waitUntilDone } = loadMontserrat("normal", {
   weights: ["800", "900"],
@@ -35,12 +36,14 @@ const viet = loadBeVietnam("normal", { weights: ["800"], ...VI });
 const brush = loadPattaya("normal", { weights: ["400"], ...VI });
 const retro = loadLobster("normal", { weights: ["400"], ...VI });
 const cond = loadOswald("normal", { weights: ["700"], ...VI });
+const baloo = loadBaloo("normal", { weights: ["800"], ...VI });
 export const AntonFont = anton.fontFamily;
 export const SerifFont = serif.fontFamily;
 export const VietFont = viet.fontFamily;
 export const BrushFont = brush.fontFamily;
 export const RetroFont = retro.fontFamily;
 export const CondFont = cond.fontFamily;
+export const BalooFont = baloo.fontFamily;
 
 export const SignFont = sign.fontFamily;
 export const HeavyFont = heavy.fontFamily;
@@ -55,6 +58,6 @@ export const loadFont = async (): Promise<void> => {
     sign.waitUntilDone(),
     heavy.waitUntilDone(),
     geo.waitUntilDone(),
-    ...[anton, serif, viet, brush, retro, cond].map((f) => f.waitUntilDone()),
+    ...[anton, serif, viet, brush, retro, cond, baloo].map((f) => f.waitUntilDone()),
   ]);
 };

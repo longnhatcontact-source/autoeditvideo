@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 2365
+/***/ 1205
 (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11314,7 +11314,371 @@ var Oswald_loadVariableFont = (style, options) => {
 };
 
 
+;// ./node_modules/@remotion/google-fonts/dist/esm/Baloo2.mjs
+/* unused harmony import specifier */ var Baloo2_delayRender;
+/* unused harmony import specifier */ var Baloo2_continueRender;
+/* unused harmony import specifier */ var Baloo2_NoReactInternals;
+// src/base.ts
+
+
+
+// src/resolve-font-subsets.ts
+var Baloo2_isChunkSubset = (subset) => /^\[\d+\]$/.test(subset);
+var Baloo2_compareChunkSubsets = (a, b) => {
+  return Number(a.slice(1, -1)) - Number(b.slice(1, -1));
+};
+var Baloo2_resolveFontSubsetKeys = ({
+  availableSubsetKeys,
+  metaSubsets,
+  requestedSubset
+}) => {
+  if (availableSubsetKeys.includes(requestedSubset)) {
+    return [requestedSubset];
+  }
+  if (!metaSubsets.includes(requestedSubset)) {
+    return [requestedSubset];
+  }
+  const chunkSubsets = availableSubsetKeys.filter(Baloo2_isChunkSubset).sort(Baloo2_compareChunkSubsets);
+  return chunkSubsets.length === 0 ? [requestedSubset] : chunkSubsets;
+};
+
+// src/base.ts
+var Baloo2_loadedFonts = {};
+var Baloo2_withResolvers = function() {
+  let resolve;
+  let reject;
+  const promise = new Promise((res, rej) => {
+    resolve = res;
+    reject = rej;
+  });
+  return { promise, resolve, reject };
+};
+var Baloo2_loadFontFaceOrTimeoutAfter20Seconds = (fontFace) => {
+  const timeout = Baloo2_withResolvers();
+  const int = setTimeout(() => {
+    timeout.reject(new Error("Timed out loading Google Font"));
+  }, 18000);
+  return Promise.race([
+    fontFace.load().then(() => {
+      clearTimeout(int);
+    }),
+    timeout.promise
+  ]);
+};
+var Baloo2_loadFonts = (meta, style, options) => {
+  const weightsAndSubsetsAreSpecified = Array.isArray(options?.weights) && Array.isArray(options?.subsets) && options.weights.length > 0 && options.subsets.length > 0;
+  if (no_react/* NoReactInternals */.JC.ENABLE_V5_BREAKING_CHANGES && !weightsAndSubsetsAreSpecified) {
+    throw new Error("Loading Google Fonts without specifying weights and subsets is not supported in Remotion v5. Please specify the weights and subsets you need.");
+  }
+  const promises = [];
+  const styles = style ? [style] : Object.keys(meta.fonts);
+  let fontsLoaded = 0;
+  for (const style2 of styles) {
+    if (typeof FontFace === "undefined") {
+      continue;
+    }
+    if (!meta.fonts[style2]) {
+      throw new Error(`The font ${meta.fontFamily} does not have a style ${style2}`);
+    }
+    const weights = options?.weights ?? Object.keys(meta.fonts[style2]);
+    for (const weight of weights) {
+      if (!meta.fonts[style2][weight]) {
+        throw new Error(`The font ${meta.fontFamily} does not  have a weight ${weight} in style ${style2}`);
+      }
+      const requestedSubsets = options?.subsets ?? Object.keys(meta.fonts[style2][weight]);
+      const availableSubsetKeys = Object.keys(meta.fonts[style2][weight]);
+      const subsets = [
+        ...new Set(requestedSubsets.flatMap((requestedSubset) => Baloo2_resolveFontSubsetKeys({
+          availableSubsetKeys,
+          metaSubsets: meta.subsets,
+          requestedSubset
+        })))
+      ];
+      for (const subset of subsets) {
+        let font = meta.fonts[style2]?.[weight]?.[subset];
+        if (!font) {
+          throw new Error(`weight: ${weight} subset: ${subset} is not available for '${meta.fontFamily}'`);
+        }
+        let fontKey = `${meta.fontFamily}-${style2}-${weight}-${subset}`;
+        const previousPromise = Baloo2_loadedFonts[fontKey];
+        if (previousPromise) {
+          promises.push(previousPromise);
+          continue;
+        }
+        const baseLabel = `Fetching ${meta.fontFamily} font ${JSON.stringify({
+          style: style2,
+          weight,
+          subset
+        })}`;
+        const label = weightsAndSubsetsAreSpecified ? baseLabel : `${baseLabel}. This might be caused by loading too many font variations. Read more: https://www.remotion.dev/docs/troubleshooting/font-loading-errors#render-timeout-when-loading-google-fonts`;
+        const handle = (0,esm.delayRender)(label, { timeoutInMilliseconds: 60000 });
+        fontsLoaded++;
+        const registerFont = (fontData) => {
+          no_react/* NoReactInternals */.JC.registerFontFace({
+            ascentOverride: null,
+            descentOverride: null,
+            display: null,
+            featureSettings: null,
+            fontFamily: meta.fontFamily,
+            fontData,
+            fontUrl: font,
+            format: "woff2",
+            lineGapOverride: null,
+            style: style2,
+            weight,
+            stretch: null,
+            unicodeRange: meta.unicodeRanges[subset] ?? null,
+            variant: null
+          });
+        };
+        let attempts = 2;
+        const tryToLoad = () => {
+          return no_react/* NoReactInternals */.JC.fetchFontData(font).then((fontData) => {
+            const fontFace = new FontFace(meta.fontFamily, fontData, {
+              weight,
+              style: style2,
+              unicodeRange: meta.unicodeRanges[subset]
+            });
+            return Baloo2_loadFontFaceOrTimeoutAfter20Seconds(fontFace).then(() => {
+              (options?.document ?? document).fonts.add(fontFace);
+              registerFont(fontData);
+              (0,esm.continueRender)(handle);
+            });
+          }).catch((err) => {
+            if (attempts === 0) {
+              Baloo2_loadedFonts[fontKey] = undefined;
+              throw err;
+            }
+            attempts--;
+            return tryToLoad();
+          });
+        };
+        const promise = tryToLoad();
+        Baloo2_loadedFonts[fontKey] = promise;
+        promises.push(promise);
+      }
+    }
+    if (fontsLoaded > 20 && !options?.ignoreTooManyRequestsWarning) {
+      console.warn(`Made ${fontsLoaded} network requests to load fonts for ${meta.fontFamily}. Consider loading fewer weights and subsets by passing options to loadFont(). Disable this warning by passing "ignoreTooManyRequestsWarning: true" to "options".`);
+    }
+  }
+  return {
+    fontFamily: meta.fontFamily,
+    fonts: meta.fonts,
+    unicodeRanges: meta.unicodeRanges,
+    waitUntilDone: () => Promise.all(promises).then(() => {
+      return;
+    })
+  };
+};
+var Baloo2_loadVariableFonts = (meta, style, options) => {
+  if (!meta.variable) {
+    throw new Error(`${meta.fontFamily} is not available as a variable font`);
+  }
+  if (options.subsets.length === 0) {
+    throw new Error("Pass at least one subset to loadVariableFont()");
+  }
+  const fontFacesForStyle = meta.variable.fontFaces.filter((fontFace) => fontFace.style === style);
+  if (fontFacesForStyle.length === 0) {
+    throw new Error(`The variable font ${meta.fontFamily} does not have a style ${style}`);
+  }
+  const availableSubsetKeys = fontFacesForStyle.map((fontFace) => fontFace.subset);
+  const subsets = [
+    ...new Set(options.subsets.flatMap((requestedSubset) => Baloo2_resolveFontSubsetKeys({
+      availableSubsetKeys,
+      metaSubsets: meta.subsets,
+      requestedSubset
+    })))
+  ];
+  const promises = [];
+  for (const subset of subsets) {
+    if (typeof FontFace === "undefined") {
+      continue;
+    }
+    const font = fontFacesForStyle.find((fontFace) => fontFace.subset === subset);
+    if (!font) {
+      throw new Error(`subset: ${subset} is not available for the variable font '${meta.fontFamily}'`);
+    }
+    const fontKey = [
+      meta.fontFamily,
+      "variable",
+      font.style,
+      font.weight,
+      font.stretch,
+      font.subset,
+      font.src
+    ].join("-");
+    const previousPromise = Baloo2_loadedFonts[fontKey];
+    if (previousPromise) {
+      promises.push(previousPromise);
+      continue;
+    }
+    const handle = Baloo2_delayRender(`Fetching variable ${meta.fontFamily} font ${JSON.stringify({
+      style,
+      subset
+    })}`, { timeoutInMilliseconds: 60000 });
+    const descriptors = {
+      style: font.style,
+      weight: font.weight,
+      unicodeRange: font.unicodeRange
+    };
+    if (font.stretch) {
+      descriptors.stretch = font.stretch;
+    }
+    const registerFont = (fontData) => {
+      Baloo2_NoReactInternals.registerFontFace({
+        ascentOverride: null,
+        descentOverride: null,
+        display: null,
+        featureSettings: null,
+        fontFamily: meta.fontFamily,
+        fontData,
+        fontUrl: font.src,
+        format: "woff2",
+        lineGapOverride: null,
+        style: font.style,
+        weight: font.weight,
+        stretch: font.stretch,
+        unicodeRange: font.unicodeRange,
+        variant: null
+      });
+    };
+    let attempts = 2;
+    const tryToLoad = () => {
+      return Baloo2_NoReactInternals.fetchFontData(font.src).then((fontData) => {
+        const fontFace = new FontFace(meta.fontFamily, fontData, descriptors);
+        return Baloo2_loadFontFaceOrTimeoutAfter20Seconds(fontFace).then(() => {
+          (options.document ?? document).fonts.add(fontFace);
+          registerFont(fontData);
+          Baloo2_continueRender(handle);
+        });
+      }).catch((err) => {
+        if (attempts === 0) {
+          Baloo2_loadedFonts[fontKey] = undefined;
+          throw err;
+        }
+        attempts--;
+        return tryToLoad();
+      });
+    };
+    const promise = tryToLoad();
+    Baloo2_loadedFonts[fontKey] = promise;
+    promises.push(promise);
+  }
+  if (subsets.length > 20 && !options.ignoreTooManyRequestsWarning) {
+    console.warn(`Made ${subsets.length} network requests to load the variable font ${meta.fontFamily}. Consider loading fewer subsets. Disable this warning by passing "ignoreTooManyRequestsWarning: true" to "options".`);
+  }
+  return {
+    fontFamily: meta.fontFamily,
+    axes: meta.variable.axes,
+    waitUntilDone: () => Promise.all(promises).then(() => {
+      return;
+    })
+  };
+};
+
+// src/Baloo2.ts
+var Baloo2_getInfo = () => ({
+  fontFamily: "Baloo Two",
+  importName: "Baloo2",
+  version: "v23",
+  url: "https://fonts.googleapis.com/css2?family=Baloo+2:ital,wght@0,400;0,500;0,600;0,700;0,800",
+  unicodeRanges: {
+    devanagari: "U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09",
+    vietnamese: "U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB",
+    "latin-ext": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+    latin: "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+  },
+  fonts: {
+    normal: {
+      "400": {
+        devanagari: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51ncANwr.woff2",
+        vietnamese: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51fcANwr.woff2",
+        "latin-ext": "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51bcANwr.woff2",
+        latin: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51jcAA.woff2"
+      },
+      "500": {
+        devanagari: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51ncANwr.woff2",
+        vietnamese: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51fcANwr.woff2",
+        "latin-ext": "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51bcANwr.woff2",
+        latin: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51jcAA.woff2"
+      },
+      "600": {
+        devanagari: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51ncANwr.woff2",
+        vietnamese: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51fcANwr.woff2",
+        "latin-ext": "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51bcANwr.woff2",
+        latin: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51jcAA.woff2"
+      },
+      "700": {
+        devanagari: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51ncANwr.woff2",
+        vietnamese: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51fcANwr.woff2",
+        "latin-ext": "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51bcANwr.woff2",
+        latin: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51jcAA.woff2"
+      },
+      "800": {
+        devanagari: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51ncANwr.woff2",
+        vietnamese: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51fcANwr.woff2",
+        "latin-ext": "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51bcANwr.woff2",
+        latin: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51jcAA.woff2"
+      }
+    }
+  },
+  subsets: ["devanagari", "latin", "latin-ext", "vietnamese"],
+  variable: {
+    axes: {
+      wght: {
+        min: 400,
+        max: 800
+      }
+    },
+    fontFaces: [
+      {
+        style: "normal",
+        weight: "400 800",
+        stretch: null,
+        subset: "devanagari",
+        unicodeRange: "U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09",
+        src: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51ncANwr.woff2"
+      },
+      {
+        style: "normal",
+        weight: "400 800",
+        stretch: null,
+        subset: "vietnamese",
+        unicodeRange: "U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB",
+        src: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51fcANwr.woff2"
+      },
+      {
+        style: "normal",
+        weight: "400 800",
+        stretch: null,
+        subset: "latin-ext",
+        unicodeRange: "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+        src: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51bcANwr.woff2"
+      },
+      {
+        style: "normal",
+        weight: "400 800",
+        stretch: null,
+        subset: "latin",
+        unicodeRange: "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+        src: "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51jcAA.woff2"
+      }
+    ],
+    url: "https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800"
+  }
+});
+var Baloo2_fontFamily = "Baloo Two";
+var Baloo2_loadFont = (style, options) => {
+  return Baloo2_loadFonts(Baloo2_getInfo(), style, options);
+};
+var Baloo2_loadVariableFont = (style, options) => {
+  return Baloo2_loadVariableFonts(Baloo2_getInfo(), style, options);
+};
+
+
 ;// ./src/load-font.ts
+
 
 
 
@@ -11345,12 +11709,14 @@ const viet = BeVietnamPro_loadFont("normal", { weights: ["800"], ...VI });
 const brush = Pattaya_loadFont("normal", { weights: ["400"], ...VI });
 const retro = Lobster_loadFont("normal", { weights: ["400"], ...VI });
 const cond = Oswald_loadFont("normal", { weights: ["700"], ...VI });
+const baloo = Baloo2_loadFont("normal", { weights: ["800"], ...VI });
 const AntonFont = anton.fontFamily;
 const SerifFont = serif.fontFamily;
 const VietFont = viet.fontFamily;
 const BrushFont = brush.fontFamily;
 const RetroFont = retro.fontFamily;
 const CondFont = cond.fontFamily;
+const BalooFont = baloo.fontFamily;
 const SignFont = sign.fontFamily;
 const HeavyFont = heavy.fontFamily;
 const GeoFont = geo.fontFamily;
@@ -11363,7 +11729,7 @@ const load_font_loadFont = async () => {
     sign.waitUntilDone(),
     heavy.waitUntilDone(),
     geo.waitUntilDone(),
-    ...[anton, serif, viet, brush, retro, cond].map((f) => f.waitUntilDone())
+    ...[anton, serif, viet, brush, retro, cond, baloo].map((f) => f.waitUntilDone())
   ]);
 };
 
@@ -12183,7 +12549,7 @@ const TEX2 = {
   yellow: () => TEX.yellow(),
   silverwhite: () => lg(180, "#ffffff 0%", "#ffffff 55%", "#dfe6ee 100%")
 };
-const LAYOUTS = ["center", "left", "right", "inline", "side", "zigzag", "bar", "brackets", "underline", "lines", "frame", "pill", "stat", "progress", "corner"];
+const LAYOUTS = ["center", "left", "right", "inline", "side", "zigzag", "bar", "brackets", "underline", "lines", "frame", "pill", "stat", "progress", "corner", "marker", "slab", "bubble", "card", "selbox", "strike", "scribble", "offset"];
 const LAYOUT_INFO = {
   center: "Gi\u1EEFa (d\xF2ng tr\xEAn \xB7 ch\u1EEF ch\xEDnh \xB7 d\xF2ng d\u01B0\u1EDBi)",
   left: "Canh tr\xE1i",
@@ -12199,10 +12565,20 @@ const LAYOUT_INFO = {
   pill: "Nh\xE3n vi\u1EC1n bo tr\xF2n ph\xEDa tr\xEAn ch\u1EEF ch\xEDnh",
   stat: "Con s\u1ED1 th\u1EADt to + \u0111\u01A1n v\u1ECB nh\u1ECF b\xEAn c\u1EA1nh (h\u1EE3p s\u1ED1 li\u1EC7u)",
   progress: "Con s\u1ED1 + thanh ti\u1EBFn \u0111\u1ED9 ch\u1EA1y \u0111\u1EA7y (h\u1EE3p ph\u1EA7n tr\u0103m)",
-  corner: "Hai g\xF3c ch\xE9o \xF4m ch\u1EEF"
+  corner: "Hai g\xF3c ch\xE9o \xF4m ch\u1EEF",
+  marker: "V\u1EC7t m\xE0u xi\xEAn t\xF4 sau ch\u1EEF (b\xF4i ch\u1EEF)",
+  slab: "Ch\u1EEF n\u1EB1m tr\xEAn m\u1EA3ng m\xE0u nghi\xEAng",
+  bubble: "Bong b\xF3ng tho\u1EA1i m\xE0u",
+  card: "Th\u1EBB th\xF4ng b\xE1o tr\u1EAFng ki\u1EC3u tin nh\u1EAFn \u0111i\u1EC7n tho\u1EA1i",
+  selbox: "Khung ch\u1ECDn ch\u1EEF c\xF3 tay n\u1EAFm 4 g\xF3c",
+  strike: "G\u1EA1ch ngang ch\u1EEF (\u0111\xE1p \xE1n sai)",
+  scribble: "N\xE9t g\u1EA1ch ch\xE2n vi\u1EBFt tay",
+  offset: "B\xF3ng vi\u1EC1n l\u1EC7ch ph\xEDa sau ch\u1EEF"
 };
 const FONTS = {
   heavy: { family: HeavyFont, weight: 900, per: 0.62, lh: 0.98 },
+  baloo: { family: BalooFont, weight: 800, per: 0.6, lh: 1 },
+  mont: { family: TheBoldFont, weight: 900, per: 0.7, lh: 1.02 },
   anton: { family: AntonFont, weight: 400, per: 0.5, lh: 1.02 },
   serif: { family: SerifFont, weight: 900, per: 0.64, lh: 1.04 },
   viet: { family: VietFont, weight: 800, per: 0.66, lh: 1.02 },
@@ -12285,7 +12661,39 @@ const PRESETS = {
   cornermint: P({ label: "G\xF3c ch\xE9o b\u1EA1c h\xE0", use: "ti\u1EC7n \xEDch, \u0111i\u1EC3m c\u1ED9ng, \u01B0u \u0111i\u1EC3m", font: "heavy", upper: true, fill: { tex: "mint" }, anim: "pop", exit: "shrink", top: "light", layout: "corner" }),
   flipwhite: P({ label: "L\u1EADt ch\u1EEF tr\u1EAFng", use: "chuy\u1EC3n \xFD m\u1EA1nh, nh\u01B0ng, tuy nhi\xEAn", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "flip", exit: "down", top: "bold", topColor: "#ffd23f" }),
   letterrose: P({ label: "Ch\u1EEF m\u1ECDc v\xE0ng h\u1ED3ng", use: "th\xF4ng \u0111i\u1EC7p c\u1EA3m x\xFAc, t\u1ED5 \u1EA5m, gia \u0111\xECnh", font: "serif", fill: { tex: "rosegold" }, anim: "lrise", exit: "blur", top: "sign" }),
-  wordsyellow: P({ label: "T\u1EEBng t\u1EEB b\u1EADt v\xE0ng", use: "kh\u1EA9u hi\u1EC7u 2\u20134 t\u1EEB, l\u1EDDi k\xEAu g\u1ECDi", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "words", exit: "shrink", top: "sign", layout: "underline" })
+  wordsyellow: P({ label: "T\u1EEBng t\u1EEB b\u1EADt v\xE0ng", use: "kh\u1EA9u hi\u1EC7u 2\u20134 t\u1EEB, l\u1EDDi k\xEAu g\u1ECDi", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "words", exit: "shrink", top: "sign", layout: "underline" }),
+  // --- bộ mẫu theo video tham khảo (8/10)
+  sweepblue: P({ label: "Nh\xE3n xanh + ch\u1EEF ph\xE1t s\xE1ng", use: "gi\u1EDBi thi\u1EC7u m\u1EE5c m\u1EDBi, t\xEAn ch\u01B0\u01A1ng", font: "viet", fill: { neon: "#6fc3ff" }, anim: "wipe", exit: "sweep", top: "tag", topBg: "#1f6fd6", shine: true }),
+  duoyellow: P({ label: "Tr\u1EAFng nh\u1ECF + v\xE0ng l\u1EDBn", use: "kh\xE1i ni\u1EC7m 2 t\u1EA7ng: t\xE0i s\u1EA3n / th\u1EBF ch\u1EA5p, h\u1EA1n m\u1EE9c / vay", font: "viet", fill: { solid: "#ffe600" }, anim: "pop", exit: "shrink", top: "heavy", topColor: "#ffffff" }),
+  strikered: P({ label: "G\u1EA1ch ngang \u0111\u1ECF", use: "sai l\u1EA7m, hi\u1EC3u sai, \u0111i\u1EC1u kh\xF4ng n\xEAn tin", font: "viet", fill: { solid: "#ffffff" }, anim: "slam", exit: "fade", top: "bold", topColor: "#ff3b3b", layout: "strike", decoColor: "#ff2a3d" }),
+  neonyellow: P({ label: "V\xE0ng ph\xE1t s\xE1ng thanh l\u1ECBch", use: "\u0111i\u1EC3m s\xE1ng, \u01B0u \u0111i\u1EC3m n\u1ED5i b\u1EADt", font: "viet", fill: { neon: "#ffe600" }, anim: "blur", exit: "blur", top: "light" }),
+  whitered: P({ label: "Tr\u1EAFng \u0111\u1EADm + vi\u1EBFt tay \u0111\u1ECF", use: "kh\u1EB3ng \u0111\u1ECBnh, kh\xF4ng bao gi\u1EDD, ch\u01B0a t\u1EEBng", font: "mont", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "up", top: "brush", topColor: "#ff2d55" }),
+  offsetyellow: P({ label: "V\xE0ng b\xF3ng vi\u1EC1n l\u1EC7ch", use: "t\u1EEB kho\xE1 tr\u1EBB trung, xu h\u01B0\u1EDBng", font: "heavy", upper: true, fill: { solid: "#f4ff3a" }, anim: "pop", exit: "shrink", top: "light", layout: "offset", decoColor: "#f4ff3a" }),
+  cardmsg: P({ label: "Th\u1EBB tin nh\u1EAFn", use: "c\xE2u h\u1ECFi kh\xE1ch hay h\u1ECFi, l\u1EDDi kh\xE1ch h\xE0ng, th\xF4ng b\xE1o", font: "viet", fill: { solid: "#15171c" }, anim: "rise", exit: "up", top: "light", layout: "card", accent: "#33c759" }),
+  minimal: P({ label: "Tr\u1EAFng t\u1ED1i gi\u1EA3n", use: "c\xE2u d\u1EABn nh\u1EB9, th\xF4ng tin g\u1ECDn", font: "geo", fill: { solid: "#ffffff" }, anim: "blur", exit: "blur", top: "light", track: 0.01 }),
+  flickerprice: P({ label: "Gi\xE1 tr\u1EAFng ch\u1EDBp s\xE1ng + v\u1EA1ch \u0111\u1ECF", use: "gi\xE1 s\u1ED1c, gi\xE1 \u01B0u \u0111\xE3i", font: "mont", upper: true, fill: { neon: "#ffffff" }, anim: "flicker", exit: "off", top: "light", layout: "underline", accent: "#ff1f2d", max: 260 }),
+  selboxblue: P({ label: "Khung ch\u1ECDn ch\u1EEF xanh", use: "\u0111\u1ECBnh ngh\u0129a, thu\u1EADt ng\u1EEF, t\u1EEB kho\xE1 c\u1EA7n nh\u1EDB", font: "geo", fill: { solid: "#ffffff" }, anim: "type", exit: "fade", top: "light", layout: "selbox", decoColor: "#2f8cff" }),
+  scribblered: P({ label: "G\u1EA1ch ch\xE2n vi\u1EBFt tay \u0111\u1ECF", use: "c\xE2u h\u1ECFi g\u1EE3i m\u1EDF, \u0111i\u1EC1u \xEDt ai bi\u1EBFt", font: "geo", fill: { solid: "#ffffff" }, anim: "blur", exit: "fade", top: "light", layout: "scribble", decoColor: "#e5243b" }),
+  blueglow: P({ label: "Xanh d\u01B0\u01A1ng ph\xE1t s\xE1ng", use: "c\xF4ng ngh\u1EC7, k\u1EBFt n\u1ED1i, hi\u1EC7n \u0111\u1EA1i", font: "viet", fill: { neon: "#3aa0ff" }, anim: "zoom", exit: "blur", top: "light" }),
+  pillglow: P({ label: "Nh\xE3n t\xEDm ph\xE1t s\xE1ng", use: "ti\xEAu ch\xED, g\u1EE3i \xFD, m\u1EB9o nh\u1ECF", font: "geo", fill: { solid: "#ffffff" }, anim: "pop", exit: "shrink", top: "bold", topColor: "#ffffff", layout: "pill", accent: "#a86bff" }),
+  nextlevel: P({ label: "Nh\xE3n \u0111\u1ECF + m\u1EA3ng tr\u1EAFng ch\u1EEF t\xEDm", use: "n\xE2ng c\u1EA5p, ra m\u1EAFt, c\u1EA5p \u0111\u1ED9 m\u1EDBi", font: "viet", upper: true, fill: { solid: "#7b2ff7" }, anim: "slideL", exit: "sweep", top: "tag", topBg: "#e8112d", layout: "slab", decoColor: "#ffffff" }),
+  eventtag: P({ label: "Nh\xE3n ng\xE0y + ch\u1EEF gi\xE3n", use: "s\u1EF1 ki\u1EC7n, ng\xE0y m\u1EDF b\xE1n, l\u1ECBch tham quan", font: "geo", upper: true, fill: { solid: "#ffffff" }, anim: "track", exit: "blur", top: "tag", topBg: "#ffe600", topColor: "#111111", track: 0.12 }),
+  slabpurple: P({ label: "M\u1EA3ng t\xEDm ch\u1EEF tr\u1EAFng", use: "ra m\u1EAFt, s\u1EF1 ki\u1EC7n l\u1EDBn, c\xF4ng b\u1ED1", font: "viet", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "sweep", top: "tag", topBg: "#ffd400", topColor: "#111111", layout: "slab", decoColor: "#8a4dff" }),
+  comicred: P({ label: "Ho\u1EA1t h\xECnh \u0111\u1ECF vi\u1EC1n tr\u1EAFng", use: "b\u1EA5t ng\u1EDD, g\xE2y ch\xFA \xFD m\u1EA1nh", font: "baloo", upper: true, fill: { sticker: "#ff2a2a" }, anim: "bounce", exit: "shrink", top: "heavy", topColor: "#ffffff" }),
+  cartoonblue: P({ label: "Ho\u1EA1t h\xECnh xanh vi\u1EC1n tr\u1EAFng", use: "gia \u0111\xECnh, tr\u1EBB em, vui v\u1EBB", font: "baloo", upper: true, fill: { sticker: "#2b7bff" }, anim: "drop", exit: "fall", top: "sign" }),
+  cartoonyellow: P({ label: "Ho\u1EA1t h\xECnh v\xE0ng vi\u1EC1n xanh", use: "\u01B0u \u0111\xE3i vui, qu\xE0 t\u1EB7ng", font: "baloo", upper: true, fill: { sticker: "#ffd400", stroke: "#1b3fa0" }, anim: "bounce", exit: "shrink", top: "sign" }),
+  filmic: P({ label: "\u0110i\u1EC7n \u1EA3nh: v\xE0ng + ch\u1EEF c\xF3 ch\xE2n l\u1EDBn", use: "k\u1EC3 chuy\u1EC7n, phong c\xE1ch s\u1ED1ng, c\u1EA3m h\u1EE9ng", font: "serif", fill: { solid: "#ffffff" }, anim: "streak", exit: "blur", top: "heavy", topColor: "#ffe600" }),
+  flickerlime: P({ label: "Ch\u1EDBp xanh chanh", use: "m\u1EDBi, t\u01B0\u01A1i, n\u0103ng \u0111\u1ED9ng", font: "viet", fill: { tex: "lime" }, anim: "flicker", exit: "off", top: "light" }),
+  stickerblue: P({ label: "Nh\xE3n d\xE1n xanh", use: "\u0111i\u1EC3m n\u1ED5i b\u1EADt, t\xEDnh n\u0103ng", font: "viet", fill: { sticker: "#2f8cff" }, anim: "pop", exit: "shrink", top: "light" }),
+  shinyblue: P({ label: "Xanh b\xF3ng vi\u1EC1n tr\u1EAFng", use: "\u0111i\u1EC3m c\u1ED9ng l\u1EDBn, b\u1EADt m\xED", font: "baloo", fill: { sticker: "#1f6fff" }, anim: "zoom", exit: "shrink", top: "heavy", topColor: "#ffffff", shine: true }),
+  markerblue: P({ label: "B\xF4i ch\u1EEF xanh", use: "nh\u1EA5n 1 c\u1EE5m t\u1EEB quan tr\u1ECDng", font: "brush", fill: { solid: "#eaf6ff" }, anim: "write", exit: "fade", top: "light", layout: "marker", decoColor: "#2f8cff", max: 190 }),
+  zipblue: P({ label: "L\u01B0\u1EDBt nhanh xanh", use: "chuy\u1EC3n \xFD nhanh, t\u1ED1c \u0111\u1ED9, ngay l\u1EADp t\u1EE9c", font: "heavy", upper: true, fill: { solid: "#2f8cff" }, anim: "zip", exit: "sweep", top: "bold", topColor: "#ffffff" }),
+  yellowwhite: P({ label: "V\xE0ng \u0111\u1EADm + d\xF2ng tr\u1EAFng l\u1EC7ch", use: "h\u1EA1n m\u1EE9c, kho\u1EA3n vay, \u0111i\u1EC1u ki\u1EC7n", font: "viet", fill: { solid: "#ffe600" }, anim: "slideL", exit: "sweep", top: "light", layout: "left", subColor: "#ffffff" }),
+  glitchred: P({ label: "Nhi\u1EC5u s\xF3ng \u0111\u1ECF", use: "\u0111\xE1p \xE1n sai, s\u1EF1 th\u1EADt, b\xF3c ph\u1ED1t", font: "cond", upper: true, fill: { solid: "#ff4d5e" }, anim: "glitch", exit: "off", top: "bold", topColor: "#ffffff" }),
+  streakwhite: P({ label: "K\xE9o d\u1ECDc tr\u1EAFng", use: "kh\u1EB3ng \u0111\u1ECBnh m\u1EA1nh, kh\xF4ng bao gi\u1EDD", font: "mont", upper: true, fill: { solid: "#ffffff" }, anim: "streak", exit: "blur", top: "bold", topColor: "#ff4d5e" }),
+  bubbleorange: P({ label: "Bong b\xF3ng tho\u1EA1i cam", use: "k\u1EC3 chuy\u1EC7n, m\u1EDF \u0111\u1EA7u c\xE2u chuy\u1EC7n", font: "baloo", fill: { solid: "#ffffff" }, anim: "pop", exit: "shrink", top: "light", layout: "bubble", decoColor: "#e07a1a" }),
+  outlineyellow: P({ label: "Ch\u1EEF r\u1ED7ng vi\u1EC1n v\xE0ng", use: "ti\xEAu \u0111\u1EC1 phong c\xE1ch, t\u1EEB kho\xE1 l\u1EDBn", font: "heavy", upper: true, fill: { outline: "#f4ff3a" }, anim: "wipe", exit: "sweep", top: "light" }),
+  whiteredbrush: P({ label: "Tr\u1EAFng + vi\u1EBFt tay \u0111\u1ECF l\u1EDBn", use: "s\u1EF1 th\u1EADt r\u1EB1ng\u2026, \u0111i\u1EC1u quan tr\u1ECDng nh\u1EA5t", font: "brush", fill: { solid: "#ff2a2a" }, anim: "write", exit: "fade", top: "heavy", topColor: "#ffffff", max: 200 })
 };
 const PRESET_STYLES = Object.keys(PRESETS);
 const ALL = [...BASE_STYLES, ...PRESET_STYLES];
@@ -12303,13 +12711,19 @@ const TEMPLATE_INFO = {
 };
 const upperKeepUnits = (t) => t.toUpperCase().replace(/(\d)(\s?)(M²|M2|KM|HA)(?![A-ZÀ-Ỹ])/g, (_, d, sp, u) => d + sp + (u === "M2" ? "m\xB2" : u.toLowerCase())).replace(/\/(M²|M2)(?![A-ZÀ-Ỹ])/g, "/m\xB2");
 const LIGHT_TEX = /* @__PURE__ */ new Set(["chrome", "champagne", "pearl", "ice", "concrete", "silverwhite", "mint", "pastel", "holo", "sky", "sand", "jade", "lime", "cyan"]);
+const hasOwnBg = (style) => {
+  var _a;
+  return ["card", "slab", "bubble"].includes(((_a = PRESETS[style]) == null ? void 0 : _a.layout) ?? "");
+};
 const isLightStyle = (style) => {
   if (style === "marble" || style === "bigyellow" || style === "city") return true;
   const cfg = PRESETS[style];
   if (!cfg) return false;
   const f = cfg.fill;
-  if ("solid" in f) return ["#ffffff", "#3ff0d0"].includes(f.solid.toLowerCase());
-  if ("neon" in f) return true;
+  if (cfg.layout === "card" || cfg.layout === "slab" || cfg.layout === "bubble") return false;
+  if ("solid" in f) return ["#ffffff", "#3ff0d0", "#ffe600", "#f4ff3a", "#eaf6ff", "#d8f0ff"].includes(f.solid.toLowerCase());
+  if ("neon" in f || "outline" in f) return true;
+  if ("sticker" in f) return false;
   return LIGHT_TEX.has(f.tex) || f.tex === "yellow";
 };
 const TEMPLATE_GROUPS = [
@@ -12320,6 +12734,7 @@ const TEMPLATE_GROUPS = [
   ["Con s\u1ED1 / d\u1EEF li\u1EC7u", ["bignumber", "cyanfigure", "limefigure", "goldnumber", "tealdata", "countdown"]],
   ["Neon / hi\u1EC7n \u0111\u1EA1i", ["neonpink", "neongreen", "neongold", "neonpurple", "neonwhite", "neonred"]],
   ["Khung ch\u1EEF / s\u1ED1 ch\u1EA1y (m\u1EDBi)", ["statgold", "statwhite", "statred", "percentlime", "progresscyan", "framegold", "framewhite", "pillorange", "cornermint", "flipwhite", "letterrose", "wordsyellow"]],
+  ["Theo video tham kh\u1EA3o (m\u1EDBi)", ["sweepblue", "duoyellow", "strikered", "neonyellow", "whitered", "offsetyellow", "cardmsg", "minimal", "flickerprice", "selboxblue", "scribblered", "blueglow", "pillglow", "nextlevel", "eventtag", "slabpurple", "comicred", "cartoonblue", "cartoonyellow", "filmic", "flickerlime", "stickerblue", "shinyblue", "markerblue", "zipblue", "yellowwhite", "glitchred", "streakwhite", "bubbleorange", "outlineyellow", "whiteredbrush"]],
   ["S\u1EA1ch / th\xF4ng tin / k\u1EC3 chuy\u1EC7n", ["cleanwhite", "magazine", "typewriter", "stack", "handwritten", "retro", "headline", "pastel", "silverserif", "ice", "concrete", "wood", "holo", "investor"]]
 ];
 const mainCss = (f, fs, upper) => ({
@@ -12343,15 +12758,21 @@ const fillCss = (fill, seed, frame, scroll = 0) => {
       ...scroll ? { backgroundSize: "160% 100%", backgroundPosition: `${frame * scroll % 100}% 50%` } : {}
     };
   }
+  if ("outline" in fill) return { color: "transparent", WebkitTextStroke: `0.03em ${fill.outline}` };
+  if ("sticker" in fill) return { color: fill.sticker, WebkitTextStroke: `0.17em ${fill.stroke ?? "#ffffff"}`, paintOrder: "stroke fill" };
   if ("neon" in fill) {
     const c = fill.neon;
     return { color: c, textShadow: `0 0 10px ${c}, 0 0 26px ${c}cc, 0 0 54px ${c}88, 0 2px 4px rgba(0,0,0,.45)` };
   }
   return { color: fill.solid, textShadow: fill.solid.toLowerCase() === "#ffffff" ? HALO : SOLID_SHADOW };
 };
-const fillFilter = (fill) => "tex" in fill ? SHADOW : "none";
-const TopLine = ({ kind, text, fs, frame, color, side = "left" }) => {
+const fillFilter = (fill) => "tex" in fill || "outline" in fill || "sticker" in fill ? SHADOW : "none";
+const TopLine = ({ kind, text, fs, frame, color, side = "left", bg }) => {
   if (!text) return null;
+  if (kind === "tag") {
+    const pp = eBack(prog(frame, 0, 10));
+    return /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...TitleTemplates_geo(fs, 700), textTransform: "uppercase", letterSpacing: "0.03em", color: color ?? "#fff", background: bg ?? "#e8112d", padding: `${fs * 0.3}px ${fs * 0.42}px ${fs * 0.08}px`, lineHeight: 1.05, transform: `rotate(-4deg) scale(${pp})`, opacity: prog(frame, 0, 4), alignSelf: side === "right" ? "flex-end" : "center", marginBottom: fs * 0.12, boxShadow: "0 4px 12px rgba(0,0,0,.35)", whiteSpace: "pre", position: "relative", zIndex: 3 }, children: text });
+  }
   const p = eOut(prog(frame, 0, 16));
   if (kind === "sign") return /* @__PURE__ */ (0,jsx_runtime.jsx)(Signature, { text, fs, p: eOut(prog(frame, 0, 20)), side });
   const base = { whiteSpace: "pre", lineHeight: 1.05, position: "relative", zIndex: 2 };
@@ -12371,6 +12792,8 @@ const TopLine = ({ kind, text, fs, frame, color, side = "left" }) => {
 };
 const topSize = (kind, text, fs) => {
   switch (kind) {
+    case "tag":
+      return fit(text.toUpperCase(), GeoFont, 700, Math.max(44, fs * 0.3), W * 0.6, 0.68);
     case "sign":
       return fit(text, SignFont, 400, fs * 1.8, W * 0.62, 0.3);
     case "brush":
@@ -12417,6 +12840,8 @@ const countText = (text, k, down = false) => {
   return n.pre + n.fmt(from + (n.value - from) * k) + n.post;
 };
 const accentOf = (fill) => {
+  if ("outline" in fill) return fill.outline;
+  if ("sticker" in fill) return fill.sticker;
   if ("neon" in fill) return fill.neon;
   if ("solid" in fill) return fill.solid.toLowerCase() === "#ffffff" ? "#ffd23f" : fill.solid;
   const map = {
@@ -12468,13 +12893,14 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
   const m = isStat ? (statN.pre + statN.raw).trim() : zig ? txt.trim().split(/\s+/).join("\n") : balance(txt, cfg.lim ?? (cfg.font === "anton" || cfg.font === "cond" ? 12 : 10));
   const shown = cfg.count ? countText(m, countK, cfg.count === "down") : m;
   const mW = isStat ? W * 0.56 : layout === "frame" ? W * 0.7 : layout === "side" ? W * 0.6 : layout === "inline" ? W * 0.66 : zig ? W * 0.72 : layout === "bar" ? W - 40 : W;
-  const fs = fit(m, F.family, F.weight, (cfg.max ?? 210) * (zig ? 0.62 : 1), mW, F.per);
+  const fs = fit(m, F.family, F.weight, (cfg.max ?? 210) * (zig ? 0.62 : 1), layout === "card" ? W * 0.7 : mW, F.per + (cfg.track ?? 0) * 1.1);
   const tfs = layout === "side" || layout === "inline" ? fit(top, GeoFont, 700, Math.max(56, fs * 0.42), W * 0.34, 0.62) : topSize(cfg.top, top, fs);
   const subFs = fit(sub, GeoFont, 600, Math.min(60, Math.max(40, fs * 0.36)), layout === "side" ? W * 0.36 : W * 0.85, 0.6);
   const ex = eIn(prog(frame, total - OUT, total - 1));
-  const accent = accentOf(cfg.fill);
+  const accent = cfg.accent ?? accentOf(cfg.fill);
+  const deco = cfg.decoColor ?? accent;
   const align = layout === "left" || layout === "bar" ? "left" : layout === "right" ? "right" : "center";
-  const mStyle = { ...mainCss(cfg.font, fs, cfg.upper), ...fillCss(cfg.fill, seed, frame, cfg.scroll), textAlign: align };
+  const mStyle = { ...mainCss(cfg.font, fs, cfg.upper), ...fillCss(cfg.fill, seed, frame, cfg.scroll), textAlign: align, ...cfg.track ? { letterSpacing: `${cfg.track}em` } : {} };
   let outer = {};
   let neonK = 1;
   switch (cfg.exit) {
@@ -12608,6 +13034,24 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
       case "write":
         inner = writeOn(p(0, 24), 8);
         break;
+      case "glitch": {
+        const g = 1 - prog(frame, 2, 18);
+        const r = (n) => (0,esm.random)(`g-${seed}-${frame}-${n}`) - 0.5;
+        const dx = g * fs * 0.07 * (Math.abs(r(1)) + 0.4);
+        inner = { transform: `translateX(${r(2) * g * fs * 0.1}px) skewX(${r(3) * g * 18}deg)`, opacity: frame < 2 ? 0 : g > 0.1 && r(4) < -0.3 ? 0.4 : 1 };
+        if (g > 0.02) extraLetter = { textShadow: `${dx}px 0 rgba(255,40,80,.9), ${-dx}px 0 rgba(0,230,255,.9)` };
+        break;
+      }
+      case "streak": {
+        const q = eOut(prog(frame, 0, 14));
+        inner = { transform: `scaleY(${1 + (1 - q) * 3}) scaleX(${1 - (1 - q) * 0.25})`, filter: `blur(${(1 - q) * 12}px)`, opacity: prog(frame, 0, 6) };
+        break;
+      }
+      case "zip": {
+        const q = eOut(prog(frame, 0, 9));
+        inner = { transform: `translateX(${(1 - q) * -520}px) skewX(${(1 - q) * -25}deg)`, filter: `blur(${(1 - q) * 16}px)`, opacity: prog(frame, 0, 4) };
+        break;
+      }
       case "flip": {
         const q = eBack(prog(frame, 0, 14));
         inner = { transform: `perspective(900px) rotateX(${(1 - q) * -88}deg)`, transformOrigin: "50% 100%", opacity: prog(frame, 0, 5) };
@@ -12667,7 +13111,7 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
     const pct = pn && /%/.test(txt) && pn.value <= 100 ? pn.value / 100 : 1;
     const barW = W * 0.72;
     return /* @__PURE__ */ (0,jsx_runtime.jsxs)(Col, { style: colStyle, children: [
-      /* @__PURE__ */ (0,jsx_runtime.jsx)(TopLine, { kind: cfg.top, text: top, fs: tfs, frame, color: cfg.topColor }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)(TopLine, { kind: cfg.top, text: top, fs: tfs, frame, color: cfg.topColor, bg: cfg.topBg }),
       mainEl,
       /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: barW, height: Math.max(14, fs * 0.075), borderRadius: 99, background: "rgba(255,255,255,.3)", boxShadow: "0 0 10px rgba(0,0,0,.45)", overflow: "hidden", marginTop: fs * 0.02, marginBottom: fs * 0.05 }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: barW * pct * eOut(prog(frame, 3, 30)), height: "100%", borderRadius: 99, background: `linear-gradient(90deg, ${accent}cc, ${accent})` } }) }),
       subEl
@@ -12676,16 +13120,16 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
   if (layout === "frame") {
     const t = Math.max(4, fs * 0.035);
     const lab = top ? fit(top, GeoFont, 600, Math.max(46, fs * 0.3), W * 0.6, 0.6) : 0;
-    const draw = eOut(prog(frame, 0, 20));
+    const draw2 = eOut(prog(frame, 0, 20));
     const edge = { position: "absolute", background: accent, boxShadow: lineSh };
     return /* @__PURE__ */ (0,jsx_runtime.jsx)(Col, { style: colStyle, children: /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", padding: `${Math.max(lab * 0.9, fs * 0.2)}px ${fs * 0.3}px ${fs * 0.2}px`, display: "flex", flexDirection: "column", alignItems: "center" }, children: [
       /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "absolute", left: 0, right: 0, top: 0, display: "flex", alignItems: "center", gap: top ? 18 : 0, transform: "translateY(-50%)" }, children: [
-        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: t, background: accent, boxShadow: lineSh, clipPath: `inset(0 0 0 ${(1 - draw) * 100}%)` } }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: t, background: accent, boxShadow: lineSh, clipPath: `inset(0 0 0 ${(1 - draw2) * 100}%)` } }),
         top ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...TitleTemplates_geo(lab, 600), textTransform: "uppercase", letterSpacing: "0.06em", color: cfg.topColor ?? "#fff", textShadow: HALO, lineHeight: 1.05, paddingTop: lab * 0.28, opacity: eOut(prog(frame, 6, 18)), whiteSpace: "pre" }, children: top }) : null,
-        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: t, background: accent, boxShadow: lineSh, clipPath: `inset(0 ${(1 - draw) * 100}% 0 0)` } })
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: t, background: accent, boxShadow: lineSh, clipPath: `inset(0 ${(1 - draw2) * 100}% 0 0)` } })
       ] }),
-      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...edge, left: 0, top: 0, width: t, height: `${draw * 100}%` } }),
-      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...edge, right: 0, top: 0, width: t, height: `${draw * 100}%` } }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...edge, left: 0, top: 0, width: t, height: `${draw2 * 100}%` } }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...edge, right: 0, top: 0, width: t, height: `${draw2 * 100}%` } }),
       /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...edge, left: "50%", bottom: 0, height: t, width: `${eOut(prog(frame, 10, 28)) * 100}%`, transform: "translateX(-50%)" } }),
       mainEl,
       subEl
@@ -12705,8 +13149,70 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
     /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: 90 * grow, height: Math.max(3, tfs * 0.06), background: accent, boxShadow: "0 0 8px rgba(0,0,0,.5)" } }),
     /* @__PURE__ */ (0,jsx_runtime.jsx)(TopLine, { kind: cfg.top === "sign" ? "light" : cfg.top, text: top, fs: cfg.top === "sign" ? fit(top, GeoFont, 300, Math.max(58, fs * 0.5), W * 0.6, 0.5) : tfs, frame, color: cfg.topColor }),
     /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: 90 * grow, height: Math.max(3, tfs * 0.06), background: accent, boxShadow: "0 0 8px rgba(0,0,0,.5)" } })
-  ] }) : /* @__PURE__ */ (0,jsx_runtime.jsx)(TopLine, { kind: cfg.top, text: top, fs: tfs, frame, color: cfg.topColor, side: sideTop });
+  ] }) : /* @__PURE__ */ (0,jsx_runtime.jsx)(TopLine, { kind: cfg.top, text: top, fs: tfs, frame, color: cfg.topColor, side: sideTop, bg: cfg.topBg });
   let body = zig ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: Math.min(mW, W * 0.62), display: "flex", flexDirection: "column" }, children: mainEl }) : mainEl;
+  if (layout === "card") {
+    const pp = eBack(prog(frame, 0, 14));
+    const hf = Math.max(30, Math.min(40, fs * 0.3));
+    return /* @__PURE__ */ (0,jsx_runtime.jsx)(Col, { style: colStyle, children: /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { width: W * 0.88, background: "rgba(250,250,252,.97)", borderRadius: 38, padding: "26px 38px 30px", boxShadow: "0 18px 40px rgba(0,0,0,.35)", transform: `translateY(${(1 - pp) * -90}px) scale(${0.9 + 0.1 * pp})`, opacity: prog(frame, 0, 5), display: "flex", flexDirection: "column", alignItems: "flex-start" }, children: [
+      /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", width: "100%", gap: 14, marginBottom: 6 }, children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: hf * 1.25, height: hf * 1.25, borderRadius: hf * 0.32, background: `linear-gradient(135deg, ${accent}, ${accent}aa)` } }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...TitleTemplates_geo(hf, 600), color: "#6b7079", textTransform: "uppercase", letterSpacing: "0.04em", lineHeight: 1.1, paddingTop: hf * 0.25, flex: 1, whiteSpace: "pre" }, children: top }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...TitleTemplates_geo(hf * 0.9, 500), color: "#9aa0a8", lineHeight: 1.1, paddingTop: hf * 0.25 }, children: "b\xE2y gi\u1EDD" })
+      ] }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...mainCss(cfg.font, fs, cfg.upper), color: "#15171c", textAlign: "left" }, children: m }),
+      sub ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...TitleTemplates_geo(subFs * 0.9, 500), color: "#4a4f57", lineHeight: 1.2, paddingTop: subFs * 0.2, opacity: eOut(prog(frame, 10, 20)) }, children: sub }) : null
+    ] }) });
+  }
+  const draw = eOut(prog(frame, 10, 24));
+  if (layout === "marker" || layout === "slab" || layout === "bubble" || layout === "selbox" || layout === "strike" || layout === "scribble" || layout === "offset") {
+    let wrapEl;
+    const pp = eBack(prog(frame, 0, 12));
+    if (layout === "marker") {
+      wrapEl = /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", padding: `0 ${fs * 0.12}px` }, children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "absolute", left: 0, right: 0, top: "40%", bottom: "6%", background: deco, transform: `skewX(-14deg) scaleX(${grow})`, transformOrigin: "0 50%", boxShadow: "0 6px 14px rgba(0,0,0,.3)" } }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "relative" }, children: mainEl })
+      ] });
+    } else if (layout === "slab" || layout === "bubble") {
+      const bubble = layout === "bubble";
+      wrapEl = /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", background: deco, borderRadius: bubble ? fs * 0.18 : 4, padding: `${fs * 0.04}px ${fs * 0.26}px ${fs * 0.04}px`, transform: bubble ? `rotate(-4deg) scale(${pp})` : `rotate(-2deg)`, clipPath: bubble ? void 0 : `inset(-30% ${(1 - grow) * 100}% -30% 0)`, boxShadow: "0 10px 24px rgba(0,0,0,.35)", opacity: bubble ? prog(frame, 0, 5) : 1 }, children: [
+        bubble ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "absolute", left: fs * 0.45, bottom: -fs * 0.22, width: fs * 0.34, height: fs * 0.26, background: deco, clipPath: "polygon(0 0, 100% 0, 10% 100%)" } }) : null,
+        mainEl
+      ] });
+    } else if (layout === "selbox") {
+      const h = 16;
+      const hd = (pos) => /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "absolute", width: h, height: h, background: "#fff", border: `3px solid ${deco}`, ...pos } });
+      wrapEl = /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", padding: `${fs * 0.04}px ${fs * 0.16}px`, border: `3px solid ${deco}`, opacity: grow, boxShadow: "0 0 10px rgba(0,0,0,.35)" }, children: [
+        hd({ left: -h / 2 - 2, top: -h / 2 - 2 }),
+        hd({ right: -h / 2 - 2, top: -h / 2 - 2 }),
+        hd({ left: -h / 2 - 2, bottom: -h / 2 - 2 }),
+        hd({ right: -h / 2 - 2, bottom: -h / 2 - 2 }),
+        mainEl
+      ] });
+    } else if (layout === "strike") {
+      wrapEl = /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative" }, children: [
+        mainEl,
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "absolute", left: "-3%", top: "50%", height: Math.max(7, fs * 0.08), width: `${draw * 106}%`, background: deco, transform: "rotate(-3deg)", boxShadow: "0 3px 8px rgba(0,0,0,.4)" } })
+      ] });
+    } else if (layout === "scribble") {
+      wrapEl = /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center" }, children: [
+        mainEl,
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("svg", { width: Math.min(W * 0.85, fs * 4.5), height: fs * 0.32, viewBox: "0 0 300 40", preserveAspectRatio: "none", style: { marginTop: -fs * 0.08, overflow: "visible", filter: "drop-shadow(0 2px 4px rgba(0,0,0,.5))" }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M5 26 C 60 6, 95 38, 150 22 S 240 6, 295 20", fill: "none", stroke: deco, strokeWidth: 6, strokeLinecap: "round", strokeDasharray: 420, strokeDashoffset: 420 * (1 - draw) }) })
+      ] });
+    } else {
+      const o = eOut(prog(frame, 6, 16));
+      wrapEl = /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative" }, children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...mainCss(cfg.font, fs, cfg.upper), position: "absolute", inset: 0, color: "transparent", WebkitTextStroke: `0.03em ${deco}`, textAlign: align, transform: `translate(${fs * 0.07 * o}px, ${fs * 0.08 * o}px)`, opacity: o * 0.9, ...cfg.track ? { letterSpacing: `${cfg.track}em` } : {} }, children: m }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "relative" }, children: mainEl })
+      ] });
+    }
+    const topEl2 = /* @__PURE__ */ (0,jsx_runtime.jsx)(TopLine, { kind: cfg.top, text: top, fs: tfs, frame, color: cfg.topColor, bg: cfg.topBg });
+    return /* @__PURE__ */ (0,jsx_runtime.jsxs)(Col, { style: colStyle, children: [
+      topEl2,
+      wrapEl,
+      sub ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { marginTop: layout === "bubble" ? fs * 0.22 : 0 }, children: subEl }) : null
+    ] });
+  }
   if (layout === "corner") {
     const L = Math.max(46, fs * 0.6) * grow;
     const t = Math.max(5, fs * 0.055);
@@ -12822,7 +13328,11 @@ function templateSounds(style, fps = 30) {
     case "lrise":
       return [S("whoosh-rod", f(2), 0.6)];
     case "flip":
+    case "streak":
+    case "zip":
       return [S("whoosh-quick", f(1), 0.5)];
+    case "glitch":
+      return [S("click", f(2), 0.6)];
     case "words":
       return [S("pop", f(1), 0.6)];
   }
@@ -13557,7 +14067,7 @@ const CalloutView = ({ c }) => {
               alignItems: "center",
               // nền sáng (tường trắng, trời): viền tối mảnh + quầng tối ôm sát mọi chữ, không dùng hộp nền
               // mẫu chữ sáng trên nền sáng: đảo sáng–tối (chữ đậm, quầng sáng) để luôn đọc rõ
-              filter: (c.bg ?? 0) >= LIGHT_BG && isLightStyle(c.style) || (c.bg ?? 0) >= 0.68 ? "invert(1) hue-rotate(180deg) saturate(1.5)" : (c.bg ?? 0) >= LIGHT_BG ? "drop-shadow(0 0 1.5px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(0,0,0,.55)) drop-shadow(0 2px 10px rgba(0,0,0,.35))" : void 0
+              filter: !hasOwnBg(c.style) && ((c.bg ?? 0) >= LIGHT_BG && isLightStyle(c.style) || (c.bg ?? 0) >= 0.68) ? "invert(1) hue-rotate(180deg) saturate(1.5)" : (c.bg ?? 0) >= LIGHT_BG ? "drop-shadow(0 0 1.5px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(0,0,0,.55)) drop-shadow(0 2px 10px rgba(0,0,0,.35))" : void 0
             },
             children: react.createElement(template, {
               frame,
@@ -95003,7 +95513,7 @@ const error = () => {
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	__webpack_require__(6507);
 /******/ 	__webpack_require__(3999);
-/******/ 	__webpack_require__(2365);
+/******/ 	__webpack_require__(1205);
 /******/ 	__webpack_require__(3610);
 /******/ 	var __webpack_exports__ = __webpack_require__(3482);
 /******/ 	

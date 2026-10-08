@@ -13,7 +13,7 @@ import {
 } from "remotion";
 import { ScriptFont, TheBoldFont } from "../load-font";
 import { OVERLAY_BOX } from "./Overlays";
-import { isLightStyle, TEMPLATE_BODIES, TEMPLATE_STYLES, templateSounds, type TemplateStyle } from "./TitleTemplates";
+import { hasOwnBg, isLightStyle, TEMPLATE_BODIES, TEMPLATE_STYLES, templateSounds, type TemplateStyle } from "./TitleTemplates";
 
 const isTemplate = (s: string): s is TemplateStyle => (TEMPLATE_STYLES as readonly string[]).includes(s);
 
@@ -862,7 +862,7 @@ export const CalloutView: React.FC<{ c: Callout }> = ({ c }) => {
               // nền sáng (tường trắng, trời): viền tối mảnh + quầng tối ôm sát mọi chữ, không dùng hộp nền
               // mẫu chữ sáng trên nền sáng: đảo sáng–tối (chữ đậm, quầng sáng) để luôn đọc rõ
               filter:
-                ((c.bg ?? 0) >= LIGHT_BG && isLightStyle(c.style)) || (c.bg ?? 0) >= 0.68
+                !hasOwnBg(c.style) && (((c.bg ?? 0) >= LIGHT_BG && isLightStyle(c.style)) || (c.bg ?? 0) >= 0.68)
                   ? "invert(1) hue-rotate(180deg) saturate(1.5)"
                   : (c.bg ?? 0) >= LIGHT_BG
                   ? "drop-shadow(0 0 1.5px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(0,0,0,.55)) drop-shadow(0 2px 10px rgba(0,0,0,.35))"
