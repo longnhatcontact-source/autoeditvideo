@@ -8,11 +8,11 @@ import { TheBoldFont } from "../load-font";
 
 const fontFamily = TheBoldFont;
 
-export type SubStyle = { highlight: string; position: "thap" | "cao"; box: boolean };
+export type SubStyle = { highlight: string; position: "thap" | "cao" | "tat"; box: boolean };
 export const DEFAULT_SUB_STYLE: SubStyle = { highlight: "#39E508", position: "thap", box: false };
 
 // "thấp": ngay trên vùng chú thích TikTok; "cao": giữa khoảng trống dưới video
-const BOTTOM = { thap: 350, cao: 560 };
+const BOTTOM = { thap: 350, cao: 560, tat: 350 };
 
 export const SUB_FONT_WEIGHT = 800;
 // cỡ chữ tối đa (nhỏ hơn bản cũ 100 cho đỡ chiếm khung)

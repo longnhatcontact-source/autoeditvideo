@@ -63,6 +63,7 @@ export function CaptionsTab({
           />
         ))}
         <select value={subStyle.position} onChange={(e) => onSubStyle({ position: e.target.value as SubStyle["position"] })}>
+          <option value="tat">Tắt phụ đề (chỉ dùng chữ nhấn)</option>
           <option value="thap">Vị trí thấp</option>
           <option value="cao">Vị trí cao hơn</option>
         </select>

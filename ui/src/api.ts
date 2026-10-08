@@ -36,7 +36,7 @@ export type AiInfo = {
   model: string;
   claudeCode?: { ok: boolean; version: string; loggedIn: boolean };
 };
-export type SubStyle = { highlight: string; position: "thap" | "cao"; box: boolean };
+export type SubStyle = { highlight: string; position: "thap" | "cao" | "tat"; box: boolean };
 export type BrandPosition = "duoi-video" | "tren-phai" | "tren-trai";
 export type Brand = { enabled: boolean; text: string; logo: string; position: BrandPosition };
 export type Music = { file: string; original: string; volume: number; duck: boolean };

@@ -854,10 +854,13 @@ const parseNum = (text: string) => {
   };
   return { raw, pre: text.slice(0, at), post: text.slice(at + raw.length), value, fmt };
 };
+/** chỉ chạy số với số liệu lớn (từ 10.000 trở lên); số nhỏ hiện đứng yên */
+const COUNT_MIN = 10000;
+const canCount = (text: string) => (parseNum(text)?.value ?? 0) >= COUNT_MIN;
 /** chuỗi hiển thị ở tiến độ k (0→1) */
 const countText = (text: string, k: number, down = false) => {
   const n = parseNum(text);
-  if (!n || k >= 1) return text;
+  if (!n || k >= 1 || n.value < COUNT_MIN) return text;
   const from = down ? n.value * 2.4 : 0;
   return n.pre + n.fmt(from + (n.value - from) * k) + n.post;
 };
@@ -883,7 +886,7 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
     const top = (top0 ?? "").normalize("NFC");
     const sub = (sub0 ?? "").normalize("NFC");
     const txt = cfg.upper ? upperKeepUnits(main) : main;
-    const countK = cfg.count ? eOut(prog(frame, 3, 30)) : 1;
+    const countK = cfg.count && canCount(txt) ? eOut(prog(frame, 3, 30)) : 1;
     const zig = layout === "zigzag";
     const statN = layout === "stat" ? parseNum(txt) : null;
     const isStat = !!statN && statN.post.trim().length > 0 && statN.post.trim().length <= 14;
@@ -1147,7 +1150,7 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
           <TopLine kind={cfg.top} text={top} fs={tfs} frame={frame} color={cfg.topColor} />
           {mainEl}
           <div style={{ width: barW, height: Math.max(14, fs * 0.075), borderRadius: 99, background: "rgba(255,255,255,.3)", boxShadow: "0 0 10px rgba(0,0,0,.45)", overflow: "hidden", marginTop: fs * 0.02, marginBottom: fs * 0.05 }}>
-            <div style={{ width: barW * pct * countK, height: "100%", borderRadius: 99, background: `linear-gradient(90deg, ${accent}cc, ${accent})` }} />
+            <div style={{ width: barW * pct * eOut(prog(frame, 3, 30)), height: "100%", borderRadius: 99, background: `linear-gradient(90deg, ${accent}cc, ${accent})` }} />
           </div>
           {subEl}
         </Col>

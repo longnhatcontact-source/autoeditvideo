@@ -71,7 +71,7 @@ export const captionedVideoSchema = z.object({
   brandPosition: z.enum(["duoi-video", "tren-phai", "tren-trai"]),
   // kiểu phụ đề: màu chữ đang đọc, vị trí, có hộp nền không
   subHighlight: z.string(),
-  subPosition: z.enum(["thap", "cao"]),
+  subPosition: z.enum(["thap", "cao", "tat"]), // "tat": không hiện phụ đề phía dưới
   subBox: z.boolean(),
   // zoom nhẹ ở câu có số liệu / đầu ý mới
   punchZoom: z.boolean(),
@@ -256,7 +256,7 @@ export const CaptionedVideo: React.FC<Props> = ({
       {pages.map((page, index) => {
         const from = Math.round((page.startMs / 1000) * fps);
         const dur = Math.round((pageEndMs(pages, index) / 1000) * fps) - from;
-        if (dur <= 0 || !subSize) return null;
+        if (dur <= 0 || !subSize || subPosition === "tat") return null;
         return (
           <Sequence key={index} from={from} durationInFrames={dur} layout="none">
             <SubtitlePage page={page} fontSize={subSize} subStyle={subStyle} />

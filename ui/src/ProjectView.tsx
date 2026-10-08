@@ -68,7 +68,7 @@ export function ProjectView({
   const [calloutSfx, setCalloutSfx] = useState(0.8);
   const [overlays, setOverlays] = useState<OverlayItem[]>([]);
   const [callouts, setCallouts] = useState<Callout[]>([]);
-  const [subStyle, setSubStyle] = useState<SubStyle>({ highlight: "#39E508", position: "thap", box: false });
+  const [subStyle, setSubStyle] = useState<SubStyle>({ highlight: "#39E508", position: "tat", box: false });
   const showBrand = Boolean(project?.brand.enabled && !hideBrand && (project.brand.text || project.brand.logo));
   const [tab, setTab] = useState<Tab>("info");
   const [error, setError] = useState("");

@@ -12396,9 +12396,14 @@ const parseNum = (text) => {
   };
   return { raw, pre: text.slice(0, at), post: text.slice(at + raw.length), value, fmt };
 };
+const COUNT_MIN = 1e4;
+const canCount = (text) => {
+  var _a;
+  return (((_a = parseNum(text)) == null ? void 0 : _a.value) ?? 0) >= COUNT_MIN;
+};
 const countText = (text, k, down = false) => {
   const n = parseNum(text);
-  if (!n || k >= 1) return text;
+  if (!n || k >= 1 || n.value < COUNT_MIN) return text;
   const from = down ? n.value * 2.4 : 0;
   return n.pre + n.fmt(from + (n.value - from) * k) + n.post;
 };
@@ -12447,7 +12452,7 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
   const top = (top0 ?? "").normalize("NFC");
   const sub = (sub0 ?? "").normalize("NFC");
   const txt = cfg.upper ? upperKeepUnits(main) : main;
-  const countK = cfg.count ? eOut(prog(frame, 3, 30)) : 1;
+  const countK = cfg.count && canCount(txt) ? eOut(prog(frame, 3, 30)) : 1;
   const zig = layout === "zigzag";
   const statN = layout === "stat" ? parseNum(txt) : null;
   const isStat = !!statN && statN.post.trim().length > 0 && statN.post.trim().length <= 14;
@@ -12655,7 +12660,7 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
     return /* @__PURE__ */ (0,jsx_runtime.jsxs)(Col, { style: colStyle, children: [
       /* @__PURE__ */ (0,jsx_runtime.jsx)(TopLine, { kind: cfg.top, text: top, fs: tfs, frame, color: cfg.topColor }),
       mainEl,
-      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: barW, height: Math.max(14, fs * 0.075), borderRadius: 99, background: "rgba(255,255,255,.3)", boxShadow: "0 0 10px rgba(0,0,0,.45)", overflow: "hidden", marginTop: fs * 0.02, marginBottom: fs * 0.05 }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: barW * pct * countK, height: "100%", borderRadius: 99, background: `linear-gradient(90deg, ${accent}cc, ${accent})` } }) }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: barW, height: Math.max(14, fs * 0.075), borderRadius: 99, background: "rgba(255,255,255,.3)", boxShadow: "0 0 10px rgba(0,0,0,.45)", overflow: "hidden", marginTop: fs * 0.02, marginBottom: fs * 0.05 }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: barW * pct * eOut(prog(frame, 3, 30)), height: "100%", borderRadius: 99, background: `linear-gradient(90deg, ${accent}cc, ${accent})` } }) }),
       subEl
     ] });
   }
@@ -14447,7 +14452,7 @@ var makeTransform = (transforms) => {
 
 const Page_fontFamily = TheBoldFont;
 const DEFAULT_SUB_STYLE = { highlight: "#39E508", position: "thap", box: false };
-const BOTTOM = { thap: 350, cao: 560 };
+const BOTTOM = { thap: 350, cao: 560, tat: 350 };
 const SUB_FONT_WEIGHT = 800;
 const SUB_MAX_FONT_SIZE = 66;
 const SUB_MAX_WIDTH = 0.74;
@@ -14603,7 +14608,8 @@ const captionedVideoSchema = schemas.object({
   brandPosition: schemas["enum"](["duoi-video", "tren-phai", "tren-trai"]),
   // kiểu phụ đề: màu chữ đang đọc, vị trí, có hộp nền không
   subHighlight: schemas.string(),
-  subPosition: schemas["enum"](["thap", "cao"]),
+  subPosition: schemas["enum"](["thap", "cao", "tat"]),
+  // "tat": không hiện phụ đề phía dưới
   subBox: schemas.boolean(),
   // zoom nhẹ ở câu có số liệu / đầu ý mới
   punchZoom: schemas.boolean(),
@@ -14754,7 +14760,7 @@ const CaptionedVideo = ({
     pages.map((page, index) => {
       const from = Math.round(page.startMs / 1e3 * fps);
       const dur = Math.round(pageEndMs(pages, index) / 1e3 * fps) - from;
-      if (dur <= 0 || !subSize) return null;
+      if (dur <= 0 || !subSize || subPosition === "tat") return null;
       return /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.Sequence, { from, durationInFrames: dur, layout: "none", children: /* @__PURE__ */ (0,jsx_runtime.jsx)(CaptionedVideo_SubtitlePage, { page, fontSize: subSize, subStyle }) }, index);
     }),
     /* @__PURE__ */ (0,jsx_runtime.jsx)(InfoOverlay, { info: { tenDuAn, gia, dienTich, phongNgu, diaChi }, cardDelaySec: hookFrames / FPS }),
