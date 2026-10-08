@@ -716,7 +716,7 @@ export const PRESETS = {
   wood: P({ label: "Vân gỗ", use: "nội thất gỗ, ấm cúng, nhà phố", font: "heavy", upper: true, fill: { tex: "wood" }, anim: "rise", exit: "up", top: "sign" }),
   holo: P({ label: "Hologram", use: "công nghệ, nhà thông minh, số hoá", font: "heavy", upper: true, fill: { tex: "holo" }, anim: "wipe", exit: "sweep", top: "light", scroll: 1.2, layout: "brackets" }),
   investor: P({ label: "Lam + trắng tách đôi", use: "đầu tư, dòng tiền, cho thuê", font: "cond", upper: true, fill: { tex: "sapphire" }, anim: "split", exit: "sweep", top: "sign" }),
-  // --- khung chữ + số chạy (bộ mới)
+  // --- khung chữ / số chạy ---
   statgold: P({ label: "Số vàng + đơn vị", use: "đơn giá, giá/m², mức giá có đơn vị", font: "anton", upper: true, fill: { tex: "gold" }, anim: "zoom", exit: "shrink", top: "bold", shine: true, max: 330, layout: "stat", count: true }),
   statwhite: P({ label: "Số trắng + đơn vị", use: "số tầng, số căn, diện tích, số lượng có đơn vị", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "up", top: "bold", max: 320, layout: "stat", count: true }),
   statred: P({ label: "Số đỏ + đơn vị", use: "mức phạt, chi phí phát sinh, thiệt hại", font: "anton", upper: true, fill: { tex: "ruby" }, anim: "slam", exit: "down", top: "bold", topColor: "#ffffff", max: 320, layout: "stat", count: true }),
@@ -729,7 +729,7 @@ export const PRESETS = {
   flipwhite: P({ label: "Lật chữ trắng", use: "chuyển ý mạnh, nhưng, tuy nhiên", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "flip", exit: "down", top: "bold", topColor: "#ffd23f" }),
   letterrose: P({ label: "Chữ mọc vàng hồng", use: "thông điệp cảm xúc, tổ ấm, gia đình", font: "serif", fill: { tex: "rosegold" }, anim: "lrise", exit: "blur", top: "sign" }),
   wordsyellow: P({ label: "Từng từ bật vàng", use: "khẩu hiệu 2–4 từ, lời kêu gọi", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "words", exit: "shrink", top: "sign", layout: "underline" }),
-  // --- bộ mẫu theo video tham khảo (8/10)
+  // --- theo video tham khảo ---
   sweepblue: P({ label: "Nhãn xanh + chữ trắng sáng", use: "giới thiệu mục mới, tên chương", font: "mont", upper: true, fill: { solid: "#ffffff" }, anim: "wipe", exit: "sweep", top: "tag", topBg: "#1f6fd6", shine: true }),
   duoyellow: P({ label: "Trắng nhỏ + vàng lớn", use: "khái niệm 2 tầng: tài sản / thế chấp, hạn mức / vay", font: "viet", fill: { solid: "#ffe600" }, anim: "pop", exit: "shrink", top: "heavy", topColor: "#ffffff" }),
   strikered: P({ label: "Gạch ngang đỏ", use: "sai lầm, hiểu sai, điều không nên tin", font: "viet", fill: { solid: "#ffffff" }, anim: "slam", exit: "fade", top: "bold", topColor: "#ff3b3b", layout: "strike", decoColor: "#ff2a3d" }),

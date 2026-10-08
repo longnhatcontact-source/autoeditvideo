@@ -12649,7 +12649,7 @@ const PRESETS = {
   wood: P({ label: "V\xE2n g\u1ED7", use: "n\u1ED9i th\u1EA5t g\u1ED7, \u1EA5m c\xFAng, nh\xE0 ph\u1ED1", font: "heavy", upper: true, fill: { tex: "wood" }, anim: "rise", exit: "up", top: "sign" }),
   holo: P({ label: "Hologram", use: "c\xF4ng ngh\u1EC7, nh\xE0 th\xF4ng minh, s\u1ED1 ho\xE1", font: "heavy", upper: true, fill: { tex: "holo" }, anim: "wipe", exit: "sweep", top: "light", scroll: 1.2, layout: "brackets" }),
   investor: P({ label: "Lam + tr\u1EAFng t\xE1ch \u0111\xF4i", use: "\u0111\u1EA7u t\u01B0, d\xF2ng ti\u1EC1n, cho thu\xEA", font: "cond", upper: true, fill: { tex: "sapphire" }, anim: "split", exit: "sweep", top: "sign" }),
-  // --- khung chữ + số chạy (bộ mới)
+  // --- khung chữ / số chạy ---
   statgold: P({ label: "S\u1ED1 v\xE0ng + \u0111\u01A1n v\u1ECB", use: "\u0111\u01A1n gi\xE1, gi\xE1/m\xB2, m\u1EE9c gi\xE1 c\xF3 \u0111\u01A1n v\u1ECB", font: "anton", upper: true, fill: { tex: "gold" }, anim: "zoom", exit: "shrink", top: "bold", shine: true, max: 330, layout: "stat", count: true }),
   statwhite: P({ label: "S\u1ED1 tr\u1EAFng + \u0111\u01A1n v\u1ECB", use: "s\u1ED1 t\u1EA7ng, s\u1ED1 c\u0103n, di\u1EC7n t\xEDch, s\u1ED1 l\u01B0\u1EE3ng c\xF3 \u0111\u01A1n v\u1ECB", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "up", top: "bold", max: 320, layout: "stat", count: true }),
   statred: P({ label: "S\u1ED1 \u0111\u1ECF + \u0111\u01A1n v\u1ECB", use: "m\u1EE9c ph\u1EA1t, chi ph\xED ph\xE1t sinh, thi\u1EC7t h\u1EA1i", font: "anton", upper: true, fill: { tex: "ruby" }, anim: "slam", exit: "down", top: "bold", topColor: "#ffffff", max: 320, layout: "stat", count: true }),
@@ -12662,7 +12662,7 @@ const PRESETS = {
   flipwhite: P({ label: "L\u1EADt ch\u1EEF tr\u1EAFng", use: "chuy\u1EC3n \xFD m\u1EA1nh, nh\u01B0ng, tuy nhi\xEAn", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "flip", exit: "down", top: "bold", topColor: "#ffd23f" }),
   letterrose: P({ label: "Ch\u1EEF m\u1ECDc v\xE0ng h\u1ED3ng", use: "th\xF4ng \u0111i\u1EC7p c\u1EA3m x\xFAc, t\u1ED5 \u1EA5m, gia \u0111\xECnh", font: "serif", fill: { tex: "rosegold" }, anim: "lrise", exit: "blur", top: "sign" }),
   wordsyellow: P({ label: "T\u1EEBng t\u1EEB b\u1EADt v\xE0ng", use: "kh\u1EA9u hi\u1EC7u 2\u20134 t\u1EEB, l\u1EDDi k\xEAu g\u1ECDi", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "words", exit: "shrink", top: "sign", layout: "underline" }),
-  // --- bộ mẫu theo video tham khảo (8/10)
+  // --- theo video tham khảo ---
   sweepblue: P({ label: "Nh\xE3n xanh + ch\u1EEF tr\u1EAFng s\xE1ng", use: "gi\u1EDBi thi\u1EC7u m\u1EE5c m\u1EDBi, t\xEAn ch\u01B0\u01A1ng", font: "mont", upper: true, fill: { solid: "#ffffff" }, anim: "wipe", exit: "sweep", top: "tag", topBg: "#1f6fd6", shine: true }),
   duoyellow: P({ label: "Tr\u1EAFng nh\u1ECF + v\xE0ng l\u1EDBn", use: "kh\xE1i ni\u1EC7m 2 t\u1EA7ng: t\xE0i s\u1EA3n / th\u1EBF ch\u1EA5p, h\u1EA1n m\u1EE9c / vay", font: "viet", fill: { solid: "#ffe600" }, anim: "pop", exit: "shrink", top: "heavy", topColor: "#ffffff" }),
   strikered: P({ label: "G\u1EA1ch ngang \u0111\u1ECF", use: "sai l\u1EA7m, hi\u1EC3u sai, \u0111i\u1EC1u kh\xF4ng n\xEAn tin", font: "viet", fill: { solid: "#ffffff" }, anim: "slam", exit: "fade", top: "bold", topColor: "#ff3b3b", layout: "strike", decoColor: "#ff2a3d" }),
