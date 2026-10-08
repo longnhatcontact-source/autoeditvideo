@@ -44,5 +44,5 @@ bash cloud/setup.sh        # npm install, phông + SFX, deep-filter, faster-whis
 - Chữ sáng trên nền sáng tự đảo thành chữ đậm quầng sáng (`bg` ≥ 0,55); nền rất sáng (≥ 0,68) đảo mọi mẫu trừ mẫu có nền riêng (thẻ, mảng, bong bóng).
 - Phông: chỉ dùng phông CÓ bộ chữ tiếng Việt (Poppins không có → dùng Be Vietnam Pro).
 - **Tên riêng (dự án, đường, người) nghe chưa chắc → tra web hoặc hỏi người dùng TRƯỚC khi đưa lên chữ.** Vd whisper nghe "Metro Green Street" nhưng dự án thật là "Metro Grand Street"; "Tây Ba Vì" là trục "Hồ Tây – Ba Vì".
-- Ảnh bìa khi mặt nằm giữa khung: làm nền = khung hình mờ + khung hình rõ dời xuống ~620px (xem `cloud/example/cover.phudien.json` và lệnh trong make-props.phudien), để chữ ở nửa trên không che mặt.
+- Ảnh bìa khi mặt nằm giữa khung: làm nền = khung hình mờ + khung hình rõ dời xuống ~620px (`cloud/example/cover.phudien.json`; lệnh: `ffmpeg -i khung.png -filter_complex "[0]scale=1080:1920,boxblur=30:2,eq=brightness=-0.12[b];[0]scale=1080:-2[f];[b][f]overlay=0:620,crop=1080:1920:0:0" public/cover/ten_bg.jpg`), để chữ ở nửa trên không che mặt.
 - Đừng chạy 2 lệnh `cloud/render.mjs` cùng lúc (mỗi lần chạy dọn thư mục tạm của Remotion → lệnh kia lỗi 404).
