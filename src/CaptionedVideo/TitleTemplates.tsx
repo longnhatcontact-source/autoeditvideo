@@ -743,6 +743,17 @@ const upperKeepUnits = (t: string) =>
 // chất liệu sáng: thêm viền mảnh tối để không chìm trên tường / trời sáng
 const LIGHT_TEX = new Set(["chrome", "champagne", "pearl", "ice", "concrete", "silverwhite", "mint", "pastel", "holo", "sky", "sand", "jade", "lime", "cyan"]);
 
+/** mẫu chữ SÁNG (trắng / bạc / vàng nhạt…): trên nền sáng sẽ chìm → Callouts đổi sang chữ ĐẬM viền sáng */
+export const isLightStyle = (style: string): boolean => {
+  if (style === "marble" || style === "bigyellow" || style === "city") return true;
+  const cfg = (PRESETS as Record<string, Preset>)[style];
+  if (!cfg) return false;
+  const f = cfg.fill;
+  if ("solid" in f) return ["#ffffff", "#3ff0d0"].includes(f.solid.toLowerCase());
+  if ("neon" in f) return true;
+  return LIGHT_TEX.has(f.tex) || f.tex === "yellow";
+};
+
 /** nhóm mẫu (để chọn trong app) */
 export const TEMPLATE_GROUPS: [string, TemplateStyle[]][] = [
   ["Gốc (8 mẫu đầu)", [...BASE_STYLES]],

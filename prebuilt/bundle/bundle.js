@@ -12303,6 +12303,15 @@ const TEMPLATE_INFO = {
 };
 const upperKeepUnits = (t) => t.toUpperCase().replace(/(\d)(\s?)(M²|M2|KM|HA)(?![A-ZÀ-Ỹ])/g, (_, d, sp, u) => d + sp + (u === "M2" ? "m\xB2" : u.toLowerCase())).replace(/\/(M²|M2)(?![A-ZÀ-Ỹ])/g, "/m\xB2");
 const LIGHT_TEX = /* @__PURE__ */ new Set(["chrome", "champagne", "pearl", "ice", "concrete", "silverwhite", "mint", "pastel", "holo", "sky", "sand", "jade", "lime", "cyan"]);
+const isLightStyle = (style) => {
+  if (style === "marble" || style === "bigyellow" || style === "city") return true;
+  const cfg = PRESETS[style];
+  if (!cfg) return false;
+  const f = cfg.fill;
+  if ("solid" in f) return ["#ffffff", "#3ff0d0"].includes(f.solid.toLowerCase());
+  if ("neon" in f) return true;
+  return LIGHT_TEX.has(f.tex) || f.tex === "yellow";
+};
 const TEMPLATE_GROUPS = [
   ["G\u1ED1c (8 m\u1EABu \u0111\u1EA7u)", [...BASE_STYLES]],
   ["Sang tr\u1ECDng / gi\xE1 tr\u1ECB", ["rosegold", "champagne", "platinum", "goldserif", "bronze", "copper", "pearl", "royal", "goldscript", "sapphire"]],
@@ -13547,7 +13556,8 @@ const CalloutView = ({ c }) => {
               flexDirection: "column",
               alignItems: "center",
               // nền sáng (tường trắng, trời): viền tối mảnh + quầng tối ôm sát mọi chữ, không dùng hộp nền
-              filter: (c.bg ?? 0) >= LIGHT_BG ? "drop-shadow(0 0 1.5px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(0,0,0,.55)) drop-shadow(0 2px 10px rgba(0,0,0,.35))" : void 0
+              // mẫu chữ sáng trên nền sáng: đảo sáng–tối (chữ đậm, quầng sáng) để luôn đọc rõ
+              filter: (c.bg ?? 0) >= LIGHT_BG && isLightStyle(c.style) || (c.bg ?? 0) >= 0.68 ? "invert(1) hue-rotate(180deg) saturate(1.5)" : (c.bg ?? 0) >= LIGHT_BG ? "drop-shadow(0 0 1.5px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(0,0,0,.55)) drop-shadow(0 2px 10px rgba(0,0,0,.35))" : void 0
             },
             children: react.createElement(template, {
               frame,
