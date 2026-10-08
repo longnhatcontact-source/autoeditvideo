@@ -12183,7 +12183,7 @@ const TEX2 = {
   yellow: () => TEX.yellow(),
   silverwhite: () => lg(180, "#ffffff 0%", "#ffffff 55%", "#dfe6ee 100%")
 };
-const LAYOUTS = ["center", "left", "right", "inline", "side", "zigzag", "bar", "brackets", "underline", "lines"];
+const LAYOUTS = ["center", "left", "right", "inline", "side", "zigzag", "bar", "brackets", "underline", "lines", "frame", "pill", "stat", "progress", "corner"];
 const LAYOUT_INFO = {
   center: "Gi\u1EEFa (d\xF2ng tr\xEAn \xB7 ch\u1EEF ch\xEDnh \xB7 d\xF2ng d\u01B0\u1EDBi)",
   left: "Canh tr\xE1i",
@@ -12194,7 +12194,12 @@ const LAYOUT_INFO = {
   bar: "V\u1EA1ch m\xE0u d\u1ECDc b\xEAn tr\xE1i",
   brackets: "Khung g\xF3c \xF4m ch\u1EEF",
   underline: "G\u1EA1ch ch\xE2n ch\u1EA1y d\u01B0\u1EDBi ch\u1EEF",
-  lines: "\u0110\u01B0\u1EDDng k\u1EBB hai b\xEAn d\xF2ng tr\xEAn"
+  lines: "\u0110\u01B0\u1EDDng k\u1EBB hai b\xEAn d\xF2ng tr\xEAn",
+  frame: "Khung vi\u1EC1n m\u1EA3nh t\u1EF1 v\u1EBD, nh\xE3n n\u1EB1m tr\xEAn c\u1EA1nh khung",
+  pill: "Nh\xE3n vi\u1EC1n bo tr\xF2n ph\xEDa tr\xEAn ch\u1EEF ch\xEDnh",
+  stat: "Con s\u1ED1 th\u1EADt to + \u0111\u01A1n v\u1ECB nh\u1ECF b\xEAn c\u1EA1nh (h\u1EE3p s\u1ED1 li\u1EC7u)",
+  progress: "Con s\u1ED1 + thanh ti\u1EBFn \u0111\u1ED9 ch\u1EA1y \u0111\u1EA7y (h\u1EE3p ph\u1EA7n tr\u0103m)",
+  corner: "Hai g\xF3c ch\xE9o \xF4m ch\u1EEF"
 };
 const FONTS = {
   heavy: { family: HeavyFont, weight: 900, per: 0.62, lh: 0.98 },
@@ -12240,12 +12245,12 @@ const PRESETS = {
   lava: P({ label: "Dung nham", use: "\u0111i\u1EC3m n\xF3ng, tranh c\xE3i, c\u0103ng th\u1EB3ng", font: "heavy", upper: true, fill: { tex: "lava" }, anim: "rise", exit: "fall", top: "sign" }),
   question: P({ label: "C\xE2u h\u1ECFi v\xE0ng", use: "c\xE2u h\u1ECFi, th\u1EAFc m\u1EAFc, c\xF3 n\xEAn kh\xF4ng", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "bounce", exit: "shrink", top: "sign" }),
   // --- con số / dữ liệu ---
-  bignumber: P({ label: "S\u1ED1 tr\u1EAFng c\u1EF1c l\u1EDBn", use: "con s\u1ED1 l\u1EDBn, di\u1EC7n t\xEDch, s\u1ED1 l\u01B0\u1EE3ng", font: "anton", upper: true, fill: { solid: "#ffffff" }, anim: "pop", exit: "shrink", top: "sign", max: 320, lim: 9, layout: "side" }),
-  cyanfigure: P({ label: "S\u1ED1 xanh cyan", use: "th\xF4ng s\u1ED1, kho\u1EA3ng c\xE1ch, th\u1EDDi gian di chuy\u1EC3n", font: "cond", upper: true, fill: { tex: "cyan" }, anim: "split", exit: "sweep", top: "light" }),
-  limefigure: P({ label: "S\u1ED1 xanh chanh", use: "ph\u1EA7n tr\u0103m, t\u0103ng tr\u01B0\u1EDFng, hi\u1EC7u su\u1EA5t", font: "anton", upper: true, fill: { tex: "lime" }, anim: "pop", exit: "up", top: "sign", max: 300, lim: 9, layout: "side" }),
-  goldnumber: P({ label: "Gi\xE1 v\xE0ng l\u1EDBn", use: "gi\xE1 b\xE1n, t\u1ED5ng gi\xE1, m\u1EE9c \u0111\u1EA7u t\u01B0", font: "anton", upper: true, fill: { tex: "gold" }, anim: "zoom", exit: "shrink", top: "sign", shine: true, max: 300, lim: 10, layout: "underline" }),
+  bignumber: P({ label: "S\u1ED1 tr\u1EAFng c\u1EF1c l\u1EDBn", use: "con s\u1ED1 l\u1EDBn, di\u1EC7n t\xEDch, s\u1ED1 l\u01B0\u1EE3ng", font: "anton", upper: true, fill: { solid: "#ffffff" }, anim: "pop", exit: "shrink", top: "sign", max: 320, lim: 9, layout: "side", count: true }),
+  cyanfigure: P({ label: "S\u1ED1 xanh cyan", use: "th\xF4ng s\u1ED1, kho\u1EA3ng c\xE1ch, th\u1EDDi gian di chuy\u1EC3n", font: "cond", upper: true, fill: { tex: "cyan" }, anim: "split", exit: "sweep", top: "light", count: true }),
+  limefigure: P({ label: "S\u1ED1 xanh chanh", use: "ph\u1EA7n tr\u0103m, t\u0103ng tr\u01B0\u1EDFng, hi\u1EC7u su\u1EA5t", font: "anton", upper: true, fill: { tex: "lime" }, anim: "pop", exit: "up", top: "sign", max: 300, lim: 9, layout: "side", count: true }),
+  goldnumber: P({ label: "Gi\xE1 v\xE0ng l\u1EDBn", use: "gi\xE1 b\xE1n, t\u1ED5ng gi\xE1, m\u1EE9c \u0111\u1EA7u t\u01B0", font: "anton", upper: true, fill: { tex: "gold" }, anim: "zoom", exit: "shrink", top: "sign", shine: true, max: 300, lim: 10, layout: "underline", count: true }),
   tealdata: P({ label: "D\u1EEF li\u1EC7u g\xF5 ch\u1EEF", use: "th\xF4ng tin k\u1EF9 thu\u1EADt, quy ho\u1EA1ch, ph\xE1p l\xFD chi ti\u1EBFt", font: "geo", fill: { solid: "#3ff0d0" }, anim: "type", exit: "fade", top: "light", layout: "bar" }),
-  countdown: P({ label: "\u0110\u1EBFm ng\u01B0\u1EE3c \u0111\u1ECF", use: "h\u1EA1n ch\xF3t, ng\xE0y m\u1EDF b\xE1n, c\xF2n l\u1EA1i bao nhi\xEAu", font: "anton", upper: true, fill: { tex: "ruby" }, anim: "slam", exit: "blur", top: "bold", topColor: "#ffffff", max: 300, lim: 10, layout: "inline" }),
+  countdown: P({ label: "\u0110\u1EBFm ng\u01B0\u1EE3c \u0111\u1ECF", use: "h\u1EA1n ch\xF3t, ng\xE0y m\u1EDF b\xE1n, c\xF2n l\u1EA1i bao nhi\xEAu", font: "anton", upper: true, fill: { tex: "ruby" }, anim: "slam", exit: "blur", top: "bold", topColor: "#ffffff", max: 300, lim: 10, layout: "inline", count: "down" }),
   // --- neon / hiện đại ---
   neonpink: P({ label: "Neon h\u1ED3ng", use: "tr\u1EBB trung, gi\u1EDBi tr\u1EBB, c\u0103n h\u1ED9 studio", font: "retro", fill: { neon: "#ff4fd8" }, anim: "flicker", exit: "off", top: "heavy" }),
   neongreen: P({ label: "Neon xanh l\xE1", use: "ti\u1EC7n \xEDch, an to\xE0n, \u0111\u1EA1t chu\u1EA9n", font: "geo", fill: { neon: "#39ff7a" }, anim: "flicker", exit: "off", top: "heavy", layout: "brackets" }),
@@ -12267,7 +12272,20 @@ const PRESETS = {
   concrete: P({ label: "B\xEA t\xF4ng", use: "x\xE2y d\u1EF1ng, ti\u1EBFn \u0111\u1ED9, k\u1EBFt c\u1EA5u", font: "anton", upper: true, fill: { tex: "concrete" }, anim: "slam", exit: "down", top: "bold", topColor: "#ffb300", layout: "bar" }),
   wood: P({ label: "V\xE2n g\u1ED7", use: "n\u1ED9i th\u1EA5t g\u1ED7, \u1EA5m c\xFAng, nh\xE0 ph\u1ED1", font: "heavy", upper: true, fill: { tex: "wood" }, anim: "rise", exit: "up", top: "sign" }),
   holo: P({ label: "Hologram", use: "c\xF4ng ngh\u1EC7, nh\xE0 th\xF4ng minh, s\u1ED1 ho\xE1", font: "heavy", upper: true, fill: { tex: "holo" }, anim: "wipe", exit: "sweep", top: "light", scroll: 1.2, layout: "brackets" }),
-  investor: P({ label: "Lam + tr\u1EAFng t\xE1ch \u0111\xF4i", use: "\u0111\u1EA7u t\u01B0, d\xF2ng ti\u1EC1n, cho thu\xEA", font: "cond", upper: true, fill: { tex: "sapphire" }, anim: "split", exit: "sweep", top: "sign" })
+  investor: P({ label: "Lam + tr\u1EAFng t\xE1ch \u0111\xF4i", use: "\u0111\u1EA7u t\u01B0, d\xF2ng ti\u1EC1n, cho thu\xEA", font: "cond", upper: true, fill: { tex: "sapphire" }, anim: "split", exit: "sweep", top: "sign" }),
+  // --- khung chữ + số chạy (bộ mới)
+  statgold: P({ label: "S\u1ED1 v\xE0ng + \u0111\u01A1n v\u1ECB", use: "\u0111\u01A1n gi\xE1, gi\xE1/m\xB2, m\u1EE9c gi\xE1 c\xF3 \u0111\u01A1n v\u1ECB", font: "anton", upper: true, fill: { tex: "gold" }, anim: "zoom", exit: "shrink", top: "bold", shine: true, max: 330, layout: "stat", count: true }),
+  statwhite: P({ label: "S\u1ED1 tr\u1EAFng + \u0111\u01A1n v\u1ECB", use: "s\u1ED1 t\u1EA7ng, s\u1ED1 c\u0103n, di\u1EC7n t\xEDch, s\u1ED1 l\u01B0\u1EE3ng c\xF3 \u0111\u01A1n v\u1ECB", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "up", top: "bold", max: 320, layout: "stat", count: true }),
+  statred: P({ label: "S\u1ED1 \u0111\u1ECF + \u0111\u01A1n v\u1ECB", use: "m\u1EE9c ph\u1EA1t, chi ph\xED ph\xE1t sinh, thi\u1EC7t h\u1EA1i", font: "anton", upper: true, fill: { tex: "ruby" }, anim: "slam", exit: "down", top: "bold", topColor: "#ffffff", max: 320, layout: "stat", count: true }),
+  percentlime: P({ label: "Ph\u1EA7n tr\u0103m + thanh ch\u1EA1y", use: "ph\u1EA7n tr\u0103m, chi\u1EBFt kh\u1EA5u, l\xE3i su\u1EA5t, t\u1EF7 l\u1EC7", font: "anton", upper: true, fill: { tex: "lime" }, anim: "pop", exit: "up", top: "bold", topColor: "#ffffff", max: 300, layout: "progress", count: true }),
+  progresscyan: P({ label: "Ti\u1EBFn \u0111\u1ED9 xanh cyan", use: "ti\u1EBFn \u0111\u1ED9, t\u1EF7 l\u1EC7 l\u1EA5p \u0111\u1EA7y, \u0111\xE3 b\xE1n bao nhi\xEAu", font: "cond", upper: true, fill: { tex: "cyan" }, anim: "zoom", exit: "sweep", top: "light", max: 300, layout: "progress", count: true }),
+  framegold: P({ label: "Khung v\xE0ng", use: "t\xEAn d\u1EF1 \xE1n trang tr\u1ECDng, c\u1ED9t m\u1ED1c, s\u1EF1 ki\u1EC7n", font: "serif", upper: true, fill: { tex: "gold" }, anim: "blur", exit: "blur", top: "light", shine: true, layout: "frame" }),
+  framewhite: P({ label: "Khung tr\u1EAFng", use: "th\xF4ng tin ch\xEDnh th\u1EE9c, th\xF4ng b\xE1o, ch\xEDnh s\xE1ch", font: "viet", upper: true, fill: { solid: "#ffffff" }, anim: "wipe", exit: "fade", top: "light", layout: "frame" }),
+  pillorange: P({ label: "Nh\xE3n cam", use: "m\u1EE5c li\u1EC7t k\xEA, b\u01B0\u1EDBc 1-2-3, ti\xEAu ch\xED", font: "cond", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "up", top: "bold", topColor: "#ffffff", layout: "pill", subColor: "#ffd9a8" }),
+  cornermint: P({ label: "G\xF3c ch\xE9o b\u1EA1c h\xE0", use: "ti\u1EC7n \xEDch, \u0111i\u1EC3m c\u1ED9ng, \u01B0u \u0111i\u1EC3m", font: "heavy", upper: true, fill: { tex: "mint" }, anim: "pop", exit: "shrink", top: "light", layout: "corner" }),
+  flipwhite: P({ label: "L\u1EADt ch\u1EEF tr\u1EAFng", use: "chuy\u1EC3n \xFD m\u1EA1nh, nh\u01B0ng, tuy nhi\xEAn", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "flip", exit: "down", top: "bold", topColor: "#ffd23f" }),
+  letterrose: P({ label: "Ch\u1EEF m\u1ECDc v\xE0ng h\u1ED3ng", use: "th\xF4ng \u0111i\u1EC7p c\u1EA3m x\xFAc, t\u1ED5 \u1EA5m, gia \u0111\xECnh", font: "serif", fill: { tex: "rosegold" }, anim: "lrise", exit: "blur", top: "sign" }),
+  wordsyellow: P({ label: "T\u1EEBng t\u1EEB b\u1EADt v\xE0ng", use: "kh\u1EA9u hi\u1EC7u 2\u20134 t\u1EEB, l\u1EDDi k\xEAu g\u1ECDi", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "words", exit: "shrink", top: "sign", layout: "underline" })
 };
 const PRESET_STYLES = Object.keys(PRESETS);
 const ALL = [...BASE_STYLES, ...PRESET_STYLES];
@@ -12292,6 +12310,7 @@ const TEMPLATE_GROUPS = [
   ["C\u1EA3nh b\xE1o / v\u1EA5n \u0111\u1EC1", ["fire", "alarm", "ruby", "redseal", "warning", "lava", "question"]],
   ["Con s\u1ED1 / d\u1EEF li\u1EC7u", ["bignumber", "cyanfigure", "limefigure", "goldnumber", "tealdata", "countdown"]],
   ["Neon / hi\u1EC7n \u0111\u1EA1i", ["neonpink", "neongreen", "neongold", "neonpurple", "neonwhite", "neonred"]],
+  ["Khung ch\u1EEF / s\u1ED1 ch\u1EA1y (m\u1EDBi)", ["statgold", "statwhite", "statred", "percentlime", "progresscyan", "framegold", "framewhite", "pillorange", "cornermint", "flipwhite", "letterrose", "wordsyellow"]],
   ["S\u1EA1ch / th\xF4ng tin / k\u1EC3 chuy\u1EC7n", ["cleanwhite", "magazine", "typewriter", "stack", "handwritten", "retro", "headline", "pastel", "silverserif", "ice", "concrete", "wood", "holo", "investor"]]
 ];
 const mainCss = (f, fs, upper) => ({
@@ -12359,7 +12378,30 @@ const topSize = (kind, text, fs) => {
       return fit(text.toUpperCase(), GeoFont, 700, Math.max(46, fs * 0.5), W * 0.75, 0.66);
   }
 };
-const LETTER_ANIMS = ["drop", "wave", "type", "bounce"];
+const LETTER_ANIMS = ["drop", "wave", "type", "bounce", "lrise"];
+const NUM_RE = /\d+(?:[.,]\d+)*/g;
+const parseNum = (text) => {
+  const all = text.match(NUM_RE);
+  if (!all || all.length !== 1) return null;
+  const raw = all[0];
+  const at = text.indexOf(raw);
+  const dec = raw.includes(",") ? "," : /\.\d{1,2}$/.test(raw) ? "." : "";
+  const decimals = dec ? raw.split(dec).pop().length : 0;
+  const thousands = dec === "," ? raw.includes(".") : !dec && raw.includes(".");
+  const value = parseFloat((dec === "," ? raw.replace(/\./g, "").replace(",", ".") : dec ? raw : raw.replace(/\./g, "")) || "0");
+  const fmt = (v) => {
+    const parts = v.toFixed(decimals).split(".");
+    const i = thousands ? parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".") : parts[0];
+    return parts[1] ? i + (dec || ",") + parts[1] : i;
+  };
+  return { raw, pre: text.slice(0, at), post: text.slice(at + raw.length), value, fmt };
+};
+const countText = (text, k, down = false) => {
+  const n = parseNum(text);
+  if (!n || k >= 1) return text;
+  const from = down ? n.value * 2.4 : 0;
+  return n.pre + n.fmt(from + (n.value - from) * k) + n.post;
+};
 const accentOf = (fill) => {
   if ("neon" in fill) return fill.neon;
   if ("solid" in fill) return fill.solid.toLowerCase() === "#ffffff" ? "#ffd23f" : fill.solid;
@@ -12398,13 +12440,20 @@ const accentOf = (fill) => {
   };
   return map[fill.tex] ?? "#ffd23f";
 };
-const PresetBody = (cfg) => function Body({ frame, total, top, main, sub, seed, layout: layoutProp }) {
+const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0, sub: sub0, seed, layout: layoutProp }) {
   const layout = LAYOUTS.includes(layoutProp ?? "") ? layoutProp : cfg.layout ?? "center";
   const F = FONTS[cfg.font];
+  const main = (main0 ?? "").normalize("NFC");
+  const top = (top0 ?? "").normalize("NFC");
+  const sub = (sub0 ?? "").normalize("NFC");
   const txt = cfg.upper ? upperKeepUnits(main) : main;
+  const countK = cfg.count ? eOut(prog(frame, 3, 30)) : 1;
   const zig = layout === "zigzag";
-  const m = zig ? txt.trim().split(/\s+/).join("\n") : balance(txt, cfg.lim ?? (cfg.font === "anton" || cfg.font === "cond" ? 12 : 10));
-  const mW = layout === "side" ? W * 0.6 : layout === "inline" ? W * 0.66 : zig ? W * 0.72 : layout === "bar" ? W - 40 : W;
+  const statN = layout === "stat" ? parseNum(txt) : null;
+  const isStat = !!statN && statN.post.trim().length > 0 && statN.post.trim().length <= 14;
+  const m = isStat ? (statN.pre + statN.raw).trim() : zig ? txt.trim().split(/\s+/).join("\n") : balance(txt, cfg.lim ?? (cfg.font === "anton" || cfg.font === "cond" ? 12 : 10));
+  const shown = cfg.count ? countText(m, countK, cfg.count === "down") : m;
+  const mW = isStat ? W * 0.56 : layout === "frame" ? W * 0.7 : layout === "side" ? W * 0.6 : layout === "inline" ? W * 0.66 : zig ? W * 0.72 : layout === "bar" ? W - 40 : W;
   const fs = fit(m, F.family, F.weight, (cfg.max ?? 210) * (zig ? 0.62 : 1), mW, F.per);
   const tfs = layout === "side" || layout === "inline" ? fit(top, GeoFont, 700, Math.max(56, fs * 0.42), W * 0.34, 0.62) : topSize(cfg.top, top, fs);
   const subFs = fit(sub, GeoFont, 600, Math.min(60, Math.max(40, fs * 0.36)), layout === "side" ? W * 0.36 : W * 0.85, 0.6);
@@ -12459,6 +12508,9 @@ const PresetBody = (cfg) => function Body({ frame, total, top, main, sub, seed, 
         } else if (cfg.anim === "wave") {
           const pin = eOut(prog(frame, 2 + i * 0.9, 14 + i * 0.9));
           st = { opacity: pin, transform: `translateY(${(1 - pin) * 60 + Math.sin(frame / 7 + i * 0.7) * 4}px)` };
+        } else if (cfg.anim === "lrise") {
+          const pin = eOut(prog(frame, 1 + i * 1.1, 13 + i * 1.1));
+          st = { opacity: prog(frame, 1 + i * 1.1, 7 + i * 1.1), transform: `translateY(${(1 - pin) * 55}%)`, filter: `blur(${(1 - pin) * 6}px)` };
         } else if (cfg.anim === "bounce") {
           const pin = eBack(prog(frame, 1 + i * 0.8, 10 + i * 0.8));
           st = { opacity: prog(frame, 1 + i * 0.8, 4 + i * 0.8), transform: `scale(${pin})`, transformOrigin: "50% 80%" };
@@ -12470,6 +12522,13 @@ const PresetBody = (cfg) => function Body({ frame, total, top, main, sub, seed, 
       }),
       cfg.anim === "type" && li === lines.length - 1 && frame < 2 + 22 + 18 ? /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: { display: "inline-block", width: fs * 0.08, marginLeft: fs * 0.06, height: fs * 0.8, alignSelf: "center", background: "#fff", boxShadow: "0 0 8px rgba(0,0,0,.6)", opacity: Math.floor(frame / 8) % 2 ? 0 : 1 } }) : null
     ] }, li));
+  } else if (cfg.anim === "words") {
+    let wi = 0;
+    mainEl = lines.map((line, li) => /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { display: "flex", justifyContent: lineAlign(li), gap: fs * 0.2, filter: fillFilter(cfg.fill) }, children: line.split(" ").filter(Boolean).map((w) => {
+      const i = wi++;
+      const pin = eBack(prog(frame, 1 + i * 5, 12 + i * 5));
+      return /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...mainCss(cfg.font, fs, cfg.upper), ...fillCss(cfg.fill, seed, frame, cfg.scroll), transform: `scale(${0.3 + 0.7 * pin}) rotate(${(1 - pin) * (i % 2 ? 6 : -6)}deg)`, opacity: prog(frame, 1 + i * 5, 4 + i * 5), transformOrigin: "50% 85%" }, children: w }, i);
+    }) }, li));
   } else if ((cfg.anim === "split" || zig) && lines.length > 1) {
     mainEl = lines.map((line, li) => {
       const p = eOut(prog(frame, 2 + li * 4, 14 + li * 4));
@@ -12535,6 +12594,11 @@ const PresetBody = (cfg) => function Body({ frame, total, top, main, sub, seed, 
       case "write":
         inner = writeOn(p(0, 24), 8);
         break;
+      case "flip": {
+        const q = eBack(prog(frame, 0, 14));
+        inner = { transform: `perspective(900px) rotateX(${(1 - q) * -88}deg)`, transformOrigin: "50% 100%", opacity: prog(frame, 0, 5) };
+        break;
+      }
       case "flicker": {
         const on = frame < 4 ? 0 : frame < 18 ? (0,esm.random)(`n-${seed}-${frame}`) > 0.4 ? 1 : 0.15 : 1;
         inner = { opacity: on };
@@ -12544,8 +12608,11 @@ const PresetBody = (cfg) => function Body({ frame, total, top, main, sub, seed, 
     const { filter: innerFilter, ...innerRest } = inner;
     const style = { ...mStyle, ...extraLetter, filter: [fillFilter(cfg.fill), innerFilter].filter((x) => x && x !== "none").join(" ") || "none" };
     mainEl = /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: wrap, children: /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", ...innerRest }, children: [
-      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style, children: m }),
-      cfg.shine ? /* @__PURE__ */ (0,jsx_runtime.jsx)(Shine, { text: m, style: { ...mainCss(cfg.font, fs, cfg.upper), ...extraLetter, textAlign: align }, p: prog(frame, 16, 36) }) : null
+      cfg.count && shown !== m ? /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "inline-grid" }, children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...style, gridArea: "1 / 1", visibility: "hidden" }, children: m }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...style, gridArea: "1 / 1", fontVariantNumeric: "tabular-nums" }, children: shown })
+      ] }) : /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style, children: m }),
+      cfg.shine && shown === m ? /* @__PURE__ */ (0,jsx_runtime.jsx)(Shine, { text: m, style: { ...mainCss(cfg.font, fs, cfg.upper), ...extraLetter, textAlign: align }, p: prog(frame, 16, 36) }) : null
     ] }) });
   }
   const subEl = sub ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...TitleTemplates_geo(subFs, 500), color: cfg.subColor ?? "#fff", opacity: eOut(prog(frame, 14, 24)), textShadow: HALO, marginTop: fs * 0.04, textAlign: align }, children: sub }) : null;
@@ -12566,6 +12633,59 @@ const PresetBody = (cfg) => function Body({ frame, total, top, main, sub, seed, 
       layout === "inline" ? subEl : null
     ] });
   }
+  const lineSh = "0 0 8px rgba(0,0,0,.55)";
+  if (isStat) {
+    const unit = statN.post.trim();
+    const uFs = fit(unit, GeoFont, 700, Math.max(54, fs * 0.3), W * 0.36, 0.62);
+    const up = eOut(prog(frame, 8, 18));
+    return /* @__PURE__ */ (0,jsx_runtime.jsxs)(Col, { style: colStyle, children: [
+      smallTop(top, fit(top, GeoFont, 700, Math.max(50, fs * 0.2), W * 0.8, 0.62), "center"),
+      /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "row", alignItems: "flex-end", justifyContent: "center" }, children: [
+        mainEl,
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...TitleTemplates_geo(uFs, 700), color: "#fff", textShadow: HALO, marginLeft: fs * 0.08, marginBottom: fs * 0.13, lineHeight: 1.05, paddingTop: uFs * 0.3, opacity: up, transform: `translateX(${(1 - up) * -30}px)`, whiteSpace: "pre" }, children: unit })
+      ] }),
+      sub ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: W * 0.5 * eOut(prog(frame, 12, 26)), height: 4, background: accent, boxShadow: lineSh, margin: `${fs * 0.03}px 0 ${fs * 0.03}px` } }) : null,
+      subEl
+    ] });
+  }
+  if (layout === "progress") {
+    const pn = parseNum(txt);
+    const pct = pn && /%/.test(txt) && pn.value <= 100 ? pn.value / 100 : 1;
+    const barW = W * 0.72;
+    return /* @__PURE__ */ (0,jsx_runtime.jsxs)(Col, { style: colStyle, children: [
+      /* @__PURE__ */ (0,jsx_runtime.jsx)(TopLine, { kind: cfg.top, text: top, fs: tfs, frame, color: cfg.topColor }),
+      mainEl,
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: barW, height: Math.max(14, fs * 0.075), borderRadius: 99, background: "rgba(255,255,255,.3)", boxShadow: "0 0 10px rgba(0,0,0,.45)", overflow: "hidden", marginTop: fs * 0.02, marginBottom: fs * 0.05 }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: barW * pct * countK, height: "100%", borderRadius: 99, background: `linear-gradient(90deg, ${accent}cc, ${accent})` } }) }),
+      subEl
+    ] });
+  }
+  if (layout === "frame") {
+    const t = Math.max(4, fs * 0.035);
+    const lab = top ? fit(top, GeoFont, 600, Math.max(46, fs * 0.3), W * 0.6, 0.6) : 0;
+    const draw = eOut(prog(frame, 0, 20));
+    const edge = { position: "absolute", background: accent, boxShadow: lineSh };
+    return /* @__PURE__ */ (0,jsx_runtime.jsx)(Col, { style: colStyle, children: /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", padding: `${Math.max(lab * 0.9, fs * 0.2)}px ${fs * 0.3}px ${fs * 0.2}px`, display: "flex", flexDirection: "column", alignItems: "center" }, children: [
+      /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "absolute", left: 0, right: 0, top: 0, display: "flex", alignItems: "center", gap: top ? 18 : 0, transform: "translateY(-50%)" }, children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: t, background: accent, boxShadow: lineSh, clipPath: `inset(0 0 0 ${(1 - draw) * 100}%)` } }),
+        top ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...TitleTemplates_geo(lab, 600), textTransform: "uppercase", letterSpacing: "0.06em", color: cfg.topColor ?? "#fff", textShadow: HALO, lineHeight: 1.05, paddingTop: lab * 0.28, opacity: eOut(prog(frame, 6, 18)), whiteSpace: "pre" }, children: top }) : null,
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: t, background: accent, boxShadow: lineSh, clipPath: `inset(0 ${(1 - draw) * 100}% 0 0)` } })
+      ] }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...edge, left: 0, top: 0, width: t, height: `${draw * 100}%` } }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...edge, right: 0, top: 0, width: t, height: `${draw * 100}%` } }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...edge, left: "50%", bottom: 0, height: t, width: `${eOut(prog(frame, 10, 28)) * 100}%`, transform: "translateX(-50%)" } }),
+      mainEl,
+      subEl
+    ] }) });
+  }
+  if (layout === "pill") {
+    const lab = fit(top, GeoFont, 700, Math.max(46, fs * 0.3), W * 0.6, 0.64);
+    const pp = eBack(prog(frame, 0, 12));
+    return /* @__PURE__ */ (0,jsx_runtime.jsxs)(Col, { style: colStyle, children: [
+      top ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { border: `${Math.max(4, lab * 0.08)}px solid ${accent === "#ffd23f" ? "#ff8a1f" : accent}`, borderRadius: 999, padding: `${lab * 0.34}px ${lab * 0.7}px ${lab * 0.12}px`, marginBottom: fs * 0.08, transform: `scale(${0.6 + 0.4 * pp})`, opacity: prog(frame, 0, 5), filter: "drop-shadow(0 0 8px rgba(0,0,0,.55))" }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...TitleTemplates_geo(lab, 700), textTransform: "uppercase", letterSpacing: "0.04em", color: cfg.topColor ?? "#fff", textShadow: HALO, lineHeight: 1.05, whiteSpace: "pre" }, children: top }) }) : null,
+      mainEl,
+      subEl
+    ] });
+  }
   const sideTop = layout === "right" ? "right" : cfg.topSide ?? "left";
   const topEl = layout === "lines" && top ? /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 18, opacity: eOut(prog(frame, 0, 12)) }, children: [
     /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: 90 * grow, height: Math.max(3, tfs * 0.06), background: accent, boxShadow: "0 0 8px rgba(0,0,0,.5)" } }),
@@ -12573,7 +12693,16 @@ const PresetBody = (cfg) => function Body({ frame, total, top, main, sub, seed, 
     /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: 90 * grow, height: Math.max(3, tfs * 0.06), background: accent, boxShadow: "0 0 8px rgba(0,0,0,.5)" } })
   ] }) : /* @__PURE__ */ (0,jsx_runtime.jsx)(TopLine, { kind: cfg.top, text: top, fs: tfs, frame, color: cfg.topColor, side: sideTop });
   let body = zig ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { width: Math.min(mW, W * 0.62), display: "flex", flexDirection: "column" }, children: mainEl }) : mainEl;
-  if (layout === "brackets") {
+  if (layout === "corner") {
+    const L = Math.max(46, fs * 0.6) * grow;
+    const t = Math.max(5, fs * 0.055);
+    const b = `${t}px solid ${accent}`;
+    body = /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", padding: `${fs * 0.14}px ${fs * 0.26}px` }, children: [
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "absolute", left: 0, top: 0, width: L, height: L, borderLeft: b, borderTop: b, filter: "drop-shadow(0 0 6px rgba(0,0,0,.5))" } }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "absolute", right: 0, bottom: 0, width: L, height: L, borderRight: b, borderBottom: b, filter: "drop-shadow(0 0 6px rgba(0,0,0,.5))" } }),
+      mainEl
+    ] });
+  } else if (layout === "brackets") {
     const L = Math.max(30, fs * 0.38);
     const t = Math.max(4, fs * 0.05);
     const c = (pos, b) => /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "absolute", width: L * grow, height: L * grow, ...pos, ...b, filter: "drop-shadow(0 0 6px rgba(0,0,0,.5))" } });
@@ -12676,7 +12805,12 @@ function templateSounds(style, fps = 30) {
     case "write":
       return [S("pick", f(2), 0.55)];
     case "wave":
+    case "lrise":
       return [S("whoosh-rod", f(2), 0.6)];
+    case "flip":
+      return [S("whoosh-quick", f(1), 0.5)];
+    case "words":
+      return [S("pop", f(1), 0.6)];
   }
   return [];
 }

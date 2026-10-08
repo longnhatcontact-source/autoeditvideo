@@ -580,10 +580,10 @@ const TEX2: Record<string, (s: number) => string> = {
 };
 
 type Fill = { tex: keyof typeof TEX2 } | { solid: string } | { neon: string };
-type Anim = "rise" | "pop" | "zoom" | "blur" | "track" | "wipe" | "slideL" | "slideR" | "drop" | "wave" | "type" | "flicker" | "slam" | "shake" | "stamp" | "write" | "split" | "bounce";
+type Anim = "rise" | "pop" | "zoom" | "blur" | "track" | "wipe" | "slideL" | "slideR" | "drop" | "wave" | "type" | "flicker" | "slam" | "shake" | "stamp" | "write" | "split" | "bounce" | "flip" | "lrise" | "words";
 type Exit = "up" | "shrink" | "sweep" | "blur" | "fall" | "down" | "fade" | "off";
 type TopKind = "sign" | "brush" | "light" | "bold" | "heavy" | "serif" | "retro";
-export const LAYOUTS = ["center", "left", "right", "inline", "side", "zigzag", "bar", "brackets", "underline", "lines"] as const;
+export const LAYOUTS = ["center", "left", "right", "inline", "side", "zigzag", "bar", "brackets", "underline", "lines", "frame", "pill", "stat", "progress", "corner"] as const;
 export type Layout = (typeof LAYOUTS)[number];
 export const LAYOUT_INFO: Record<Layout, string> = {
   center: "Giữa (dòng trên · chữ chính · dòng dưới)",
@@ -596,6 +596,11 @@ export const LAYOUT_INFO: Record<Layout, string> = {
   brackets: "Khung góc ôm chữ",
   underline: "Gạch chân chạy dưới chữ",
   lines: "Đường kẻ hai bên dòng trên",
+  frame: "Khung viền mảnh tự vẽ, nhãn nằm trên cạnh khung",
+  pill: "Nhãn viền bo tròn phía trên chữ chính",
+  stat: "Con số thật to + đơn vị nhỏ bên cạnh (hợp số liệu)",
+  progress: "Con số + thanh tiến độ chạy đầy (hợp phần trăm)",
+  corner: "Hai góc chéo ôm chữ",
 };
 type FontKey = "heavy" | "anton" | "serif" | "viet" | "brush" | "retro" | "cond" | "geo" | "geoLight";
 
@@ -616,6 +621,8 @@ type Preset = {
   lim?: number;
   subColor?: string;
   layout?: Layout;
+  /** số trong chữ chính chạy từ ít đến con số thật ("down": chạy từ cao xuống) */
+  count?: boolean | "down";
 };
 
 const FONTS: Record<FontKey, { family: string; weight: number; per: number; lh: number }> = {
@@ -663,12 +670,12 @@ export const PRESETS = {
   lava: P({ label: "Dung nham", use: "điểm nóng, tranh cãi, căng thẳng", font: "heavy", upper: true, fill: { tex: "lava" }, anim: "rise", exit: "fall", top: "sign" }),
   question: P({ label: "Câu hỏi vàng", use: "câu hỏi, thắc mắc, có nên không", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "bounce", exit: "shrink", top: "sign" }),
   // --- con số / dữ liệu ---
-  bignumber: P({ label: "Số trắng cực lớn", use: "con số lớn, diện tích, số lượng", font: "anton", upper: true, fill: { solid: "#ffffff" }, anim: "pop", exit: "shrink", top: "sign", max: 320, lim: 9, layout: "side" }),
-  cyanfigure: P({ label: "Số xanh cyan", use: "thông số, khoảng cách, thời gian di chuyển", font: "cond", upper: true, fill: { tex: "cyan" }, anim: "split", exit: "sweep", top: "light" }),
-  limefigure: P({ label: "Số xanh chanh", use: "phần trăm, tăng trưởng, hiệu suất", font: "anton", upper: true, fill: { tex: "lime" }, anim: "pop", exit: "up", top: "sign", max: 300, lim: 9, layout: "side" }),
-  goldnumber: P({ label: "Giá vàng lớn", use: "giá bán, tổng giá, mức đầu tư", font: "anton", upper: true, fill: { tex: "gold" }, anim: "zoom", exit: "shrink", top: "sign", shine: true, max: 300, lim: 10, layout: "underline" }),
+  bignumber: P({ label: "Số trắng cực lớn", use: "con số lớn, diện tích, số lượng", font: "anton", upper: true, fill: { solid: "#ffffff" }, anim: "pop", exit: "shrink", top: "sign", max: 320, lim: 9, layout: "side" , count: true}),
+  cyanfigure: P({ label: "Số xanh cyan", use: "thông số, khoảng cách, thời gian di chuyển", font: "cond", upper: true, fill: { tex: "cyan" }, anim: "split", exit: "sweep", top: "light" , count: true}),
+  limefigure: P({ label: "Số xanh chanh", use: "phần trăm, tăng trưởng, hiệu suất", font: "anton", upper: true, fill: { tex: "lime" }, anim: "pop", exit: "up", top: "sign", max: 300, lim: 9, layout: "side" , count: true}),
+  goldnumber: P({ label: "Giá vàng lớn", use: "giá bán, tổng giá, mức đầu tư", font: "anton", upper: true, fill: { tex: "gold" }, anim: "zoom", exit: "shrink", top: "sign", shine: true, max: 300, lim: 10, layout: "underline" , count: true}),
   tealdata: P({ label: "Dữ liệu gõ chữ", use: "thông tin kỹ thuật, quy hoạch, pháp lý chi tiết", font: "geo", fill: { solid: "#3ff0d0" }, anim: "type", exit: "fade", top: "light", layout: "bar" }),
-  countdown: P({ label: "Đếm ngược đỏ", use: "hạn chót, ngày mở bán, còn lại bao nhiêu", font: "anton", upper: true, fill: { tex: "ruby" }, anim: "slam", exit: "blur", top: "bold", topColor: "#ffffff", max: 300, lim: 10, layout: "inline" }),
+  countdown: P({ label: "Đếm ngược đỏ", use: "hạn chót, ngày mở bán, còn lại bao nhiêu", font: "anton", upper: true, fill: { tex: "ruby" }, anim: "slam", exit: "blur", top: "bold", topColor: "#ffffff", max: 300, lim: 10, layout: "inline" , count: "down"}),
   // --- neon / hiện đại ---
   neonpink: P({ label: "Neon hồng", use: "trẻ trung, giới trẻ, căn hộ studio", font: "retro", fill: { neon: "#ff4fd8" }, anim: "flicker", exit: "off", top: "heavy" }),
   neongreen: P({ label: "Neon xanh lá", use: "tiện ích, an toàn, đạt chuẩn", font: "geo", fill: { neon: "#39ff7a" }, anim: "flicker", exit: "off", top: "heavy", layout: "brackets" }),
@@ -691,6 +698,19 @@ export const PRESETS = {
   wood: P({ label: "Vân gỗ", use: "nội thất gỗ, ấm cúng, nhà phố", font: "heavy", upper: true, fill: { tex: "wood" }, anim: "rise", exit: "up", top: "sign" }),
   holo: P({ label: "Hologram", use: "công nghệ, nhà thông minh, số hoá", font: "heavy", upper: true, fill: { tex: "holo" }, anim: "wipe", exit: "sweep", top: "light", scroll: 1.2, layout: "brackets" }),
   investor: P({ label: "Lam + trắng tách đôi", use: "đầu tư, dòng tiền, cho thuê", font: "cond", upper: true, fill: { tex: "sapphire" }, anim: "split", exit: "sweep", top: "sign" }),
+  // --- khung chữ + số chạy (bộ mới)
+  statgold: P({ label: "Số vàng + đơn vị", use: "đơn giá, giá/m², mức giá có đơn vị", font: "anton", upper: true, fill: { tex: "gold" }, anim: "zoom", exit: "shrink", top: "bold", shine: true, max: 330, layout: "stat", count: true }),
+  statwhite: P({ label: "Số trắng + đơn vị", use: "số tầng, số căn, diện tích, số lượng có đơn vị", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "up", top: "bold", max: 320, layout: "stat", count: true }),
+  statred: P({ label: "Số đỏ + đơn vị", use: "mức phạt, chi phí phát sinh, thiệt hại", font: "anton", upper: true, fill: { tex: "ruby" }, anim: "slam", exit: "down", top: "bold", topColor: "#ffffff", max: 320, layout: "stat", count: true }),
+  percentlime: P({ label: "Phần trăm + thanh chạy", use: "phần trăm, chiết khấu, lãi suất, tỷ lệ", font: "anton", upper: true, fill: { tex: "lime" }, anim: "pop", exit: "up", top: "bold", topColor: "#ffffff", max: 300, layout: "progress", count: true }),
+  progresscyan: P({ label: "Tiến độ xanh cyan", use: "tiến độ, tỷ lệ lấp đầy, đã bán bao nhiêu", font: "cond", upper: true, fill: { tex: "cyan" }, anim: "zoom", exit: "sweep", top: "light", max: 300, layout: "progress", count: true }),
+  framegold: P({ label: "Khung vàng", use: "tên dự án trang trọng, cột mốc, sự kiện", font: "serif", upper: true, fill: { tex: "gold" }, anim: "blur", exit: "blur", top: "light", shine: true, layout: "frame" }),
+  framewhite: P({ label: "Khung trắng", use: "thông tin chính thức, thông báo, chính sách", font: "viet", upper: true, fill: { solid: "#ffffff" }, anim: "wipe", exit: "fade", top: "light", layout: "frame" }),
+  pillorange: P({ label: "Nhãn cam", use: "mục liệt kê, bước 1-2-3, tiêu chí", font: "cond", upper: true, fill: { solid: "#ffffff" }, anim: "rise", exit: "up", top: "bold", topColor: "#ffffff", layout: "pill", subColor: "#ffd9a8" }),
+  cornermint: P({ label: "Góc chéo bạc hà", use: "tiện ích, điểm cộng, ưu điểm", font: "heavy", upper: true, fill: { tex: "mint" }, anim: "pop", exit: "shrink", top: "light", layout: "corner" }),
+  flipwhite: P({ label: "Lật chữ trắng", use: "chuyển ý mạnh, nhưng, tuy nhiên", font: "heavy", upper: true, fill: { solid: "#ffffff" }, anim: "flip", exit: "down", top: "bold", topColor: "#ffd23f" }),
+  letterrose: P({ label: "Chữ mọc vàng hồng", use: "thông điệp cảm xúc, tổ ấm, gia đình", font: "serif", fill: { tex: "rosegold" }, anim: "lrise", exit: "blur", top: "sign" }),
+  wordsyellow: P({ label: "Từng từ bật vàng", use: "khẩu hiệu 2–4 từ, lời kêu gọi", font: "anton", upper: true, fill: { tex: "yellow" }, anim: "words", exit: "shrink", top: "sign", layout: "underline" }),
 } satisfies Record<string, Preset>;
 
 export type PresetStyle = keyof typeof PRESETS;
@@ -731,6 +751,7 @@ export const TEMPLATE_GROUPS: [string, TemplateStyle[]][] = [
   ["Cảnh báo / vấn đề", ["fire", "alarm", "ruby", "redseal", "warning", "lava", "question"]],
   ["Con số / dữ liệu", ["bignumber", "cyanfigure", "limefigure", "goldnumber", "tealdata", "countdown"]],
   ["Neon / hiện đại", ["neonpink", "neongreen", "neongold", "neonpurple", "neonwhite", "neonred"]],
+  ["Khung chữ / số chạy (mới)", ["statgold", "statwhite", "statred", "percentlime", "progresscyan", "framegold", "framewhite", "pillorange", "cornermint", "flipwhite", "letterrose", "wordsyellow"]],
   ["Sạch / thông tin / kể chuyện", ["cleanwhite", "magazine", "typewriter", "stack", "handwritten", "retro", "headline", "pastel", "silverserif", "ice", "concrete", "wood", "holo", "investor"]],
 ];
 
@@ -813,7 +834,33 @@ const topSize = (kind: TopKind, text: string, fs: number) => {
   }
 };
 
-const LETTER_ANIMS: Anim[] = ["drop", "wave", "type", "bounce"];
+const LETTER_ANIMS: Anim[] = ["drop", "wave", "type", "bounce", "lrise"];
+
+/** số trong chuỗi (kiểu Việt: "." ngăn nghìn, "," thập phân). Chỉ chạy số khi chuỗi có ĐÚNG 1 con số. */
+const NUM_RE = /\d+(?:[.,]\d+)*/g;
+const parseNum = (text: string) => {
+  const all = text.match(NUM_RE);
+  if (!all || all.length !== 1) return null;
+  const raw = all[0];
+  const at = text.indexOf(raw);
+  const dec = raw.includes(",") ? "," : /\.\d{1,2}$/.test(raw) ? "." : "";
+  const decimals = dec ? raw.split(dec).pop()!.length : 0;
+  const thousands = dec === "," ? raw.includes(".") : !dec && raw.includes(".");
+  const value = parseFloat((dec === "," ? raw.replace(/\./g, "").replace(",", ".") : dec ? raw : raw.replace(/\./g, "")) || "0");
+  const fmt = (v: number) => {
+    const parts = v.toFixed(decimals).split(".");
+    const i = thousands ? parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".") : parts[0];
+    return parts[1] ? i + (dec || ",") + parts[1] : i;
+  };
+  return { raw, pre: text.slice(0, at), post: text.slice(at + raw.length), value, fmt };
+};
+/** chuỗi hiển thị ở tiến độ k (0→1) */
+const countText = (text: string, k: number, down = false) => {
+  const n = parseNum(text);
+  if (!n || k >= 1) return text;
+  const from = down ? n.value * 2.4 : 0;
+  return n.pre + n.fmt(from + (n.value - from) * k) + n.post;
+};
 
 const accentOf = (fill: Fill): string => {
   if ("neon" in fill) return fill.neon;
@@ -829,14 +876,21 @@ const accentOf = (fill: Fill): string => {
 };
 
 const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
-  function Body({ frame, total, top, main, sub, seed, layout: layoutProp }) {
+  function Body({ frame, total, top: top0, main: main0, sub: sub0, seed, layout: layoutProp }) {
     const layout: Layout = (LAYOUTS as readonly string[]).includes(layoutProp ?? "") ? (layoutProp as Layout) : cfg.layout ?? "center";
     const F = FONTS[cfg.font];
+    const main = (main0 ?? "").normalize("NFC");
+    const top = (top0 ?? "").normalize("NFC");
+    const sub = (sub0 ?? "").normalize("NFC");
     const txt = cfg.upper ? upperKeepUnits(main) : main;
+    const countK = cfg.count ? eOut(prog(frame, 3, 30)) : 1;
     const zig = layout === "zigzag";
-    const m = zig ? txt.trim().split(/\s+/).join("\n") : balance(txt, cfg.lim ?? (cfg.font === "anton" || cfg.font === "cond" ? 12 : 10));
+    const statN = layout === "stat" ? parseNum(txt) : null;
+    const isStat = !!statN && statN.post.trim().length > 0 && statN.post.trim().length <= 14;
+    const m = isStat ? (statN!.pre + statN!.raw).trim() : zig ? txt.trim().split(/\s+/).join("\n") : balance(txt, cfg.lim ?? (cfg.font === "anton" || cfg.font === "cond" ? 12 : 10));
+    const shown = cfg.count ? countText(m, countK, cfg.count === "down") : m;
     // bề ngang dành cho chữ chính theo bố cục
-    const mW = layout === "side" ? W * 0.6 : layout === "inline" ? W * 0.66 : zig ? W * 0.72 : layout === "bar" ? W - 40 : W;
+    const mW = isStat ? W * 0.56 : layout === "frame" ? W * 0.7 : layout === "side" ? W * 0.6 : layout === "inline" ? W * 0.66 : zig ? W * 0.72 : layout === "bar" ? W - 40 : W;
     const fs = fit(m, F.family, F.weight, (cfg.max ?? 210) * (zig ? 0.62 : 1), mW, F.per);
     const tfs = layout === "side" || layout === "inline" ? fit(top, GeoFont, 700, Math.max(56, fs * 0.42), W * 0.34, 0.62) : topSize(cfg.top, top, fs);
     const subFs = fit(sub, GeoFont, 600, Math.min(60, Math.max(40, fs * 0.36)), layout === "side" ? W * 0.36 : W * 0.85, 0.6);
@@ -897,6 +951,9 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
             } else if (cfg.anim === "wave") {
               const pin = eOut(prog(frame, 2 + i * 0.9, 14 + i * 0.9));
               st = { opacity: pin, transform: `translateY(${(1 - pin) * 60 + Math.sin(frame / 7 + i * 0.7) * 4}px)` };
+            } else if (cfg.anim === "lrise") {
+              const pin = eOut(prog(frame, 1 + i * 1.1, 13 + i * 1.1));
+              st = { opacity: prog(frame, 1 + i * 1.1, 7 + i * 1.1), transform: `translateY(${(1 - pin) * 55}%)`, filter: `blur(${(1 - pin) * 6}px)` };
             } else if (cfg.anim === "bounce") {
               const pin = eBack(prog(frame, 1 + i * 0.8, 10 + i * 0.8));
               st = { opacity: prog(frame, 1 + i * 0.8, 4 + i * 0.8), transform: `scale(${pin})`, transformOrigin: "50% 80%" };
@@ -913,6 +970,21 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
           {cfg.anim === "type" && li === lines.length - 1 && frame < 2 + 22 + 18 ? (
             <span style={{ display: "inline-block", width: fs * 0.08, marginLeft: fs * 0.06, height: fs * 0.8, alignSelf: "center", background: "#fff", boxShadow: "0 0 8px rgba(0,0,0,.6)", opacity: Math.floor(frame / 8) % 2 ? 0 : 1 }} />
           ) : null}
+        </div>
+      ));
+    } else if (cfg.anim === "words") {
+      let wi = 0;
+      mainEl = lines.map((line, li) => (
+        <div key={li} style={{ display: "flex", justifyContent: lineAlign(li), gap: fs * 0.2, filter: fillFilter(cfg.fill) }}>
+          {line.split(" ").filter(Boolean).map((w) => {
+            const i = wi++;
+            const pin = eBack(prog(frame, 1 + i * 5, 12 + i * 5));
+            return (
+              <div key={i} style={{ ...mainCss(cfg.font, fs, cfg.upper), ...fillCss(cfg.fill, seed, frame, cfg.scroll), transform: `scale(${0.3 + 0.7 * pin}) rotate(${(1 - pin) * (i % 2 ? 6 : -6)}deg)`, opacity: prog(frame, 1 + i * 5, 4 + i * 5), transformOrigin: "50% 85%" }}>
+                {w}
+              </div>
+            );
+          })}
         </div>
       ));
     } else if ((cfg.anim === "split" || zig) && lines.length > 1) {
@@ -986,6 +1058,11 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
         case "write":
           inner = writeOn(p(0, 24), 8);
           break;
+        case "flip": {
+          const q = eBack(prog(frame, 0, 14));
+          inner = { transform: `perspective(900px) rotateX(${(1 - q) * -88}deg)`, transformOrigin: "50% 100%", opacity: prog(frame, 0, 5) };
+          break;
+        }
         case "flicker": {
           const on = frame < 4 ? 0 : frame < 18 ? (random(`n-${seed}-${frame}`) > 0.4 ? 1 : 0.15) : 1;
           inner = { opacity: on };
@@ -997,8 +1074,15 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
       mainEl = (
         <div style={wrap}>
           <div style={{ position: "relative", ...innerRest }}>
-            <div style={style}>{m}</div>
-            {cfg.shine ? <Shine text={m} style={{ ...mainCss(cfg.font, fs, cfg.upper), ...extraLetter, textAlign: align }} p={prog(frame, 16, 36)} /> : null}
+            {cfg.count && shown !== m ? (
+              <div style={{ display: "inline-grid" }}>
+                <div style={{ ...style, gridArea: "1 / 1", visibility: "hidden" }}>{m}</div>
+                <div style={{ ...style, gridArea: "1 / 1", fontVariantNumeric: "tabular-nums" }}>{shown}</div>
+              </div>
+            ) : (
+              <div style={style}>{m}</div>
+            )}
+            {cfg.shine && shown === m ? <Shine text={m} style={{ ...mainCss(cfg.font, fs, cfg.upper), ...extraLetter, textAlign: align }} p={prog(frame, 16, 36)} /> : null}
           </div>
         </div>
       );
@@ -1037,6 +1121,76 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
       );
     }
 
+    const lineSh = "0 0 8px rgba(0,0,0,.55)";
+    if (isStat) {
+      const unit = statN!.post.trim();
+      const uFs = fit(unit, GeoFont, 700, Math.max(54, fs * 0.3), W * 0.36, 0.62);
+      const up = eOut(prog(frame, 8, 18));
+      return (
+        <Col style={colStyle}>
+          {smallTop(top, fit(top, GeoFont, 700, Math.max(50, fs * 0.2), W * 0.8, 0.62), "center")}
+          <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-end", justifyContent: "center" }}>
+            {mainEl}
+            <div style={{ ...geo(uFs, 700), color: "#fff", textShadow: HALO, marginLeft: fs * 0.08, marginBottom: fs * 0.13, lineHeight: 1.05, paddingTop: uFs * 0.3, opacity: up, transform: `translateX(${(1 - up) * -30}px)`, whiteSpace: "pre" }}>{unit}</div>
+          </div>
+          {sub ? <div style={{ width: W * 0.5 * eOut(prog(frame, 12, 26)), height: 4, background: accent, boxShadow: lineSh, margin: `${fs * 0.03}px 0 ${fs * 0.03}px` }} /> : null}
+          {subEl}
+        </Col>
+      );
+    }
+    if (layout === "progress") {
+      const pn = parseNum(txt);
+      const pct = pn && /%/.test(txt) && pn.value <= 100 ? pn.value / 100 : 1;
+      const barW = W * 0.72;
+      return (
+        <Col style={colStyle}>
+          <TopLine kind={cfg.top} text={top} fs={tfs} frame={frame} color={cfg.topColor} />
+          {mainEl}
+          <div style={{ width: barW, height: Math.max(14, fs * 0.075), borderRadius: 99, background: "rgba(255,255,255,.3)", boxShadow: "0 0 10px rgba(0,0,0,.45)", overflow: "hidden", marginTop: fs * 0.02, marginBottom: fs * 0.05 }}>
+            <div style={{ width: barW * pct * countK, height: "100%", borderRadius: 99, background: `linear-gradient(90deg, ${accent}cc, ${accent})` }} />
+          </div>
+          {subEl}
+        </Col>
+      );
+    }
+    if (layout === "frame") {
+      const t = Math.max(4, fs * 0.035);
+      const lab = top ? fit(top, GeoFont, 600, Math.max(46, fs * 0.3), W * 0.6, 0.6) : 0;
+      const draw = eOut(prog(frame, 0, 20));
+      const edge: React.CSSProperties = { position: "absolute", background: accent, boxShadow: lineSh };
+      return (
+        <Col style={colStyle}>
+          <div style={{ position: "relative", padding: `${Math.max(lab * 0.9, fs * 0.2)}px ${fs * 0.3}px ${fs * 0.2}px`, display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div style={{ position: "absolute", left: 0, right: 0, top: 0, display: "flex", alignItems: "center", gap: top ? 18 : 0, transform: "translateY(-50%)" }}>
+              <div style={{ flex: 1, height: t, background: accent, boxShadow: lineSh, clipPath: `inset(0 0 0 ${(1 - draw) * 100}%)` }} />
+              {top ? <div style={{ ...geo(lab, 600), textTransform: "uppercase", letterSpacing: "0.06em", color: cfg.topColor ?? "#fff", textShadow: HALO, lineHeight: 1.05, paddingTop: lab * 0.28, opacity: eOut(prog(frame, 6, 18)), whiteSpace: "pre" }}>{top}</div> : null}
+              <div style={{ flex: 1, height: t, background: accent, boxShadow: lineSh, clipPath: `inset(0 ${(1 - draw) * 100}% 0 0)` }} />
+            </div>
+            <div style={{ ...edge, left: 0, top: 0, width: t, height: `${draw * 100}%` }} />
+            <div style={{ ...edge, right: 0, top: 0, width: t, height: `${draw * 100}%` }} />
+            <div style={{ ...edge, left: "50%", bottom: 0, height: t, width: `${eOut(prog(frame, 10, 28)) * 100}%`, transform: "translateX(-50%)" }} />
+            {mainEl}
+            {subEl}
+          </div>
+        </Col>
+      );
+    }
+    if (layout === "pill") {
+      const lab = fit(top, GeoFont, 700, Math.max(46, fs * 0.3), W * 0.6, 0.64);
+      const pp = eBack(prog(frame, 0, 12));
+      return (
+        <Col style={colStyle}>
+          {top ? (
+            <div style={{ border: `${Math.max(4, lab * 0.08)}px solid ${accent === "#ffd23f" ? "#ff8a1f" : accent}`, borderRadius: 999, padding: `${lab * 0.34}px ${lab * 0.7}px ${lab * 0.12}px`, marginBottom: fs * 0.08, transform: `scale(${0.6 + 0.4 * pp})`, opacity: prog(frame, 0, 5), filter: "drop-shadow(0 0 8px rgba(0,0,0,.55))" }}>
+              <div style={{ ...geo(lab, 700), textTransform: "uppercase", letterSpacing: "0.04em", color: cfg.topColor ?? "#fff", textShadow: HALO, lineHeight: 1.05, whiteSpace: "pre" }}>{top}</div>
+            </div>
+          ) : null}
+          {mainEl}
+          {subEl}
+        </Col>
+      );
+    }
+
     const sideTop = layout === "right" ? "right" : cfg.topSide ?? "left";
     const topEl =
       layout === "lines" && top ? (
@@ -1050,7 +1204,18 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
       );
 
     let body: React.ReactNode = zig ? <div style={{ width: Math.min(mW, W * 0.62), display: "flex", flexDirection: "column" }}>{mainEl}</div> : mainEl;
-    if (layout === "brackets") {
+    if (layout === "corner") {
+      const L = Math.max(46, fs * 0.6) * grow;
+      const t = Math.max(5, fs * 0.055);
+      const b = `${t}px solid ${accent}`;
+      body = (
+        <div style={{ position: "relative", padding: `${fs * 0.14}px ${fs * 0.26}px` }}>
+          <div style={{ position: "absolute", left: 0, top: 0, width: L, height: L, borderLeft: b, borderTop: b, filter: "drop-shadow(0 0 6px rgba(0,0,0,.5))" }} />
+          <div style={{ position: "absolute", right: 0, bottom: 0, width: L, height: L, borderRight: b, borderBottom: b, filter: "drop-shadow(0 0 6px rgba(0,0,0,.5))" }} />
+          {mainEl}
+        </div>
+      );
+    } else if (layout === "brackets") {
       const L = Math.max(30, fs * 0.38);
       const t = Math.max(4, fs * 0.05);
       const c = (pos: React.CSSProperties, b: React.CSSProperties) => (
@@ -1172,7 +1337,12 @@ export function templateSounds(style: TemplateStyle, fps = 30): Snd[] {
     case "write":
       return [S("pick", f(2), 0.55)];
     case "wave":
+    case "lrise":
       return [S("whoosh-rod", f(2), 0.6)];
+    case "flip":
+      return [S("whoosh-quick", f(1), 0.5)];
+    case "words":
+      return [S("pop", f(1), 0.6)];
   }
   return [];
 }
