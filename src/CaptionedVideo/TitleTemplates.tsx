@@ -181,14 +181,14 @@ const City: React.FC<TemplateParts> = ({ frame, total, top, main, sub, seed }) =
   return (
     <Col style={{ transform: `translateY(${-ex * 120}px)`, opacity: 1 - ex, filter: `blur(${ex * 8}px)` }}>
       <Signature text={top} fs={sfs} p={eOut(prog(frame, 0, 20))} />
-      <div style={{ clipPath: "inset(-60% -10% 0 -10%)", padding: "0 10px" }}>
+      <div style={{ clipPath: `inset(-60% -10% -${Math.round(fs * 0.24)}px -10%)`, padding: "0 10px" }}>
         <div
           style={{
             ...heavy(fs),
             ...textFill(TEX.cloud(seedNum(seed))),
             backgroundSize: "140% 100%",
             backgroundPosition: `${(frame * 0.4) % 100}% 50%`,
-            transform: `translateY(${(1 - pIn) * 105}%)`,
+            transform: `translateY(${(1 - pIn) * 135}%)`,
             filter: SHADOW,
           }}
         >
@@ -403,8 +403,8 @@ const LuxGold: React.FC<TemplateParts> = ({ frame, total, top, main, sub, seed }
           {top}
         </div>
       ) : null}
-      <div style={{ clipPath: "inset(-60% -10% 0 -10%)", padding: "0 10px" }}>
-        <div style={{ position: "relative", transform: `translateY(${(1 - pIn) * 105}%)` }}>
+      <div style={{ clipPath: `inset(-60% -10% -${Math.round(fs * 0.24)}px -10%)`, padding: "0 10px" }}>
+        <div style={{ position: "relative", transform: `translateY(${(1 - pIn) * 135}%)` }}>
           <div style={{ ...mainStyle, ...textFill(TEX.gold(seedNum(seed))), filter: `drop-shadow(0 0 14px rgba(0,0,0,.45)) drop-shadow(0 6px 6px rgba(0,0,0,.6))` }}>{m}</div>
           <Shine text={m} style={mainStyle} p={shine} />
         </div>
@@ -994,7 +994,7 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
         outer = { transform: `scale(${1 - ex * 0.45})`, opacity: 1 - ex };
         break;
       case "sweep":
-        outer = { clipPath: `inset(-40% ${ex * 105}% -40% -8%)` };
+        outer = { clipPath: `inset(-40% ${ex * 118 - 12}% -40% -8%)` };
         break;
       case "blur":
         outer = { filter: `blur(${ex * 14}px)`, opacity: 1 - ex };
@@ -1091,8 +1091,8 @@ const PresetBody = (cfg: Preset): React.FC<TemplateParts> =>
       let extraLetter: React.CSSProperties = {};
       switch (cfg.anim) {
         case "rise":
-          wrap = { clipPath: "inset(-60% -10% 0 -10%)", padding: "0 10px" };
-          inner = { transform: `translateY(${(1 - p(2, 15)) * 105}%)` };
+          wrap = { clipPath: `inset(-60% -10% -${Math.round(fs * 0.24)}px -10%)`, padding: "0 10px" };
+          inner = { transform: `translateY(${(1 - p(2, 15)) * 135}%)` };
           break;
         case "pop":
           inner = { transform: `scale(${1.5 - 0.5 * eBack(prog(frame, 0, 12))})`, opacity: prog(frame, 0, 5) };

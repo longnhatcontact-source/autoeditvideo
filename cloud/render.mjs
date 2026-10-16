@@ -45,7 +45,7 @@ try {
     const frames = JSON.parse(fs.readFileSync(a3, "utf8"));
     fs.mkdirSync(a4, { recursive: true });
     const composition = await selectComposition({ serveUrl, id: "BdsVideo", inputProps, puppeteerInstance: browser });
-    for (const f of frames) await renderStill({ composition, serveUrl, output: path.join(a4, `${f.id}.jpg`), frame: f.frame, inputProps, imageFormat: "jpeg", jpegQuality: 80, scale: 0.4, puppeteerInstance: browser });
+    for (const f of frames) await renderStill({ composition, serveUrl, output: path.join(a4, `${f.id}.jpg`), frame: f.frame, inputProps, imageFormat: "jpeg", jpegQuality: 80, scale: +(process.env.STILL_SCALE || 0.4), puppeteerInstance: browser });
   } else if (mode === "cover") {
     const composition = await selectComposition({ serveUrl, id: "BiaVideo", inputProps, puppeteerInstance: browser });
     await renderStill({ composition, serveUrl, output: a3, frame: 90, inputProps, puppeteerInstance: browser });

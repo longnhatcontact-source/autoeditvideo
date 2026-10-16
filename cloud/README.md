@@ -41,7 +41,7 @@ bash cloud/setup.sh        # npm install, phông + SFX, deep-filter, faster-whis
 - Quy tắc chữ (đã chốt 8/10/2026): **không dùng kiểu "AI"** (chữ mảnh, viết thường kiểu câu văn, phát sáng neon tràn lan); ưu tiên chữ IN HOA đậm (Montserrat Black, Anton, Oswald, League Spartan) + dòng chữ ký viết tay / nhãn màu.
 - Số chỉ chạy (đếm lên) khi con số hiển thị ≥ 10.000; số nhỏ đứng yên.
 - Phụ đề phía dưới **tắt mặc định** (`subPosition: "tat"`); ý chính nhấn bằng khung chữ.
-- Chữ sáng trên nền sáng tự đảo thành chữ đậm quầng sáng (`bg` ≥ 0,55); nền rất sáng (≥ 0,68) đảo mọi mẫu trừ mẫu có nền riêng (thẻ, mảng, bong bóng).
+- **KHÔNG đảo chữ thành chữ đen quầng sáng** (anh Nhật từ chối 16/10/2026). Nền sáng (`bg` ≥ 0,55) → đo `withBackground` ở nhiều vị trí y rồi dời khung chữ sang chỗ nền tối (áo, mảng cây), hoặc dùng mẫu có nền riêng (thẻ, mảng, bong bóng). Chụp soát cao: `STILL_SCALE=1 node cloud/render.mjs stills …`.
 - Phông: chỉ dùng phông CÓ bộ chữ tiếng Việt (Poppins không có → dùng Be Vietnam Pro).
 - **Tên riêng (dự án, đường, người) nghe chưa chắc → tra web hoặc hỏi người dùng TRƯỚC khi đưa lên chữ.** Vd whisper nghe "Metro Green Street" nhưng dự án thật là "Metro Grand Street"; "Tây Ba Vì" là trục "Hồ Tây – Ba Vì".
 - Ảnh bìa khi mặt nằm giữa khung: làm nền = khung hình mờ + khung hình rõ dời xuống ~620px (`cloud/example/cover.phudien.json`; lệnh: `ffmpeg -i khung.png -filter_complex "[0]scale=1080:1920,boxblur=30:2,eq=brightness=-0.12[b];[0]scale=1080:-2[f];[b][f]overlay=0:620,crop=1080:1920:0:0" public/cover/ten_bg.jpg`), để chữ ở nửa trên không che mặt.

@@ -12219,7 +12219,7 @@ const City = ({ frame, total, top, main, sub, seed }) => {
   const ex = eIn(prog(frame, total - OUT, total - 1));
   return /* @__PURE__ */ (0,jsx_runtime.jsxs)(Col, { style: { transform: `translateY(${-ex * 120}px)`, opacity: 1 - ex, filter: `blur(${ex * 8}px)` }, children: [
     /* @__PURE__ */ (0,jsx_runtime.jsx)(Signature, { text: top, fs: sfs, p: eOut(prog(frame, 0, 20)) }),
-    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { clipPath: "inset(-60% -10% 0 -10%)", padding: "0 10px" }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)(
+    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { clipPath: `inset(-60% -10% -${Math.round(fs * 0.24)}px -10%)`, padding: "0 10px" }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)(
       "div",
       {
         style: {
@@ -12227,7 +12227,7 @@ const City = ({ frame, total, top, main, sub, seed }) => {
           ...textFill(TEX.cloud(seedNum(seed))),
           backgroundSize: "140% 100%",
           backgroundPosition: `${frame * 0.4 % 100}% 50%`,
-          transform: `translateY(${(1 - pIn) * 105}%)`,
+          transform: `translateY(${(1 - pIn) * 135}%)`,
           filter: SHADOW
         },
         children: m
@@ -12400,7 +12400,7 @@ const LuxGold = ({ frame, total, top, main, sub, seed }) => {
         children: top
       }
     ) : null,
-    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { clipPath: "inset(-60% -10% 0 -10%)", padding: "0 10px" }, children: /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", transform: `translateY(${(1 - pIn) * 105}%)` }, children: [
+    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { clipPath: `inset(-60% -10% -${Math.round(fs * 0.24)}px -10%)`, padding: "0 10px" }, children: /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", transform: `translateY(${(1 - pIn) * 135}%)` }, children: [
       /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { ...mainStyle, ...textFill(TEX.gold(seedNum(seed))), filter: `drop-shadow(0 0 14px rgba(0,0,0,.45)) drop-shadow(0 6px 6px rgba(0,0,0,.6))` }, children: m }),
       /* @__PURE__ */ (0,jsx_runtime.jsx)(Shine, { text: m, style: mainStyle, p: shine })
     ] }) }),
@@ -12911,7 +12911,7 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
       outer = { transform: `scale(${1 - ex * 0.45})`, opacity: 1 - ex };
       break;
     case "sweep":
-      outer = { clipPath: `inset(-40% ${ex * 105}% -40% -8%)` };
+      outer = { clipPath: `inset(-40% ${ex * 118 - 12}% -40% -8%)` };
       break;
     case "blur":
       outer = { filter: `blur(${ex * 14}px)`, opacity: 1 - ex };
@@ -12983,8 +12983,8 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
     let extraLetter = {};
     switch (cfg.anim) {
       case "rise":
-        wrap = { clipPath: "inset(-60% -10% 0 -10%)", padding: "0 10px" };
-        inner = { transform: `translateY(${(1 - p(2, 15)) * 105}%)` };
+        wrap = { clipPath: `inset(-60% -10% -${Math.round(fs * 0.24)}px -10%)`, padding: "0 10px" };
+        inner = { transform: `translateY(${(1 - p(2, 15)) * 135}%)` };
         break;
       case "pop":
         inner = { transform: `scale(${1.5 - 0.5 * eBack(prog(frame, 0, 12))})`, opacity: prog(frame, 0, 5) };
@@ -14067,7 +14067,10 @@ const CalloutView = ({ c }) => {
               alignItems: "center",
               // nền sáng (tường trắng, trời): viền tối mảnh + quầng tối ôm sát mọi chữ, không dùng hộp nền
               // mẫu chữ sáng trên nền sáng: đảo sáng–tối (chữ đậm, quầng sáng) để luôn đọc rõ
-              filter: !hasOwnBg(c.style) && ((c.bg ?? 0) >= LIGHT_BG && isLightStyle(c.style) || (c.bg ?? 0) >= 0.68) ? "invert(1) hue-rotate(180deg) saturate(1.5)" : (c.bg ?? 0) >= LIGHT_BG ? "drop-shadow(0 0 1.5px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(0,0,0,.55)) drop-shadow(0 2px 10px rgba(0,0,0,.35))" : void 0
+              filter: (
+                // KHÔNG đảo sang chữ đen (anh Nhật đã từ chối 16/10/2026) — nền sáng thì chọn vị trí/ mẫu khác lúc tạo props
+                !hasOwnBg(c.style) && (c.bg ?? 0) >= LIGHT_BG ? "drop-shadow(0 0 1.5px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(0,0,0,.55)) drop-shadow(0 2px 10px rgba(0,0,0,.35))" : void 0
+              )
             },
             children: react.createElement(template, {
               frame,
