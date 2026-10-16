@@ -11,7 +11,7 @@ S = json.load(open(plan)); D = 0.3
 def landscape(p):
     w, h = map(int, subprocess.run(["ffprobe","-v","error","-select_streams","v:0","-show_entries","stream=width,height","-of","csv=p=0",p],capture_output=True,text=True).stdout.strip().split(",")[:2])
     return w > h
-ins = ["-i", base]; f = []; last = "0:v"
+ins = ["-i", base]; f = ["[0:v]settb=1/30,setpts=N[base]"]; last = "base"  # nền có mốc thời gian làm tròn ms (mkv) → overlay lệch nhịp, lặp khung mỗi 3 hình → ép về lưới 1/30s
 for i, s in enumerate(S):
     a, b = s["start"], s["end"]
     nxt = i + 1 < len(S) and abs(S[i+1]["start"] - b) < 0.01
@@ -21,7 +21,7 @@ for i, s in enumerate(S):
           else "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920")
     fi = f",fade=t=in:st=0:d={D}:alpha=1" if s.get("in", "fade") == "fade" else ""
     fo = "" if nxt else f",fade=t=out:st={dur-D:.2f}:d={D}:alpha=1"
-    f.append(f"[{i+1}:v]fps=30,{sc},format=yuva420p,trim=0:{dur:.2f}{fi}{fo},setpts=PTS-STARTPTS+{a}/TB[b{i}]")
+    f.append(f"[{i+1}:v]fps=30,settb=1/30,{sc},format=yuva420p,trim=0:{dur:.2f}{fi}{fo},setpts=PTS-STARTPTS+{a}/TB[b{i}]")
     y = f"'if(lt(t-{a},0.35),H*pow(1-(t-{a})/0.35,3),0)'" if s.get("in") == "slide" else "0"
     f.append(f"[{last}][b{i}]overlay=0:{y}:eof_action=pass:enable='between(t,{a},{a+dur:.2f})'[o{i}]"); last = f"o{i}"
 subprocess.run(["ffmpeg","-y","-v","error",*ins,"-filter_complex",";".join(f),"-map",f"[{last}]","-map","0:a?","-r","30",

@@ -45,4 +45,5 @@ bash cloud/setup.sh        # npm install, phông + SFX, deep-filter, faster-whis
 - Phông: chỉ dùng phông CÓ bộ chữ tiếng Việt (Poppins không có → dùng Be Vietnam Pro).
 - **Tên riêng (dự án, đường, người) nghe chưa chắc → tra web hoặc hỏi người dùng TRƯỚC khi đưa lên chữ.** Vd whisper nghe "Metro Green Street" nhưng dự án thật là "Metro Grand Street"; "Tây Ba Vì" là trục "Hồ Tây – Ba Vì".
 - Ảnh bìa khi mặt nằm giữa khung: làm nền = khung hình mờ + khung hình rõ dời xuống ~620px (`cloud/example/cover.phudien.json`; lệnh: `ffmpeg -i khung.png -filter_complex "[0]scale=1080:1920,boxblur=30:2,eq=brightness=-0.12[b];[0]scale=1080:-2[f];[b][f]overlay=0:620,crop=1080:1920:0:0" public/cover/ten_bg.jpg`), để chữ ở nửa trên không che mặt.
+- **Cảnh bổ trợ bị giật (lặp khung mỗi 3 hình)**: video nền ghép qua mkv có mốc thời gian làm tròn ms → overlay lệch nhịp. `broll.py` đã ép nền + cảnh về lưới 1/30s (`settb=1/30,setpts=N`). Kiểm tra: đo chênh lệch giữa các khung liên tiếp, không được có khung trùng lặp đều đặn.
 - Đừng chạy 2 lệnh `cloud/render.mjs` cùng lúc (mỗi lần chạy dọn thư mục tạm của Remotion → lệnh kia lỗi 404).
