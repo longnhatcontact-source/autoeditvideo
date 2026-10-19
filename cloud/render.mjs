@@ -19,6 +19,7 @@ if (!mode || !propsFile) { console.error("Xem cách dùng ở đầu file cloud/
 
 function findBrowser() {
   if (process.env.BDS_BROWSER) return process.env.BDS_BROWSER;
+  if (process.platform === "win32") return undefined; // Windows: Remotion tự dùng/tải Chrome Headless Shell
   try {
     const p = execSync("find /opt/pw-browsers -name headless_shell -type f 2>/dev/null | sort | tail -1").toString().trim();
     if (p) return p;
@@ -36,7 +37,7 @@ const serveUrl = await bundle({
 });
 const browserExecutable = findBrowser();
 const browser = await openBrowser("chrome", { browserExecutable });
-const concurrency = Math.max(1, Math.min(os.cpus().length, 4));
+const concurrency = Number(process.env.BDS_CONCURRENCY) || Math.max(1, Math.min(os.cpus().length, 4));
 try {
   if (mode === "video") {
     const composition = await selectComposition({ serveUrl, id: "BdsVideo", inputProps, puppeteerInstance: browser });

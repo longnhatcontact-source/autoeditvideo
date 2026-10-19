@@ -22,10 +22,13 @@ import { BRAND_DIR, getBrand, saveBrand, setBrandLogo } from "../lib/brand.mjs";
 import { aiInfo, exportDirInfo, setAiConfig, setExportDir } from "../lib/settings.mjs";
 import { claudeCodeStatus } from "../lib/claude-code.mjs";
 import { addCustomSfx, listSfx, SFX_DIR } from "../lib/sfx.mjs";
+import { startJobWorker } from "../lib/jobs.mjs";
 
 const argPort = process.argv.indexOf("--port");
 const PORT = argPort > 0 ? Number(process.argv[argPort + 1]) : Number(process.env.PORT || 0);
 fs.mkdirSync(PROJECTS_DIR, { recursive: true });
+// phiếu việc do Claude giao (jobs/inbox) -> dựng native trên máy này
+if (process.env.BDS_NO_JOBS !== "1") startJobWorker();
 
 const app = express();
 app.use(express.json({ limit: "20mb" }));
