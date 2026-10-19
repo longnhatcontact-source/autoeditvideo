@@ -23,7 +23,18 @@ if os.path.isfile(vocab_file):
 
 from faster_whisper import WhisperModel
 
-kw = {} if os.path.isdir(model) else {"download_root": "F:/Tools/whisper-models" if os.name == "nt" else None}
+def _cache_dir():
+    """Thư mục model whisper: BDS_WHISPER_CACHE > F:/Tools/whisper-models (máy anh Nhật) > %LOCALAPPDATA%/BDSVideoStudio/whisper-models (tự tải lần đầu ~1,5GB)."""
+    if os.environ.get("BDS_WHISPER_CACHE"):
+        return os.environ["BDS_WHISPER_CACHE"]
+    if os.path.isdir("F:/Tools/whisper-models"):
+        return "F:/Tools/whisper-models"
+    base = os.environ.get("LOCALAPPDATA") or os.path.join(os.path.expanduser("~"), ".cache")
+    d = os.path.join(base, "BDSVideoStudio", "whisper-models")
+    os.makedirs(d, exist_ok=True)
+    return d
+
+kw = {} if os.path.isdir(model) else {"download_root": _cache_dir() if os.name == "nt" else None}
 m = WhisperModel(model, device="cpu", compute_type="int8", cpu_threads=min(os.cpu_count() or 4, 8), **kw)
 segs, info = m.transcribe(wav, language="vi", word_timestamps=True, vad_filter=True, beam_size=5, **({"hotwords": ", ".join(vocab)} if vocab else {}))
 words, ss = [], []

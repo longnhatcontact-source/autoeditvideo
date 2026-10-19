@@ -79,7 +79,7 @@ if (SYNC) {
     const changed = git("status", "--porcelain").stdout.trim().split(/\r?\n/).filter(Boolean);
     if (changed.length && changed.every((l) => l.endsWith("package-lock.json"))) git("checkout", "--", "package-lock.json");
     else if (changed.length) return; // đang sửa dở -> không đụng
-    if (git("fetch", "--quiet").status !== 0) return;
+    if (git("fetch", "--quiet", "origin", "feat/chu-nhan").status !== 0) return; // chỉ nhánh app (không kéo nhánh models 1,5GB)
     const behind = Number(git("rev-list", "--count", "HEAD..@{u}").stdout.trim() || 0);
     if (!behind) return;
     const r = git("pull", "--ff-only", "--quiet");

@@ -7,7 +7,20 @@ vocab_txt: mỗi dòng 1 từ/cụm hay nói (tên dự án, từ tiếng Anh) �
 import sys
 import json
 
-CACHE_DIR = r"F:/Tools/whisper-models"
+def _cache_dir():
+    """Thư mục model whisper: BDS_WHISPER_CACHE > F:/Tools/whisper-models (máy anh Nhật) > %LOCALAPPDATA%/BDSVideoStudio/whisper-models (tự tải lần đầu ~1,5GB)."""
+    import os
+    if os.environ.get("BDS_WHISPER_CACHE"):
+        return os.environ["BDS_WHISPER_CACHE"]
+    if os.path.isdir("F:/Tools/whisper-models"):
+        return "F:/Tools/whisper-models"
+    base = os.environ.get("LOCALAPPDATA") or os.path.join(os.path.expanduser("~"), ".cache")
+    d = os.path.join(base, "BDSVideoStudio", "whisper-models")
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
+CACHE_DIR = _cache_dir()
 
 
 def main():

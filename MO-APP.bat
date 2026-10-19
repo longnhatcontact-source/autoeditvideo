@@ -10,7 +10,7 @@ if not exist "package.json" (
 )
 
 echo === 1/4 Lay ban moi nhat tu GitHub ===
-git fetch origin
+git fetch origin feat/chu-nhan
 git checkout feat/chu-nhan
 if errorlevel 1 (
   echo [LOI] Khong chuyen sang ban moi duoc. Chup man hinh nay gui Claude.
