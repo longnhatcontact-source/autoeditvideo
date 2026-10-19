@@ -38,10 +38,13 @@ const serveUrl = await bundle({
 const browserExecutable = findBrowser();
 const browser = await openBrowser("chrome", { browserExecutable });
 const concurrency = Number(process.env.BDS_CONCURRENCY) || Math.max(1, Math.min(os.cpus().length, 4));
+let last = -1;
+console.log(`bundle xong, concurrency ${concurrency}`);
 try {
   if (mode === "video") {
     const composition = await selectComposition({ serveUrl, id: "BdsVideo", inputProps, puppeteerInstance: browser });
-    await renderMedia({ composition, serveUrl, codec: "h264", ...(a4 === "net" ? { crf: 20 } : { scale: 2 / 3, crf: 28 }), outputLocation: a3, inputProps, concurrency, puppeteerInstance: browser });
+    await renderMedia({ composition, serveUrl, codec: "h264", ...(a4 === "net" ? { crf: 20 } : { scale: 2 / 3, crf: 28 }), outputLocation: a3, inputProps, concurrency, puppeteerInstance: browser,
+      onProgress: ({ progress }) => { const p = Math.floor(progress * 20); if (p !== last) { last = p; console.log(`render ${Math.round(progress * 100)}%`); } } });
   } else if (mode === "stills") {
     const frames = JSON.parse(fs.readFileSync(a3, "utf8"));
     fs.mkdirSync(a4, { recursive: true });
