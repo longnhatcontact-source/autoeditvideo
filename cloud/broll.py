@@ -25,4 +25,4 @@ for i, s in enumerate(S):
     y = f"'if(lt(t-{a},0.35),H*pow(1-(t-{a})/0.35,3),0)'" if s.get("in") == "slide" else "0"
     f.append(f"[{last}][b{i}]overlay=0:{y}:eof_action=pass:enable='between(t,{a},{a+dur:.2f})'[o{i}]"); last = f"o{i}"
 subprocess.run(["ffmpeg","-y","-v","error",*ins,"-filter_complex",";".join(f),"-map",f"[{last}]","-map","0:a?","-r","30",
-                "-c:v","libx264","-preset","fast","-crf","16","-pix_fmt","yuv420p","-c:a","copy",out], check=True)
+                "-c:v","libx264","-preset","fast","-crf","16","-pix_fmt","yuv420p","-bf","0","-g","30","-c:a","copy",out], check=True)
