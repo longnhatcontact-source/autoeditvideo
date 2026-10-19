@@ -21,3 +21,7 @@ whisper.cpp
 
 # phiếu việc Claude giao cho app (lib/jobs.mjs)
 jobs/
+
+# Python tạo ra khi chạy (để không chặn app tự cập nhật trên máy người dùng)
+__pycache__/
+*.pyc
