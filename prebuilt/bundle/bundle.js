@@ -15096,6 +15096,8 @@ const captionSchema = schemas.object({
 });
 const captionedVideoSchema = schemas.object({
   src: schemas.string(),
+  // cách đọc video nền khi dựng: media (WebCodecs trong trình duyệt, cần webm VP9) | offthread (Remotion tự giải mã ngoài trình duyệt, đọc thẳng mp4 H.264 — nhanh hơn)
+  videoEngine: schemas["enum"](["media", "offthread"]).optional(),
   tenDuAn: schemas.string(),
   gia: schemas.string(),
   dienTich: schemas.string(),
@@ -15189,6 +15191,7 @@ function useMusicVolumes(captions, total, base, duck) {
 }
 const CaptionedVideo = ({
   src: srcProp,
+  videoEngine,
   tenDuAn,
   gia,
   dienTich,
@@ -15275,7 +15278,7 @@ const CaptionedVideo = ({
   }, [zooms, frame, fps]);
   return /* @__PURE__ */ (0,jsx_runtime.jsxs)(esm.AbsoluteFill, { style: { backgroundColor: "black" }, children: [
     /* @__PURE__ */ (0,jsx_runtime.jsxs)(esm.AbsoluteFill, { style: { transform: zoom !== 1 ? `scale(${zoom})` : void 0 }, children: [
-      /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.AbsoluteFill, { children: /* @__PURE__ */ (0,jsx_runtime.jsx)(Video, { objectFit: "cover", disallowFallbackToOffthreadVideo: true, src }) }),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.AbsoluteFill, { children: videoEngine === "offthread" ? /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.OffthreadVideo, { src, style: { width: "100%", height: "100%", objectFit: "cover" } }) : /* @__PURE__ */ (0,jsx_runtime.jsx)(Video, { objectFit: "cover", disallowFallbackToOffthreadVideo: true, src }) }),
       blurs.length ? /* @__PURE__ */ (0,jsx_runtime.jsx)(BlurBoxes, { boxes: blurs }) : null
     ] }),
     overlays.length ? /* @__PURE__ */ (0,jsx_runtime.jsx)(Overlays, { items: overlays.map((o) => ({ ...o, src: resolveSrc(o.src) })) }) : null,

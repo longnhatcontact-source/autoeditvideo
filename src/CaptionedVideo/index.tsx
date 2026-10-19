@@ -9,6 +9,7 @@ import {
   cancelRender,
   Easing,
   interpolate,
+  OffthreadVideo,
   Sequence,
   useCurrentFrame,
   staticFile,
@@ -36,6 +37,8 @@ const captionSchema = z.object({
 
 export const captionedVideoSchema = z.object({
   src: z.string(),
+  // cách đọc video nền khi dựng: media (WebCodecs trong trình duyệt, cần webm VP9) | offthread (Remotion tự giải mã ngoài trình duyệt, đọc thẳng mp4 H.264 — nhanh hơn)
+  videoEngine: z.enum(["media", "offthread"]).optional(),
   tenDuAn: z.string(),
   gia: z.string(),
   dienTich: z.string(),
@@ -139,6 +142,7 @@ function useMusicVolumes(captions: Caption[], total: number, base: number, duck:
 
 export const CaptionedVideo: React.FC<Props> = ({
   src: srcProp,
+  videoEngine,
   tenDuAn,
   gia,
   dienTich,
@@ -240,7 +244,11 @@ export const CaptionedVideo: React.FC<Props> = ({
       {/* vùng che nằm cùng khối zoom để luôn khớp chỗ cần che */}
       <AbsoluteFill style={{ transform: zoom !== 1 ? `scale(${zoom})` : undefined }}>
         <AbsoluteFill>
-          <Video objectFit="cover" disallowFallbackToOffthreadVideo src={src} />
+          {videoEngine === "offthread" ? (
+            <OffthreadVideo src={src} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          ) : (
+            <Video objectFit="cover" disallowFallbackToOffthreadVideo src={src} />
+          )}
         </AbsoluteFill>
         {blurs.length ? <BlurBoxes boxes={blurs} /> : null}
       </AbsoluteFill>
