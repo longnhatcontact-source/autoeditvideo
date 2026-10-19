@@ -1,5 +1,7 @@
 # Bộ dựng video trong phiên cloud của Claude
 
+> Máy Windows của người dùng đã liên kết + app đang mở → dựng nhanh hơn bằng **phiếu việc**: xem `cloud/LOCAL.md`. Máy mới: chạy `CAI-DAT.bat`.
+
 Dùng khi Claude (tài khoản bất kỳ) dựng video theo skill `auto-edit-video-bds` mà không có app trên máy.
 Mọi thứ cần thiết nằm trong repo này: mã dựng hình (`src/`), 61 mẫu chữ, 20 SFX (`assets/sfx/nr-*.mp3`),
 phông chữ offline (`cloud/fonts/`), model nhận giọng nói (nhánh `models`), và các script dưới đây.

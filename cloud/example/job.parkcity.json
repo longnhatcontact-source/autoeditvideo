@@ -1,0 +1,496 @@
+{
+ "id": "parkcity",
+ "steps": [
+  {
+   "type": "setup"
+  },
+  {
+   "type": "probe"
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cắt+chỉnh màu",
+   "args": [
+    "-i",
+    "{ROOT}/jobs/test-in/mat3.mp4",
+    "-i",
+    "{ROOT}/jobs/test-in/mat2.mp4",
+    "-i",
+    "{ROOT}/jobs/test-in/mat1.mp4",
+    "-filter_complex",
+    "[0:v]trim=0.15:31.45,setpts=PTS-STARTPTS,fps=30,scale=1080:1920:flags=lanczos,eq=contrast=1.07:saturation=1.18:gamma=0.96,curves=m='0/0 0.25/0.22 0.7/0.69 1/0.97',unsharp=5:5:0.4[v0];[0:a]atrim=0.15:31.45,asetpts=PTS-STARTPTS[a0];[1:v]trim=0.55:17.75,setpts=PTS-STARTPTS,fps=30,scale=1080:1920:flags=lanczos,eq=contrast=1.07:saturation=1.18:gamma=0.96,curves=m='0/0 0.25/0.22 0.7/0.69 1/0.97',unsharp=5:5:0.4[v1];[1:a]atrim=0.55:17.75,asetpts=PTS-STARTPTS[a1];[2:v]trim=0.15:26.4,setpts=PTS-STARTPTS,fps=30,scale=1080:1920:flags=lanczos,eq=contrast=1.07:saturation=1.18:gamma=0.96,curves=m='0/0 0.25/0.22 0.7/0.69 1/0.97',unsharp=5:5:0.4[v2];[2:a]atrim=0.15:26.4,asetpts=PTS-STARTPTS[a2];[v0][a0][v1][a1][v2][a2]concat=n=3:v=1:a=1[v][a]",
+    "-map",
+    "[v]",
+    "-map",
+    "[a]",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "fast",
+    "-crf",
+    "16",
+    "-pix_fmt",
+    "yuv420p",
+    "-c:a",
+    "pcm_s16le",
+    "{JOB}/cut.mkv"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "remux",
+   "args": [
+    "-i",
+    "{JOB}/cut.mkv",
+    "-c:v",
+    "copy",
+    "-c:a",
+    "aac",
+    "-b:a",
+    "256k",
+    "{JOB}/cut.mp4"
+   ]
+  },
+  {
+   "type": "denoise",
+   "in": "{JOB}/cut.mkv",
+   "out": "{JOB}/clean.wav"
+  },
+  {
+   "type": "transcribe",
+   "in": "{JOB}/cut.mkv",
+   "out": "{JOB}/raw.json"
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 0",
+   "args": [
+    "-ss",
+    "12.30",
+    "-t",
+    "3.10",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/3.10)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b00.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 1",
+   "args": [
+    "-ss",
+    "17.10",
+    "-t",
+    "2.90",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.90)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b01.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 2",
+   "args": [
+    "-ss",
+    "8.00",
+    "-t",
+    "4.50",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.72+0.26*t/4.50)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b02.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 3",
+   "args": [
+    "-ss",
+    "117.80",
+    "-t",
+    "3.90",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/3.90)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b03.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 4",
+   "args": [
+    "-ss",
+    "21.90",
+    "-t",
+    "3.60",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/3.60)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b04.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 5",
+   "args": [
+    "-ss",
+    "35.85",
+    "-t",
+    "2.70",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.70)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b05.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 6",
+   "args": [
+    "-ss",
+    "49.40",
+    "-t",
+    "3.40",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/3.40)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b06.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 7",
+   "args": [
+    "-ss",
+    "47.25",
+    "-t",
+    "2.90",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.90)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b07.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 8",
+   "args": [
+    "-ss",
+    "84.45",
+    "-t",
+    "2.70",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.70)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b08.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 9",
+   "args": [
+    "-ss",
+    "65.85",
+    "-t",
+    "2.90",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.90)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b09.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 10",
+   "args": [
+    "-ss",
+    "92.10",
+    "-t",
+    "3.50",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/3.50)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b10.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 11",
+   "args": [
+    "-ss",
+    "41.15",
+    "-t",
+    "2.90",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.90)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b11.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 12",
+   "args": [
+    "-ss",
+    "45.85",
+    "-t",
+    "2.30",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.30)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b12.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 13",
+   "args": [
+    "-ss",
+    "63.35",
+    "-t",
+    "2.10",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.10)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b13.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 14",
+   "args": [
+    "-ss",
+    "111.25",
+    "-t",
+    "2.90",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.90)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b14.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 15",
+   "args": [
+    "-ss",
+    "57.05",
+    "-t",
+    "4.40",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.25*t/4.40)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b15.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 16",
+   "args": [
+    "-ss",
+    "77.72",
+    "-t",
+    "2.70",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.70)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b16.mp4"
+   ]
+  },
+  {
+   "type": "ffmpeg",
+   "label": "cảnh 17",
+   "args": [
+    "-ss",
+    "122.95",
+    "-t",
+    "2.20",
+    "-i",
+    "{ROOT}/jobs/test-in/src1.mp4",
+    "-an",
+    "-vf",
+    "fps=30,crop=405:720:'(iw-405)*(0.05+0.30*t/2.20)':0,scale=1080:1920:flags=lanczos,eq=contrast=1.04:saturation=1.08,unsharp=5:5:0.5",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "14",
+    "-preset",
+    "fast",
+    "{JOB}/b17.mp4"
+   ]
+  },
+  {
+   "type": "broll",
+   "base": "{JOB}/cut.mp4",
+   "plan": "{ROOT}/jobs/test-in/plan.json",
+   "out": "{JOB}/cut_br.mp4"
+  },
+  {
+   "type": "webm",
+   "in": "{JOB}/cut_br.mp4",
+   "audio": "{JOB}/clean.wav",
+   "name": "ch05.webm"
+  },
+  {
+   "type": "render",
+   "label": "ảnh soát",
+   "mode": "stills",
+   "props": "{ROOT}/jobs/test-in/props.json",
+   "a3": "{ROOT}/jobs/test-in/frames.json",
+   "a4": "{JOB}/stills",
+   "stillScale": 0.5
+  },
+  {
+   "type": "render",
+   "label": "bản nét",
+   "mode": "video",
+   "props": "{ROOT}/jobs/test-in/props.json",
+   "a3": "{JOB}/net_raw.mp4",
+   "a4": "net"
+  },
+  {
+   "type": "copy",
+   "from": "{JOB}/net_raw.mp4",
+   "to": "{EXPORT}/ParkCity-3-ly-do_ban-net.mp4"
+  }
+ ],
+ "_ghi_chu": "Ví dụ thật (ParkCity, 19/10/2026): 3 clip quay mặt + 1 phim chủ đầu tư làm B-roll. Đầu vào để ở {ROOT}/jobs/test-in/. Thực tế: bỏ bước 'bản nhẹ', thêm render stills để soát, cuối cùng copy ra {EXPORT}."
+}
