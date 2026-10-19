@@ -44,6 +44,8 @@ try {
   if (mode === "video") {
     const composition = await selectComposition({ serveUrl, id: "BdsVideo", inputProps, puppeteerInstance: browser });
     await renderMedia({ composition, serveUrl, codec: "h264", ...(a4 === "net" ? { crf: 20 } : { scale: 2 / 3, crf: 28 }), outputLocation: a3, inputProps, concurrency, puppeteerInstance: browser,
+      ...(process.env.BDS_OT_THREADS ? { offthreadVideoThreads: Number(process.env.BDS_OT_THREADS) } : {}),
+      ...(process.env.BDS_OT_CACHE_MB ? { offthreadVideoCacheSizeInBytes: Number(process.env.BDS_OT_CACHE_MB) * 2 ** 20 } : {}),
       onProgress: ({ progress }) => { const p = Math.floor(progress * 20); if (p !== last) { last = p; console.log(`render ${Math.round(progress * 100)}%`); } } });
   } else if (mode === "stills") {
     const frames = JSON.parse(fs.readFileSync(a3, "utf8"));
