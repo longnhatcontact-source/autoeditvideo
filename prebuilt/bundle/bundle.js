@@ -13175,7 +13175,7 @@ const PresetBody = (cfg) => function Body({ frame, total, top: top0, main: main0
       ] });
     } else if (layout === "slab" || layout === "bubble") {
       const bubble = layout === "bubble";
-      wrapEl = /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", background: deco, borderRadius: bubble ? fs * 0.18 : 4, padding: `${fs * 0.04}px ${fs * 0.26}px ${fs * 0.04}px`, transform: bubble ? `rotate(-4deg) scale(${pp})` : `rotate(-2deg)`, clipPath: bubble ? void 0 : `inset(-30% ${(1 - grow) * 100}% -30% 0)`, boxShadow: "0 10px 24px rgba(0,0,0,.35)", opacity: bubble ? prog(frame, 0, 5) : 1 }, children: [
+      wrapEl = /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "relative", background: deco, borderRadius: bubble ? fs * 0.18 : 4, padding: `${fs * 0.17}px ${fs * 0.26}px ${fs * 0.08}px`, transform: bubble ? `rotate(-4deg) scale(${pp})` : `rotate(-2deg)`, clipPath: bubble ? void 0 : `inset(-30% ${(1 - grow) * 100}% -30% 0)`, boxShadow: "0 10px 24px rgba(0,0,0,.35)", opacity: bubble ? prog(frame, 0, 5) : 1 }, children: [
         bubble ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { position: "absolute", left: fs * 0.45, bottom: -fs * 0.22, width: fs * 0.34, height: fs * 0.26, background: deco, clipPath: "polygon(0 0, 100% 0, 10% 100%)" } }) : null,
         mainEl
       ] });
