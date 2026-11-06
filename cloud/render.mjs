@@ -21,7 +21,7 @@ function findBrowser() {
   if (process.env.BDS_BROWSER) return process.env.BDS_BROWSER;
   if (process.platform === "win32") return undefined; // Windows: Remotion tự dùng/tải Chrome Headless Shell
   try {
-    const p = execSync("find /opt/pw-browsers -name headless_shell -type f 2>/dev/null | sort | tail -1").toString().trim();
+    const p = execSync("find /opt/pw-browsers \\( -name headless_shell -o -name chrome-headless-shell \\) -type f 2>/dev/null | sort | tail -1").toString().trim();
     if (p) return p;
   } catch {}
   return undefined; // để Remotion tự tải (cần mạng)

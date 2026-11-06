@@ -102,6 +102,7 @@ const size = (text: string, fontFamily: string, fontWeight: number, max: number,
 /** chữ chính dài (> 13 ký tự) thì bẻ 2 dòng cân nhau để chữ to, dễ đọc hơn */
 export function balance(text: string, limit = 13): string {
   const t = text.trim();
+  if (t.includes("\n")) return t; // người dùng tự xuống dòng → giữ nguyên
   if (Array.from(t).length <= limit || !t.includes(" ")) return t;
   const words = t.split(/\s+/);
   let best = t;

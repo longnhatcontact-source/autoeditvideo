@@ -48,6 +48,7 @@ const fit = (text: string, font: string, weight: number, max: number, width = W,
 /** chữ dài thì bẻ 2 dòng cân nhau */
 const balance = (text: string, limit = 13) => {
   const t = text.trim();
+  if (t.includes("\n")) return t; // người dùng tự xuống dòng → giữ nguyên
   if (Array.from(t).length <= limit || !t.includes(" ")) return t;
   const words = t.split(/\s+/);
   let best = t;
