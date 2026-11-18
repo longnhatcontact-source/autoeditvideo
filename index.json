@@ -1,0 +1,7004 @@
+{
+ "count": 872,
+ "groups": {
+  "alarm": 12,
+  "ambience": 5,
+  "camera": 11,
+  "click": 38,
+  "counter": 11,
+  "data": 13,
+  "glitch": 56,
+  "impact": 71,
+  "keyboard": 31,
+  "meme": 172,
+  "metal": 62,
+  "money": 17,
+  "notify": 30,
+  "other": 16,
+  "paper": 21,
+  "pop": 24,
+  "riser": 58,
+  "shatter": 3,
+  "ui": 74,
+  "whoosh": 142,
+  "zoom": 5
+ },
+ "items": [
+  {
+   "id": "alarm/alarm-clock-beep-1-sba-300001460.mp3",
+   "group": "alarm",
+   "dur": 2.04,
+   "peak_db": -15.2,
+   "mean_db": -27.0,
+   "source": "Essential Sfx/Sound effect/Alarm/alarm-clock-beep-1-SBA-300001460.mp3"
+  },
+  {
+   "id": "alarm/alarm-sound-effect-mp3-160k.mp3",
+   "group": "alarm",
+   "dur": 5.15,
+   "peak_db": -4.7,
+   "mean_db": -19.0,
+   "source": "Essential Sfx/Sound effect/Alarm/Alarm sound effect(MP3_160K).mp3"
+  },
+  {
+   "id": "alarm/beep.mp3",
+   "group": "alarm",
+   "dur": 5.98,
+   "peak_db": -0.4,
+   "mean_db": -5.3,
+   "source": "Essential Sfx/Sound effect/beep/beep.wav"
+  },
+  {
+   "id": "alarm/censorship.mp3",
+   "group": "alarm",
+   "dur": 1.54,
+   "peak_db": -0.4,
+   "mean_db": -12.1,
+   "source": "Essential Sfx/Sound effect/Error/censorship .mp3"
+  },
+  {
+   "id": "alarm/clock-fast-ticking-sba-300419272.mp3",
+   "group": "alarm",
+   "dur": 4.18,
+   "peak_db": -7.9,
+   "mean_db": -36.2,
+   "source": "Essential Sfx/Sound effect/Alarm/clock-fast-ticking-SBA-300419272.mp3"
+  },
+  {
+   "id": "alarm/clock-ticking-sound-effect-mp3-160k.mp3",
+   "group": "alarm",
+   "dur": 8.1,
+   "peak_db": -0.3,
+   "mean_db": -26.7,
+   "source": "Essential Sfx/Sound effect/Alarm/Clock Ticking Sound Effect(MP3_160K).mp3"
+  },
+  {
+   "id": "alarm/countdown-beep-tones-more-higher-tone-ve.mp3",
+   "group": "alarm",
+   "dur": 11.73,
+   "peak_db": -3.0,
+   "mean_db": -14.2,
+   "source": "Essential Sfx/Sound effect/Alarm/countdown-beep-tones-more-higher-tone-version-SBA-300419347.mp3"
+  },
+  {
+   "id": "alarm/error-2.mp3",
+   "group": "alarm",
+   "dur": 1.1,
+   "peak_db": -0.1,
+   "mean_db": -16.0,
+   "source": "Viral sfx/SFX PACK - 4/Error.wav"
+  },
+  {
+   "id": "alarm/error.mp3",
+   "group": "alarm",
+   "dur": 0.29,
+   "peak_db": -0.3,
+   "mean_db": -19.5,
+   "source": "Froster Ui SFXs/Error.wav"
+  },
+  {
+   "id": "alarm/scary-hell-clock-ticking-4-sba-300420314.mp3",
+   "group": "alarm",
+   "dur": 9.14,
+   "peak_db": -4.3,
+   "mean_db": -24.4,
+   "source": "Essential Sfx/Sound effect/Alarm/scary-hell-clock-ticking-4-SBA-300420314.mp3"
+  },
+  {
+   "id": "alarm/ui-beep.mp3",
+   "group": "alarm",
+   "dur": 9.77,
+   "peak_db": -4.4,
+   "mean_db": -33.4,
+   "source": "Apple Sfx/Ui Beep.mp3"
+  },
+  {
+   "id": "alarm/wrong-answer.mp3",
+   "group": "alarm",
+   "dur": 0.86,
+   "peak_db": -9.7,
+   "mean_db": -23.4,
+   "source": "OTHERS/Wrong Answer.mp3"
+  },
+  {
+   "id": "ambience/atmospheric-metallic-swipe-17-196791.mp3",
+   "group": "ambience",
+   "dur": 4.96,
+   "peak_db": -0.7,
+   "mean_db": -27.6,
+   "source": "Spacial Sfx/atmospheric-metallic-swipe-17-196791.mp3"
+  },
+  {
+   "id": "ambience/atmospheric-metallic-swipe-20-196794.mp3",
+   "group": "ambience",
+   "dur": 4.31,
+   "peak_db": -1.3,
+   "mean_db": -26.3,
+   "source": "Spacial Sfx/atmospheric-metallic-swipe-20-196794.mp3"
+  },
+  {
+   "id": "ambience/braam.mp3",
+   "group": "ambience",
+   "dur": 10.97,
+   "peak_db": -0.1,
+   "mean_db": -12.4,
+   "source": "Spacial Sfx/Braam.mp3"
+  },
+  {
+   "id": "ambience/digital-counter.mp3",
+   "group": "ambience",
+   "dur": 2.61,
+   "peak_db": -2.7,
+   "mean_db": -20.8,
+   "source": "Spacial Sfx/Digital  Counter.mp3"
+  },
+  {
+   "id": "ambience/epic-orchestra-transition-2290.mp3",
+   "group": "ambience",
+   "dur": 7.13,
+   "peak_db": -1.2,
+   "mean_db": -19.2,
+   "source": "Spacial Sfx/Epic-orchestra-transition-2290.wav"
+  },
+  {
+   "id": "camera/camera-flash.mp3",
+   "group": "camera",
+   "dur": 2.01,
+   "peak_db": -1.1,
+   "mean_db": -25.2,
+   "source": "Essential Sfx/Essential/Camera Flash.mp3"
+  },
+  {
+   "id": "camera/camera-shutter-2.mp3",
+   "group": "camera",
+   "dur": 1.46,
+   "peak_db": -1.0,
+   "mean_db": -30.5,
+   "source": "Essential Sfx/Sound effect/Camera Shutter/camera Shutter 2.wav"
+  },
+  {
+   "id": "camera/camera-shutter-2.mp3",
+   "group": "camera",
+   "dur": 1.46,
+   "peak_db": -1.0,
+   "mean_db": -30.5,
+   "source": "Essential Sfx/Sound effect/Camera Shutter/camera Shutter.wav"
+  },
+  {
+   "id": "camera/camera-shutter-sound-effect-2.mp3",
+   "group": "camera",
+   "dur": 0.73,
+   "peak_db": -1.3,
+   "mean_db": -27.6,
+   "source": "Spacial Sfx/Camera Shutter Sound Effect.mp3"
+  },
+  {
+   "id": "camera/camera-shutter-sound-effect.mp3",
+   "group": "camera",
+   "dur": 1.52,
+   "peak_db": 0.0,
+   "mean_db": -17.5,
+   "source": "Essential Sfx/Sound effect/Camera Shutter/Camera Shutter Sound Effect.mp3"
+  },
+  {
+   "id": "camera/camera-shutter.mp3",
+   "group": "camera",
+   "dur": 0.73,
+   "peak_db": -5.3,
+   "mean_db": -30.9,
+   "source": "CAMERA SHUTTER/Camera Shutter.wav"
+  },
+  {
+   "id": "camera/film-shutter.mp3",
+   "group": "camera",
+   "dur": 1.25,
+   "peak_db": -0.2,
+   "mean_db": -30.2,
+   "source": "Essential Sfx/Film Shutter.wav"
+  },
+  {
+   "id": "camera/retro-devices-camera-shutter.mp3",
+   "group": "camera",
+   "dur": 1.54,
+   "peak_db": -4.1,
+   "mean_db": -35.3,
+   "source": "CAMERA SHUTTER/Retro Devices Camera Shutter.aac"
+  },
+  {
+   "id": "camera/shutter-2.mp3",
+   "group": "camera",
+   "dur": 1.8,
+   "peak_db": -0.8,
+   "mean_db": -31.2,
+   "source": "Viral sfx/SFX PACK - 3/Shutter.mp3"
+  },
+  {
+   "id": "camera/shutter.mp3",
+   "group": "camera",
+   "dur": 0.76,
+   "peak_db": -6.2,
+   "mean_db": -31.3,
+   "source": "Essential Sfx/Essential/Shutter.mp3"
+  },
+  {
+   "id": "camera/slr-canon-ae-1-35mm-shutter-release-diff.mp3",
+   "group": "camera",
+   "dur": 6.24,
+   "peak_db": -7.0,
+   "mean_db": -39.1,
+   "source": "Spacial Sfx/SLR, Canon AE-1, 35mm, Shutter Release, Different Time.mp3"
+  },
+  {
+   "id": "click/all-ios-18-sounds.mp3",
+   "group": "click",
+   "dur": 12.04,
+   "peak_db": -2.2,
+   "mean_db": -24.6,
+   "source": "Apple Sfx/All iOS 18 Sounds.mp3"
+  },
+  {
+   "id": "click/click-45.mp3",
+   "group": "click",
+   "dur": 0.31,
+   "peak_db": -1.3,
+   "mean_db": -23.7,
+   "source": "CLICK SFX/click_45.wav"
+  },
+  {
+   "id": "click/click-buttons-ui-menu-sounds-effects-but.mp3",
+   "group": "click",
+   "dur": 2.06,
+   "peak_db": -18.4,
+   "mean_db": -41.4,
+   "source": "UI SOUNDS/click-buttons-ui-menu-sounds-effects-button-6-203600.mp3"
+  },
+  {
+   "id": "click/click-digital-3.mp3",
+   "group": "click",
+   "dur": 0.13,
+   "peak_db": -1.6,
+   "mean_db": -15.4,
+   "source": "CLICK SFX/click_digital_3.wav"
+  },
+  {
+   "id": "click/click-digital-4.mp3",
+   "group": "click",
+   "dur": 0.21,
+   "peak_db": -0.0,
+   "mean_db": -18.8,
+   "source": "CLICK SFX/click_digital_4.wav"
+  },
+  {
+   "id": "click/click-digital-6.mp3",
+   "group": "click",
+   "dur": 0.47,
+   "peak_db": -1.4,
+   "mean_db": -18.5,
+   "source": "CLICK SFX/click_digital_6.wav"
+  },
+  {
+   "id": "click/click-sound-effect-hd.mp3",
+   "group": "click",
+   "dur": 0.81,
+   "peak_db": -2.9,
+   "mean_db": -33.2,
+   "source": "Essential Sfx/Sound effect/Click/Click - Sound Effect (HD).mp3"
+  },
+  {
+   "id": "click/click.mp3",
+   "group": "click",
+   "dur": 1.85,
+   "peak_db": -3.9,
+   "mean_db": -36.1,
+   "source": "Essential Sfx/Click.mp3"
+  },
+  {
+   "id": "click/es-mouse-click.mp3",
+   "group": "click",
+   "dur": 12.04,
+   "peak_db": -4.9,
+   "mean_db": -37.4,
+   "source": "CLICK SFX/ES_Mouse Click.mp3"
+  },
+  {
+   "id": "click/hard-click.mp3",
+   "group": "click",
+   "dur": 0.34,
+   "peak_db": -5.0,
+   "mean_db": -18.5,
+   "source": "CLICK SFX/Hard click.MP3"
+  },
+  {
+   "id": "click/mac-click-2.mp3",
+   "group": "click",
+   "dur": 0.21,
+   "peak_db": -19.3,
+   "mean_db": -46.8,
+   "source": "CLICK SFX/Mac Click.MP3"
+  },
+  {
+   "id": "click/mac-click.mp3",
+   "group": "click",
+   "dur": 0.08,
+   "peak_db": -13.8,
+   "mean_db": -33.9,
+   "source": "Apple Sfx/Mac Click_.mp4"
+  },
+  {
+   "id": "click/magic-click-sfx.mp3",
+   "group": "click",
+   "dur": 1.7,
+   "peak_db": -12.8,
+   "mean_db": -31.0,
+   "source": "CLICK SFX/Magic click sfx.MP3"
+  },
+  {
+   "id": "click/message-envoye-iphone-apple-391098.mp3",
+   "group": "click",
+   "dur": 0.47,
+   "peak_db": -3.2,
+   "mean_db": -11.8,
+   "source": "Apple Sfx/message-envoye-iphone-apple-391098.mp3"
+  },
+  {
+   "id": "click/mobile-game-epic-button-click-rumble-cli.mp3",
+   "group": "click",
+   "dur": 2.69,
+   "peak_db": -3.6,
+   "mean_db": -23.2,
+   "source": "UI SOUNDS/Mobile Game - Epic Button Click, Rumble, Clink - Royalty Free Sound Effects.aac"
+  },
+  {
+   "id": "click/mouse-click-01.mp3",
+   "group": "click",
+   "dur": 0.18,
+   "peak_db": -14.8,
+   "mean_db": -39.7,
+   "source": "CLICK SFX/Mouse Click 01.wav"
+  },
+  {
+   "id": "click/mouse-click-02.mp3",
+   "group": "click",
+   "dur": 0.39,
+   "peak_db": -3.3,
+   "mean_db": -31.0,
+   "source": "CLICK SFX/Mouse Click 02.wav"
+  },
+  {
+   "id": "click/mouse-click-sound-effect-2.mp3",
+   "group": "click",
+   "dur": 2.06,
+   "peak_db": -2.8,
+   "mean_db": -35.9,
+   "source": "Essential Sfx/Sound effect/Click/Mouse Click Sound Effect.mp3"
+  },
+  {
+   "id": "click/mouse-click-sound-effect-hd-1.mp3",
+   "group": "click",
+   "dur": 2.09,
+   "peak_db": -4.1,
+   "mean_db": -37.5,
+   "source": "Essential Sfx/Sound effect/Click/Mouse Click - Sound Effect (HD) (1).mp3"
+  },
+  {
+   "id": "click/mouse-click-sound-effect.mp3",
+   "group": "click",
+   "dur": 0.39,
+   "peak_db": -3.8,
+   "mean_db": -29.7,
+   "source": "CLICK SFX/Mouse Click Sound Effect.wav"
+  },
+  {
+   "id": "click/mouse-right-click.mp3",
+   "group": "click",
+   "dur": 12.04,
+   "peak_db": -10.6,
+   "mean_db": -48.9,
+   "source": "CLICK SFX/Mouse Right Click.mp3"
+  },
+  {
+   "id": "click/premium-click.mp3",
+   "group": "click",
+   "dur": 0.94,
+   "peak_db": -1.3,
+   "mean_db": -35.5,
+   "source": "CLICK SFX/Premium Click.mp3"
+  },
+  {
+   "id": "click/rm-click-1.mp3",
+   "group": "click",
+   "dur": 0.5,
+   "peak_db": -1.2,
+   "mean_db": -30.9,
+   "source": "Essential Sfx/Essential/rm click (1).wav"
+  },
+  {
+   "id": "click/rm-click-2.mp3",
+   "group": "click",
+   "dur": 0.42,
+   "peak_db": -1.4,
+   "mean_db": -28.0,
+   "source": "Essential Sfx/Essential/rm click (2).wav"
+  },
+  {
+   "id": "click/rm-click-3.mp3",
+   "group": "click",
+   "dur": 0.55,
+   "peak_db": -0.6,
+   "mean_db": -29.7,
+   "source": "Essential Sfx/Essential/rm click (3).wav"
+  },
+  {
+   "id": "click/select-2-sfx.mp3",
+   "group": "click",
+   "dur": 1.38,
+   "peak_db": -6.2,
+   "mean_db": -25.1,
+   "source": "Apple Sfx/Select 2_SFX.MP3"
+  },
+  {
+   "id": "click/select4-sfx.mp3",
+   "group": "click",
+   "dur": 0.71,
+   "peak_db": -4.0,
+   "mean_db": -22.7,
+   "source": "Apple Sfx/Select4_SFX.MP3"
+  },
+  {
+   "id": "click/soft-ui-click-1.mp3",
+   "group": "click",
+   "dur": 0.57,
+   "peak_db": -6.7,
+   "mean_db": -29.3,
+   "source": "UI SOUNDS/Soft ui click 1.MP3"
+  },
+  {
+   "id": "click/sound-1.mp3",
+   "group": "click",
+   "dur": 0.5,
+   "peak_db": -0.7,
+   "mean_db": -27.9,
+   "source": "Essential Sfx/Sound effect/Click/sound-1.mp3"
+  },
+  {
+   "id": "click/sound-2.mp3",
+   "group": "click",
+   "dur": 0.52,
+   "peak_db": -0.8,
+   "mean_db": -26.2,
+   "source": "Essential Sfx/Sound effect/Click/sound-2.mp3"
+  },
+  {
+   "id": "click/switch-click.mp3",
+   "group": "click",
+   "dur": 0.81,
+   "peak_db": -2.2,
+   "mean_db": -39.4,
+   "source": "CLICK SFX/Switch Click.mp3"
+  },
+  {
+   "id": "click/tactile-click.mp3",
+   "group": "click",
+   "dur": 0.21,
+   "peak_db": -1.8,
+   "mean_db": -25.5,
+   "source": "UI SOUNDS/Tactile Click.wav"
+  },
+  {
+   "id": "click/ui-click-2.mp3",
+   "group": "click",
+   "dur": 0.81,
+   "peak_db": -9.1,
+   "mean_db": -25.4,
+   "source": "UI SOUNDS/UI click 2.MP3"
+  },
+  {
+   "id": "click/ui-click-sfx.mp3",
+   "group": "click",
+   "dur": 3.08,
+   "peak_db": -4.3,
+   "mean_db": -30.0,
+   "source": "UI SOUNDS/UI click sfx.MP3"
+  },
+  {
+   "id": "click/ui-cursor-sfx.mp3",
+   "group": "click",
+   "dur": 0.16,
+   "peak_db": -0.7,
+   "mean_db": -12.3,
+   "source": "Apple Sfx/Ui cursor_SFX.MP3"
+  },
+  {
+   "id": "click/ui-menu.mp3",
+   "group": "click",
+   "dur": 1.78,
+   "peak_db": -3.8,
+   "mean_db": -28.5,
+   "source": "Apple Sfx/Ui menu.MP3"
+  },
+  {
+   "id": "click/ui-sound-270349.mp3",
+   "group": "click",
+   "dur": 3.16,
+   "peak_db": -15.2,
+   "mean_db": -35.9,
+   "source": "Apple Sfx/ui-sound-270349.mp3"
+  },
+  {
+   "id": "click/ui-sound-374228.mp3",
+   "group": "click",
+   "dur": 0.89,
+   "peak_db": -3.3,
+   "mean_db": -19.7,
+   "source": "Apple Sfx/ui-sound-374228.mp3"
+  },
+  {
+   "id": "counter/clock-ticking-2.mp3",
+   "group": "counter",
+   "dur": 7.21,
+   "peak_db": -1.4,
+   "mean_db": -26.7,
+   "source": "Spacial Sfx/Clock Ticking.mp3"
+  },
+  {
+   "id": "counter/clock-ticking.mp3",
+   "group": "counter",
+   "dur": 8.12,
+   "peak_db": -2.3,
+   "mean_db": -28.6,
+   "source": "Essential Sfx/Clock Ticking.mp3"
+  },
+  {
+   "id": "counter/display-digits.mp3",
+   "group": "counter",
+   "dur": 3.45,
+   "peak_db": -5.2,
+   "mean_db": -21.9,
+   "source": "DIGITAL COUNTER/Display Digits.wav"
+  },
+  {
+   "id": "counter/es-clock-ticking-2-sfx-producer.mp3",
+   "group": "counter",
+   "dur": 12.04,
+   "peak_db": -1.3,
+   "mean_db": -28.2,
+   "source": "Viral sfx/#L01f50aTICK/ES_Clock Ticking 2 - SFX Producer.mp3"
+  },
+  {
+   "id": "counter/gear-loop.mp3",
+   "group": "counter",
+   "dur": 3.94,
+   "peak_db": -1.9,
+   "mean_db": -25.2,
+   "source": "GEARS SFX/Gear Loop.mp3"
+  },
+  {
+   "id": "counter/gears.mp3",
+   "group": "counter",
+   "dur": 1.15,
+   "peak_db": -2.7,
+   "mean_db": -20.8,
+   "source": "GEARS SFX/Gears.mp3"
+  },
+  {
+   "id": "counter/long-speed-gear.mp3",
+   "group": "counter",
+   "dur": 0.5,
+   "peak_db": -4.7,
+   "mean_db": -28.0,
+   "source": "GEARS SFX/long speed gear.wav"
+  },
+  {
+   "id": "counter/middle-gear.mp3",
+   "group": "counter",
+   "dur": 0.71,
+   "peak_db": -4.1,
+   "mean_db": -30.7,
+   "source": "GEARS SFX/middle gear.wav"
+  },
+  {
+   "id": "counter/mixkit-tick-tock-clock-close-up-1059.mp3",
+   "group": "counter",
+   "dur": 11.65,
+   "peak_db": -1.8,
+   "mean_db": -32.7,
+   "source": "Viral sfx/#L01f50aTICK/mixkit-tick-tock-clock-close-up-1059.wav"
+  },
+  {
+   "id": "counter/snap.mp3",
+   "group": "counter",
+   "dur": 0.37,
+   "peak_db": -14.3,
+   "mean_db": -40.0,
+   "source": "Viral sfx/#L01f50aTICK/Snap.mp3"
+  },
+  {
+   "id": "counter/ticking.mp3",
+   "group": "counter",
+   "dur": 9.64,
+   "peak_db": -0.9,
+   "mean_db": -30.1,
+   "source": "Viral sfx/SFX PACK - 4/Ticking.wav"
+  },
+  {
+   "id": "data/am-sci-fi-click-2.mp3",
+   "group": "data",
+   "dur": 0.6,
+   "peak_db": -2.7,
+   "mean_db": -27.1,
+   "source": "SCI-FI/AM - SCI FI CLICK 2.MP3"
+  },
+  {
+   "id": "data/am-sci-fi-click-4.mp3",
+   "group": "data",
+   "dur": 0.65,
+   "peak_db": -7.4,
+   "mean_db": -26.8,
+   "source": "SCI-FI/AM - SCI FI CLICK 4.MP3"
+  },
+  {
+   "id": "data/am-sci-fi-click-5.mp3",
+   "group": "data",
+   "dur": 1.28,
+   "peak_db": -5.2,
+   "mean_db": -31.2,
+   "source": "SCI-FI/AM - SCI FI CLICK 5.MP3"
+  },
+  {
+   "id": "data/am-sci-fi-click-6.mp3",
+   "group": "data",
+   "dur": 1.31,
+   "peak_db": -3.3,
+   "mean_db": -30.4,
+   "source": "SCI-FI/AM - SCI FI CLICK 6.MP3"
+  },
+  {
+   "id": "data/am-sci-fi-click-8.mp3",
+   "group": "data",
+   "dur": 1.38,
+   "peak_db": -4.1,
+   "mean_db": -30.1,
+   "source": "SCI-FI/AM - SCI FI CLICK 8.MP3"
+  },
+  {
+   "id": "data/data-01.mp3",
+   "group": "data",
+   "dur": 4.31,
+   "peak_db": -12.8,
+   "mean_db": -26.1,
+   "source": "Essential Sfx/Sound effect/DATA/Data 01.wav"
+  },
+  {
+   "id": "data/data-02.mp3",
+   "group": "data",
+   "dur": 8.25,
+   "peak_db": -36.4,
+   "mean_db": -49.2,
+   "source": "Essential Sfx/Sound effect/DATA/Data 02.wav"
+  },
+  {
+   "id": "data/data-03.mp3",
+   "group": "data",
+   "dur": 7.24,
+   "peak_db": -31.3,
+   "mean_db": -48.8,
+   "source": "Essential Sfx/Sound effect/DATA/Data 03.wav"
+  },
+  {
+   "id": "data/data-04.mp3",
+   "group": "data",
+   "dur": 6.69,
+   "peak_db": -18.4,
+   "mean_db": -31.2,
+   "source": "DATA SFX/Data 04.wav"
+  },
+  {
+   "id": "data/data-05.mp3",
+   "group": "data",
+   "dur": 2.25,
+   "peak_db": -26.0,
+   "mean_db": -45.2,
+   "source": "Essential Sfx/Sound effect/DATA/Data 05.wav"
+  },
+  {
+   "id": "data/data-06.mp3",
+   "group": "data",
+   "dur": 6.66,
+   "peak_db": -31.1,
+   "mean_db": -52.1,
+   "source": "Essential Sfx/Sound effect/DATA/Data 06.wav"
+  },
+  {
+   "id": "data/data-07.mp3",
+   "group": "data",
+   "dur": 4.23,
+   "peak_db": -23.5,
+   "mean_db": -40.5,
+   "source": "Essential Sfx/Sound effect/DATA/Data 07.wav"
+  },
+  {
+   "id": "data/data-08.mp3",
+   "group": "data",
+   "dur": 1.25,
+   "peak_db": -20.1,
+   "mean_db": -38.0,
+   "source": "Essential Sfx/Sound effect/DATA/Data 08.wav"
+  },
+  {
+   "id": "glitch/glitch-01-2.mp3",
+   "group": "glitch",
+   "dur": 0.81,
+   "peak_db": -3.9,
+   "mean_db": -27.8,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 3/Glitch 01.wav"
+  },
+  {
+   "id": "glitch/glitch-01.mp3",
+   "group": "glitch",
+   "dur": 4.34,
+   "peak_db": -3.5,
+   "mean_db": -17.7,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 01.wav"
+  },
+  {
+   "id": "glitch/glitch-02-2.mp3",
+   "group": "glitch",
+   "dur": 1.15,
+   "peak_db": -9.9,
+   "mean_db": -31.5,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 3/Glitch 02.wav"
+  },
+  {
+   "id": "glitch/glitch-02.mp3",
+   "group": "glitch",
+   "dur": 1.12,
+   "peak_db": -3.8,
+   "mean_db": -19.3,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 02.wav"
+  },
+  {
+   "id": "glitch/glitch-03-2.mp3",
+   "group": "glitch",
+   "dur": 0.99,
+   "peak_db": -8.5,
+   "mean_db": -30.7,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 3/Glitch 03.wav"
+  },
+  {
+   "id": "glitch/glitch-03.mp3",
+   "group": "glitch",
+   "dur": 2.19,
+   "peak_db": -1.3,
+   "mean_db": -16.2,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 03.wav"
+  },
+  {
+   "id": "glitch/glitch-04-2.mp3",
+   "group": "glitch",
+   "dur": 0.97,
+   "peak_db": -8.0,
+   "mean_db": -31.2,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 3/Glitch 04.wav"
+  },
+  {
+   "id": "glitch/glitch-04.mp3",
+   "group": "glitch",
+   "dur": 1.12,
+   "peak_db": -1.9,
+   "mean_db": -12.2,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 04.wav"
+  },
+  {
+   "id": "glitch/glitch-05-2.mp3",
+   "group": "glitch",
+   "dur": 0.34,
+   "peak_db": -5.5,
+   "mean_db": -25.8,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 3/Glitch 05.wav"
+  },
+  {
+   "id": "glitch/glitch-05.mp3",
+   "group": "glitch",
+   "dur": 4.34,
+   "peak_db": -1.3,
+   "mean_db": -12.0,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 05.wav"
+  },
+  {
+   "id": "glitch/glitch-06-2.mp3",
+   "group": "glitch",
+   "dur": 0.37,
+   "peak_db": -1.8,
+   "mean_db": -15.4,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 3/Glitch 06.wav"
+  },
+  {
+   "id": "glitch/glitch-06.mp3",
+   "group": "glitch",
+   "dur": 1.12,
+   "peak_db": -2.0,
+   "mean_db": -15.1,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 06.wav"
+  },
+  {
+   "id": "glitch/glitch-07-2.mp3",
+   "group": "glitch",
+   "dur": 0.76,
+   "peak_db": -6.1,
+   "mean_db": -39.8,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 3/Glitch 07.wav"
+  },
+  {
+   "id": "glitch/glitch-07.mp3",
+   "group": "glitch",
+   "dur": 2.19,
+   "peak_db": -2.0,
+   "mean_db": -15.1,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 07.wav"
+  },
+  {
+   "id": "glitch/glitch-08.mp3",
+   "group": "glitch",
+   "dur": 1.12,
+   "peak_db": -0.0,
+   "mean_db": -15.4,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 08.wav"
+  },
+  {
+   "id": "glitch/glitch-09.mp3",
+   "group": "glitch",
+   "dur": 5.41,
+   "peak_db": -3.7,
+   "mean_db": -17.8,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 09.wav"
+  },
+  {
+   "id": "glitch/glitch-1-2.mp3",
+   "group": "glitch",
+   "dur": 1.52,
+   "peak_db": -4.3,
+   "mean_db": -26.2,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch/glitch 1.mp3"
+  },
+  {
+   "id": "glitch/glitch-1-3.mp3",
+   "group": "glitch",
+   "dur": 2.93,
+   "peak_db": -3.6,
+   "mean_db": -17.7,
+   "source": "Viral sfx/SFX PACK - 4/Glitch (1).wav"
+  },
+  {
+   "id": "glitch/glitch-1.mp3",
+   "group": "glitch",
+   "dur": 2.43,
+   "peak_db": -20.8,
+   "mean_db": -38.0,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 1.wav"
+  },
+  {
+   "id": "glitch/glitch-10-2.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -10.7,
+   "mean_db": -29.9,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 10.wav"
+  },
+  {
+   "id": "glitch/glitch-10.mp3",
+   "group": "glitch",
+   "dur": 2.19,
+   "peak_db": -4.5,
+   "mean_db": -19.2,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 1/Glitch 10.wav"
+  },
+  {
+   "id": "glitch/glitch-11.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -4.4,
+   "mean_db": -31.8,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 11.wav"
+  },
+  {
+   "id": "glitch/glitch-12.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.9,
+   "mean_db": -31.6,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 12.wav"
+  },
+  {
+   "id": "glitch/glitch-13.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -4.9,
+   "mean_db": -30.5,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 13.wav"
+  },
+  {
+   "id": "glitch/glitch-14.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -5.5,
+   "mean_db": -29.3,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 14.wav"
+  },
+  {
+   "id": "glitch/glitch-15.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.3,
+   "mean_db": -26.7,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 15.wav"
+  },
+  {
+   "id": "glitch/glitch-16.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -2.4,
+   "mean_db": -26.8,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 16.wav"
+  },
+  {
+   "id": "glitch/glitch-17.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.0,
+   "mean_db": -27.9,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 17.wav"
+  },
+  {
+   "id": "glitch/glitch-18.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.2,
+   "mean_db": -28.4,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 18.wav"
+  },
+  {
+   "id": "glitch/glitch-19.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -2.8,
+   "mean_db": -24.2,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 19.wav"
+  },
+  {
+   "id": "glitch/glitch-2-2.mp3",
+   "group": "glitch",
+   "dur": 2.35,
+   "peak_db": -3.4,
+   "mean_db": -22.6,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch/glitch 2.mp3"
+  },
+  {
+   "id": "glitch/glitch-2.mp3",
+   "group": "glitch",
+   "dur": 2.59,
+   "peak_db": -2.5,
+   "mean_db": -25.7,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 2.wav"
+  },
+  {
+   "id": "glitch/glitch-2.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": 0.0,
+   "mean_db": -21.3,
+   "source": "Viral sfx/SFX PACK - 2/Glitch.wav"
+  },
+  {
+   "id": "glitch/glitch-20.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.3,
+   "mean_db": -34.4,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 20.wav"
+  },
+  {
+   "id": "glitch/glitch-21.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.0,
+   "mean_db": -26.6,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 21.wav"
+  },
+  {
+   "id": "glitch/glitch-22.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.4,
+   "mean_db": -22.0,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 22.wav"
+  },
+  {
+   "id": "glitch/glitch-23.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.7,
+   "mean_db": -24.9,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 23.wav"
+  },
+  {
+   "id": "glitch/glitch-24.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.3,
+   "mean_db": -28.4,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 24.wav"
+  },
+  {
+   "id": "glitch/glitch-25.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -2.7,
+   "mean_db": -24.4,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 25.wav"
+  },
+  {
+   "id": "glitch/glitch-26.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -4.3,
+   "mean_db": -26.0,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 26.wav"
+  },
+  {
+   "id": "glitch/glitch-27.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.8,
+   "mean_db": -25.8,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 27.wav"
+  },
+  {
+   "id": "glitch/glitch-28.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.3,
+   "mean_db": -24.8,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 28.wav"
+  },
+  {
+   "id": "glitch/glitch-29.mp3",
+   "group": "glitch",
+   "dur": 3.66,
+   "peak_db": -12.6,
+   "mean_db": -43.6,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 29.wav"
+  },
+  {
+   "id": "glitch/glitch-3-2.mp3",
+   "group": "glitch",
+   "dur": 1.59,
+   "peak_db": -3.1,
+   "mean_db": -25.1,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch/glitch 3.mp3"
+  },
+  {
+   "id": "glitch/glitch-3.mp3",
+   "group": "glitch",
+   "dur": 2.22,
+   "peak_db": -6.5,
+   "mean_db": -31.1,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 3.wav"
+  },
+  {
+   "id": "glitch/glitch-30.mp3",
+   "group": "glitch",
+   "dur": 4.6,
+   "peak_db": -16.8,
+   "mean_db": -37.9,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 30.wav"
+  },
+  {
+   "id": "glitch/glitch-34.mp3",
+   "group": "glitch",
+   "dur": 2.43,
+   "peak_db": -5.8,
+   "mean_db": -31.2,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 34.wav"
+  },
+  {
+   "id": "glitch/glitch-35.mp3",
+   "group": "glitch",
+   "dur": 2.53,
+   "peak_db": -8.0,
+   "mean_db": -25.1,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 35.wav"
+  },
+  {
+   "id": "glitch/glitch-38.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.3,
+   "mean_db": -23.7,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 38.wav"
+  },
+  {
+   "id": "glitch/glitch-5.mp3",
+   "group": "glitch",
+   "dur": 3.03,
+   "peak_db": 0.0,
+   "mean_db": -19.3,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 5.wav"
+  },
+  {
+   "id": "glitch/glitch-7.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.7,
+   "mean_db": -30.4,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 7.wav"
+  },
+  {
+   "id": "glitch/glitch-9.mp3",
+   "group": "glitch",
+   "dur": 2.04,
+   "peak_db": -3.3,
+   "mean_db": -25.1,
+   "source": "Essential Sfx/Sound effect/Glitch Sound/Glitch 2/glitch 9.wav"
+  },
+  {
+   "id": "glitch/glitch-by-dood.mp3",
+   "group": "glitch",
+   "dur": 3.24,
+   "peak_db": -17.8,
+   "mean_db": -39.6,
+   "source": "GLITCH/GLITCH BY DOOD.mp3"
+  },
+  {
+   "id": "glitch/glitch.mp3",
+   "group": "glitch",
+   "dur": 1.91,
+   "peak_db": -9.3,
+   "mean_db": -25.8,
+   "source": "Essential Sfx/Essential/Glitch.wav"
+  },
+  {
+   "id": "glitch/robot-glitch.mp3",
+   "group": "glitch",
+   "dur": 2.09,
+   "peak_db": -3.0,
+   "mean_db": -24.3,
+   "source": "GLITCH/ROBOT GLITCH.wav"
+  },
+  {
+   "id": "glitch/y2mate-com-sound-effect-glitch.mp3",
+   "group": "glitch",
+   "dur": 1.59,
+   "peak_db": -4.6,
+   "mean_db": -26.6,
+   "source": "Essential Sfx/Swoosh effects/y2mate.com - Sound Effect Glitch.mp3"
+  },
+  {
+   "id": "impact/344-audio-epic-impacts-two-sub-bass-drop.mp3",
+   "group": "impact",
+   "dur": 2.38,
+   "peak_db": -3.5,
+   "mean_db": -13.3,
+   "source": "HITS AND IMPACT SFX/344 Audio - Epic Impacts - Two Sub Bass Drops, Deep.wav"
+  },
+  {
+   "id": "impact/amza-dark-fx-techno-lava.mp3",
+   "group": "impact",
+   "dur": 4.23,
+   "peak_db": -1.4,
+   "mean_db": -18.5,
+   "source": "HITS AND IMPACT SFX/AMZA - Dark FX - Techno Lava.mp3"
+  },
+  {
+   "id": "impact/analog-synth-hit-deep.mp3",
+   "group": "impact",
+   "dur": 3.97,
+   "peak_db": -1.0,
+   "mean_db": -10.2,
+   "source": "HITS AND IMPACT SFX/HITS/Analog Synth Hit Deep.wav"
+  },
+  {
+   "id": "impact/artlist-original-designed-motion-deep-im.mp3",
+   "group": "impact",
+   "dur": 9.2,
+   "peak_db": -1.8,
+   "mean_db": -21.3,
+   "source": "HITS AND IMPACT SFX/Artlist Original - Designed Motion - Deep Impact.wav"
+  },
+  {
+   "id": "impact/artlist-original-japanese-scent-deep-per.mp3",
+   "group": "impact",
+   "dur": 6.03,
+   "peak_db": -2.2,
+   "mean_db": -16.9,
+   "source": "HITS AND IMPACT SFX/Artlist Original - Japanese Scent - Deep Percussion Impact Sub Drop Reverberant.wav"
+  },
+  {
+   "id": "impact/artlist-original-like-a-father-sub-stm-1.mp3",
+   "group": "impact",
+   "dur": 7.08,
+   "peak_db": -13.8,
+   "mean_db": -33.2,
+   "source": "HITS AND IMPACT SFX/Artlist Original - LIKE A FATHER - Sub stm 100 bpm boom.wav"
+  },
+  {
+   "id": "impact/bass-beats.mp3",
+   "group": "impact",
+   "dur": 5.15,
+   "peak_db": -0.2,
+   "mean_db": -8.2,
+   "source": "Essential Sfx/Bass Beats.wav"
+  },
+  {
+   "id": "impact/bell-hit-by-creative-dood.mp3",
+   "group": "impact",
+   "dur": 1.1,
+   "peak_db": -0.5,
+   "mean_db": -15.4,
+   "source": "OTHERS/BELL HIT BY CREATIVE DOOD.mp3"
+  },
+  {
+   "id": "impact/big-cine-boom-sound-effect-245851.mp3",
+   "group": "impact",
+   "dur": 8.2,
+   "peak_db": -0.8,
+   "mean_db": -17.4,
+   "source": "Apple Sfx/big-cine-boom-sound-effect-245851.mp3"
+  },
+  {
+   "id": "impact/cinematic-hit-1.mp3",
+   "group": "impact",
+   "dur": 5.54,
+   "peak_db": -0.1,
+   "mean_db": -15.2,
+   "source": "HITS AND IMPACT SFX/HITS/Cinematic Hit 1.wav"
+  },
+  {
+   "id": "impact/cinematic-hit-2.mp3",
+   "group": "impact",
+   "dur": 6.14,
+   "peak_db": -0.1,
+   "mean_db": -14.5,
+   "source": "HITS AND IMPACT SFX/HITS/Cinematic Hit 2.wav"
+  },
+  {
+   "id": "impact/cinematic-rise-and-hit-06.mp3",
+   "group": "impact",
+   "dur": 8.96,
+   "peak_db": -1.7,
+   "mean_db": -20.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic Rise and Hit 06.wav"
+  },
+  {
+   "id": "impact/cinematic-rise-and-hit-07.mp3",
+   "group": "impact",
+   "dur": 9.93,
+   "peak_db": -0.8,
+   "mean_db": -19.1,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic Rise and Hit 07.wav"
+  },
+  {
+   "id": "impact/cinematic-rise-and-hit-08.mp3",
+   "group": "impact",
+   "dur": 9.48,
+   "peak_db": -0.5,
+   "mean_db": -19.1,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic Rise and Hit 08.wav"
+  },
+  {
+   "id": "impact/cinematic-rise-and-hit-09.mp3",
+   "group": "impact",
+   "dur": 8.96,
+   "peak_db": -0.6,
+   "mean_db": -20.9,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic Rise and Hit 09.wav"
+  },
+  {
+   "id": "impact/cinematic-rise-and-hit-10.mp3",
+   "group": "impact",
+   "dur": 8.41,
+   "peak_db": -1.4,
+   "mean_db": -12.6,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic Rise and Hit 10.wav"
+  },
+  {
+   "id": "impact/corporate-rise-and-hit-01.mp3",
+   "group": "impact",
+   "dur": 5.54,
+   "peak_db": -2.7,
+   "mean_db": -23.3,
+   "source": "Essential Sfx/Sound effect/CORPORATE RISER/Corporate Rise and Hit 01.wav"
+  },
+  {
+   "id": "impact/corporate-rise-and-hit-02.mp3",
+   "group": "impact",
+   "dur": 5.62,
+   "peak_db": -1.8,
+   "mean_db": -19.9,
+   "source": "Essential Sfx/Sound effect/CORPORATE RISER/Corporate Rise and Hit 02.wav"
+  },
+  {
+   "id": "impact/corporate-rise-and-hit-03.mp3",
+   "group": "impact",
+   "dur": 7.76,
+   "peak_db": -0.2,
+   "mean_db": -20.4,
+   "source": "Essential Sfx/Sound effect/CORPORATE RISER/Corporate Rise and Hit 03.wav"
+  },
+  {
+   "id": "impact/corporate-rise-and-hit-04.mp3",
+   "group": "impact",
+   "dur": 6.03,
+   "peak_db": -2.6,
+   "mean_db": -18.9,
+   "source": "Essential Sfx/Sound effect/CORPORATE RISER/Corporate Rise and Hit 04.wav"
+  },
+  {
+   "id": "impact/corporate-rise-and-hit-05.mp3",
+   "group": "impact",
+   "dur": 6.03,
+   "peak_db": -6.3,
+   "mean_db": -25.8,
+   "source": "Essential Sfx/Sound effect/CORPORATE RISER/Corporate Rise and Hit 05.wav"
+  },
+  {
+   "id": "impact/envato-s5v9dg3-soft-boom-1.mp3",
+   "group": "impact",
+   "dur": 5.43,
+   "peak_db": -0.2,
+   "mean_db": -14.6,
+   "source": "Viral sfx/#L01f50aSoft booms/envato-S5V9DG3-Soft Boom 1.mp3"
+  },
+  {
+   "id": "impact/envato-s5v9dg3-soft-boom-2.mp3",
+   "group": "impact",
+   "dur": 5.41,
+   "peak_db": -0.3,
+   "mean_db": -14.3,
+   "source": "Viral sfx/#L01f50aSoft booms/envato-S5V9DG3-Soft Boom 2.mp3"
+  },
+  {
+   "id": "impact/envato-s5v9dg3-soft-boom-3.mp3",
+   "group": "impact",
+   "dur": 5.41,
+   "peak_db": -0.3,
+   "mean_db": -14.9,
+   "source": "Viral sfx/#L01f50aSoft booms/envato-S5V9DG3-Soft Boom 3.mp3"
+  },
+  {
+   "id": "impact/envato-s5v9dg3-soft-boom-4.mp3",
+   "group": "impact",
+   "dur": 5.41,
+   "peak_db": -0.3,
+   "mean_db": -14.3,
+   "source": "Viral sfx/#L01f50aSoft booms/envato-S5V9DG3-Soft Boom 4.mp3"
+  },
+  {
+   "id": "impact/envato-s5v9dg3-soft-boom-5.mp3",
+   "group": "impact",
+   "dur": 5.38,
+   "peak_db": -0.3,
+   "mean_db": -16.0,
+   "source": "Viral sfx/#L01f50aSoft booms/envato-S5V9DG3-Soft Boom 5.wav"
+  },
+  {
+   "id": "impact/envato-s5v9dg3-soft-boom-6.mp3",
+   "group": "impact",
+   "dur": 5.43,
+   "peak_db": -0.3,
+   "mean_db": -16.1,
+   "source": "Viral sfx/#L01f50aSoft booms/envato-S5V9DG3-Soft Boom 6.mp3"
+  },
+  {
+   "id": "impact/envato-s5v9dg3-soft-boom-7.mp3",
+   "group": "impact",
+   "dur": 5.41,
+   "peak_db": -0.3,
+   "mean_db": -14.7,
+   "source": "Viral sfx/#L01f50aSoft booms/envato-S5V9DG3-Soft Boom 7.mp3"
+  },
+  {
+   "id": "impact/envato-s5v9dg3-soft-boom-8.mp3",
+   "group": "impact",
+   "dur": 5.41,
+   "peak_db": -0.3,
+   "mean_db": -15.9,
+   "source": "Viral sfx/#L01f50aSoft booms/envato-S5V9DG3-Soft Boom 8.mp3"
+  },
+  {
+   "id": "impact/es-impact.mp3",
+   "group": "impact",
+   "dur": 5.9,
+   "peak_db": -8.5,
+   "mean_db": -23.5,
+   "source": "HITS AND IMPACT SFX/ES_Impact.mp3"
+  },
+  {
+   "id": "impact/es-low-hit.mp3",
+   "group": "impact",
+   "dur": 3.58,
+   "peak_db": -12.0,
+   "mean_db": -24.7,
+   "source": "HITS AND IMPACT SFX/HITS/ES_Low Hit.mp3"
+  },
+  {
+   "id": "impact/explosion-impact-distant-perspective-nat.mp3",
+   "group": "impact",
+   "dur": 3.94,
+   "peak_db": -2.1,
+   "mean_db": -14.7,
+   "source": "HITS AND IMPACT SFX/Explosion, impact, distant perspective, natural echos, deep bass layer 01.wav"
+  },
+  {
+   "id": "impact/hard-hit-1.mp3",
+   "group": "impact",
+   "dur": 7.34,
+   "peak_db": -0.8,
+   "mean_db": -15.6,
+   "source": "Essential Sfx/Hard hit 1.mp3"
+  },
+  {
+   "id": "impact/hard-hit-2.mp3",
+   "group": "impact",
+   "dur": 5.36,
+   "peak_db": -0.5,
+   "mean_db": -17.2,
+   "source": "Essential Sfx/Hard Hit 2.mp3"
+  },
+  {
+   "id": "impact/hard-hit-3.mp3",
+   "group": "impact",
+   "dur": 12.04,
+   "peak_db": -0.3,
+   "mean_db": -16.5,
+   "source": "Essential Sfx/Hard Hit 3.mp3"
+  },
+  {
+   "id": "impact/hard-hit-4.mp3",
+   "group": "impact",
+   "dur": 12.04,
+   "peak_db": -0.4,
+   "mean_db": -16.6,
+   "source": "Essential Sfx/Hard Hit 4.mp3"
+  },
+  {
+   "id": "impact/hard-hit-5.mp3",
+   "group": "impact",
+   "dur": 5.22,
+   "peak_db": 0.0,
+   "mean_db": -12.9,
+   "source": "Essential Sfx/Hard Hit 5.mp3"
+  },
+  {
+   "id": "impact/hard-hit-6.mp3",
+   "group": "impact",
+   "dur": 5.67,
+   "peak_db": -1.9,
+   "mean_db": -20.7,
+   "source": "Essential Sfx/Hard Hit 6.mp3"
+  },
+  {
+   "id": "impact/hit-1.mp3",
+   "group": "impact",
+   "dur": 5.59,
+   "peak_db": -0.5,
+   "mean_db": -15.3,
+   "source": "Essential Sfx/Essential/Hit 1.mp3"
+  },
+  {
+   "id": "impact/hit.mp3",
+   "group": "impact",
+   "dur": 6.09,
+   "peak_db": -2.1,
+   "mean_db": -22.4,
+   "source": "Essential Sfx/Hit.mp3"
+  },
+  {
+   "id": "impact/impact-01.mp3",
+   "group": "impact",
+   "dur": 12.04,
+   "peak_db": -0.3,
+   "mean_db": -19.8,
+   "source": "HITS AND IMPACT SFX/Impact - 01.wav"
+  },
+  {
+   "id": "impact/impact-02.mp3",
+   "group": "impact",
+   "dur": 7.99,
+   "peak_db": 0.0,
+   "mean_db": -14.8,
+   "source": "HITS AND IMPACT SFX/Impact - 02.wav"
+  },
+  {
+   "id": "impact/impact-03.mp3",
+   "group": "impact",
+   "dur": 7.99,
+   "peak_db": -0.2,
+   "mean_db": -19.8,
+   "source": "HITS AND IMPACT SFX/Impact - 03.wav"
+  },
+  {
+   "id": "impact/impact-04.mp3",
+   "group": "impact",
+   "dur": 7.99,
+   "peak_db": -0.3,
+   "mean_db": -16.3,
+   "source": "HITS AND IMPACT SFX/Impact - 04.wav"
+  },
+  {
+   "id": "impact/impact-05.mp3",
+   "group": "impact",
+   "dur": 7.99,
+   "peak_db": -0.2,
+   "mean_db": -20.1,
+   "source": "HITS AND IMPACT SFX/Impact - 05.wav"
+  },
+  {
+   "id": "impact/impact-06.mp3",
+   "group": "impact",
+   "dur": 7.99,
+   "peak_db": -0.3,
+   "mean_db": -23.2,
+   "source": "HITS AND IMPACT SFX/Impact - 06.wav"
+  },
+  {
+   "id": "impact/impact-07.mp3",
+   "group": "impact",
+   "dur": 7.99,
+   "peak_db": -0.0,
+   "mean_db": -18.2,
+   "source": "HITS AND IMPACT SFX/Impact - 07.wav"
+  },
+  {
+   "id": "impact/impact-08.mp3",
+   "group": "impact",
+   "dur": 7.99,
+   "peak_db": -0.6,
+   "mean_db": -18.3,
+   "source": "HITS AND IMPACT SFX/Impact - 08.wav"
+  },
+  {
+   "id": "impact/impact-09.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.3,
+   "mean_db": -18.2,
+   "source": "HITS AND IMPACT SFX/Impact - 09.wav"
+  },
+  {
+   "id": "impact/impact-10.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.3,
+   "mean_db": -17.0,
+   "source": "HITS AND IMPACT SFX/Impact - 10.wav"
+  },
+  {
+   "id": "impact/impact-11.mp3",
+   "group": "impact",
+   "dur": 7.24,
+   "peak_db": -0.2,
+   "mean_db": -20.4,
+   "source": "HITS AND IMPACT SFX/Impact - 11.wav"
+  },
+  {
+   "id": "impact/impact-12.mp3",
+   "group": "impact",
+   "dur": 7.24,
+   "peak_db": -0.3,
+   "mean_db": -21.0,
+   "source": "HITS AND IMPACT SFX/Impact - 12.wav"
+  },
+  {
+   "id": "impact/impact-13.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.2,
+   "mean_db": -16.4,
+   "source": "HITS AND IMPACT SFX/Impact - 13.wav"
+  },
+  {
+   "id": "impact/impact-14.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.3,
+   "mean_db": -17.2,
+   "source": "HITS AND IMPACT SFX/Impact - 14.wav"
+  },
+  {
+   "id": "impact/impact-15.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.2,
+   "mean_db": -18.6,
+   "source": "HITS AND IMPACT SFX/Impact - 15.wav"
+  },
+  {
+   "id": "impact/impact-16.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.1,
+   "mean_db": -20.9,
+   "source": "HITS AND IMPACT SFX/Impact - 16.wav"
+  },
+  {
+   "id": "impact/impact-17.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": 0.0,
+   "mean_db": -20.6,
+   "source": "HITS AND IMPACT SFX/Impact - 17.wav"
+  },
+  {
+   "id": "impact/impact-18.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.3,
+   "mean_db": -19.4,
+   "source": "HITS AND IMPACT SFX/Impact - 18.wav"
+  },
+  {
+   "id": "impact/impact-19.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.4,
+   "mean_db": -16.0,
+   "source": "HITS AND IMPACT SFX/Impact - 19.wav"
+  },
+  {
+   "id": "impact/impact-20.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.3,
+   "mean_db": -17.0,
+   "source": "HITS AND IMPACT SFX/Impact - 20.wav"
+  },
+  {
+   "id": "impact/impact-21.mp3",
+   "group": "impact",
+   "dur": 6.95,
+   "peak_db": -0.4,
+   "mean_db": -20.2,
+   "source": "HITS AND IMPACT SFX/Impact - 21.wav"
+  },
+  {
+   "id": "impact/impact-22.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.3,
+   "mean_db": -21.2,
+   "source": "HITS AND IMPACT SFX/Impact - 22.wav"
+  },
+  {
+   "id": "impact/impact-23.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.3,
+   "mean_db": -22.2,
+   "source": "HITS AND IMPACT SFX/Impact - 23.wav"
+  },
+  {
+   "id": "impact/impact-24.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.6,
+   "mean_db": -16.9,
+   "source": "HITS AND IMPACT SFX/Impact - 24.wav"
+  },
+  {
+   "id": "impact/impact-25.mp3",
+   "group": "impact",
+   "dur": 6.84,
+   "peak_db": -0.2,
+   "mean_db": -19.3,
+   "source": "HITS AND IMPACT SFX/Impact - 25.wav"
+  },
+  {
+   "id": "impact/impact-26.mp3",
+   "group": "impact",
+   "dur": 5.59,
+   "peak_db": -5.1,
+   "mean_db": -17.6,
+   "source": "HITS AND IMPACT SFX/Impact - 26.mp3"
+  },
+  {
+   "id": "impact/low-boom.mp3",
+   "group": "impact",
+   "dur": 5.77,
+   "peak_db": -1.7,
+   "mean_db": -21.0,
+   "source": "Essential Sfx/Essential/Low Boom.mp3"
+  },
+  {
+   "id": "impact/movie-trailer-epic-impact-2908.mp3",
+   "group": "impact",
+   "dur": 4.91,
+   "peak_db": -0.8,
+   "mean_db": -18.3,
+   "source": "Spacial Sfx/Movie-trailer-epic-impact-2908.wav"
+  },
+  {
+   "id": "impact/trailer-hit-rebounce-hit.mp3",
+   "group": "impact",
+   "dur": 7.13,
+   "peak_db": -0.6,
+   "mean_db": -14.9,
+   "source": "Spacial Sfx/Trailer Hit - Rebounce Hit.mp3"
+  },
+  {
+   "id": "impact/vine-boom-392646.mp3",
+   "group": "impact",
+   "dur": 1.25,
+   "peak_db": -0.7,
+   "mean_db": -8.4,
+   "source": "Apple Sfx/vine-boom-392646.mp3"
+  },
+  {
+   "id": "impact/whoosh-and-hit-2.mp3",
+   "group": "impact",
+   "dur": 2.59,
+   "peak_db": -4.6,
+   "mean_db": -24.2,
+   "source": "WHOOSH/Whoosh and Hit (2).mp3"
+  },
+  {
+   "id": "keyboard/clicking-keyboard-asmr-sfx-356115.mp3",
+   "group": "keyboard",
+   "dur": 8.05,
+   "peak_db": -8.9,
+   "mean_db": -38.6,
+   "source": "Apple Sfx/clicking-keyboard-asmr-sfx-356115.mp3"
+  },
+  {
+   "id": "keyboard/digital-text.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -1.5,
+   "mean_db": -20.5,
+   "source": "KEYBOARD SFX/Digital Text.wav"
+  },
+  {
+   "id": "keyboard/es-typing-beep-computer-3-sfx-producer-2.mp3",
+   "group": "keyboard",
+   "dur": 6.48,
+   "peak_db": -16.8,
+   "mean_db": -27.5,
+   "source": "KEYBOARD SFX/ES_Typing Beep Computer 3 - SFX Producer_2.mp3"
+  },
+  {
+   "id": "keyboard/hacking-sound-effect-mp3-most-viewed-vid.mp3",
+   "group": "keyboard",
+   "dur": 6.4,
+   "peak_db": -17.9,
+   "mean_db": -34.9,
+   "source": "Viral sfx/#L01f50aKeyboard/Hacking Sound Effect .MP3 (MOST VIEWED VIDEO)(2).mp3"
+  },
+  {
+   "id": "keyboard/iphone-text-sound-effect.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -4.0,
+   "mean_db": -34.5,
+   "source": "KEYBOARD SFX/iphone text sound effect.mp3"
+  },
+  {
+   "id": "keyboard/key-board-sfx-by-dood.mp3",
+   "group": "keyboard",
+   "dur": 1.67,
+   "peak_db": -13.9,
+   "mean_db": -42.1,
+   "source": "KEYBOARD SFX/key board  sfx by dood.mp3"
+  },
+  {
+   "id": "keyboard/keyboard-typing-1386.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -6.2,
+   "mean_db": -37.4,
+   "source": "Spacial Sfx/Keyboard-typing-1386.wav"
+  },
+  {
+   "id": "keyboard/keyboard-typing-2.mp3",
+   "group": "keyboard",
+   "dur": 2.74,
+   "peak_db": -9.7,
+   "mean_db": -36.0,
+   "source": "Viral sfx/#L01f50aKeyboard/keyboard Typing.mp3"
+  },
+  {
+   "id": "keyboard/keyboard-typing-3.mp3",
+   "group": "keyboard",
+   "dur": 2.72,
+   "peak_db": -5.0,
+   "mean_db": -38.1,
+   "source": "Viral sfx/SFX PACK - 2/Keyboard Typing.wav"
+  },
+  {
+   "id": "keyboard/keyboard-typing-asmr-356118.mp3",
+   "group": "keyboard",
+   "dur": 7.99,
+   "peak_db": -18.0,
+   "mean_db": -46.4,
+   "source": "Apple Sfx/keyboard-typing-asmr-356118.mp3"
+  },
+  {
+   "id": "keyboard/keyboard-typing-sfx.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -5.1,
+   "mean_db": -38.6,
+   "source": "KEYBOARD SFX/Keyboard Typing sfx.wav"
+  },
+  {
+   "id": "keyboard/keyboard-typing-sound.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -6.6,
+   "mean_db": -35.2,
+   "source": "Viral sfx/#L01f50aKeyboard/keyboard-typing-sound.mp3"
+  },
+  {
+   "id": "keyboard/keyboard-typing.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -1.3,
+   "mean_db": -28.4,
+   "source": "Essential Sfx/Keyboard Typing.mp3"
+  },
+  {
+   "id": "keyboard/keyboard.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -3.2,
+   "mean_db": -39.0,
+   "source": "Essential Sfx/Essential/Keyboard.mp3"
+  },
+  {
+   "id": "keyboard/lclick-13694.mp3",
+   "group": "keyboard",
+   "dur": 0.44,
+   "peak_db": -18.8,
+   "mean_db": -43.7,
+   "source": "Viral sfx/#L01f50aKeyboard/lclick-13694.mp3"
+  },
+  {
+   "id": "keyboard/microsoft-windows-xp-error-sound-effect-.mp3",
+   "group": "keyboard",
+   "dur": 2.53,
+   "peak_db": -4.2,
+   "mean_db": -22.1,
+   "source": "Viral sfx/#L01f50aKeyboard/Microsoft Windows XP Error - Sound Effect (HD)-0lhhrUuw2N8-128k-1655433026313.mp3"
+  },
+  {
+   "id": "keyboard/mouse-clicks-6015.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -5.6,
+   "mean_db": -43.9,
+   "source": "Viral sfx/#L01f50aKeyboard/mouse-clicks-6015.mp3"
+  },
+  {
+   "id": "keyboard/no-copyright-phone-typing-sound-effect.mp3",
+   "group": "keyboard",
+   "dur": 11.26,
+   "peak_db": -11.8,
+   "mean_db": -36.4,
+   "source": "Froster Ui SFXs/[No Copyright] Phone Typing Sound Effect.mp3"
+  },
+  {
+   "id": "keyboard/razer-keyboard-typing.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -10.0,
+   "mean_db": -40.7,
+   "source": "KEYBOARD SFX/Razer Keyboard Typing.mp3"
+  },
+  {
+   "id": "keyboard/rclick-13693.mp3",
+   "group": "keyboard",
+   "dur": 0.44,
+   "peak_db": -12.8,
+   "mean_db": -40.0,
+   "source": "Viral sfx/#L01f50aKeyboard/rclick-13693.mp3"
+  },
+  {
+   "id": "keyboard/soft-typing-digital-keyboard.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -9.5,
+   "mean_db": -32.3,
+   "source": "KEYBOARD SFX/Soft Typing Digital Keyboard.wav"
+  },
+  {
+   "id": "keyboard/typewriter-2.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -3.2,
+   "mean_db": -33.0,
+   "source": "Essential Sfx/Typewriter.mp3"
+  },
+  {
+   "id": "keyboard/typewriter-2.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -8.1,
+   "mean_db": -24.0,
+   "source": "KEYBOARD SFX/Typewriter 2.wav"
+  },
+  {
+   "id": "keyboard/typewriter-3.mp3",
+   "group": "keyboard",
+   "dur": 3.74,
+   "peak_db": -6.5,
+   "mean_db": -35.1,
+   "source": "KEYBOARD SFX/Typewriter 3.mp3"
+  },
+  {
+   "id": "keyboard/typewriter-sound-effect-1.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -1.4,
+   "mean_db": -33.1,
+   "source": "Viral sfx/#L01f50aKeyboard/Typewriter Sound Effect (1).mp3"
+  },
+  {
+   "id": "keyboard/typewriter-sound-effect.mp3",
+   "group": "keyboard",
+   "dur": 3.87,
+   "peak_db": -3.5,
+   "mean_db": -33.6,
+   "source": "Viral sfx/#L01f50aKeyboard/Typewriter Sound Effect.mp3"
+  },
+  {
+   "id": "keyboard/typewriter.mp3",
+   "group": "keyboard",
+   "dur": 3.87,
+   "peak_db": -3.7,
+   "mean_db": -33.7,
+   "source": "Essential Sfx/Sound effect/Random memes/Typewriter.mp3"
+  },
+  {
+   "id": "keyboard/typing-sfx.mp3",
+   "group": "keyboard",
+   "dur": 0.18,
+   "peak_db": -17.5,
+   "mean_db": -40.4,
+   "source": "KEYBOARD SFX/typing sfx.MP3"
+  },
+  {
+   "id": "keyboard/typing.mp3",
+   "group": "keyboard",
+   "dur": 7.39,
+   "peak_db": -3.6,
+   "mean_db": -37.0,
+   "source": "KEYBOARD SFX/Typing.mp3"
+  },
+  {
+   "id": "keyboard/whatsapp-typing-and-sending-message-soun.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -4.5,
+   "mean_db": -28.2,
+   "source": "KEYBOARD SFX/WHATSAPP TYPING AND SENDING MESSAGE SOUND EFFECT (HD) - All-round Sounds - 320.mp3"
+  },
+  {
+   "id": "keyboard/writing-on-keyboard-sound-effect.mp3",
+   "group": "keyboard",
+   "dur": 12.04,
+   "peak_db": -0.7,
+   "mean_db": -37.4,
+   "source": "Essential Sfx/Sound effect/Click/Writing on keyboard Sound Effect.mp3"
+  },
+  {
+   "id": "meme/19312-kids-small-group-laughing-full.mp3",
+   "group": "meme",
+   "dur": 5.15,
+   "peak_db": -0.5,
+   "mean_db": -22.6,
+   "source": "Essential Sfx/Sound effect/Random memes/19312 kids small group laughing-full.mp3"
+  },
+  {
+   "id": "meme/8-bit-happy-nation.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -0.0,
+   "mean_db": -15.9,
+   "source": "Essential Sfx/Sound effect/Random memes/8 Bit - Happy Nation.mp3"
+  },
+  {
+   "id": "meme/alarm-clock.mp3",
+   "group": "meme",
+   "dur": 5.33,
+   "peak_db": -9.2,
+   "mean_db": -24.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Alarm Clock.mp3"
+  },
+  {
+   "id": "meme/anime-wow-sound-effect.mp3",
+   "group": "meme",
+   "dur": 4.05,
+   "peak_db": -4.4,
+   "mean_db": -21.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Anime WOW Sound Effect.mp3"
+  },
+  {
+   "id": "meme/awkward-cricket-sound-effect.mp3",
+   "group": "meme",
+   "dur": 4.05,
+   "peak_db": -10.0,
+   "mean_db": -25.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Awkward Cricket Sound Effect.mp3"
+  },
+  {
+   "id": "meme/aww-sfx.mp3",
+   "group": "meme",
+   "dur": 1.52,
+   "peak_db": -8.0,
+   "mean_db": -24.5,
+   "source": "OTHERS/Aww sfx.mp3"
+  },
+  {
+   "id": "meme/aww.mp3",
+   "group": "meme",
+   "dur": 1.83,
+   "peak_db": -0.9,
+   "mean_db": -19.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Aww.mp3"
+  },
+  {
+   "id": "meme/aye-sound-effect.mp3",
+   "group": "meme",
+   "dur": 1.49,
+   "peak_db": -4.9,
+   "mean_db": -24.9,
+   "source": "Essential Sfx/Sound effect/Random memes/AYE Sound Effect.mp3"
+  },
+  {
+   "id": "meme/badum-tssss.mp3",
+   "group": "meme",
+   "dur": 1.91,
+   "peak_db": -2.5,
+   "mean_db": -25.2,
+   "source": "Essential Sfx/Sound effect/Random memes/Badum tssss.mp3"
+  },
+  {
+   "id": "meme/ball-bouncing.mp3",
+   "group": "meme",
+   "dur": 3.11,
+   "peak_db": -11.7,
+   "mean_db": -29.0,
+   "source": "Essential Sfx/Sound effect/Random memes/ball bouncing.mp3"
+  },
+  {
+   "id": "meme/bass-boosted.mp3",
+   "group": "meme",
+   "dur": 2.06,
+   "peak_db": -3.1,
+   "mean_db": -6.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Bass Boosted.mp3"
+  },
+  {
+   "id": "meme/bone-break-sfx.mp3",
+   "group": "meme",
+   "dur": 0.65,
+   "peak_db": -1.7,
+   "mean_db": -30.0,
+   "source": "OTHERS/Bone break sfx.mp3"
+  },
+  {
+   "id": "meme/booing-crowd.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -1.1,
+   "mean_db": -12.4,
+   "source": "Essential Sfx/Sound effect/Random memes/Booing Crowd.mp3"
+  },
+  {
+   "id": "meme/bottle-cork.mp3",
+   "group": "meme",
+   "dur": 2.4,
+   "peak_db": -1.0,
+   "mean_db": -30.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Bottle Cork.mp3"
+  },
+  {
+   "id": "meme/brodyquest.mp3",
+   "group": "meme",
+   "dur": 11.52,
+   "peak_db": -3.9,
+   "mean_db": -17.1,
+   "source": "Essential Sfx/Sound effect/Random memes/BrodyQuest.mp3"
+  },
+  {
+   "id": "meme/bye-have-a-great-time.mp3",
+   "group": "meme",
+   "dur": 6.9,
+   "peak_db": -10.1,
+   "mean_db": -31.3,
+   "source": "Essential Sfx/Sound effect/Random memes/Bye Have a Great Time.mp3"
+  },
+  {
+   "id": "meme/camera-shutter.mp3",
+   "group": "meme",
+   "dur": 4.0,
+   "peak_db": -0.0,
+   "mean_db": -21.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Camera shutter.mp3"
+  },
+  {
+   "id": "meme/car-horn.mp3",
+   "group": "meme",
+   "dur": 4.02,
+   "peak_db": -12.0,
+   "mean_db": -21.2,
+   "source": "Essential Sfx/Sound effect/Random memes/car horn.mp3"
+  },
+  {
+   "id": "meme/cartoon-accent.mp3",
+   "group": "meme",
+   "dur": 2.19,
+   "peak_db": -0.0,
+   "mean_db": -16.7,
+   "source": "Essential Sfx/Sound effect/Random memes/Cartoon Accent.mp3"
+  },
+  {
+   "id": "meme/cartoon-running.mp3",
+   "group": "meme",
+   "dur": 3.53,
+   "peak_db": -5.9,
+   "mean_db": -20.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Cartoon Running.mp3"
+  },
+  {
+   "id": "meme/cell-phone-ringing.mp3",
+   "group": "meme",
+   "dur": 8.78,
+   "peak_db": -7.6,
+   "mean_db": -18.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Cell Phone Ringing.mp3"
+  },
+  {
+   "id": "meme/childrencrowd-ar02-84-1.mp3",
+   "group": "meme",
+   "dur": 4.52,
+   "peak_db": -4.1,
+   "mean_db": -20.5,
+   "source": "Essential Sfx/Sound effect/Random memes/ChildrenCrowd AR02_84_1.wav"
+  },
+  {
+   "id": "meme/cinematic-whoosh.mp3",
+   "group": "meme",
+   "dur": 4.02,
+   "peak_db": -3.7,
+   "mean_db": -24.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Cinematic whoosh.wav"
+  },
+  {
+   "id": "meme/clapping-effect.mp3",
+   "group": "meme",
+   "dur": 2.19,
+   "peak_db": -8.5,
+   "mean_db": -36.3,
+   "source": "Essential Sfx/Sound effect/Random memes/Clapping Effect.mp3"
+  },
+  {
+   "id": "meme/clapping.mp3",
+   "group": "meme",
+   "dur": 4.02,
+   "peak_db": -1.1,
+   "mean_db": -22.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Clapping.mp3"
+  },
+  {
+   "id": "meme/clock-ticking.mp3",
+   "group": "meme",
+   "dur": 3.37,
+   "peak_db": -2.7,
+   "mean_db": -29.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Clock ticking.mp3"
+  },
+  {
+   "id": "meme/crowd-cheer.mp3",
+   "group": "meme",
+   "dur": 6.06,
+   "peak_db": -6.9,
+   "mean_db": -20.0,
+   "source": "Essential Sfx/Crowd Cheer.mp3"
+  },
+  {
+   "id": "meme/crying-effect.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -8.0,
+   "mean_db": -32.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Crying Effect.mp3"
+  },
+  {
+   "id": "meme/daaamn.mp3",
+   "group": "meme",
+   "dur": 3.06,
+   "peak_db": -11.6,
+   "mean_db": -26.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Daaamn!.mp3"
+  },
+  {
+   "id": "meme/denied.mp3",
+   "group": "meme",
+   "dur": 2.25,
+   "peak_db": -6.4,
+   "mean_db": -22.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Denied.mp3"
+  },
+  {
+   "id": "meme/derp.mp3",
+   "group": "meme",
+   "dur": 0.26,
+   "peak_db": -7.2,
+   "mean_db": -16.9,
+   "source": "Essential Sfx/Sound effect/Random memes/DERP.mp3"
+  },
+  {
+   "id": "meme/ding.mp3",
+   "group": "meme",
+   "dur": 3.08,
+   "peak_db": -7.6,
+   "mean_db": -26.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Ding.mp3"
+  },
+  {
+   "id": "meme/dip-dip-potato-chip.mp3",
+   "group": "meme",
+   "dur": 8.18,
+   "peak_db": -1.0,
+   "mean_db": -17.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Dip Dip Potato Chip.mp3"
+  },
+  {
+   "id": "meme/door-bell.mp3",
+   "group": "meme",
+   "dur": 2.27,
+   "peak_db": -13.5,
+   "mean_db": -26.3,
+   "source": "Essential Sfx/Sound effect/Random memes/Door bell.mp3"
+  },
+  {
+   "id": "meme/door-knocking-effect.mp3",
+   "group": "meme",
+   "dur": 1.96,
+   "peak_db": -11.9,
+   "mean_db": -30.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Door Knocking Effect.mp3"
+  },
+  {
+   "id": "meme/drop-1.mp3",
+   "group": "meme",
+   "dur": 0.65,
+   "peak_db": -11.7,
+   "mean_db": -35.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Drop 1.mp3"
+  },
+  {
+   "id": "meme/drop.mp3",
+   "group": "meme",
+   "dur": 0.81,
+   "peak_db": -12.2,
+   "mean_db": -37.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Drop.mp3"
+  },
+  {
+   "id": "meme/drumroll.mp3",
+   "group": "meme",
+   "dur": 4.26,
+   "peak_db": -2.7,
+   "mean_db": -17.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Drumroll.mp3"
+  },
+  {
+   "id": "meme/dun-dun-dun.mp3",
+   "group": "meme",
+   "dur": 3.81,
+   "peak_db": -2.9,
+   "mean_db": -18.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Dun Dun Dun.mp3"
+  },
+  {
+   "id": "meme/eagle-sound.mp3",
+   "group": "meme",
+   "dur": 2.46,
+   "peak_db": -9.9,
+   "mean_db": -22.2,
+   "source": "Essential Sfx/Essential/Funny/Eagle Sound.mp3"
+  },
+  {
+   "id": "meme/explosion.mp3",
+   "group": "meme",
+   "dur": 5.25,
+   "peak_db": -2.6,
+   "mean_db": -15.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Explosion.wav"
+  },
+  {
+   "id": "meme/fart-sfx.mp3",
+   "group": "meme",
+   "dur": 0.37,
+   "peak_db": -12.8,
+   "mean_db": -23.8,
+   "source": "OTHERS/Fart sfx.mp3"
+  },
+  {
+   "id": "meme/filter-sweep.mp3",
+   "group": "meme",
+   "dur": 2.25,
+   "peak_db": -4.0,
+   "mean_db": -20.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Filter Sweep.mp3"
+  },
+  {
+   "id": "meme/flashback.mp3",
+   "group": "meme",
+   "dur": 4.28,
+   "peak_db": -6.3,
+   "mean_db": -20.4,
+   "source": "Essential Sfx/Sound effect/Random memes/Flashback.mp3"
+  },
+  {
+   "id": "meme/fluffing-a-duck-kevin-macleod.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -1.3,
+   "mean_db": -17.9,
+   "source": "Essential Sfx/Sound effect/Random memes/Fluffing a Duck - Kevin Macleod.mp3"
+  },
+  {
+   "id": "meme/fool.mp3",
+   "group": "meme",
+   "dur": 2.04,
+   "peak_db": -9.6,
+   "mean_db": -34.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Fool.mp3"
+  },
+  {
+   "id": "meme/funny-effect-1.mp3",
+   "group": "meme",
+   "dur": 0.91,
+   "peak_db": -12.9,
+   "mean_db": -31.8,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 1.mp3"
+  },
+  {
+   "id": "meme/funny-effect-10.mp3",
+   "group": "meme",
+   "dur": 1.23,
+   "peak_db": -12.2,
+   "mean_db": -32.9,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 10.mp3"
+  },
+  {
+   "id": "meme/funny-effect-11.mp3",
+   "group": "meme",
+   "dur": 0.78,
+   "peak_db": -10.2,
+   "mean_db": -29.3,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 11.mp3"
+  },
+  {
+   "id": "meme/funny-effect-12.mp3",
+   "group": "meme",
+   "dur": 1.52,
+   "peak_db": -7.6,
+   "mean_db": -26.8,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 12.mp3"
+  },
+  {
+   "id": "meme/funny-effect-13.mp3",
+   "group": "meme",
+   "dur": 1.96,
+   "peak_db": -10.5,
+   "mean_db": -32.3,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 13.mp3"
+  },
+  {
+   "id": "meme/funny-effect-14.mp3",
+   "group": "meme",
+   "dur": 1.67,
+   "peak_db": -11.3,
+   "mean_db": -27.1,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 14.mp3"
+  },
+  {
+   "id": "meme/funny-effect-15.mp3",
+   "group": "meme",
+   "dur": 4.18,
+   "peak_db": -8.3,
+   "mean_db": -37.1,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 15.mp3"
+  },
+  {
+   "id": "meme/funny-effect-16.mp3",
+   "group": "meme",
+   "dur": 1.31,
+   "peak_db": -8.3,
+   "mean_db": -24.0,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 16.mp3"
+  },
+  {
+   "id": "meme/funny-effect-17.mp3",
+   "group": "meme",
+   "dur": 4.41,
+   "peak_db": -10.4,
+   "mean_db": -34.5,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 17.mp3"
+  },
+  {
+   "id": "meme/funny-effect-18.mp3",
+   "group": "meme",
+   "dur": 1.62,
+   "peak_db": -19.1,
+   "mean_db": -35.6,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 18.mp3"
+  },
+  {
+   "id": "meme/funny-effect-19.mp3",
+   "group": "meme",
+   "dur": 2.14,
+   "peak_db": -14.6,
+   "mean_db": -29.3,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 19.mp3"
+  },
+  {
+   "id": "meme/funny-effect-2.mp3",
+   "group": "meme",
+   "dur": 2.09,
+   "peak_db": -11.0,
+   "mean_db": -30.9,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny effect 2.mp3"
+  },
+  {
+   "id": "meme/funny-effect-20.mp3",
+   "group": "meme",
+   "dur": 2.25,
+   "peak_db": -12.3,
+   "mean_db": -35.0,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 20.mp3"
+  },
+  {
+   "id": "meme/funny-effect-21.mp3",
+   "group": "meme",
+   "dur": 1.18,
+   "peak_db": -10.7,
+   "mean_db": -31.3,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny effect 21.mp3"
+  },
+  {
+   "id": "meme/funny-effect-22.mp3",
+   "group": "meme",
+   "dur": 0.91,
+   "peak_db": -11.8,
+   "mean_db": -28.8,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny effect 22.mp3"
+  },
+  {
+   "id": "meme/funny-effect-23.mp3",
+   "group": "meme",
+   "dur": 1.07,
+   "peak_db": -10.6,
+   "mean_db": -28.8,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny effect 23.mp3"
+  },
+  {
+   "id": "meme/funny-effect-3.mp3",
+   "group": "meme",
+   "dur": 1.54,
+   "peak_db": -11.2,
+   "mean_db": -24.3,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 3.mp3"
+  },
+  {
+   "id": "meme/funny-effect-4.mp3",
+   "group": "meme",
+   "dur": 1.62,
+   "peak_db": -8.5,
+   "mean_db": -25.0,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 4.mp3"
+  },
+  {
+   "id": "meme/funny-effect-5.mp3",
+   "group": "meme",
+   "dur": 3.4,
+   "peak_db": -10.3,
+   "mean_db": -33.4,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 5.mp3"
+  },
+  {
+   "id": "meme/funny-effect-6.mp3",
+   "group": "meme",
+   "dur": 4.49,
+   "peak_db": -9.9,
+   "mean_db": -29.0,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 6.mp3"
+  },
+  {
+   "id": "meme/funny-effect-7.mp3",
+   "group": "meme",
+   "dur": 1.57,
+   "peak_db": -19.4,
+   "mean_db": -35.4,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 7.mp3"
+  },
+  {
+   "id": "meme/funny-effect-8.mp3",
+   "group": "meme",
+   "dur": 0.57,
+   "peak_db": -9.7,
+   "mean_db": -28.8,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 8.mp3"
+  },
+  {
+   "id": "meme/funny-effect-9.mp3",
+   "group": "meme",
+   "dur": 1.72,
+   "peak_db": -14.5,
+   "mean_db": -28.3,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Effect 9.mp3"
+  },
+  {
+   "id": "meme/funny-laughing-1.mp3",
+   "group": "meme",
+   "dur": 2.22,
+   "peak_db": -10.1,
+   "mean_db": -34.6,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Laughing 1.mp3"
+  },
+  {
+   "id": "meme/funny-laughing-2.mp3",
+   "group": "meme",
+   "dur": 2.69,
+   "peak_db": -7.5,
+   "mean_db": -24.4,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Laughing 2.mp3"
+  },
+  {
+   "id": "meme/funny-laughing-3.mp3",
+   "group": "meme",
+   "dur": 1.88,
+   "peak_db": -9.5,
+   "mean_db": -33.7,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Laughing 3.mp3"
+  },
+  {
+   "id": "meme/funny-sleeping-effect.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -11.9,
+   "mean_db": -35.7,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Sleeping Effect.mp3"
+  },
+  {
+   "id": "meme/funny-sneeze.mp3",
+   "group": "meme",
+   "dur": 0.89,
+   "peak_db": -11.6,
+   "mean_db": -29.7,
+   "source": "Essential Sfx/Sound effect/Funny Sounds/Funny Sneeze.mp3"
+  },
+  {
+   "id": "meme/funny-woosh.mp3",
+   "group": "meme",
+   "dur": 0.34,
+   "peak_db": -3.7,
+   "mean_db": -23.7,
+   "source": "Essential Sfx/Essential/Funny Woosh.mp3"
+  },
+  {
+   "id": "meme/gas-fire-swoosh.mp3",
+   "group": "meme",
+   "dur": 4.39,
+   "peak_db": -6.5,
+   "mean_db": -26.3,
+   "source": "Essential Sfx/Sound effect/Random memes/Gas fire swoosh.mp3"
+  },
+  {
+   "id": "meme/glass-breaking.mp3",
+   "group": "meme",
+   "dur": 1.36,
+   "peak_db": -5.6,
+   "mean_db": -28.3,
+   "source": "Essential Sfx/Sound effect/Random memes/Glass breaking.wav"
+  },
+  {
+   "id": "meme/golden-swoosh.mp3",
+   "group": "meme",
+   "dur": 1.25,
+   "peak_db": -7.4,
+   "mean_db": -24.2,
+   "source": "Essential Sfx/Sound effect/Random memes/Golden swoosh.mp3"
+  },
+  {
+   "id": "meme/hallelujah-chorus.mp3",
+   "group": "meme",
+   "dur": 9.43,
+   "peak_db": -0.6,
+   "mean_db": -19.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Hallelujah Chorus.mp3"
+  },
+  {
+   "id": "meme/he-needs-some-milk.mp3",
+   "group": "meme",
+   "dur": 8.49,
+   "peak_db": -10.2,
+   "mean_db": -20.6,
+   "source": "Essential Sfx/Sound effect/Random memes/He needs some milk.mp3"
+  },
+  {
+   "id": "meme/heart-beat.mp3",
+   "group": "meme",
+   "dur": 10.92,
+   "peak_db": -0.6,
+   "mean_db": -17.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Heart Beat.mp3"
+  },
+  {
+   "id": "meme/high-fast-swoosh.mp3",
+   "group": "meme",
+   "dur": 0.57,
+   "peak_db": -0.0,
+   "mean_db": -16.2,
+   "source": "Essential Sfx/Sound effect/Random memes/High fast swoosh.mp3"
+  },
+  {
+   "id": "meme/horn-1.mp3",
+   "group": "meme",
+   "dur": 0.63,
+   "peak_db": -15.5,
+   "mean_db": -25.4,
+   "source": "Essential Sfx/Sound effect/Random memes/Horn 1.mp3"
+  },
+  {
+   "id": "meme/horn-2.mp3",
+   "group": "meme",
+   "dur": 1.31,
+   "peak_db": -9.7,
+   "mean_db": -24.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Horn 2.mp3"
+  },
+  {
+   "id": "meme/horn-3.mp3",
+   "group": "meme",
+   "dur": 0.97,
+   "peak_db": -7.8,
+   "mean_db": -21.7,
+   "source": "Essential Sfx/Sound effect/Random memes/Horn 3.mp3"
+  },
+  {
+   "id": "meme/illuminati.mp3",
+   "group": "meme",
+   "dur": 8.28,
+   "peak_db": -2.6,
+   "mean_db": -19.3,
+   "source": "Essential Sfx/Sound effect/Random memes/Illuminati.mp3"
+  },
+  {
+   "id": "meme/investigations-kevin-macleod.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -1.0,
+   "mean_db": -17.2,
+   "source": "Essential Sfx/Sound effect/Random memes/Investigations - Kevin Macleod.mp3"
+  },
+  {
+   "id": "meme/iridocyclitis.mp3",
+   "group": "meme",
+   "dur": 2.14,
+   "peak_db": -1.2,
+   "mean_db": -14.9,
+   "source": "Essential Sfx/Sound effect/Random memes/Iridocyclitis.mp3"
+  },
+  {
+   "id": "meme/it-s-just-a-prank-bro.mp3",
+   "group": "meme",
+   "dur": 4.88,
+   "peak_db": -0.9,
+   "mean_db": -10.8,
+   "source": "Essential Sfx/Sound effect/Random memes/It_s just a prank bro!.mp3"
+  },
+  {
+   "id": "meme/jingle-bells.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -12.4,
+   "mean_db": -33.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Jingle_Bells.mp3"
+  },
+  {
+   "id": "meme/jump-super-mario.mp3",
+   "group": "meme",
+   "dur": 0.47,
+   "peak_db": -5.5,
+   "mean_db": -14.4,
+   "source": "Essential Sfx/Sound effect/Random memes/Jump Super Mario.mp3"
+  },
+  {
+   "id": "meme/just-do-it.mp3",
+   "group": "meme",
+   "dur": 2.87,
+   "peak_db": -0.9,
+   "mean_db": -15.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Just do it.mp3"
+  },
+  {
+   "id": "meme/kids-cheering.mp3",
+   "group": "meme",
+   "dur": 5.07,
+   "peak_db": -1.1,
+   "mean_db": -17.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Kids Cheering.mp3"
+  },
+  {
+   "id": "meme/let-s-get-ready-to-rumble.mp3",
+   "group": "meme",
+   "dur": 6.01,
+   "peak_db": -3.2,
+   "mean_db": -13.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Let_s get ready to rumble.mp3"
+  },
+  {
+   "id": "meme/look-at-this-dude.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -6.1,
+   "mean_db": -19.9,
+   "source": "Essential Sfx/Sound effect/Random memes/Look At This Dude.mp3"
+  },
+  {
+   "id": "meme/low-fly.mp3",
+   "group": "meme",
+   "dur": 1.54,
+   "peak_db": -1.6,
+   "mean_db": -16.3,
+   "source": "Essential Sfx/Sound effect/Random memes/Low fly.mp3"
+  },
+  {
+   "id": "meme/man-screaming-sound-effect-1.mp3",
+   "group": "meme",
+   "dur": 3.92,
+   "peak_db": -1.1,
+   "mean_db": -13.7,
+   "source": "Essential Sfx/Sound effect/Random memes/Man screaming sound effect 1.mp3"
+  },
+  {
+   "id": "meme/merry-go-kevin-macleod.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -0.8,
+   "mean_db": -17.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Merry Go - Kevin Macleod.mp3"
+  },
+  {
+   "id": "meme/monkey-spining-monkeys-kevin-macleod.mp3",
+   "group": "meme",
+   "dur": 11.6,
+   "peak_db": -0.9,
+   "mean_db": -13.7,
+   "source": "Essential Sfx/Sound effect/Random memes/Monkey Spining Monkeys - Kevin MacLeod.mp3"
+  },
+  {
+   "id": "meme/most-used-effects-1.mp3",
+   "group": "meme",
+   "dur": 1.18,
+   "peak_db": -9.4,
+   "mean_db": -30.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Most Used Effects 1.mp3"
+  },
+  {
+   "id": "meme/most-used-effects-2.mp3",
+   "group": "meme",
+   "dur": 4.68,
+   "peak_db": -9.9,
+   "mean_db": -25.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Most Used Effects 2.mp3"
+  },
+  {
+   "id": "meme/most-used-effects-3.mp3",
+   "group": "meme",
+   "dur": 3.76,
+   "peak_db": -16.0,
+   "mean_db": -41.9,
+   "source": "Essential Sfx/Sound effect/Random memes/Most Used Effects 3.mp3"
+  },
+  {
+   "id": "meme/most-used-effects-4.mp3",
+   "group": "meme",
+   "dur": 0.63,
+   "peak_db": -11.9,
+   "mean_db": -30.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Most Used Effects 4.mp3"
+  },
+  {
+   "id": "meme/mouse-click.mp3",
+   "group": "meme",
+   "dur": 1.38,
+   "peak_db": -9.6,
+   "mean_db": -36.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Mouse click.mp3"
+  },
+  {
+   "id": "meme/no-god-please-no.mp3",
+   "group": "meme",
+   "dur": 11.21,
+   "peak_db": -16.0,
+   "mean_db": -29.5,
+   "source": "Essential Sfx/Sound effect/Random memes/No God Please No.mp3"
+  },
+  {
+   "id": "meme/oh-hello-there.mp3",
+   "group": "meme",
+   "dur": 1.46,
+   "peak_db": -4.2,
+   "mean_db": -10.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Oh Hello There.mp3"
+  },
+  {
+   "id": "meme/ooohhh.mp3",
+   "group": "meme",
+   "dur": 1.65,
+   "peak_db": -11.0,
+   "mean_db": -29.2,
+   "source": "Essential Sfx/Sound effect/Random memes/Ooohhh!!!.mp3"
+  },
+  {
+   "id": "meme/panic-suspense.mp3",
+   "group": "meme",
+   "dur": 3.21,
+   "peak_db": -0.4,
+   "mean_db": -11.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Panic Suspense.mp3"
+  },
+  {
+   "id": "meme/party-horn-sfx.mp3",
+   "group": "meme",
+   "dur": 0.94,
+   "peak_db": -10.5,
+   "mean_db": -25.5,
+   "source": "OTHERS/Party horn sfx.mp3"
+  },
+  {
+   "id": "meme/plane-effect.mp3",
+   "group": "meme",
+   "dur": 3.53,
+   "peak_db": -10.6,
+   "mean_db": -27.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Plane Effect.mp3"
+  },
+  {
+   "id": "meme/punch-1.mp3",
+   "group": "meme",
+   "dur": 0.84,
+   "peak_db": -1.9,
+   "mean_db": -16.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Punch 1.mp3"
+  },
+  {
+   "id": "meme/punch-2.mp3",
+   "group": "meme",
+   "dur": 0.6,
+   "peak_db": -0.1,
+   "mean_db": -8.9,
+   "source": "Essential Sfx/Sound effect/Random memes/Punch 2.mp3"
+  },
+  {
+   "id": "meme/punch.mp3",
+   "group": "meme",
+   "dur": 0.65,
+   "peak_db": -0.3,
+   "mean_db": -11.7,
+   "source": "Essential Sfx/Sound effect/Random memes/Punch.mp3"
+  },
+  {
+   "id": "meme/quack-sound.mp3",
+   "group": "meme",
+   "dur": 0.86,
+   "peak_db": -0.7,
+   "mean_db": -18.8,
+   "source": "Essential Sfx/Essential/Funny/Quack Sound.mp3"
+  },
+  {
+   "id": "meme/reactionchildren-ar04-79-5.mp3",
+   "group": "meme",
+   "dur": 1.88,
+   "peak_db": -3.4,
+   "mean_db": -18.2,
+   "source": "Essential Sfx/Sound effect/Random memes/ReactionChildren AR04_79_5.wav"
+  },
+  {
+   "id": "meme/reactioncrowd-ar02-34-1.mp3",
+   "group": "meme",
+   "dur": 2.04,
+   "peak_db": -5.6,
+   "mean_db": -22.2,
+   "source": "Essential Sfx/Sound effect/Random memes/ReactionCrowd AR02_34_1.wav"
+  },
+  {
+   "id": "meme/reactioncrowd-ar04-12-1.mp3",
+   "group": "meme",
+   "dur": 2.17,
+   "peak_db": -6.3,
+   "mean_db": -21.1,
+   "source": "Essential Sfx/Sound effect/Random memes/ReactionCrowd AR04_12_1.wav"
+  },
+  {
+   "id": "meme/reverse-riser-03-nice.mp3",
+   "group": "meme",
+   "dur": 9.33,
+   "peak_db": -0.6,
+   "mean_db": -25.7,
+   "source": "Essential Sfx/Sound effect/Random memes/Reverse riser 03, nice.mp3"
+  },
+  {
+   "id": "meme/reverse-riser-04-train.mp3",
+   "group": "meme",
+   "dur": 9.53,
+   "peak_db": -4.6,
+   "mean_db": -25.7,
+   "source": "Essential Sfx/Sound effect/Random memes/Reverse riser 04, train.mp3"
+  },
+  {
+   "id": "meme/rocket-effect.mp3",
+   "group": "meme",
+   "dur": 2.4,
+   "peak_db": -10.7,
+   "mean_db": -29.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Rocket Effect.mp3"
+  },
+  {
+   "id": "meme/rubber-duck.mp3",
+   "group": "meme",
+   "dur": 0.84,
+   "peak_db": -5.7,
+   "mean_db": -22.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Rubber duck.mp3"
+  },
+  {
+   "id": "meme/run.mp3",
+   "group": "meme",
+   "dur": 8.23,
+   "peak_db": -0.0,
+   "mean_db": -9.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Run.mp3"
+  },
+  {
+   "id": "meme/sad-effect.mp3",
+   "group": "meme",
+   "dur": 2.98,
+   "peak_db": -10.5,
+   "mean_db": -33.2,
+   "source": "Essential Sfx/Sound effect/Random memes/Sad Effect.mp3"
+  },
+  {
+   "id": "meme/sad-romance.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -6.9,
+   "mean_db": -24.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Sad Romance.mp3"
+  },
+  {
+   "id": "meme/scary-high-zing.mp3",
+   "group": "meme",
+   "dur": 6.37,
+   "peak_db": 0.0,
+   "mean_db": -24.4,
+   "source": "Essential Sfx/Sound effect/Random memes/Scary high zing.mp3"
+  },
+  {
+   "id": "meme/school-bell.mp3",
+   "group": "meme",
+   "dur": 4.18,
+   "peak_db": -5.0,
+   "mean_db": -21.1,
+   "source": "Essential Sfx/Sound effect/Random memes/School Bell.mp3"
+  },
+  {
+   "id": "meme/shocked-sound-effect-hd.mp3",
+   "group": "meme",
+   "dur": 1.46,
+   "peak_db": -5.2,
+   "mean_db": -14.7,
+   "source": "Essential Sfx/Essential/Funny/Shocked  Sound Effect HD.mp3"
+  },
+  {
+   "id": "meme/slow-reverb-swoosh.mp3",
+   "group": "meme",
+   "dur": 5.33,
+   "peak_db": -1.6,
+   "mean_db": -25.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Slow reverb swoosh.mp3"
+  },
+  {
+   "id": "meme/space-ship-fly-by.mp3",
+   "group": "meme",
+   "dur": 1.07,
+   "peak_db": -2.7,
+   "mean_db": -19.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Space ship fly by.mp3"
+  },
+  {
+   "id": "meme/space-ship-woosh.mp3",
+   "group": "meme",
+   "dur": 2.27,
+   "peak_db": -4.9,
+   "mean_db": -23.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Space ship woosh.mp3"
+  },
+  {
+   "id": "meme/space-woosh.mp3",
+   "group": "meme",
+   "dur": 1.88,
+   "peak_db": 0.0,
+   "mean_db": -12.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Space woosh.mp3"
+  },
+  {
+   "id": "meme/speed-swoosh.mp3",
+   "group": "meme",
+   "dur": 9.69,
+   "peak_db": -0.2,
+   "mean_db": -23.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Speed swoosh.mp3"
+  },
+  {
+   "id": "meme/splat.mp3",
+   "group": "meme",
+   "dur": 0.71,
+   "peak_db": -1.0,
+   "mean_db": -18.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Splat.mp3"
+  },
+  {
+   "id": "meme/static-swoosh.mp3",
+   "group": "meme",
+   "dur": 5.54,
+   "peak_db": -11.7,
+   "mean_db": -38.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Static swoosh.mp3"
+  },
+  {
+   "id": "meme/steve-death.mp3",
+   "group": "meme",
+   "dur": 0.55,
+   "peak_db": -3.1,
+   "mean_db": -19.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Steve Death.mp3"
+  },
+  {
+   "id": "meme/string-effect.mp3",
+   "group": "meme",
+   "dur": 1.7,
+   "peak_db": -11.5,
+   "mean_db": -36.8,
+   "source": "Essential Sfx/Sound effect/Random memes/String Effect.mp3"
+  },
+  {
+   "id": "meme/stutter-fly-by.mp3",
+   "group": "meme",
+   "dur": 2.85,
+   "peak_db": -1.6,
+   "mean_db": -19.2,
+   "source": "Essential Sfx/Sound effect/Random memes/Stutter fly by.mp3"
+  },
+  {
+   "id": "meme/stutter-swish.mp3",
+   "group": "meme",
+   "dur": 5.59,
+   "peak_db": -9.2,
+   "mean_db": -36.7,
+   "source": "Essential Sfx/Sound effect/Random memes/Stutter swish.mp3"
+  },
+  {
+   "id": "meme/stutter-woosh.mp3",
+   "group": "meme",
+   "dur": 5.85,
+   "peak_db": -4.4,
+   "mean_db": -24.3,
+   "source": "Essential Sfx/Sound effect/Random memes/Stutter woosh.mp3"
+  },
+  {
+   "id": "meme/surprise-mother-fcker.mp3",
+   "group": "meme",
+   "dur": 1.91,
+   "peak_db": -2.5,
+   "mean_db": -21.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Surprise Mother Fcker.mp3"
+  },
+  {
+   "id": "meme/suspense.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -0.9,
+   "mean_db": -17.4,
+   "source": "Essential Sfx/Sound effect/Random memes/Suspense.mp3"
+  },
+  {
+   "id": "meme/swish5.mp3",
+   "group": "meme",
+   "dur": 0.31,
+   "peak_db": -10.9,
+   "mean_db": -25.2,
+   "source": "Essential Sfx/Sound effect/Random memes/swish5.wav"
+  },
+  {
+   "id": "meme/swoosh-phazed-long.mp3",
+   "group": "meme",
+   "dur": 1.67,
+   "peak_db": -0.9,
+   "mean_db": -15.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Swoosh phazed long.mp3"
+  },
+  {
+   "id": "meme/the-builder.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -2.1,
+   "mean_db": -17.2,
+   "source": "Essential Sfx/Sound effect/Random memes/The Builder.mp3"
+  },
+  {
+   "id": "meme/the-derp-song.mp3",
+   "group": "meme",
+   "dur": 12.04,
+   "peak_db": -0.3,
+   "mean_db": -15.9,
+   "source": "Essential Sfx/Sound effect/Random memes/The Derp Song.mp3"
+  },
+  {
+   "id": "meme/thick-wipe-phazed.mp3",
+   "group": "meme",
+   "dur": 1.36,
+   "peak_db": -0.8,
+   "mean_db": -17.5,
+   "source": "Essential Sfx/Sound effect/Random memes/Thick wipe, phazed.mp3"
+  },
+  {
+   "id": "meme/thick-wipe.mp3",
+   "group": "meme",
+   "dur": 1.36,
+   "peak_db": -0.1,
+   "mean_db": -21.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Thick wipe.mp3"
+  },
+  {
+   "id": "meme/ting-1.mp3",
+   "group": "meme",
+   "dur": 0.52,
+   "peak_db": -10.2,
+   "mean_db": -31.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Ting!!! 1.mp3"
+  },
+  {
+   "id": "meme/ting-2.mp3",
+   "group": "meme",
+   "dur": 1.15,
+   "peak_db": -8.9,
+   "mean_db": -32.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Ting!!! 2.mp3"
+  },
+  {
+   "id": "meme/torpedo.mp3",
+   "group": "meme",
+   "dur": 4.41,
+   "peak_db": -6.9,
+   "mean_db": -27.4,
+   "source": "Essential Sfx/Sound effect/Random memes/Torpedo.mp3"
+  },
+  {
+   "id": "meme/trickshot-reaction-mlg.mp3",
+   "group": "meme",
+   "dur": 12.02,
+   "peak_db": -1.8,
+   "mean_db": -13.9,
+   "source": "Essential Sfx/Sound effect/Random memes/Trickshot Reaction (MLG).mp3"
+  },
+  {
+   "id": "meme/troll-kids.mp3",
+   "group": "meme",
+   "dur": 2.87,
+   "peak_db": -6.0,
+   "mean_db": -20.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Troll Kids.mp3"
+  },
+  {
+   "id": "meme/turntable-scratch.mp3",
+   "group": "meme",
+   "dur": 4.75,
+   "peak_db": -6.7,
+   "mean_db": -29.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Turntable Scratch.mp3"
+  },
+  {
+   "id": "meme/u201coh-my-god-bruh-oh-hell-nah-u201d-so.mp3",
+   "group": "meme",
+   "dur": 6.71,
+   "peak_db": -0.9,
+   "mean_db": -15.7,
+   "source": "OTHERS/#U201cOh My God Bruh, Oh Hell Nah#U201d Sound Effect 4.mp3"
+  },
+  {
+   "id": "meme/wah-wah-wah-fail.mp3",
+   "group": "meme",
+   "dur": 7.99,
+   "peak_db": -1.0,
+   "mean_db": -19.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Wah Wah Wah fail.mp3"
+  },
+  {
+   "id": "meme/wait-a-minute.mp3",
+   "group": "meme",
+   "dur": 3.68,
+   "peak_db": -11.4,
+   "mean_db": -28.2,
+   "source": "Essential Sfx/Sound effect/Random memes/Wait A Minute.mp3"
+  },
+  {
+   "id": "meme/waka-waka-pakman.mp3",
+   "group": "meme",
+   "dur": 3.53,
+   "peak_db": -10.8,
+   "mean_db": -20.6,
+   "source": "Essential Sfx/Sound effect/Random memes/Waka Waka (Pakman).mp3"
+  },
+  {
+   "id": "meme/what-the-hell.mp3",
+   "group": "meme",
+   "dur": 0.81,
+   "peak_db": -7.1,
+   "mean_db": -19.5,
+   "source": "Essential Sfx/Sound effect/Random memes/What the Hell.mp3"
+  },
+  {
+   "id": "meme/whistle-1.mp3",
+   "group": "meme",
+   "dur": 1.8,
+   "peak_db": -4.6,
+   "mean_db": -19.9,
+   "source": "Viral sfx/Whistle/Whistle 1.wav"
+  },
+  {
+   "id": "meme/whistle-2.mp3",
+   "group": "meme",
+   "dur": 1.57,
+   "peak_db": -4.6,
+   "mean_db": -19.9,
+   "source": "Viral sfx/Whistle/Whistle 2.wav"
+  },
+  {
+   "id": "meme/whistle-3.mp3",
+   "group": "meme",
+   "dur": 1.28,
+   "peak_db": -5.8,
+   "mean_db": -22.0,
+   "source": "Viral sfx/Whistle/Whistle 3.wav"
+  },
+  {
+   "id": "meme/whistle-4.mp3",
+   "group": "meme",
+   "dur": 1.57,
+   "peak_db": -5.8,
+   "mean_db": -21.9,
+   "source": "Viral sfx/Whistle/Whistle 4.wav"
+  },
+  {
+   "id": "meme/who-s-that-pokemon.mp3",
+   "group": "meme",
+   "dur": 4.08,
+   "peak_db": -10.1,
+   "mean_db": -25.9,
+   "source": "Essential Sfx/Sound effect/Random memes/Who_s That Pokemon.mp3"
+  },
+  {
+   "id": "meme/whoosh.mp3",
+   "group": "meme",
+   "dur": 2.95,
+   "peak_db": -12.1,
+   "mean_db": -32.8,
+   "source": "Essential Sfx/Sound effect/Random memes/Whoosh.mp3"
+  },
+  {
+   "id": "meme/why-are-you-running.mp3",
+   "group": "meme",
+   "dur": 2.32,
+   "peak_db": -1.9,
+   "mean_db": -16.9,
+   "source": "Essential Sfx/Sound effect/Random memes/Why Are You Running.mp3"
+  },
+  {
+   "id": "meme/window-error-mlg.mp3",
+   "group": "meme",
+   "dur": 0.91,
+   "peak_db": -8.9,
+   "mean_db": -22.1,
+   "source": "Essential Sfx/Sound effect/Random memes/Window Error (MLG).mp3"
+  },
+  {
+   "id": "meme/wow-sfx.mp3",
+   "group": "meme",
+   "dur": 2.4,
+   "peak_db": -16.5,
+   "mean_db": -31.4,
+   "source": "OTHERS/Wow sfx.mp3"
+  },
+  {
+   "id": "meme/wrong-buzzer.mp3",
+   "group": "meme",
+   "dur": 2.51,
+   "peak_db": -2.2,
+   "mean_db": -16.3,
+   "source": "Essential Sfx/Sound effect/Random memes/Wrong Buzzer.mp3"
+  },
+  {
+   "id": "meme/wwe-bell-ring.mp3",
+   "group": "meme",
+   "dur": 1.07,
+   "peak_db": -12.2,
+   "mean_db": -31.8,
+   "source": "Essential Sfx/Sound effect/Random memes/WWE Bell Ring.mp3"
+  },
+  {
+   "id": "meme/yay-sfx.mp3",
+   "group": "meme",
+   "dur": 3.6,
+   "peak_db": -3.4,
+   "mean_db": -19.8,
+   "source": "OTHERS/Yay sfx.mp3"
+  },
+  {
+   "id": "meme/yoloo.mp3",
+   "group": "meme",
+   "dur": 3.76,
+   "peak_db": -7.8,
+   "mean_db": -17.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Yoloo.mp3"
+  },
+  {
+   "id": "meme/you-have-to-say-that-you-re-fine.mp3",
+   "group": "meme",
+   "dur": 5.49,
+   "peak_db": -0.9,
+   "mean_db": -10.7,
+   "source": "Essential Sfx/Sound effect/Random memes/You have to say That you_re fine.mp3"
+  },
+  {
+   "id": "metal/metal-slice-1.mp3",
+   "group": "metal",
+   "dur": 8.83,
+   "peak_db": -0.3,
+   "mean_db": -24.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.1.wav"
+  },
+  {
+   "id": "metal/metal-slice-10.mp3",
+   "group": "metal",
+   "dur": 6.84,
+   "peak_db": -0.3,
+   "mean_db": -24.4,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.10.wav"
+  },
+  {
+   "id": "metal/metal-slice-11.mp3",
+   "group": "metal",
+   "dur": 6.87,
+   "peak_db": -0.1,
+   "mean_db": -21.9,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.11.wav"
+  },
+  {
+   "id": "metal/metal-slice-12.mp3",
+   "group": "metal",
+   "dur": 6.84,
+   "peak_db": -0.2,
+   "mean_db": -22.8,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.12.wav"
+  },
+  {
+   "id": "metal/metal-slice-13.mp3",
+   "group": "metal",
+   "dur": 7.26,
+   "peak_db": -0.3,
+   "mean_db": -23.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.13.wav"
+  },
+  {
+   "id": "metal/metal-slice-14.mp3",
+   "group": "metal",
+   "dur": 7.26,
+   "peak_db": -0.3,
+   "mean_db": -23.9,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.14.wav"
+  },
+  {
+   "id": "metal/metal-slice-15.mp3",
+   "group": "metal",
+   "dur": 6.48,
+   "peak_db": -0.0,
+   "mean_db": -23.0,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.15.wav"
+  },
+  {
+   "id": "metal/metal-slice-16.mp3",
+   "group": "metal",
+   "dur": 6.48,
+   "peak_db": -0.1,
+   "mean_db": -23.8,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.16.wav"
+  },
+  {
+   "id": "metal/metal-slice-17.mp3",
+   "group": "metal",
+   "dur": 9.17,
+   "peak_db": -0.2,
+   "mean_db": -25.0,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.17.wav"
+  },
+  {
+   "id": "metal/metal-slice-18.mp3",
+   "group": "metal",
+   "dur": 9.17,
+   "peak_db": -0.3,
+   "mean_db": -25.4,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.18.wav"
+  },
+  {
+   "id": "metal/metal-slice-19.mp3",
+   "group": "metal",
+   "dur": 5.98,
+   "peak_db": -0.3,
+   "mean_db": -19.5,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.19.wav"
+  },
+  {
+   "id": "metal/metal-slice-2.mp3",
+   "group": "metal",
+   "dur": 8.83,
+   "peak_db": -0.6,
+   "mean_db": -26.0,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.2.wav"
+  },
+  {
+   "id": "metal/metal-slice-20.mp3",
+   "group": "metal",
+   "dur": 5.96,
+   "peak_db": -0.3,
+   "mean_db": -19.1,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.20.wav"
+  },
+  {
+   "id": "metal/metal-slice-21.mp3",
+   "group": "metal",
+   "dur": 6.35,
+   "peak_db": -0.3,
+   "mean_db": -22.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.21.wav"
+  },
+  {
+   "id": "metal/metal-slice-22.mp3",
+   "group": "metal",
+   "dur": 6.35,
+   "peak_db": -0.3,
+   "mean_db": -22.4,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.22.wav"
+  },
+  {
+   "id": "metal/metal-slice-23.mp3",
+   "group": "metal",
+   "dur": 6.9,
+   "peak_db": -0.3,
+   "mean_db": -22.8,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.23.wav"
+  },
+  {
+   "id": "metal/metal-slice-24.mp3",
+   "group": "metal",
+   "dur": 6.9,
+   "peak_db": -0.3,
+   "mean_db": -22.5,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.24.wav"
+  },
+  {
+   "id": "metal/metal-slice-25.mp3",
+   "group": "metal",
+   "dur": 6.11,
+   "peak_db": -0.3,
+   "mean_db": -20.7,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.25.wav"
+  },
+  {
+   "id": "metal/metal-slice-26.mp3",
+   "group": "metal",
+   "dur": 6.43,
+   "peak_db": -0.3,
+   "mean_db": -21.1,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.26.wav"
+  },
+  {
+   "id": "metal/metal-slice-27.mp3",
+   "group": "metal",
+   "dur": 8.99,
+   "peak_db": -0.3,
+   "mean_db": -26.5,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.27.wav"
+  },
+  {
+   "id": "metal/metal-slice-28.mp3",
+   "group": "metal",
+   "dur": 8.99,
+   "peak_db": -0.7,
+   "mean_db": -26.9,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.28.wav"
+  },
+  {
+   "id": "metal/metal-slice-29.mp3",
+   "group": "metal",
+   "dur": 6.61,
+   "peak_db": -0.3,
+   "mean_db": -21.1,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.29.wav"
+  },
+  {
+   "id": "metal/metal-slice-3.mp3",
+   "group": "metal",
+   "dur": 5.9,
+   "peak_db": -0.3,
+   "mean_db": -21.5,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.3.wav"
+  },
+  {
+   "id": "metal/metal-slice-30.mp3",
+   "group": "metal",
+   "dur": 6.61,
+   "peak_db": -0.3,
+   "mean_db": -21.1,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.30.wav"
+  },
+  {
+   "id": "metal/metal-slice-31.mp3",
+   "group": "metal",
+   "dur": 8.25,
+   "peak_db": -0.4,
+   "mean_db": -25.9,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.31.wav"
+  },
+  {
+   "id": "metal/metal-slice-32.mp3",
+   "group": "metal",
+   "dur": 8.25,
+   "peak_db": -0.4,
+   "mean_db": -26.1,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.32.wav"
+  },
+  {
+   "id": "metal/metal-slice-33.mp3",
+   "group": "metal",
+   "dur": 6.09,
+   "peak_db": -0.3,
+   "mean_db": -24.4,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.33.wav"
+  },
+  {
+   "id": "metal/metal-slice-34.mp3",
+   "group": "metal",
+   "dur": 6.09,
+   "peak_db": -0.3,
+   "mean_db": -23.9,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.34.wav"
+  },
+  {
+   "id": "metal/metal-slice-35.mp3",
+   "group": "metal",
+   "dur": 7.84,
+   "peak_db": -0.8,
+   "mean_db": -27.7,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.35.wav"
+  },
+  {
+   "id": "metal/metal-slice-36.mp3",
+   "group": "metal",
+   "dur": 8.05,
+   "peak_db": -0.3,
+   "mean_db": -26.6,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.36.wav"
+  },
+  {
+   "id": "metal/metal-slice-37.mp3",
+   "group": "metal",
+   "dur": 7.97,
+   "peak_db": -0.3,
+   "mean_db": -24.5,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.37.wav"
+  },
+  {
+   "id": "metal/metal-slice-38.mp3",
+   "group": "metal",
+   "dur": 7.97,
+   "peak_db": -0.3,
+   "mean_db": -25.7,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.38.wav"
+  },
+  {
+   "id": "metal/metal-slice-39.mp3",
+   "group": "metal",
+   "dur": 8.41,
+   "peak_db": -0.3,
+   "mean_db": -25.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.39.wav"
+  },
+  {
+   "id": "metal/metal-slice-4.mp3",
+   "group": "metal",
+   "dur": 5.9,
+   "peak_db": -0.3,
+   "mean_db": -21.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.4.wav"
+  },
+  {
+   "id": "metal/metal-slice-40.mp3",
+   "group": "metal",
+   "dur": 8.41,
+   "peak_db": -0.3,
+   "mean_db": -25.4,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.40.wav"
+  },
+  {
+   "id": "metal/metal-slice-41.mp3",
+   "group": "metal",
+   "dur": 6.4,
+   "peak_db": -0.3,
+   "mean_db": -22.5,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.41.wav"
+  },
+  {
+   "id": "metal/metal-slice-42.mp3",
+   "group": "metal",
+   "dur": 6.35,
+   "peak_db": -0.3,
+   "mean_db": -22.6,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.42.wav"
+  },
+  {
+   "id": "metal/metal-slice-43.mp3",
+   "group": "metal",
+   "dur": 5.2,
+   "peak_db": -0.7,
+   "mean_db": -24.2,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.43.wav"
+  },
+  {
+   "id": "metal/metal-slice-44.mp3",
+   "group": "metal",
+   "dur": 5.2,
+   "peak_db": -0.7,
+   "mean_db": -24.4,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.44.wav"
+  },
+  {
+   "id": "metal/metal-slice-45.mp3",
+   "group": "metal",
+   "dur": 6.24,
+   "peak_db": -0.3,
+   "mean_db": -20.5,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.45.wav"
+  },
+  {
+   "id": "metal/metal-slice-46.mp3",
+   "group": "metal",
+   "dur": 6.24,
+   "peak_db": -0.2,
+   "mean_db": -20.1,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.46.wav"
+  },
+  {
+   "id": "metal/metal-slice-47.mp3",
+   "group": "metal",
+   "dur": 8.28,
+   "peak_db": -0.3,
+   "mean_db": -25.4,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.47.wav"
+  },
+  {
+   "id": "metal/metal-slice-48.mp3",
+   "group": "metal",
+   "dur": 8.28,
+   "peak_db": -0.3,
+   "mean_db": -25.4,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.48.wav"
+  },
+  {
+   "id": "metal/metal-slice-49.mp3",
+   "group": "metal",
+   "dur": 9.04,
+   "peak_db": -0.3,
+   "mean_db": -26.7,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.49.wav"
+  },
+  {
+   "id": "metal/metal-slice-5.mp3",
+   "group": "metal",
+   "dur": 5.64,
+   "peak_db": -0.3,
+   "mean_db": -24.1,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.5.wav"
+  },
+  {
+   "id": "metal/metal-slice-50.mp3",
+   "group": "metal",
+   "dur": 9.04,
+   "peak_db": -0.3,
+   "mean_db": -26.8,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.50.wav"
+  },
+  {
+   "id": "metal/metal-slice-51.mp3",
+   "group": "metal",
+   "dur": 7.71,
+   "peak_db": -0.3,
+   "mean_db": -24.8,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.51.wav"
+  },
+  {
+   "id": "metal/metal-slice-52.mp3",
+   "group": "metal",
+   "dur": 7.71,
+   "peak_db": -0.4,
+   "mean_db": -25.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.52.wav"
+  },
+  {
+   "id": "metal/metal-slice-53.mp3",
+   "group": "metal",
+   "dur": 7.76,
+   "peak_db": -0.3,
+   "mean_db": -23.2,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.53.wav"
+  },
+  {
+   "id": "metal/metal-slice-54.mp3",
+   "group": "metal",
+   "dur": 7.76,
+   "peak_db": -0.3,
+   "mean_db": -23.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.54.wav"
+  },
+  {
+   "id": "metal/metal-slice-55.mp3",
+   "group": "metal",
+   "dur": 7.13,
+   "peak_db": -0.3,
+   "mean_db": -24.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.55.wav"
+  },
+  {
+   "id": "metal/metal-slice-56.mp3",
+   "group": "metal",
+   "dur": 7.13,
+   "peak_db": -0.3,
+   "mean_db": -24.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.56.wav"
+  },
+  {
+   "id": "metal/metal-slice-57.mp3",
+   "group": "metal",
+   "dur": 7.08,
+   "peak_db": -0.4,
+   "mean_db": -25.5,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.57.wav"
+  },
+  {
+   "id": "metal/metal-slice-58.mp3",
+   "group": "metal",
+   "dur": 7.18,
+   "peak_db": -0.3,
+   "mean_db": -24.8,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.58.wav"
+  },
+  {
+   "id": "metal/metal-slice-59.mp3",
+   "group": "metal",
+   "dur": 5.49,
+   "peak_db": -0.2,
+   "mean_db": -20.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.59.wav"
+  },
+  {
+   "id": "metal/metal-slice-6.mp3",
+   "group": "metal",
+   "dur": 5.64,
+   "peak_db": -0.3,
+   "mean_db": -24.2,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.6.wav"
+  },
+  {
+   "id": "metal/metal-slice-60.mp3",
+   "group": "metal",
+   "dur": 5.49,
+   "peak_db": -0.2,
+   "mean_db": -20.0,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.60.wav"
+  },
+  {
+   "id": "metal/metal-slice-61.mp3",
+   "group": "metal",
+   "dur": 7.94,
+   "peak_db": -0.3,
+   "mean_db": -23.9,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.61.wav"
+  },
+  {
+   "id": "metal/metal-slice-62.mp3",
+   "group": "metal",
+   "dur": 7.94,
+   "peak_db": -0.3,
+   "mean_db": -23.6,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.62.wav"
+  },
+  {
+   "id": "metal/metal-slice-7.mp3",
+   "group": "metal",
+   "dur": 8.62,
+   "peak_db": -0.3,
+   "mean_db": -26.8,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.7.wav"
+  },
+  {
+   "id": "metal/metal-slice-8.mp3",
+   "group": "metal",
+   "dur": 8.62,
+   "peak_db": -0.3,
+   "mean_db": -27.0,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.8.wav"
+  },
+  {
+   "id": "metal/metal-slice-9.mp3",
+   "group": "metal",
+   "dur": 6.84,
+   "peak_db": -0.3,
+   "mean_db": -24.3,
+   "source": "Essential Sfx/Sound effect/Metal Slices/Metal.Slice.9.wav"
+  },
+  {
+   "id": "money/8-bit-coin-sound-effect-copyright-free-l.mp3",
+   "group": "money",
+   "dur": 4.65,
+   "peak_db": -6.5,
+   "mean_db": -18.7,
+   "source": "Essential Sfx/Sound effect/Coin/8-Bit Coin Sound Effect (Copyright Free) (Lossless).flac"
+  },
+  {
+   "id": "money/cash-money-sfx.mp3",
+   "group": "money",
+   "dur": 3.13,
+   "peak_db": 0.0,
+   "mean_db": -27.3,
+   "source": "MONEY SFX/Cash Money SFX.mp3"
+  },
+  {
+   "id": "money/cash-register-2.mp3",
+   "group": "money",
+   "dur": 2.72,
+   "peak_db": -1.2,
+   "mean_db": -25.9,
+   "source": "Essential Sfx/Cash Register.mp3"
+  },
+  {
+   "id": "money/cash-register-kaching-sound-effect-hd-mp.mp3",
+   "group": "money",
+   "dur": 2.72,
+   "peak_db": -2.0,
+   "mean_db": -31.4,
+   "source": "Essential Sfx/Sound effect/Money/Cash Register (Kaching) - Sound Effect (HD)(MP3_160K).mp3"
+  },
+  {
+   "id": "money/cash-register.mp3",
+   "group": "money",
+   "dur": 4.88,
+   "peak_db": -8.3,
+   "mean_db": -26.1,
+   "source": "Essential Sfx/Cash Register .wav"
+  },
+  {
+   "id": "money/cashiar-money.mp3",
+   "group": "money",
+   "dur": 2.32,
+   "peak_db": -4.9,
+   "mean_db": -26.8,
+   "source": "Apple Sfx/Cashiar money.mp3"
+  },
+  {
+   "id": "money/coin-collect.mp3",
+   "group": "money",
+   "dur": 1.85,
+   "peak_db": -1.4,
+   "mean_db": -19.4,
+   "source": "UI SOUNDS/Coin Collect.wav"
+  },
+  {
+   "id": "money/money-1.mp3",
+   "group": "money",
+   "dur": 1.36,
+   "peak_db": -4.1,
+   "mean_db": -30.5,
+   "source": "Essential Sfx/Sound effect/Money/Money-1.mp3"
+  },
+  {
+   "id": "money/money-2.mp3",
+   "group": "money",
+   "dur": 1.65,
+   "peak_db": -18.7,
+   "mean_db": -36.6,
+   "source": "Essential Sfx/Sound effect/Money/Money-2.MP3"
+  },
+  {
+   "id": "money/money-3.mp3",
+   "group": "money",
+   "dur": 12.04,
+   "peak_db": 0.0,
+   "mean_db": -22.6,
+   "source": "Essential Sfx/Sound effect/Money/Money-3.mp3"
+  },
+  {
+   "id": "money/retro-blip-coin.mp3",
+   "group": "money",
+   "dur": 0.81,
+   "peak_db": -13.2,
+   "mean_db": -23.8,
+   "source": "UI SOUNDS/Retro Blip Coin.wav"
+  },
+  {
+   "id": "money/sound1.mp3",
+   "group": "money",
+   "dur": 0.34,
+   "peak_db": -6.2,
+   "mean_db": -13.8,
+   "source": "Essential Sfx/Sound effect/Coin/sound1.wav"
+  },
+  {
+   "id": "money/sound2.mp3",
+   "group": "money",
+   "dur": 0.24,
+   "peak_db": -6.5,
+   "mean_db": -13.6,
+   "source": "Essential Sfx/Sound effect/Coin/sound2.wav"
+  },
+  {
+   "id": "money/sound3.mp3",
+   "group": "money",
+   "dur": 0.37,
+   "peak_db": -6.0,
+   "mean_db": -13.5,
+   "source": "Essential Sfx/Sound effect/Coin/sound3.wav"
+  },
+  {
+   "id": "money/sound4.mp3",
+   "group": "money",
+   "dur": 0.24,
+   "peak_db": -8.7,
+   "mean_db": -14.5,
+   "source": "Essential Sfx/Sound effect/Coin/sound4.wav"
+  },
+  {
+   "id": "money/sound5.mp3",
+   "group": "money",
+   "dur": 0.52,
+   "peak_db": -5.9,
+   "mean_db": -13.7,
+   "source": "Essential Sfx/Sound effect/Coin/sound5.wav"
+  },
+  {
+   "id": "money/sound6.mp3",
+   "group": "money",
+   "dur": 0.18,
+   "peak_db": -8.6,
+   "mean_db": -14.6,
+   "source": "Essential Sfx/Sound effect/Coin/sound6.wav"
+  },
+  {
+   "id": "notify/bell-reversed.mp3",
+   "group": "notify",
+   "dur": 4.02,
+   "peak_db": -3.9,
+   "mean_db": -25.0,
+   "source": "Essential Sfx/Bell Reversed.mp3"
+  },
+  {
+   "id": "notify/bells-positive-sound-sba-300462621.mp3",
+   "group": "notify",
+   "dur": 1.88,
+   "peak_db": -5.7,
+   "mean_db": -22.8,
+   "source": "Essential Sfx/Sound effect/Alarm/bells-positive-sound-SBA-300462621.mp3"
+  },
+  {
+   "id": "notify/charging-sfx.mp3",
+   "group": "notify",
+   "dur": 0.52,
+   "peak_db": -1.4,
+   "mean_db": -15.9,
+   "source": "NOTIFICATION/Charging sfx.mp3"
+  },
+  {
+   "id": "notify/correct-answer-sfx.mp3",
+   "group": "notify",
+   "dur": 1.41,
+   "peak_db": -11.3,
+   "mean_db": -26.6,
+   "source": "OTHERS/Correct Answer Sfx.mp3"
+  },
+  {
+   "id": "notify/correct-answer.mp3",
+   "group": "notify",
+   "dur": 3.13,
+   "peak_db": -8.2,
+   "mean_db": -30.0,
+   "source": "Essential Sfx/Sound effect/Random memes/Correct Answer.mp3"
+  },
+  {
+   "id": "notify/counting-2.mp3",
+   "group": "notify",
+   "dur": 0.5,
+   "peak_db": -7.7,
+   "mean_db": -25.3,
+   "source": "Viral sfx/SFX PACK - 3/Counting.mp3"
+  },
+  {
+   "id": "notify/counting.mp3",
+   "group": "notify",
+   "dur": 3.13,
+   "peak_db": -1.9,
+   "mean_db": -19.1,
+   "source": "DIGITAL COUNTER/counting.mp3"
+  },
+  {
+   "id": "notify/digital-counting.mp3",
+   "group": "notify",
+   "dur": 6.45,
+   "peak_db": -9.6,
+   "mean_db": -24.2,
+   "source": "DIGITAL COUNTER/Digital Counting.mp3"
+  },
+  {
+   "id": "notify/ding-sound-effect.mp3",
+   "group": "notify",
+   "dur": 2.59,
+   "peak_db": -5.5,
+   "mean_db": -24.3,
+   "source": "Essential Sfx/Sound effect/Ting/Ding Sound Effect.mp3"
+  },
+  {
+   "id": "notify/discord-leave-notification.mp3",
+   "group": "notify",
+   "dur": 1.07,
+   "peak_db": -0.7,
+   "mean_db": -16.0,
+   "source": "NOTIFICATION/Discord Leave Notification.mp3"
+  },
+  {
+   "id": "notify/discord-notification.mp3",
+   "group": "notify",
+   "dur": 1.23,
+   "peak_db": -0.6,
+   "mean_db": -20.0,
+   "source": "NOTIFICATION/Discord Notification.wav"
+  },
+  {
+   "id": "notify/es-text-message-notification-round-tone-.mp3",
+   "group": "notify",
+   "dur": 3.74,
+   "peak_db": -11.8,
+   "mean_db": -29.5,
+   "source": "NOTIFICATION/ES_Text Message, Notification, Round Tone, Clicky - Epidemic Sound.mp3"
+  },
+  {
+   "id": "notify/hyder-highlighting-sfx.mp3",
+   "group": "notify",
+   "dur": 5.77,
+   "peak_db": -4.1,
+   "mean_db": -27.6,
+   "source": "HIGHLIGHT SFX/Hyder Highlighting SFX.mp3"
+  },
+  {
+   "id": "notify/iphone-charge-sfx.mp3",
+   "group": "notify",
+   "dur": 1.18,
+   "peak_db": -5.1,
+   "mean_db": -19.5,
+   "source": "NOTIFICATION/Iphone Charge sfx.mp3"
+  },
+  {
+   "id": "notify/iphone-message-sound-effects.mp3",
+   "group": "notify",
+   "dur": 9.12,
+   "peak_db": -2.5,
+   "mean_db": -24.2,
+   "source": "NOTIFICATION/iPhone Message Sound Effects.mp3"
+  },
+  {
+   "id": "notify/iphone-notification-2.mp3",
+   "group": "notify",
+   "dur": 3.34,
+   "peak_db": -4.6,
+   "mean_db": -32.7,
+   "source": "NOTIFICATION/Iphone Notification 2.mp3"
+  },
+  {
+   "id": "notify/iphone-notification.mp3",
+   "group": "notify",
+   "dur": 2.12,
+   "peak_db": -5.2,
+   "mean_db": -22.3,
+   "source": "NOTIFICATION/Iphone Notification.mp3"
+  },
+  {
+   "id": "notify/message-notification-trending.mp3",
+   "group": "notify",
+   "dur": 5.33,
+   "peak_db": -10.6,
+   "mean_db": -28.6,
+   "source": "NOTIFICATION/Message Notification Trending.wav"
+  },
+  {
+   "id": "notify/message-notification.mp3",
+   "group": "notify",
+   "dur": 0.6,
+   "peak_db": -12.7,
+   "mean_db": -25.5,
+   "source": "NOTIFICATION/Message Notification.mp3"
+  },
+  {
+   "id": "notify/notification1.mp3",
+   "group": "notify",
+   "dur": 0.31,
+   "peak_db": -2.1,
+   "mean_db": -20.1,
+   "source": "NOTIFICATION/Notification1.wav"
+  },
+  {
+   "id": "notify/notification2.mp3",
+   "group": "notify",
+   "dur": 0.37,
+   "peak_db": -2.2,
+   "mean_db": -17.8,
+   "source": "NOTIFICATION/Notification2.wav"
+  },
+  {
+   "id": "notify/notification3.mp3",
+   "group": "notify",
+   "dur": 0.55,
+   "peak_db": -0.3,
+   "mean_db": -20.9,
+   "source": "NOTIFICATION/Notification3.wav"
+  },
+  {
+   "id": "notify/prize-notification-2.mp3",
+   "group": "notify",
+   "dur": 4.1,
+   "peak_db": -0.0,
+   "mean_db": -18.9,
+   "source": "NOTIFICATION/Prize Notification 2.wav"
+  },
+  {
+   "id": "notify/quick-win.mp3",
+   "group": "notify",
+   "dur": 1.91,
+   "peak_db": -0.7,
+   "mean_db": -21.0,
+   "source": "Essential Sfx/Sound effect/Ting/quick-win.mp3"
+  },
+  {
+   "id": "notify/ting-2.mp3",
+   "group": "notify",
+   "dur": 1.36,
+   "peak_db": -7.6,
+   "mean_db": -22.4,
+   "source": "Essential Sfx/Ting.mp3"
+  },
+  {
+   "id": "notify/ting-sound-effect.mp3",
+   "group": "notify",
+   "dur": 1.33,
+   "peak_db": -7.5,
+   "mean_db": -22.1,
+   "source": "Essential Sfx/Sound effect/Ting/TING SOUND EFFECT.mp3"
+  },
+  {
+   "id": "notify/ting.mp3",
+   "group": "notify",
+   "dur": 1.33,
+   "peak_db": -7.6,
+   "mean_db": -22.3,
+   "source": "Essential Sfx/Essential/Ting.mp3"
+  },
+  {
+   "id": "notify/ui-notification.mp3",
+   "group": "notify",
+   "dur": 1.75,
+   "peak_db": -4.4,
+   "mean_db": -26.4,
+   "source": "Apple Sfx/UI notification.MP3"
+  },
+  {
+   "id": "notify/wrestling-boxing-bell.mp3",
+   "group": "notify",
+   "dur": 1.65,
+   "peak_db": 0.0,
+   "mean_db": -13.5,
+   "source": "Essential Sfx/Sound effect/Alarm/Wrestling Boxing Bell.mp3"
+  },
+  {
+   "id": "notify/writing-sfx.mp3",
+   "group": "notify",
+   "dur": 2.95,
+   "peak_db": -19.3,
+   "mean_db": -39.5,
+   "source": "OTHERS/Writing sfx.mp3"
+  },
+  {
+   "id": "other/01hx9j3q0wxj1a4n0f4ns7sjvm.mp3",
+   "group": "other",
+   "dur": 5.46,
+   "peak_db": -13.9,
+   "mean_db": -31.5,
+   "source": "OTHERS/01HX9J3Q0WXJ1A4N0F4NS7SJVM.mp3"
+  },
+  {
+   "id": "other/bad-radio-signal.mp3",
+   "group": "other",
+   "dur": 6.5,
+   "peak_db": -5.5,
+   "mean_db": -24.8,
+   "source": "Viral sfx/SFX PACK - 3/Bad Radio Signal.wav"
+  },
+  {
+   "id": "other/comb.mp3",
+   "group": "other",
+   "dur": 0.73,
+   "peak_db": -4.5,
+   "mean_db": -32.2,
+   "source": "Essential Sfx/Essential/Comb.mp3"
+  },
+  {
+   "id": "other/drink-pouring.mp3",
+   "group": "other",
+   "dur": 1.54,
+   "peak_db": -6.5,
+   "mean_db": -31.4,
+   "source": "Viral sfx/SFX PACK - 2/Drink Pouring.wav"
+  },
+  {
+   "id": "other/es-rain-gutter-2.mp3",
+   "group": "other",
+   "dur": 12.04,
+   "peak_db": -14.2,
+   "mean_db": -37.1,
+   "source": "OTHERS/ES_Rain Gutter 2.mp3"
+  },
+  {
+   "id": "other/es-water-drips-1.mp3",
+   "group": "other",
+   "dur": 12.04,
+   "peak_db": -7.2,
+   "mean_db": -46.4,
+   "source": "OTHERS/ES_Water Drips 1.mp3"
+  },
+  {
+   "id": "other/fire.mp3",
+   "group": "other",
+   "dur": 3.5,
+   "peak_db": -2.0,
+   "mean_db": -19.3,
+   "source": "Essential Sfx/Essential/FIRE.mp3"
+  },
+  {
+   "id": "other/healing.mp3",
+   "group": "other",
+   "dur": 3.6,
+   "peak_db": -3.7,
+   "mean_db": -24.6,
+   "source": "Essential Sfx/Healing.wav"
+  },
+  {
+   "id": "other/heart-beat-dood.mp3",
+   "group": "other",
+   "dur": 1.1,
+   "peak_db": -0.5,
+   "mean_db": -15.4,
+   "source": "OTHERS/heart beat dood.mp3"
+  },
+  {
+   "id": "other/old-film.mp3",
+   "group": "other",
+   "dur": 3.16,
+   "peak_db": -4.6,
+   "mean_db": -35.3,
+   "source": "Essential Sfx/Old Film.wav"
+  },
+  {
+   "id": "other/perfume-spray-sfx.mp3",
+   "group": "other",
+   "dur": 12.04,
+   "peak_db": -10.7,
+   "mean_db": -34.4,
+   "source": "OTHERS/Perfume Spray SFX.mp3"
+  },
+  {
+   "id": "other/phone-dial-and-call.mp3",
+   "group": "other",
+   "dur": 12.04,
+   "peak_db": -32.5,
+   "mean_db": -51.0,
+   "source": "Essential Sfx/Phone Dial and Call.wav"
+  },
+  {
+   "id": "other/ring-1.mp3",
+   "group": "other",
+   "dur": 2.85,
+   "peak_db": -2.6,
+   "mean_db": -24.6,
+   "source": "Viral sfx/SFX PACK - 4/Ring (1).wav"
+  },
+  {
+   "id": "other/rope-by-mohit-dood.mp3",
+   "group": "other",
+   "dur": 1.96,
+   "peak_db": -14.3,
+   "mean_db": -29.2,
+   "source": "OTHERS/rope by mohit dood.mp3"
+  },
+  {
+   "id": "other/slice.mp3",
+   "group": "other",
+   "dur": 2.4,
+   "peak_db": -0.3,
+   "mean_db": -22.6,
+   "source": "Viral sfx/SFX PACK - 3/Slice.wav"
+  },
+  {
+   "id": "other/water-drop.mp3",
+   "group": "other",
+   "dur": 2.77,
+   "peak_db": -3.7,
+   "mean_db": -23.0,
+   "source": "OTHERS/Water Drop.mp3"
+  },
+  {
+   "id": "paper/burning-paper-by-dood.mp3",
+   "group": "paper",
+   "dur": 2.25,
+   "peak_db": -7.5,
+   "mean_db": -37.9,
+   "source": "PAPER SFX/BURNING PAPER BY DOOD.mp3"
+  },
+  {
+   "id": "paper/marker-2.mp3",
+   "group": "paper",
+   "dur": 0.99,
+   "peak_db": -10.8,
+   "mean_db": -29.0,
+   "source": "Viral sfx/SFX PACK - 3/Marker.mp3"
+  },
+  {
+   "id": "paper/marker.mp3",
+   "group": "paper",
+   "dur": 1.8,
+   "peak_db": -16.4,
+   "mean_db": -35.6,
+   "source": "HIGHLIGHT SFX/marker.mp3"
+  },
+  {
+   "id": "paper/objwrite-marker-pen-highlighter-draw-lin.mp3",
+   "group": "paper",
+   "dur": 1.57,
+   "peak_db": -8.3,
+   "mean_db": -24.9,
+   "source": "HIGHLIGHT SFX/OBJWrite_Marker Pen Highlighter Draw Line Long_02.wav"
+  },
+  {
+   "id": "paper/page-turn.mp3",
+   "group": "paper",
+   "dur": 0.99,
+   "peak_db": -0.9,
+   "mean_db": -27.9,
+   "source": "PAPER SFX/Page Turn.wav"
+  },
+  {
+   "id": "paper/paper-by-dood.mp3",
+   "group": "paper",
+   "dur": 2.06,
+   "peak_db": -14.6,
+   "mean_db": -46.5,
+   "source": "PAPER SFX/paper ..by dood.mp3"
+  },
+  {
+   "id": "paper/paper-close-sfx.mp3",
+   "group": "paper",
+   "dur": 1.07,
+   "peak_db": -14.4,
+   "mean_db": -32.0,
+   "source": "PAPER SFX/Paper close sfx.mp3"
+  },
+  {
+   "id": "paper/paper-crumple-01.mp3",
+   "group": "paper",
+   "dur": 1.59,
+   "peak_db": -4.6,
+   "mean_db": -33.6,
+   "source": "Essential Sfx/Sound effect/Paper/Paper Crumple 01.wav"
+  },
+  {
+   "id": "paper/paper-crumple-02.mp3",
+   "group": "paper",
+   "dur": 1.62,
+   "peak_db": -7.3,
+   "mean_db": -35.0,
+   "source": "Essential Sfx/Sound effect/Paper/Paper Crumple 02.wav"
+  },
+  {
+   "id": "paper/paper-crumple-03.mp3",
+   "group": "paper",
+   "dur": 2.22,
+   "peak_db": -7.5,
+   "mean_db": -37.7,
+   "source": "Essential Sfx/Sound effect/Paper/Paper Crumple 03.wav"
+  },
+  {
+   "id": "paper/paper-flip-01.mp3",
+   "group": "paper",
+   "dur": 6.19,
+   "peak_db": -0.0,
+   "mean_db": -36.4,
+   "source": "Essential Sfx/Sound effect/Paper/Paper Flip 01.wav"
+  },
+  {
+   "id": "paper/paper-flip-02.mp3",
+   "group": "paper",
+   "dur": 5.36,
+   "peak_db": -19.8,
+   "mean_db": -51.7,
+   "source": "Essential Sfx/Sound effect/Paper/Paper Flip 02.wav"
+  },
+  {
+   "id": "paper/paper-noise.mp3",
+   "group": "paper",
+   "dur": 1.41,
+   "peak_db": -3.8,
+   "mean_db": -28.2,
+   "source": "Essential Sfx/Paper Noise.wav"
+  },
+  {
+   "id": "paper/paper-rip.mp3",
+   "group": "paper",
+   "dur": 0.99,
+   "peak_db": -16.4,
+   "mean_db": -38.2,
+   "source": "Essential Sfx/Paper rip.wav"
+  },
+  {
+   "id": "paper/paper-ripping.mp3",
+   "group": "paper",
+   "dur": 0.65,
+   "peak_db": -10.1,
+   "mean_db": -30.1,
+   "source": "Essential Sfx/Sound effect/Paper/Paper Ripping.mp3"
+  },
+  {
+   "id": "paper/paper-sfx.mp3",
+   "group": "paper",
+   "dur": 2.04,
+   "peak_db": 0.0,
+   "mean_db": -14.0,
+   "source": "PAPER SFX/Paper sfx.mp3"
+  },
+  {
+   "id": "paper/paper-tear.mp3",
+   "group": "paper",
+   "dur": 12.04,
+   "peak_db": -4.9,
+   "mean_db": -33.1,
+   "source": "Essential Sfx/Sound effect/Paper/Paper Tear.wav"
+  },
+  {
+   "id": "paper/paper.mp3",
+   "group": "paper",
+   "dur": 0.55,
+   "peak_db": -15.2,
+   "mean_db": -35.6,
+   "source": "Essential Sfx/Essential/Paper.mp3"
+  },
+  {
+   "id": "paper/paper1.mp3",
+   "group": "paper",
+   "dur": 2.59,
+   "peak_db": -0.4,
+   "mean_db": -27.9,
+   "source": "PAPER SFX/paper1.wav"
+  },
+  {
+   "id": "paper/paper2.mp3",
+   "group": "paper",
+   "dur": 0.76,
+   "peak_db": -6.6,
+   "mean_db": -35.9,
+   "source": "PAPER SFX/paper2.wav"
+  },
+  {
+   "id": "paper/pensil-sfx-ny-dood.mp3",
+   "group": "paper",
+   "dur": 1.67,
+   "peak_db": -28.0,
+   "mean_db": -42.4,
+   "source": "OTHERS/pensil sfx ny dood.mp3"
+  },
+  {
+   "id": "pop/01hyfdve0863w0g8tw5jbmg9rk.mp3",
+   "group": "pop",
+   "dur": 0.24,
+   "peak_db": -6.2,
+   "mean_db": -23.4,
+   "source": "POP SFX/01HYFDVE0863W0G8TW5JBMG9RK.mp3"
+  },
+  {
+   "id": "pop/01jtggh7st2snwa6k2dgjznz8j.mp3",
+   "group": "pop",
+   "dur": 4.99,
+   "peak_db": -6.6,
+   "mean_db": -30.0,
+   "source": "POP SFX/01JTGGH7ST2SNWA6K2DGJZNZ8J.mp3"
+  },
+  {
+   "id": "pop/01jtggh7v1qccfvc3end52ghce.mp3",
+   "group": "pop",
+   "dur": 2.98,
+   "peak_db": -8.7,
+   "mean_db": -28.4,
+   "source": "POP SFX/01JTGGH7V1QCCFVC3END52GHCE.mp3"
+  },
+  {
+   "id": "pop/cinemear-graphix-pop-finger-drum-on-a-ti.mp3",
+   "group": "pop",
+   "dur": 0.42,
+   "peak_db": -2.7,
+   "mean_db": -21.2,
+   "source": "POP SFX/Cinemear - Graphix - Pop Finger Drum On A Tiny Vase.wav"
+  },
+  {
+   "id": "pop/cute-pop-sound-effects.mp3",
+   "group": "pop",
+   "dur": 6.09,
+   "peak_db": -0.6,
+   "mean_db": -29.0,
+   "source": "POP SFX/Cute Pop Sound Effects.mp3"
+  },
+  {
+   "id": "pop/es-pop-ui.mp3",
+   "group": "pop",
+   "dur": 2.17,
+   "peak_db": -9.9,
+   "mean_db": -28.9,
+   "source": "UI SOUNDS/ES_Pop UI.mp3"
+  },
+  {
+   "id": "pop/hollow-pop.mp3",
+   "group": "pop",
+   "dur": 0.16,
+   "peak_db": -3.4,
+   "mean_db": -18.5,
+   "source": "POP SFX/Hollow Pop.wav"
+  },
+  {
+   "id": "pop/pop-1-2.mp3",
+   "group": "pop",
+   "dur": 0.55,
+   "peak_db": -3.8,
+   "mean_db": -23.4,
+   "source": "Essential Sfx/Sound effect/Pop/pop-1.mp3"
+  },
+  {
+   "id": "pop/pop-1.mp3",
+   "group": "pop",
+   "dur": 1.2,
+   "peak_db": -1.1,
+   "mean_db": -26.7,
+   "source": "Essential Sfx/Pop 1.wav"
+  },
+  {
+   "id": "pop/pop-2-2.mp3",
+   "group": "pop",
+   "dur": 0.44,
+   "peak_db": -13.7,
+   "mean_db": -36.3,
+   "source": "Essential Sfx/Sound effect/Pop/pop-2.mp3"
+  },
+  {
+   "id": "pop/pop-2.mp3",
+   "group": "pop",
+   "dur": 1.23,
+   "peak_db": -4.7,
+   "mean_db": -26.9,
+   "source": "Essential Sfx/Pop 2.mp3"
+  },
+  {
+   "id": "pop/pop-2.mp3",
+   "group": "pop",
+   "dur": 1.36,
+   "peak_db": -8.2,
+   "mean_db": -23.1,
+   "source": "Essential Sfx/Sound effect/Pop/pop.mp3"
+  },
+  {
+   "id": "pop/pop-3.mp3",
+   "group": "pop",
+   "dur": 0.5,
+   "peak_db": -12.5,
+   "mean_db": -33.1,
+   "source": "Essential Sfx/Sound effect/Pop/pop-3.mp3"
+  },
+  {
+   "id": "pop/pop-3.mp3",
+   "group": "pop",
+   "dur": 1.15,
+   "peak_db": -5.2,
+   "mean_db": -27.0,
+   "source": "POP SFX/Pop.mp3"
+  },
+  {
+   "id": "pop/pop-4.mp3",
+   "group": "pop",
+   "dur": 0.52,
+   "peak_db": -2.6,
+   "mean_db": -19.4,
+   "source": "Essential Sfx/Sound effect/Pop/pop-4.mp3"
+  },
+  {
+   "id": "pop/pop-402322-copy.mp3",
+   "group": "pop",
+   "dur": 0.76,
+   "peak_db": -5.6,
+   "mean_db": -26.3,
+   "source": "Apple Sfx/pop-402322 - Copy.mp3"
+  },
+  {
+   "id": "pop/pop-5.mp3",
+   "group": "pop",
+   "dur": 0.24,
+   "peak_db": -0.5,
+   "mean_db": -14.3,
+   "source": "Essential Sfx/Sound effect/Pop/pop-5.mp3"
+  },
+  {
+   "id": "pop/pop-6.mp3",
+   "group": "pop",
+   "dur": 0.5,
+   "peak_db": -5.1,
+   "mean_db": -23.1,
+   "source": "Essential Sfx/Sound effect/Pop/pop-6.mp3"
+  },
+  {
+   "id": "pop/pop-sound-effect.mp3",
+   "group": "pop",
+   "dur": 1.1,
+   "peak_db": -3.8,
+   "mean_db": -25.4,
+   "source": "Essential Sfx/Sound effect/Pop/Pop sound effect.mp3"
+  },
+  {
+   "id": "pop/pop-ui.mp3",
+   "group": "pop",
+   "dur": 0.31,
+   "peak_db": -2.8,
+   "mean_db": -18.2,
+   "source": "POP SFX/Pop UI.WAV"
+  },
+  {
+   "id": "pop/pop-up.mp3",
+   "group": "pop",
+   "dur": 1.2,
+   "peak_db": -1.3,
+   "mean_db": -22.5,
+   "source": "POP SFX/pop-up.wav"
+  },
+  {
+   "id": "pop/pop.mp3",
+   "group": "pop",
+   "dur": 0.71,
+   "peak_db": -0.6,
+   "mean_db": -23.8,
+   "source": "Essential Sfx/Pop.mp3"
+  },
+  {
+   "id": "pop/sfx-pop.mp3",
+   "group": "pop",
+   "dur": 1.33,
+   "peak_db": -6.7,
+   "mean_db": -20.5,
+   "source": "Apple Sfx/SFX_POP.MP3"
+  },
+  {
+   "id": "pop/ui-pop-sound-316482.mp3",
+   "group": "pop",
+   "dur": 1.36,
+   "peak_db": -11.6,
+   "mean_db": -35.6,
+   "source": "Apple Sfx/ui-pop-sound-316482.mp3"
+  },
+  {
+   "id": "riser/01hyag2wfc7r3t1e3yscwa9gcm.mp3",
+   "group": "riser",
+   "dur": 0.94,
+   "peak_db": -5.6,
+   "mean_db": -20.8,
+   "source": "RISERS SFX/01HYAG2WFC7R3T1E3YSCWA9GCM.mp3"
+  },
+  {
+   "id": "riser/cinematic-01.mp3",
+   "group": "riser",
+   "dur": 8.86,
+   "peak_db": -0.1,
+   "mean_db": -17.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 01.wav"
+  },
+  {
+   "id": "riser/cinematic-02.mp3",
+   "group": "riser",
+   "dur": 5.62,
+   "peak_db": -1.2,
+   "mean_db": -18.7,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 02.wav"
+  },
+  {
+   "id": "riser/cinematic-03.mp3",
+   "group": "riser",
+   "dur": 10.24,
+   "peak_db": 0.0,
+   "mean_db": -15.9,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 03.wav"
+  },
+  {
+   "id": "riser/cinematic-04.mp3",
+   "group": "riser",
+   "dur": 9.2,
+   "peak_db": 0.0,
+   "mean_db": -13.5,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 04.wav"
+  },
+  {
+   "id": "riser/cinematic-05.mp3",
+   "group": "riser",
+   "dur": 12.04,
+   "peak_db": -0.3,
+   "mean_db": -17.5,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 05.wav"
+  },
+  {
+   "id": "riser/cinematic-06.mp3",
+   "group": "riser",
+   "dur": 12.04,
+   "peak_db": -0.6,
+   "mean_db": -18.1,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 06.wav"
+  },
+  {
+   "id": "riser/cinematic-07.mp3",
+   "group": "riser",
+   "dur": 10.53,
+   "peak_db": 0.0,
+   "mean_db": -18.6,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 07.wav"
+  },
+  {
+   "id": "riser/cinematic-08.mp3",
+   "group": "riser",
+   "dur": 11.05,
+   "peak_db": 0.0,
+   "mean_db": -18.4,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 08.wav"
+  },
+  {
+   "id": "riser/cinematic-09.mp3",
+   "group": "riser",
+   "dur": 9.12,
+   "peak_db": 0.0,
+   "mean_db": -17.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 09.wav"
+  },
+  {
+   "id": "riser/cinematic-10.mp3",
+   "group": "riser",
+   "dur": 8.99,
+   "peak_db": 0.0,
+   "mean_db": -16.4,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 10.wav"
+  },
+  {
+   "id": "riser/cinematic-11.mp3",
+   "group": "riser",
+   "dur": 7.26,
+   "peak_db": -0.2,
+   "mean_db": -13.8,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 11.wav"
+  },
+  {
+   "id": "riser/cinematic-12.mp3",
+   "group": "riser",
+   "dur": 12.04,
+   "peak_db": -1.7,
+   "mean_db": -20.2,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 12.wav"
+  },
+  {
+   "id": "riser/cinematic-13.mp3",
+   "group": "riser",
+   "dur": 12.04,
+   "peak_db": -2.3,
+   "mean_db": -19.1,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 13.wav"
+  },
+  {
+   "id": "riser/cinematic-14.mp3",
+   "group": "riser",
+   "dur": 3.74,
+   "peak_db": 0.0,
+   "mean_db": -17.4,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 14.wav"
+  },
+  {
+   "id": "riser/cinematic-15.mp3",
+   "group": "riser",
+   "dur": 3.45,
+   "peak_db": 0.0,
+   "mean_db": -21.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 15.wav"
+  },
+  {
+   "id": "riser/cinematic-16.mp3",
+   "group": "riser",
+   "dur": 9.59,
+   "peak_db": -0.3,
+   "mean_db": -15.2,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 16.wav"
+  },
+  {
+   "id": "riser/cinematic-17.mp3",
+   "group": "riser",
+   "dur": 7.76,
+   "peak_db": 0.0,
+   "mean_db": -17.3,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 17.wav"
+  },
+  {
+   "id": "riser/cinematic-18.mp3",
+   "group": "riser",
+   "dur": 6.3,
+   "peak_db": -2.6,
+   "mean_db": -19.3,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 18.wav"
+  },
+  {
+   "id": "riser/cinematic-19.mp3",
+   "group": "riser",
+   "dur": 6.92,
+   "peak_db": -0.3,
+   "mean_db": -27.2,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 19.wav"
+  },
+  {
+   "id": "riser/cinematic-20.mp3",
+   "group": "riser",
+   "dur": 5.3,
+   "peak_db": 0.0,
+   "mean_db": -17.6,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 20.wav"
+  },
+  {
+   "id": "riser/cinematic-21.mp3",
+   "group": "riser",
+   "dur": 3.37,
+   "peak_db": 0.0,
+   "mean_db": -20.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 21.wav"
+  },
+  {
+   "id": "riser/cinematic-22.mp3",
+   "group": "riser",
+   "dur": 7.13,
+   "peak_db": -0.0,
+   "mean_db": -17.5,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 22.wav"
+  },
+  {
+   "id": "riser/cinematic-23.mp3",
+   "group": "riser",
+   "dur": 5.98,
+   "peak_db": -0.2,
+   "mean_db": -17.5,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 23.wav"
+  },
+  {
+   "id": "riser/cinematic-24.mp3",
+   "group": "riser",
+   "dur": 7.47,
+   "peak_db": -0.3,
+   "mean_db": -15.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 24.wav"
+  },
+  {
+   "id": "riser/cinematic-25.mp3",
+   "group": "riser",
+   "dur": 7.03,
+   "peak_db": -0.2,
+   "mean_db": -17.6,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 25.wav"
+  },
+  {
+   "id": "riser/cinematic-26.mp3",
+   "group": "riser",
+   "dur": 6.45,
+   "peak_db": -0.7,
+   "mean_db": -19.2,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 26.wav"
+  },
+  {
+   "id": "riser/cinematic-27.mp3",
+   "group": "riser",
+   "dur": 5.36,
+   "peak_db": 0.0,
+   "mean_db": -19.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 27.wav"
+  },
+  {
+   "id": "riser/cinematic-28.mp3",
+   "group": "riser",
+   "dur": 4.31,
+   "peak_db": -0.3,
+   "mean_db": -16.6,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 28.wav"
+  },
+  {
+   "id": "riser/cinematic-29.mp3",
+   "group": "riser",
+   "dur": 5.04,
+   "peak_db": -0.1,
+   "mean_db": -19.2,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 29.wav"
+  },
+  {
+   "id": "riser/cinematic-30.mp3",
+   "group": "riser",
+   "dur": 8.2,
+   "peak_db": -0.2,
+   "mean_db": -18.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 30.wav"
+  },
+  {
+   "id": "riser/cinematic-31.mp3",
+   "group": "riser",
+   "dur": 8.86,
+   "peak_db": -0.4,
+   "mean_db": -18.1,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 31.wav"
+  },
+  {
+   "id": "riser/cinematic-32.mp3",
+   "group": "riser",
+   "dur": 7.52,
+   "peak_db": -0.0,
+   "mean_db": -17.1,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 32.wav"
+  },
+  {
+   "id": "riser/cinematic-33.mp3",
+   "group": "riser",
+   "dur": 9.69,
+   "peak_db": -0.0,
+   "mean_db": -19.3,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 33.wav"
+  },
+  {
+   "id": "riser/cinematic-34.mp3",
+   "group": "riser",
+   "dur": 10.97,
+   "peak_db": -0.4,
+   "mean_db": -20.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 34.wav"
+  },
+  {
+   "id": "riser/cinematic-35.mp3",
+   "group": "riser",
+   "dur": 9.85,
+   "peak_db": -0.2,
+   "mean_db": -18.9,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 35.wav"
+  },
+  {
+   "id": "riser/cinematic-36.mp3",
+   "group": "riser",
+   "dur": 9.46,
+   "peak_db": -0.2,
+   "mean_db": -19.0,
+   "source": "Essential Sfx/Sound effect/Cinematic Riser/Cinematic 36.wav"
+  },
+  {
+   "id": "riser/cinematic-raiser-dood.mp3",
+   "group": "riser",
+   "dur": 1.1,
+   "peak_db": -0.5,
+   "mean_db": -15.4,
+   "source": "RISERS SFX/cinematic raiser dood.mp3"
+  },
+  {
+   "id": "riser/countdown-beep-tones-bomb-timer-rise-exp.mp3",
+   "group": "riser",
+   "dur": 12.04,
+   "peak_db": 0.0,
+   "mean_db": -12.2,
+   "source": "Essential Sfx/Sound effect/Alarm/countdown-beep-tones-bomb-timer-rise-explosion-version-SBA-300419349.mp3"
+  },
+  {
+   "id": "riser/es-riser-metallic-sfx-producer.mp3",
+   "group": "riser",
+   "dur": 1.75,
+   "peak_db": -1.5,
+   "mean_db": -22.5,
+   "source": "RISERS SFX/ES_Riser Metallic - SFX Producer.mp3"
+  },
+  {
+   "id": "riser/flashback-riser.mp3",
+   "group": "riser",
+   "dur": 2.19,
+   "peak_db": -0.8,
+   "mean_db": -16.7,
+   "source": "RISERS SFX/Flashback Riser.wav"
+  },
+  {
+   "id": "riser/impact-cinematic-boom-05-352465.mp3",
+   "group": "riser",
+   "dur": 2.06,
+   "peak_db": -5.4,
+   "mean_db": -17.9,
+   "source": "Apple Sfx/impact-cinematic-boom-05-352465.mp3"
+  },
+  {
+   "id": "riser/iron-man-blaster.mp3",
+   "group": "riser",
+   "dur": 0.91,
+   "peak_db": -2.3,
+   "mean_db": -24.2,
+   "source": "CINEMATIC SFX/Iron Man Blaster.mp3"
+  },
+  {
+   "id": "riser/metallic-riser.mp3",
+   "group": "riser",
+   "dur": 4.05,
+   "peak_db": -1.8,
+   "mean_db": -24.4,
+   "source": "RISERS SFX/Metallic Riser.wav"
+  },
+  {
+   "id": "riser/rise-2.mp3",
+   "group": "riser",
+   "dur": 11.7,
+   "peak_db": -1.8,
+   "mean_db": -22.2,
+   "source": "Viral sfx/SFX PACK - 4/Rise.wav"
+  },
+  {
+   "id": "riser/rise.mp3",
+   "group": "riser",
+   "dur": 9.69,
+   "peak_db": -1.4,
+   "mean_db": -20.3,
+   "source": "Viral sfx/SFX PACK - 2/Rise.wav"
+  },
+  {
+   "id": "riser/riser-1.mp3",
+   "group": "riser",
+   "dur": 3.68,
+   "peak_db": -16.2,
+   "mean_db": -36.3,
+   "source": "Essential Sfx/Sound effect/Riser/Riser-1.MP3"
+  },
+  {
+   "id": "riser/riser-2.mp3",
+   "group": "riser",
+   "dur": 4.52,
+   "peak_db": -14.4,
+   "mean_db": -33.8,
+   "source": "Essential Sfx/Sound effect/Riser/Riser-2.MP3"
+  },
+  {
+   "id": "riser/riser-2.mp3",
+   "group": "riser",
+   "dur": 1.96,
+   "peak_db": -6.5,
+   "mean_db": -23.7,
+   "source": "RISERS SFX/Riser.wav"
+  },
+  {
+   "id": "riser/riser-3-2.mp3",
+   "group": "riser",
+   "dur": 2.93,
+   "peak_db": -8.6,
+   "mean_db": -30.6,
+   "source": "RISERS SFX/Riser 3.mp3"
+  },
+  {
+   "id": "riser/riser-3.mp3",
+   "group": "riser",
+   "dur": 9.2,
+   "peak_db": -1.1,
+   "mean_db": -18.7,
+   "source": "Essential Sfx/Sound effect/Riser/Riser-3.MP3"
+  },
+  {
+   "id": "riser/riser-3.mp3",
+   "group": "riser",
+   "dur": 1.91,
+   "peak_db": -2.7,
+   "mean_db": -24.5,
+   "source": "Spacial Sfx/Riser.mp3"
+  },
+  {
+   "id": "riser/riser-by-dood.mp3",
+   "group": "riser",
+   "dur": 1.12,
+   "peak_db": -8.4,
+   "mean_db": -30.1,
+   "source": "RISERS SFX/RISER BY  DOOD.mp3"
+  },
+  {
+   "id": "riser/riser-sfx.mp3",
+   "group": "riser",
+   "dur": 3.24,
+   "peak_db": 0.0,
+   "mean_db": -21.7,
+   "source": "RISERS SFX/Riser sfx.wav"
+  },
+  {
+   "id": "riser/riser-short.mp3",
+   "group": "riser",
+   "dur": 4.39,
+   "peak_db": -0.9,
+   "mean_db": -19.2,
+   "source": "Essential Sfx/Riser Short.wav"
+  },
+  {
+   "id": "riser/riser-suction-sfx.mp3",
+   "group": "riser",
+   "dur": 2.3,
+   "peak_db": -1.7,
+   "mean_db": -19.3,
+   "source": "RISERS SFX/Riser suction sfx.mp3"
+  },
+  {
+   "id": "riser/riser.mp3",
+   "group": "riser",
+   "dur": 1.78,
+   "peak_db": -0.4,
+   "mean_db": -22.3,
+   "source": "Apple Sfx/Riser .mp3"
+  },
+  {
+   "id": "riser/sharp-riser.mp3",
+   "group": "riser",
+   "dur": 1.28,
+   "peak_db": -3.6,
+   "mean_db": -25.7,
+   "source": "RISERS SFX/Sharp Riser.wav"
+  },
+  {
+   "id": "shatter/explosion-glass-shattering.mp3",
+   "group": "shatter",
+   "dur": 6.5,
+   "peak_db": -0.5,
+   "mean_db": -18.2,
+   "source": "SHATTER/Explosion, Glass Shattering .aac"
+  },
+  {
+   "id": "shatter/plate-breaking-sound-effect.mp3",
+   "group": "shatter",
+   "dur": 2.01,
+   "peak_db": -0.0,
+   "mean_db": -23.4,
+   "source": "SHATTER/Plate Breaking Sound Effect.mp3"
+  },
+  {
+   "id": "shatter/skyes-audio-do-not-break-broken-glass-sh.mp3",
+   "group": "shatter",
+   "dur": 2.38,
+   "peak_db": -3.6,
+   "mean_db": -23.2,
+   "source": "SHATTER/Skyes Audio - Do Not Break - Broken Glass Shatter Shards Scattering.wav"
+  },
+  {
+   "id": "ui/01jtggh7zemxgp25rskm3eydgx.mp3",
+   "group": "ui",
+   "dur": 5.25,
+   "peak_db": -5.1,
+   "mean_db": -30.7,
+   "source": "Froster Ui SFXs/01JTGGH7ZEMXGP25RSKM3EYDGX.mp3"
+  },
+  {
+   "id": "ui/album.mp3",
+   "group": "ui",
+   "dur": 1.44,
+   "peak_db": -4.4,
+   "mean_db": -29.6,
+   "source": "Froster Ui SFXs/Album.wav"
+  },
+  {
+   "id": "ui/bing.mp3",
+   "group": "ui",
+   "dur": 0.6,
+   "peak_db": -6.0,
+   "mean_db": -22.2,
+   "source": "Froster Ui SFXs/Bing.wav"
+  },
+  {
+   "id": "ui/border.mp3",
+   "group": "ui",
+   "dur": 0.13,
+   "peak_db": -5.6,
+   "mean_db": -25.4,
+   "source": "Froster Ui SFXs/Border.wav"
+  },
+  {
+   "id": "ui/button-press.mp3",
+   "group": "ui",
+   "dur": 0.34,
+   "peak_db": -1.5,
+   "mean_db": -26.7,
+   "source": "UI SOUNDS/button-press.mp3"
+  },
+  {
+   "id": "ui/cancel.mp3",
+   "group": "ui",
+   "dur": 1.25,
+   "peak_db": -5.4,
+   "mean_db": -20.9,
+   "source": "UI SOUNDS/cancel.MP3"
+  },
+  {
+   "id": "ui/controller.mp3",
+   "group": "ui",
+   "dur": 1.15,
+   "peak_db": -5.7,
+   "mean_db": -26.1,
+   "source": "Froster Ui SFXs/Controller.wav"
+  },
+  {
+   "id": "ui/dada-0.mp3",
+   "group": "ui",
+   "dur": 2.59,
+   "peak_db": -4.3,
+   "mean_db": -25.6,
+   "source": "Froster Ui SFXs/Dada 0.wav"
+  },
+  {
+   "id": "ui/dada-1.mp3",
+   "group": "ui",
+   "dur": 1.72,
+   "peak_db": -4.5,
+   "mean_db": -23.9,
+   "source": "Froster Ui SFXs/Dada 1.wav"
+  },
+  {
+   "id": "ui/dodo.mp3",
+   "group": "ui",
+   "dur": 3.37,
+   "peak_db": -4.3,
+   "mean_db": -22.8,
+   "source": "Froster Ui SFXs/Dodo.wav"
+  },
+  {
+   "id": "ui/enter-back.mp3",
+   "group": "ui",
+   "dur": 0.1,
+   "peak_db": -4.9,
+   "mean_db": -21.3,
+   "source": "Froster Ui SFXs/Enter & Back.wav"
+  },
+  {
+   "id": "ui/enter.mp3",
+   "group": "ui",
+   "dur": 3.63,
+   "peak_db": -0.4,
+   "mean_db": -31.2,
+   "source": "Essential Sfx/Essential/Enter.mp3"
+  },
+  {
+   "id": "ui/es-bubble-sound.mp3",
+   "group": "ui",
+   "dur": 0.6,
+   "peak_db": -3.7,
+   "mean_db": -24.8,
+   "source": "UI SOUNDS/ES Bubble sound.mp3"
+  },
+  {
+   "id": "ui/es-fast-phone-tap-ui.mp3",
+   "group": "ui",
+   "dur": 4.05,
+   "peak_db": -3.7,
+   "mean_db": -32.4,
+   "source": "UI SOUNDS/ES_Fast Phone Tap UI.mp3"
+  },
+  {
+   "id": "ui/es-sci-fi-games-ui-menu-very-short-open--2.mp3",
+   "group": "ui",
+   "dur": 2.19,
+   "peak_db": -9.6,
+   "mean_db": -37.0,
+   "source": "UI SOUNDS/ES_Sci Fi Games, UI Menu, Very Short, Open 16 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-sci-fi-games-ui-menu-very-short-open--3.mp3",
+   "group": "ui",
+   "dur": 2.27,
+   "peak_db": -15.3,
+   "mean_db": -40.1,
+   "source": "UI SOUNDS/ES_Sci Fi Games, UI Menu, Very Short, Open 19 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-sci-fi-games-ui-menu-very-short-open-.mp3",
+   "group": "ui",
+   "dur": 2.22,
+   "peak_db": -10.8,
+   "mean_db": -41.1,
+   "source": "UI SOUNDS/ES_Sci Fi Games, UI Menu, Very Short, Open 11 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-select-confirm-neutral-dry-bright-epi.mp3",
+   "group": "ui",
+   "dur": 2.61,
+   "peak_db": -13.6,
+   "mean_db": -28.6,
+   "source": "UI SOUNDS/ES_Select, Confirm, Neutral, Dry, Bright - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-select-confirm-neutral-plucky-reverb-.mp3",
+   "group": "ui",
+   "dur": 4.55,
+   "peak_db": -9.2,
+   "mean_db": -31.4,
+   "source": "UI SOUNDS/ES_Select, Confirm, Neutral, Plucky, Reverb - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-select-confirm-neutral-short-epidemic.mp3",
+   "group": "ui",
+   "dur": 10.03,
+   "peak_db": -9.7,
+   "mean_db": -31.6,
+   "source": "UI SOUNDS/ES_Select, Confirm, Neutral, Short - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-select-smartphone-ui.mp3",
+   "group": "ui",
+   "dur": 4.28,
+   "peak_db": -11.9,
+   "mean_db": -29.9,
+   "source": "UI SOUNDS/ES_Select smartphone UI.mp3"
+  },
+  {
+   "id": "ui/es-soft-round-pluck-ui.mp3",
+   "group": "ui",
+   "dur": 10.06,
+   "peak_db": -5.9,
+   "mean_db": -30.1,
+   "source": "UI SOUNDS/ES_Soft Round Pluck UI.mp3"
+  },
+  {
+   "id": "ui/es-success-reward-bright-happy-twinkle-0.mp3",
+   "group": "ui",
+   "dur": 7.24,
+   "peak_db": -11.2,
+   "mean_db": -31.3,
+   "source": "UI SOUNDS/ES_Success, Reward, Bright, Happy Twinkle 03 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-success-reward-bright-happy-twinkle-s.mp3",
+   "group": "ui",
+   "dur": 10.74,
+   "peak_db": -4.2,
+   "mean_db": -31.1,
+   "source": "UI SOUNDS/ES_Success, Reward, Bright, Happy Twinkle, Short - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-ui-positive-02-epidemic-sound.mp3",
+   "group": "ui",
+   "dur": 3.84,
+   "peak_db": -1.6,
+   "mean_db": -31.7,
+   "source": "UI SOUNDS/ES_UI, Positive 02 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-ui-positive-03-epidemic-sound.mp3",
+   "group": "ui",
+   "dur": 5.67,
+   "peak_db": -1.0,
+   "mean_db": -32.2,
+   "source": "UI SOUNDS/ES_UI, Positive 03 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/es-ui-swipe-02-epidemic-sound.mp3",
+   "group": "ui",
+   "dur": 4.05,
+   "peak_db": -2.8,
+   "mean_db": -35.5,
+   "source": "UI SOUNDS/ES_UI, Swipe 02 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "ui/highlight.mp3",
+   "group": "ui",
+   "dur": 0.81,
+   "peak_db": -6.2,
+   "mean_db": -26.3,
+   "source": "Essential Sfx/Highlight.wav"
+  },
+  {
+   "id": "ui/home.mp3",
+   "group": "ui",
+   "dur": 1.07,
+   "peak_db": -6.7,
+   "mean_db": -24.5,
+   "source": "Froster Ui SFXs/Home.wav"
+  },
+  {
+   "id": "ui/interface-sound.mp3",
+   "group": "ui",
+   "dur": 1.07,
+   "peak_db": -0.0,
+   "mean_db": -19.6,
+   "source": "Viral sfx/SFX PACK - 2/Interface Sound.wav"
+  },
+  {
+   "id": "ui/iphone-tab-sfx.mp3",
+   "group": "ui",
+   "dur": 0.99,
+   "peak_db": -4.5,
+   "mean_db": -38.8,
+   "source": "UI SOUNDS/Iphone tab sfx.MP3"
+  },
+  {
+   "id": "ui/loading-sfx.mp3",
+   "group": "ui",
+   "dur": 2.17,
+   "peak_db": 0.0,
+   "mean_db": -6.5,
+   "source": "OTHERS/Loading sfx.mp3"
+  },
+  {
+   "id": "ui/mixkit-cool-interface-click-tone-2568.mp3",
+   "group": "ui",
+   "dur": 0.24,
+   "peak_db": -6.4,
+   "mean_db": -27.4,
+   "source": "Apple Sfx/mixkit-cool-interface-click-tone-2568.wav"
+  },
+  {
+   "id": "ui/mixkit-interface-hint-notification-911.mp3",
+   "group": "ui",
+   "dur": 1.62,
+   "peak_db": -16.7,
+   "mean_db": -31.9,
+   "source": "Apple Sfx/mixkit-interface-hint-notification-911.wav"
+  },
+  {
+   "id": "ui/ni-sound-cute-interface-bubble-pop-synth.mp3",
+   "group": "ui",
+   "dur": 1.44,
+   "peak_db": -2.0,
+   "mean_db": -27.3,
+   "source": "UI SOUNDS/Ni Sound - Cute Interface -  Bubble Pop Synth Chord Positive Notification.wav"
+  },
+  {
+   "id": "ui/ni-sound-matching-game-achievement-unloc.mp3",
+   "group": "ui",
+   "dur": 1.41,
+   "peak_db": -2.3,
+   "mean_db": -19.0,
+   "source": "UI SOUNDS/Ni Sound - Matching Game - Achievement Unlocked Delayed Pling (1).wav"
+  },
+  {
+   "id": "ui/pc-on-2-sfx.mp3",
+   "group": "ui",
+   "dur": 0.68,
+   "peak_db": -2.3,
+   "mean_db": -18.9,
+   "source": "OTHERS/PC on 2 sfx.mp3"
+  },
+  {
+   "id": "ui/pc-on-sfx.mp3",
+   "group": "ui",
+   "dur": 0.81,
+   "peak_db": -0.9,
+   "mean_db": -19.7,
+   "source": "OTHERS/PC on sfx.mp3"
+  },
+  {
+   "id": "ui/rewind.mp3",
+   "group": "ui",
+   "dur": 4.81,
+   "peak_db": -11.7,
+   "mean_db": -27.8,
+   "source": "Essential Sfx/Essential/Rewind.mp3"
+  },
+  {
+   "id": "ui/sfx-ui01.mp3",
+   "group": "ui",
+   "dur": 0.21,
+   "peak_db": -7.0,
+   "mean_db": -23.7,
+   "source": "UI SOUNDS/SFX- Ui01.mp3"
+  },
+  {
+   "id": "ui/sfx-ui02.mp3",
+   "group": "ui",
+   "dur": 0.73,
+   "peak_db": -6.4,
+   "mean_db": -31.2,
+   "source": "UI SOUNDS/SFX- Ui02.mp3"
+  },
+  {
+   "id": "ui/sfx-ui03.mp3",
+   "group": "ui",
+   "dur": 1.38,
+   "peak_db": -13.1,
+   "mean_db": -32.1,
+   "source": "UI SOUNDS/SFX- Ui03.mp3"
+  },
+  {
+   "id": "ui/sfx-ui04.mp3",
+   "group": "ui",
+   "dur": 0.29,
+   "peak_db": -6.4,
+   "mean_db": -36.7,
+   "source": "UI SOUNDS/SFX- Ui04.mp3"
+  },
+  {
+   "id": "ui/sfx-ui05.mp3",
+   "group": "ui",
+   "dur": 0.47,
+   "peak_db": -6.4,
+   "mean_db": -35.8,
+   "source": "UI SOUNDS/SFX- Ui05.mp3"
+  },
+  {
+   "id": "ui/sfx-ui06.mp3",
+   "group": "ui",
+   "dur": 1.31,
+   "peak_db": -7.2,
+   "mean_db": -31.4,
+   "source": "UI SOUNDS/SFX- Ui06.mp3"
+  },
+  {
+   "id": "ui/sfx-ui07.mp3",
+   "group": "ui",
+   "dur": 0.55,
+   "peak_db": -6.1,
+   "mean_db": -24.8,
+   "source": "UI SOUNDS/SFX- Ui07.mp3"
+  },
+  {
+   "id": "ui/sfx-ui08.mp3",
+   "group": "ui",
+   "dur": 0.34,
+   "peak_db": -5.7,
+   "mean_db": -31.2,
+   "source": "UI SOUNDS/SFX- Ui08.mp3"
+  },
+  {
+   "id": "ui/sfx-ui09.mp3",
+   "group": "ui",
+   "dur": 0.81,
+   "peak_db": -7.6,
+   "mean_db": -24.8,
+   "source": "UI SOUNDS/SFX- Ui09.mp3"
+  },
+  {
+   "id": "ui/sfx-ui10.mp3",
+   "group": "ui",
+   "dur": 0.65,
+   "peak_db": -7.4,
+   "mean_db": -25.5,
+   "source": "UI SOUNDS/SFX- Ui10.mp3"
+  },
+  {
+   "id": "ui/spin.mp3",
+   "group": "ui",
+   "dur": 3.68,
+   "peak_db": -11.8,
+   "mean_db": -42.8,
+   "source": "UI SOUNDS/spin.mp3"
+  },
+  {
+   "id": "ui/sweet-ui-button.mp3",
+   "group": "ui",
+   "dur": 1.1,
+   "peak_db": -1.2,
+   "mean_db": -28.7,
+   "source": "UI SOUNDS/Sweet UI Button.wav"
+  },
+  {
+   "id": "ui/sweet-ui-open.mp3",
+   "group": "ui",
+   "dur": 1.1,
+   "peak_db": -1.2,
+   "mean_db": -25.8,
+   "source": "UI SOUNDS/Sweet UI Open.wav"
+  },
+  {
+   "id": "ui/swipe-236674.mp3",
+   "group": "ui",
+   "dur": 0.1,
+   "peak_db": -10.5,
+   "mean_db": -27.3,
+   "source": "UI SOUNDS/swipe-236674.mp3"
+  },
+  {
+   "id": "ui/tape-rewind.mp3",
+   "group": "ui",
+   "dur": 4.28,
+   "peak_db": -5.9,
+   "mean_db": -23.4,
+   "source": "Essential Sfx/Sound effect/Random memes/Tape Rewind.mp3"
+  },
+  {
+   "id": "ui/tech-device-action.mp3",
+   "group": "ui",
+   "dur": 1.15,
+   "peak_db": -1.2,
+   "mean_db": -28.3,
+   "source": "UI SOUNDS/Tech Device Action.wav"
+  },
+  {
+   "id": "ui/tech-interface.mp3",
+   "group": "ui",
+   "dur": 0.44,
+   "peak_db": 0.0,
+   "mean_db": -11.8,
+   "source": "UI SOUNDS/Tech interface.wav"
+  },
+  {
+   "id": "ui/tok-sfx-1-by-dood.mp3",
+   "group": "ui",
+   "dur": 2.9,
+   "peak_db": -0.5,
+   "mean_db": -28.0,
+   "source": "UI SOUNDS/TOK SFX. 1 BY DOOD.mp3"
+  },
+  {
+   "id": "ui/tot-ui.mp3",
+   "group": "ui",
+   "dur": 0.21,
+   "peak_db": -3.7,
+   "mean_db": -22.4,
+   "source": "UI SOUNDS/Tot UI.WAV"
+  },
+  {
+   "id": "ui/ui-1.mp3",
+   "group": "ui",
+   "dur": 1.44,
+   "peak_db": -0.3,
+   "mean_db": -13.1,
+   "source": "UI SOUNDS/Ui 1.wav"
+  },
+  {
+   "id": "ui/ui-10.mp3",
+   "group": "ui",
+   "dur": 0.71,
+   "peak_db": -7.3,
+   "mean_db": -28.6,
+   "source": "UI SOUNDS/Ui 10.mp3"
+  },
+  {
+   "id": "ui/ui-2.mp3",
+   "group": "ui",
+   "dur": 0.65,
+   "peak_db": -5.8,
+   "mean_db": -22.9,
+   "source": "UI SOUNDS/Ui 2.mp3"
+  },
+  {
+   "id": "ui/ui-3.mp3",
+   "group": "ui",
+   "dur": 0.99,
+   "peak_db": -5.4,
+   "mean_db": -33.3,
+   "source": "UI SOUNDS/Ui 3.aac"
+  },
+  {
+   "id": "ui/ui-4.mp3",
+   "group": "ui",
+   "dur": 1.23,
+   "peak_db": -19.1,
+   "mean_db": -34.8,
+   "source": "UI SOUNDS/Ui 4.wav"
+  },
+  {
+   "id": "ui/ui-5.mp3",
+   "group": "ui",
+   "dur": 1.96,
+   "peak_db": -2.5,
+   "mean_db": -23.0,
+   "source": "UI SOUNDS/Ui 5.wav"
+  },
+  {
+   "id": "ui/ui-6.mp3",
+   "group": "ui",
+   "dur": 0.47,
+   "peak_db": -4.6,
+   "mean_db": -23.2,
+   "source": "UI SOUNDS/Ui 6.wav"
+  },
+  {
+   "id": "ui/ui-7.mp3",
+   "group": "ui",
+   "dur": 3.58,
+   "peak_db": -3.8,
+   "mean_db": -21.6,
+   "source": "UI SOUNDS/Ui 7.wav"
+  },
+  {
+   "id": "ui/ui-8.mp3",
+   "group": "ui",
+   "dur": 1.85,
+   "peak_db": -0.2,
+   "mean_db": -17.5,
+   "source": "UI SOUNDS/Ui 8.wav"
+  },
+  {
+   "id": "ui/ui-9.mp3",
+   "group": "ui",
+   "dur": 0.24,
+   "peak_db": -3.9,
+   "mean_db": -20.2,
+   "source": "UI SOUNDS/Ui 9.aac"
+  },
+  {
+   "id": "ui/ui-interface-sound-16-299042.mp3",
+   "group": "ui",
+   "dur": 6.01,
+   "peak_db": -2.8,
+   "mean_db": -30.4,
+   "source": "UI SOUNDS/ui-interface-sound-16-299042.mp3"
+  },
+  {
+   "id": "ui/ui-ping.mp3",
+   "group": "ui",
+   "dur": 1.38,
+   "peak_db": -2.7,
+   "mean_db": -20.9,
+   "source": "UI SOUNDS/UI ping.wav"
+  },
+  {
+   "id": "ui/ui-sound-270349.mp3",
+   "group": "ui",
+   "dur": 3.16,
+   "peak_db": -15.2,
+   "mean_db": -35.9,
+   "source": "UI SOUNDS/ui-sound-270349.mp3"
+  },
+  {
+   "id": "ui/user-interface-tone.mp3",
+   "group": "ui",
+   "dur": 1.52,
+   "peak_db": -3.4,
+   "mean_db": -27.9,
+   "source": "UI SOUNDS/user-interface-tone.wav"
+  },
+  {
+   "id": "ui/wind-up2-106350.mp3",
+   "group": "ui",
+   "dur": 0.65,
+   "peak_db": -12.7,
+   "mean_db": -36.0,
+   "source": "UI SOUNDS/wind-up2-106350.mp3"
+  },
+  {
+   "id": "ui/wrong-ui.mp3",
+   "group": "ui",
+   "dur": 1.04,
+   "peak_db": -8.9,
+   "mean_db": -26.8,
+   "source": "UI SOUNDS/Wrong UI.mp3"
+  },
+  {
+   "id": "whoosh/1-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 4.05,
+   "peak_db": -2.2,
+   "mean_db": -24.3,
+   "source": "Essential Sfx/Swoosh effects/1. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/10-impact-in-one.mp3",
+   "group": "whoosh",
+   "dur": 12.04,
+   "peak_db": 0.0,
+   "mean_db": -14.9,
+   "source": "Essential Sfx/Swoosh effects/10 Impact in one .mp3"
+  },
+  {
+   "id": "whoosh/10-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 2.46,
+   "peak_db": -2.7,
+   "mean_db": -22.4,
+   "source": "Essential Sfx/Swoosh effects/10. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/11-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.97,
+   "peak_db": -2.1,
+   "mean_db": -28.2,
+   "source": "Essential Sfx/Swoosh effects/11. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/12-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 4.05,
+   "peak_db": -6.8,
+   "mean_db": -30.4,
+   "source": "Essential Sfx/Swoosh effects/12. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/13-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 2.3,
+   "peak_db": -0.5,
+   "mean_db": -19.7,
+   "source": "Essential Sfx/Swoosh effects/13. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/14-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.89,
+   "peak_db": -6.2,
+   "mean_db": -35.3,
+   "source": "Essential Sfx/Swoosh effects/14. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/15-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.25,
+   "peak_db": -13.5,
+   "mean_db": -31.0,
+   "source": "Essential Sfx/Swoosh effects/15. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/16-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.66,
+   "peak_db": -7.6,
+   "mean_db": -26.4,
+   "source": "Essential Sfx/Swoosh effects/16. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/17-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.08,
+   "peak_db": -3.1,
+   "mean_db": -21.2,
+   "source": "Essential Sfx/Swoosh effects/17. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/18-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.79,
+   "peak_db": -14.7,
+   "mean_db": -40.6,
+   "source": "Essential Sfx/Swoosh effects/18. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/19-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.46,
+   "peak_db": -2.9,
+   "mean_db": -26.1,
+   "source": "Essential Sfx/Swoosh effects/19. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/2-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.83,
+   "peak_db": -5.9,
+   "mean_db": -31.3,
+   "source": "Essential Sfx/Swoosh effects/2. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/20-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 2.04,
+   "peak_db": -5.6,
+   "mean_db": -22.7,
+   "source": "Essential Sfx/Swoosh effects/20. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/21-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.33,
+   "peak_db": -10.1,
+   "mean_db": -29.9,
+   "source": "Essential Sfx/Swoosh effects/21. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/22-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.03,
+   "peak_db": -6.7,
+   "mean_db": -25.6,
+   "source": "Essential Sfx/Swoosh effects/22. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/23-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.87,
+   "peak_db": -6.0,
+   "mean_db": -27.9,
+   "source": "Essential Sfx/Swoosh effects/23. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/25-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.97,
+   "peak_db": -9.5,
+   "mean_db": -35.9,
+   "source": "Essential Sfx/Swoosh effects/25. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/26-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 2.64,
+   "peak_db": -2.2,
+   "mean_db": -18.6,
+   "source": "Essential Sfx/Swoosh effects/26. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/27-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.93,
+   "peak_db": -5.3,
+   "mean_db": -21.4,
+   "source": "Essential Sfx/Swoosh effects/27. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/28-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.57,
+   "peak_db": -5.9,
+   "mean_db": -28.4,
+   "source": "Essential Sfx/Swoosh effects/28. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/29-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.88,
+   "peak_db": -0.8,
+   "mean_db": -22.9,
+   "source": "Essential Sfx/Swoosh effects/29. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/3-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.75,
+   "peak_db": -1.0,
+   "mean_db": -22.5,
+   "source": "Essential Sfx/Swoosh effects/3. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/30-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.49,
+   "peak_db": -0.6,
+   "mean_db": -22.3,
+   "source": "Essential Sfx/Swoosh effects/30. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/4-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.88,
+   "peak_db": -0.2,
+   "mean_db": -23.0,
+   "source": "Essential Sfx/Swoosh effects/4. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/5-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.84,
+   "peak_db": -4.9,
+   "mean_db": -28.6,
+   "source": "Essential Sfx/Swoosh effects/5. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/6-light-woosh.mp3",
+   "group": "whoosh",
+   "dur": 5.28,
+   "peak_db": -8.4,
+   "mean_db": -25.3,
+   "source": "WHOOSH/6 light-woosh.mp3"
+  },
+  {
+   "id": "whoosh/6-whoosh-swoosh-2.mp3",
+   "group": "whoosh",
+   "dur": 3.92,
+   "peak_db": -0.4,
+   "mean_db": -29.3,
+   "source": "SWOOSH/6. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/6-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.92,
+   "peak_db": -7.6,
+   "mean_db": -29.6,
+   "source": "Essential Sfx/Swoosh effects/6. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/7-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 4.0,
+   "peak_db": -4.1,
+   "mean_db": -26.2,
+   "source": "Essential Sfx/Swoosh effects/7. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/8-whoosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.84,
+   "peak_db": -4.6,
+   "mean_db": -26.5,
+   "source": "Essential Sfx/Swoosh effects/8. Whoosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/9-whooosh-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 4.0,
+   "peak_db": -6.0,
+   "mean_db": -32.0,
+   "source": "Essential Sfx/Swoosh effects/9. Whooosh Swoosh.wav"
+  },
+  {
+   "id": "whoosh/anime-shine.mp3",
+   "group": "whoosh",
+   "dur": 2.17,
+   "peak_db": -11.5,
+   "mean_db": -26.9,
+   "source": "SWEEP SFX/Anime Shine.mp3"
+  },
+  {
+   "id": "whoosh/data-whoosh.mp3",
+   "group": "whoosh",
+   "dur": 2.51,
+   "peak_db": -13.3,
+   "mean_db": -34.1,
+   "source": "WHOOSH/Data Whoosh.wav"
+  },
+  {
+   "id": "whoosh/deep-long-whoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.27,
+   "peak_db": -0.2,
+   "mean_db": -18.1,
+   "source": "WHOOSH/Deep Long Whoosh.wav"
+  },
+  {
+   "id": "whoosh/deep-low-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.92,
+   "peak_db": -2.4,
+   "mean_db": -20.7,
+   "source": "SWOOSH/Deep Low Swoosh.wav"
+  },
+  {
+   "id": "whoosh/digital-small-whoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.38,
+   "peak_db": -17.8,
+   "mean_db": -40.7,
+   "source": "WHOOSH/Digital Small whoosh.wav"
+  },
+  {
+   "id": "whoosh/es-fast-digital-scifi-epidemic-sound.mp3",
+   "group": "whoosh",
+   "dur": 5.02,
+   "peak_db": -0.0,
+   "mean_db": -22.2,
+   "source": "WHOOSH/ES_Fast Digital, Scifi - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-generic-long-whooshes-fast-attack-rel.mp3",
+   "group": "whoosh",
+   "dur": 11.23,
+   "peak_db": -11.9,
+   "mean_db": -33.8,
+   "source": "WHOOSH/ES_Generic Long Whooshes, Fast Attack, Release - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-organic-thunder-low-texture-epidemic-.mp3",
+   "group": "whoosh",
+   "dur": 4.65,
+   "peak_db": -6.0,
+   "mean_db": -21.1,
+   "source": "WHOOSH/ES_Organic, Thunder, Low Texture - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-organic-wind-soft-normal-02-epidemic-.mp3",
+   "group": "whoosh",
+   "dur": 11.76,
+   "peak_db": -6.4,
+   "mean_db": -24.1,
+   "source": "WHOOSH/ES_Organic, Wind, Soft, Normal 02 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-organic-wind-soft-normal-04-epidemic-.mp3",
+   "group": "whoosh",
+   "dur": 2.66,
+   "peak_db": -6.1,
+   "mean_db": -23.1,
+   "source": "WHOOSH/ES_Organic, Wind, Soft, Normal 04 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-short-deep-dry-whoosh.mp3",
+   "group": "whoosh",
+   "dur": 3.0,
+   "peak_db": -4.3,
+   "mean_db": -23.2,
+   "source": "WHOOSH/ES_Short, Deep, Dry - Whoosh.mp3"
+  },
+  {
+   "id": "whoosh/es-short-drawer-short-delay-dry-epidemic.mp3",
+   "group": "whoosh",
+   "dur": 4.26,
+   "peak_db": -2.3,
+   "mean_db": -22.6,
+   "source": "WHOOSH/ES_Short, Drawer, Short Delay, Dry - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-short-dry-01-epidemic-sound.mp3",
+   "group": "whoosh",
+   "dur": 4.02,
+   "peak_db": -1.6,
+   "mean_db": -23.9,
+   "source": "WHOOSH/ES_Short, Dry 01 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-short-harsh-stone-flakes-dry-epidemic.mp3",
+   "group": "whoosh",
+   "dur": 3.81,
+   "peak_db": -4.3,
+   "mean_db": -24.2,
+   "source": "WHOOSH/ES_Short, Harsh, Stone Flakes, Dry - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-short-low-dry-02-epidemic-sound.mp3",
+   "group": "whoosh",
+   "dur": 3.0,
+   "peak_db": -4.0,
+   "mean_db": -23.3,
+   "source": "WHOOSH/ES_Short, Low, Dry 02 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-short-washed-mids-low-end-dry-epidemi.mp3",
+   "group": "whoosh",
+   "dur": 3.19,
+   "peak_db": -2.7,
+   "mean_db": -20.1,
+   "source": "WHOOSH/ES_Short, Washed Mids, Low End, Dry - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/es-whip-whoosh-2.mp3",
+   "group": "whoosh",
+   "dur": 0.26,
+   "peak_db": -1.4,
+   "mean_db": -16.9,
+   "source": "WHOOSH/ES_Whip Whoosh 2.mp3"
+  },
+  {
+   "id": "whoosh/es-whip-whoosh-3.mp3",
+   "group": "whoosh",
+   "dur": 0.26,
+   "peak_db": -1.2,
+   "mean_db": -16.5,
+   "source": "WHOOSH/ES_Whip Whoosh 3.mp3"
+  },
+  {
+   "id": "whoosh/es-wind-soft-short-02-epidemic-sound.mp3",
+   "group": "whoosh",
+   "dur": 4.39,
+   "peak_db": -5.6,
+   "mean_db": -23.5,
+   "source": "WHOOSH/ES_Wind, Soft, Short 02 - Epidemic Sound.mp3"
+  },
+  {
+   "id": "whoosh/ese-fight-pack-whoosh-slowmo-01.mp3",
+   "group": "whoosh",
+   "dur": 3.37,
+   "peak_db": -7.8,
+   "mean_db": -28.9,
+   "source": "WHOOSH/ESE - FIGHT PACK - WHOOSH - SlowMo 01.wav"
+  },
+  {
+   "id": "whoosh/ese-fight-pack-whoosh-slowmo-03.mp3",
+   "group": "whoosh",
+   "dur": 3.32,
+   "peak_db": -6.7,
+   "mean_db": -26.0,
+   "source": "Essential Sfx/Free Woosh/ESE - FIGHT PACK - WHOOSH - SlowMo 03.wav"
+  },
+  {
+   "id": "whoosh/ese-fight-pack-whoosh-slowmo-04.mp3",
+   "group": "whoosh",
+   "dur": 3.34,
+   "peak_db": -7.7,
+   "mean_db": -26.6,
+   "source": "Essential Sfx/Free Woosh/ESE - FIGHT PACK - WHOOSH - SlowMo 04.wav"
+  },
+  {
+   "id": "whoosh/ese-fight-pack-whoosh-slowmo-05.mp3",
+   "group": "whoosh",
+   "dur": 3.34,
+   "peak_db": -7.0,
+   "mean_db": -26.7,
+   "source": "Essential Sfx/Free Woosh/ESE - FIGHT PACK - WHOOSH - SlowMo 05.wav"
+  },
+  {
+   "id": "whoosh/ese-fight-pack-whoosh-slowmo-06.mp3",
+   "group": "whoosh",
+   "dur": 3.29,
+   "peak_db": -6.3,
+   "mean_db": -24.6,
+   "source": "Essential Sfx/Free Woosh/ESE - FIGHT PACK - WHOOSH - SlowMo 06.wav"
+  },
+  {
+   "id": "whoosh/fast-whoosh-118248.mp3",
+   "group": "whoosh",
+   "dur": 1.02,
+   "peak_db": -8.4,
+   "mean_db": -27.4,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/fast-whoosh-118248.mp3"
+  },
+  {
+   "id": "whoosh/glitter-04-variant-plus-6.mp3",
+   "group": "whoosh",
+   "dur": 1.46,
+   "peak_db": -17.4,
+   "mean_db": -34.3,
+   "source": "SWEEP SFX/Glitter 04_Variant Plus 6.wav"
+  },
+  {
+   "id": "whoosh/light-sweep-sfx.mp3",
+   "group": "whoosh",
+   "dur": 4.68,
+   "peak_db": -6.9,
+   "mean_db": -27.4,
+   "source": "SWEEP SFX/Light Sweep Sfx.mp3"
+  },
+  {
+   "id": "whoosh/lighter-click-fire-woosh-326482.mp3",
+   "group": "whoosh",
+   "dur": 1.07,
+   "peak_db": -0.6,
+   "mean_db": -19.8,
+   "source": "Spacial Sfx/lighter-click-fire-woosh-326482.mp3"
+  },
+  {
+   "id": "whoosh/long-whoosh.mp3",
+   "group": "whoosh",
+   "dur": 0.6,
+   "peak_db": -0.9,
+   "mean_db": -17.3,
+   "source": "WHOOSH/Long whoosh.mp3"
+  },
+  {
+   "id": "whoosh/long-woosh-1.mp3",
+   "group": "whoosh",
+   "dur": 5.64,
+   "peak_db": -0.9,
+   "mean_db": -17.7,
+   "source": "Essential Sfx/Long Woosh 1.mp3"
+  },
+  {
+   "id": "whoosh/low-slow-whoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.99,
+   "peak_db": -2.3,
+   "mean_db": -17.1,
+   "source": "Essential Sfx/Essential/Low Slow Whoosh.wav"
+  },
+  {
+   "id": "whoosh/quick-woosh-by-dood.mp3",
+   "group": "whoosh",
+   "dur": 1.1,
+   "peak_db": -8.4,
+   "mean_db": -28.8,
+   "source": "WHOOSH/quick woosh by dood.mp3"
+  },
+  {
+   "id": "whoosh/rake-swing-whoosh-close.mp3",
+   "group": "whoosh",
+   "dur": 1.99,
+   "peak_db": -14.2,
+   "mean_db": -36.4,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Rake Swing Whoosh Close.mp3"
+  },
+  {
+   "id": "whoosh/rm-whoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.57,
+   "peak_db": -0.2,
+   "mean_db": -17.6,
+   "source": "Essential Sfx/Essential/rm whoosh.wav"
+  },
+  {
+   "id": "whoosh/sfx-swoosh04.mp3",
+   "group": "whoosh",
+   "dur": 0.91,
+   "peak_db": -6.3,
+   "mean_db": -21.3,
+   "source": "Essential Sfx/SFX- Swoosh04.mp3"
+  },
+  {
+   "id": "whoosh/shine-light-sweep.mp3",
+   "group": "whoosh",
+   "dur": 5.77,
+   "peak_db": -4.3,
+   "mean_db": -27.6,
+   "source": "SWEEP SFX/Shine Light Sweep.mp3"
+  },
+  {
+   "id": "whoosh/shine-sound-effect-hd.mp3",
+   "group": "whoosh",
+   "dur": 5.43,
+   "peak_db": -12.7,
+   "mean_db": -34.5,
+   "source": "SWEEP SFX/Shine - Sound Effect (HD).mp4"
+  },
+  {
+   "id": "whoosh/shiny-type-sfx.mp3",
+   "group": "whoosh",
+   "dur": 12.04,
+   "peak_db": -12.7,
+   "mean_db": -32.7,
+   "source": "SWEEP SFX/Shiny Type Sfx.mp3"
+  },
+  {
+   "id": "whoosh/shoowsh-by-dood.mp3",
+   "group": "whoosh",
+   "dur": 0.76,
+   "peak_db": -21.6,
+   "mean_db": -37.2,
+   "source": "SWOOSH/SHOOWSH BY DOOD.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-1.mp3",
+   "group": "whoosh",
+   "dur": 0.97,
+   "peak_db": -3.7,
+   "mean_db": -22.1,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_1.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-10.mp3",
+   "group": "whoosh",
+   "dur": 0.97,
+   "peak_db": -4.0,
+   "mean_db": -20.9,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_10.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-12.mp3",
+   "group": "whoosh",
+   "dur": 0.81,
+   "peak_db": -3.1,
+   "mean_db": -25.5,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_12.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-13.mp3",
+   "group": "whoosh",
+   "dur": 0.91,
+   "peak_db": -8.9,
+   "mean_db": -30.8,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_13.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-14.mp3",
+   "group": "whoosh",
+   "dur": 0.97,
+   "peak_db": -3.5,
+   "mean_db": -23.0,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_14.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-15.mp3",
+   "group": "whoosh",
+   "dur": 0.91,
+   "peak_db": -4.7,
+   "mean_db": -29.4,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_15.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-16.mp3",
+   "group": "whoosh",
+   "dur": 0.94,
+   "peak_db": -8.1,
+   "mean_db": -30.7,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_16.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-2.mp3",
+   "group": "whoosh",
+   "dur": 0.57,
+   "peak_db": -8.0,
+   "mean_db": -27.0,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_2.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-3.mp3",
+   "group": "whoosh",
+   "dur": 3.89,
+   "peak_db": -3.2,
+   "mean_db": -24.4,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_3.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-4.mp3",
+   "group": "whoosh",
+   "dur": 9.53,
+   "peak_db": -5.1,
+   "mean_db": -26.4,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_4.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-5.mp3",
+   "group": "whoosh",
+   "dur": 0.97,
+   "peak_db": -3.8,
+   "mean_db": -22.1,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_5.mp3"
+  },
+  {
+   "id": "whoosh/short-whoose-6.mp3",
+   "group": "whoosh",
+   "dur": 0.94,
+   "peak_db": -4.0,
+   "mean_db": -20.8,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_6.wav"
+  },
+  {
+   "id": "whoosh/short-whoose-7.mp3",
+   "group": "whoosh",
+   "dur": 0.94,
+   "peak_db": -4.0,
+   "mean_db": -20.8,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_7.wav"
+  },
+  {
+   "id": "whoosh/short-whoose-8.mp3",
+   "group": "whoosh",
+   "dur": 0.94,
+   "peak_db": -4.0,
+   "mean_db": -20.8,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_8.wav"
+  },
+  {
+   "id": "whoosh/short-whoose-9.mp3",
+   "group": "whoosh",
+   "dur": 0.94,
+   "peak_db": -4.0,
+   "mean_db": -20.8,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Short Whoosh/Short whoose_9.wav"
+  },
+  {
+   "id": "whoosh/slow-motion-sound-effects.mp3",
+   "group": "whoosh",
+   "dur": 12.04,
+   "peak_db": 0.0,
+   "mean_db": -13.2,
+   "source": "Essential Sfx/Swoosh effects/Slow Motion Sound Effects .mp3"
+  },
+  {
+   "id": "whoosh/slow-whoose-dood.mp3",
+   "group": "whoosh",
+   "dur": 0.76,
+   "peak_db": -8.4,
+   "mean_db": -28.5,
+   "source": "WHOOSH/slow whoose dood.mp3"
+  },
+  {
+   "id": "whoosh/sound-effect-10.mp3",
+   "group": "whoosh",
+   "dur": 3.81,
+   "peak_db": 0.0,
+   "mean_db": -14.6,
+   "source": "Essential Sfx/Swoosh effects/sound effect 10.wav"
+  },
+  {
+   "id": "whoosh/sound-effect-11.mp3",
+   "group": "whoosh",
+   "dur": 4.36,
+   "peak_db": 0.0,
+   "mean_db": -15.5,
+   "source": "Essential Sfx/Swoosh effects/sound effect 11.wav"
+  },
+  {
+   "id": "whoosh/sound-effect-2.mp3",
+   "group": "whoosh",
+   "dur": 4.91,
+   "peak_db": -2.1,
+   "mean_db": -17.4,
+   "source": "Essential Sfx/Swoosh effects/sound effect 2.wav"
+  },
+  {
+   "id": "whoosh/sound-effect-5.mp3",
+   "group": "whoosh",
+   "dur": 5.12,
+   "peak_db": -0.4,
+   "mean_db": -20.5,
+   "source": "Essential Sfx/Swoosh effects/sound effect 5.wav"
+  },
+  {
+   "id": "whoosh/sound-effect-7.mp3",
+   "group": "whoosh",
+   "dur": 9.93,
+   "peak_db": -0.2,
+   "mean_db": -21.7,
+   "source": "Essential Sfx/Swoosh effects/sound effect 7.wav"
+  },
+  {
+   "id": "whoosh/sound-effect-8.mp3",
+   "group": "whoosh",
+   "dur": 4.91,
+   "peak_db": -0.2,
+   "mean_db": -6.9,
+   "source": "Essential Sfx/Swoosh effects/sound effect 8.wav"
+  },
+  {
+   "id": "whoosh/sound-effect-9.mp3",
+   "group": "whoosh",
+   "dur": 7.78,
+   "peak_db": -0.2,
+   "mean_db": -17.1,
+   "source": "Essential Sfx/Swoosh effects/sound effect 9.wav"
+  },
+  {
+   "id": "whoosh/swish-swoosh-woosh-sfx-15-357181.mp3",
+   "group": "whoosh",
+   "dur": 6.03,
+   "peak_db": -0.6,
+   "mean_db": -19.3,
+   "source": "Spacial Sfx/swish-swoosh-woosh-sfx-15-357181.mp3"
+  },
+  {
+   "id": "whoosh/swish-swoosh-woosh-sfx-17-357183.mp3",
+   "group": "whoosh",
+   "dur": 5.59,
+   "peak_db": -11.0,
+   "mean_db": -39.4,
+   "source": "Spacial Sfx/swish-swoosh-woosh-sfx-17-357183.mp3"
+  },
+  {
+   "id": "whoosh/swish-woosh.mp3",
+   "group": "whoosh",
+   "dur": 1.8,
+   "peak_db": -0.7,
+   "mean_db": -21.8,
+   "source": "Apple Sfx/Swish woosh.MP3"
+  },
+  {
+   "id": "whoosh/swoosh-2.mp3",
+   "group": "whoosh",
+   "dur": 1.33,
+   "peak_db": -2.9,
+   "mean_db": -22.0,
+   "source": "Essential Sfx/Sound effect/Swoosh/swoosh.wav"
+  },
+  {
+   "id": "whoosh/swoosh-3-359830.mp3",
+   "group": "whoosh",
+   "dur": 2.87,
+   "peak_db": -6.1,
+   "mean_db": -27.2,
+   "source": "Spacial Sfx/swoosh-3-359830.mp3"
+  },
+  {
+   "id": "whoosh/swoosh-element-wink.mp3",
+   "group": "whoosh",
+   "dur": 1.2,
+   "peak_db": -0.7,
+   "mean_db": -23.1,
+   "source": "SWOOSH/Swoosh Element Wink.wav"
+  },
+  {
+   "id": "whoosh/swoosh.mp3",
+   "group": "whoosh",
+   "dur": 1.49,
+   "peak_db": -2.5,
+   "mean_db": -17.9,
+   "source": "Essential Sfx/Sound effect/Swoosh/Swoosh.mp3"
+  },
+  {
+   "id": "whoosh/transition-by-whoosh.mp3",
+   "group": "whoosh",
+   "dur": 2.06,
+   "peak_db": -3.9,
+   "mean_db": -25.3,
+   "source": "Essential Sfx/Transition by Whoosh.wav"
+  },
+  {
+   "id": "whoosh/transition-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 0.47,
+   "peak_db": -4.2,
+   "mean_db": -23.7,
+   "source": "WHOOSH/Transition Swoosh.wav"
+  },
+  {
+   "id": "whoosh/ui-whoosh.mp3",
+   "group": "whoosh",
+   "dur": 0.97,
+   "peak_db": -1.8,
+   "mean_db": -18.7,
+   "source": "UI SOUNDS/ui whoosh.wav"
+  },
+  {
+   "id": "whoosh/whoosh-3.mp3",
+   "group": "whoosh",
+   "dur": 2.38,
+   "peak_db": -1.7,
+   "mean_db": -18.4,
+   "source": "Apple Sfx/Whoosh 3.wav"
+  },
+  {
+   "id": "whoosh/whoosh-big-01.mp3",
+   "group": "whoosh",
+   "dur": 1.41,
+   "peak_db": -16.4,
+   "mean_db": -33.7,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Big 01.wav"
+  },
+  {
+   "id": "whoosh/whoosh-big-02.mp3",
+   "group": "whoosh",
+   "dur": 1.96,
+   "peak_db": -19.7,
+   "mean_db": -36.4,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Big 02.wav"
+  },
+  {
+   "id": "whoosh/whoosh-big-03.mp3",
+   "group": "whoosh",
+   "dur": 1.83,
+   "peak_db": -25.5,
+   "mean_db": -43.4,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Big 03.wav"
+  },
+  {
+   "id": "whoosh/whoosh-big-04.mp3",
+   "group": "whoosh",
+   "dur": 1.85,
+   "peak_db": -15.4,
+   "mean_db": -32.1,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Big 04.wav"
+  },
+  {
+   "id": "whoosh/whoosh-big-05.mp3",
+   "group": "whoosh",
+   "dur": 2.04,
+   "peak_db": -12.9,
+   "mean_db": -29.3,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Big 05.wav"
+  },
+  {
+   "id": "whoosh/whoosh-big-07.mp3",
+   "group": "whoosh",
+   "dur": 1.93,
+   "peak_db": -14.1,
+   "mean_db": -28.0,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Big 07.wav"
+  },
+  {
+   "id": "whoosh/whoosh-deep-light-2.mp3",
+   "group": "whoosh",
+   "dur": 3.74,
+   "peak_db": -0.1,
+   "mean_db": -14.2,
+   "source": "WHOOSH/Whoosh Deep Light 2.wav"
+  },
+  {
+   "id": "whoosh/whoosh-deep-light.mp3",
+   "group": "whoosh",
+   "dur": 3.74,
+   "peak_db": -0.2,
+   "mean_db": -17.4,
+   "source": "WHOOSH/Whoosh Deep Light.wav"
+  },
+  {
+   "id": "whoosh/whoosh-deep-short.mp3",
+   "group": "whoosh",
+   "dur": 2.27,
+   "peak_db": -0.3,
+   "mean_db": -21.0,
+   "source": "WHOOSH/Whoosh Deep Short.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-01.mp3",
+   "group": "whoosh",
+   "dur": 0.73,
+   "peak_db": -22.6,
+   "mean_db": -35.8,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 01.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-02.mp3",
+   "group": "whoosh",
+   "dur": 0.68,
+   "peak_db": -21.4,
+   "mean_db": -35.4,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 02.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-03.mp3",
+   "group": "whoosh",
+   "dur": 0.34,
+   "peak_db": -22.5,
+   "mean_db": -38.8,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 03.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-04.mp3",
+   "group": "whoosh",
+   "dur": 0.71,
+   "peak_db": -15.2,
+   "mean_db": -35.5,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 04.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-05.mp3",
+   "group": "whoosh",
+   "dur": 0.86,
+   "peak_db": -21.9,
+   "mean_db": -37.3,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 05.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-06.mp3",
+   "group": "whoosh",
+   "dur": 0.6,
+   "peak_db": -21.7,
+   "mean_db": -34.7,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 06.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-07.mp3",
+   "group": "whoosh",
+   "dur": 0.73,
+   "peak_db": -21.5,
+   "mean_db": -35.3,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 07.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-09.mp3",
+   "group": "whoosh",
+   "dur": 1.41,
+   "peak_db": -19.7,
+   "mean_db": -35.5,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 09.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-10.mp3",
+   "group": "whoosh",
+   "dur": 1.18,
+   "peak_db": -21.9,
+   "mean_db": -39.5,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 10.wav"
+  },
+  {
+   "id": "whoosh/whoosh-digital-11.mp3",
+   "group": "whoosh",
+   "dur": 0.68,
+   "peak_db": -22.1,
+   "mean_db": -37.7,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Digital 11.wav"
+  },
+  {
+   "id": "whoosh/whoosh-fast-02.mp3",
+   "group": "whoosh",
+   "dur": 0.5,
+   "peak_db": -29.3,
+   "mean_db": -47.2,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Fast 02.wav"
+  },
+  {
+   "id": "whoosh/whoosh-fast-03.mp3",
+   "group": "whoosh",
+   "dur": 1.36,
+   "peak_db": -8.1,
+   "mean_db": -33.2,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Fast 03.wav"
+  },
+  {
+   "id": "whoosh/whoosh-fast-04.mp3",
+   "group": "whoosh",
+   "dur": 0.52,
+   "peak_db": -23.6,
+   "mean_db": -39.8,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Fast 04.wav"
+  },
+  {
+   "id": "whoosh/whoosh-fast-05.mp3",
+   "group": "whoosh",
+   "dur": 0.34,
+   "peak_db": -20.9,
+   "mean_db": -39.2,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/Whoosh Fast 05.wav"
+  },
+  {
+   "id": "whoosh/whoosh-fast-2.mp3",
+   "group": "whoosh",
+   "dur": 1.85,
+   "peak_db": -0.6,
+   "mean_db": -17.2,
+   "source": "WHOOSH/Whoosh Fast.mp3"
+  },
+  {
+   "id": "whoosh/whoosh-fast.mp3",
+   "group": "whoosh",
+   "dur": 1.38,
+   "peak_db": -0.4,
+   "mean_db": -21.1,
+   "source": "Essential Sfx/Whoosh Fast.wav"
+  },
+  {
+   "id": "whoosh/whoosh-fire-transition.mp3",
+   "group": "whoosh",
+   "dur": 4.41,
+   "peak_db": 0.0,
+   "mean_db": -18.9,
+   "source": "Essential Sfx/Sound effect/Whoosh All type/Whoosh 2/WHOOSH FIRE TRANSITION.mp3"
+  },
+  {
+   "id": "whoosh/whoosh-sfx.mp3",
+   "group": "whoosh",
+   "dur": 0.6,
+   "peak_db": -9.5,
+   "mean_db": -28.8,
+   "source": "WHOOSH/whoosh sfx.mp3"
+  },
+  {
+   "id": "whoosh/whoosh.mp3",
+   "group": "whoosh",
+   "dur": 5.83,
+   "peak_db": -0.0,
+   "mean_db": -20.0,
+   "source": "Spacial Sfx/Whoosh.mp3"
+  },
+  {
+   "id": "whoosh/wood-swoosh.mp3",
+   "group": "whoosh",
+   "dur": 0.84,
+   "peak_db": -7.8,
+   "mean_db": -25.4,
+   "source": "SWOOSH/Wood Swoosh.wav"
+  },
+  {
+   "id": "whoosh/woosh-03.mp3",
+   "group": "whoosh",
+   "dur": 0.86,
+   "peak_db": -9.5,
+   "mean_db": -25.9,
+   "source": "WHOOSH/Woosh 03.wav"
+  },
+  {
+   "id": "whoosh/woosh-1-by-dood-1.mp3",
+   "group": "whoosh",
+   "dur": 0.65,
+   "peak_db": -4.4,
+   "mean_db": -23.6,
+   "source": "WHOOSH/WOOSH 1 BY DOOD_1.mp3"
+  },
+  {
+   "id": "whoosh/woosh-1.mp3",
+   "group": "whoosh",
+   "dur": 0.86,
+   "peak_db": -4.0,
+   "mean_db": -24.5,
+   "source": "Essential Sfx/Essential/Woosh 1.mp3"
+  },
+  {
+   "id": "whoosh/woosh-2.mp3",
+   "group": "whoosh",
+   "dur": 1.04,
+   "peak_db": -1.2,
+   "mean_db": -22.1,
+   "source": "Essential Sfx/Essential/Woosh 2.wav"
+  },
+  {
+   "id": "whoosh/woosh-ding-ding-baton-370398.mp3",
+   "group": "whoosh",
+   "dur": 4.99,
+   "peak_db": -4.5,
+   "mean_db": -25.9,
+   "source": "Spacial Sfx/woosh-ding-ding-baton-370398.mp3"
+  },
+  {
+   "id": "whoosh/woosh-motion.mp3",
+   "group": "whoosh",
+   "dur": 1.67,
+   "peak_db": -3.0,
+   "mean_db": -23.8,
+   "source": "Apple Sfx/Woosh motion.MP3"
+  },
+  {
+   "id": "whoosh/woosh.mp3",
+   "group": "whoosh",
+   "dur": 2.04,
+   "peak_db": -1.9,
+   "mean_db": -27.4,
+   "source": "WHOOSH/woosh .mp3"
+  },
+  {
+   "id": "zoom/digital-zoom.mp3",
+   "group": "zoom",
+   "dur": 12.04,
+   "peak_db": -6.6,
+   "mean_db": -26.1,
+   "source": "Spacial Sfx/Digital Zoom.mp3"
+  },
+  {
+   "id": "zoom/ui-long-zoom.mp3",
+   "group": "zoom",
+   "dur": 1.07,
+   "peak_db": -17.5,
+   "mean_db": -34.6,
+   "source": "Essential Sfx/Essential/UI Long Zoom.wav"
+  },
+  {
+   "id": "zoom/zoom-2.mp3",
+   "group": "zoom",
+   "dur": 1.38,
+   "peak_db": -1.4,
+   "mean_db": -18.2,
+   "source": "Essential Sfx/Sound effect/Zoom/zoom (2).wav"
+  },
+  {
+   "id": "zoom/zoom-3.mp3",
+   "group": "zoom",
+   "dur": 1.1,
+   "peak_db": -10.9,
+   "mean_db": -27.2,
+   "source": "Essential Sfx/Sound effect/Zoom/zoom (3).wav"
+  },
+  {
+   "id": "zoom/zoom.mp3",
+   "group": "zoom",
+   "dur": 1.04,
+   "peak_db": -1.2,
+   "mean_db": -20.4,
+   "source": "Essential Sfx/Sound effect/Zoom/zoom.wav"
+  }
+ ]
+}
