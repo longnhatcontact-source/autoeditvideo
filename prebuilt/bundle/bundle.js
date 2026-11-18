@@ -12111,6 +12111,7 @@ const fit = (text, font, weight, max, width = W, perChar = 0.62) => {
 };
 const balance = (text, limit = 13) => {
   const t = text.trim();
+  if (t.includes("\n")) return t;
   if (Array.from(t).length <= limit || !t.includes(" ")) return t;
   const words = t.split(/\s+/);
   let best = t;
@@ -13389,6 +13390,7 @@ const size = (text, fontFamily, fontWeight, max, width = MAX_W, perChar = 0.5) =
 };
 function Callouts_balance(text, limit = 13) {
   const t = text.trim();
+  if (t.includes("\n")) return t;
   if (Array.from(t).length <= limit || !t.includes(" ")) return t;
   const words = t.split(/\s+/);
   let best = t;
@@ -13417,6 +13419,8 @@ const STAMP_HIT = 6;
 const OUTLINE_FILL = [12, 26];
 const TYPING_FILES = [6, 10, 14, 20, 28];
 function calloutSounds(c, fps = 30) {
+  var _a;
+  if ((_a = c.sounds) == null ? void 0 : _a.length) return c.sounds;
   const f = (frames) => frames / fps;
   const main = c.main.trim();
   const n = Array.from(main).length;
@@ -15153,7 +15157,9 @@ const captionedVideoSchema = schemas.object({
       y: schemas.number(),
       scale: schemas.number(),
       bg: schemas.number().optional(),
-      layout: schemas.string().optional()
+      layout: schemas.string().optional(),
+      // tiếng riêng cho khối chữ (ghi đè tiếng mặc định của mẫu); id trong thư mục SFX, vd "lib/whoosh/swoosh-3.mp3"
+      sounds: schemas.array(schemas.object({ id: schemas.string(), at: schemas.number(), volume: schemas.number() })).optional()
     })
   )
 });

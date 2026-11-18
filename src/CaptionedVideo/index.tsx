@@ -94,6 +94,8 @@ export const captionedVideoSchema = z.object({
       scale: z.number(),
       bg: z.number().optional(),
       layout: z.string().optional(),
+      // tiếng riêng cho khối chữ (ghi đè tiếng mặc định của mẫu); id trong thư mục SFX, vd "lib/whoosh/swoosh-3.mp3"
+      sounds: z.array(z.object({ id: z.string(), at: z.number(), volume: z.number() })).optional(),
     }),
   ),
 });

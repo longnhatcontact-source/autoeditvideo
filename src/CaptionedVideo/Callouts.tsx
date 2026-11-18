@@ -63,6 +63,8 @@ export type Callout = {
   bg?: number;
   /** bố cục (mẫu mở rộng): center | left | right | inline | side | zigzag | bar | brackets | underline | lines */
   layout?: string;
+  /** tiếng riêng cho khối chữ này (ghi đè tiếng mặc định của mẫu). id = đường dẫn trong thư mục SFX, vd "nr-pop.mp3" hoặc "lib/whoosh/swoosh-3.mp3" (thư viện nhánh sfx-lib) */
+  sounds?: CalloutSound[];
 };
 
 /** vị trí mặc định: vùng trên đầu người nói (~30% từ trên xuống): không che mắt, tách hẳn khỏi phụ đề */
@@ -136,7 +138,8 @@ const TYPING_FILES = [6, 10, 14, 20, 28];
 export type CalloutSound = { id: string; at: number; volume: number };
 
 /** Tiếng đi kèm từng kiểu chữ; at = giây tính từ lúc chữ hiện (có thể âm = vào sớm hơn chút) */
-export function calloutSounds(c: Pick<Callout, "style" | "main" | "sub">, fps = 30): CalloutSound[] {
+export function calloutSounds(c: Pick<Callout, "style" | "main" | "sub" | "sounds">, fps = 30): CalloutSound[] {
+  if (c.sounds?.length) return c.sounds;
   const f = (frames: number) => frames / fps;
   const main = c.main.trim();
   const n = Array.from(main).length;
@@ -193,7 +196,7 @@ export function calloutSounds(c: Pick<Callout, "style" | "main" | "sub">, fps = 
 
 /** Phát tiếng của 1 khối chữ; đặt bên trong Sequence của khối đó. base: URL thư mục SFX ("" = public/sfx/) */
 export const CalloutAudio: React.FC<{
-  c: Pick<Callout, "style" | "main" | "sub">;
+  c: Pick<Callout, "style" | "main" | "sub" | "sounds">;
   base: string;
   volume: number;
   /** số khung hình từ đầu Sequence bao ngoài tới lúc chữ hiện */

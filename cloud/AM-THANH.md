@@ -13,6 +13,7 @@
 | Nhận giọng (Windows/app) | `cloud/transcribe.py` |
 | Từ khoá gợi ý cho whisper | `tu-khoa.txt` (tên dự án, thuật ngữ BĐS) |
 | Bảng sửa chữ nghe nhầm | `sua-tu.txt` |
+| Thư viện 872 SFX | nhánh `sfx-lib` — https://github.com/longnhatcontact-source/autoeditvideo/tree/sfx-lib · lấy về: `cloud/sfx-lib.sh` |
 | Tìm khoảng lặng (app) | `lib/media.mjs` (silencedetect) |
 | faster-whisper (gốc) | https://github.com/SYSTRAN/faster-whisper |
 | DeepFilterNet (gốc, bản v0.5.6) | https://github.com/Rikorose/DeepFilterNet/releases/tag/v0.5.6 |
@@ -56,6 +57,13 @@ Lệnh: `cloud/denoise.sh <video> <ra.wav>`. Chuỗi xử lý:
 - Chỉ đặt ở **khung chữ nhấn** (`calloutSfx: 1`, mỗi mẫu đã gắn sẵn tiếng trong `templateSounds`). Không đặt ở tiêu đề mở đầu,
   chuyển cảnh (`sfx: []`). Không dùng tiếng meme/hài.
 - Video không lời người dùng tự ghép nhạc (vd video Vin Olympic): tắt hết (`calloutSfx: 0`, không chèn âm thanh).
+
+## 5b. Thư viện 872 SFX (nhánh `sfx-lib`)
+- Nguồn: "Bộ 1000 Sound Xu Hướng" anh Nhật gửi 18/11/2026 → bỏ trùng, mp3 192k, bỏ khoảng lặng đầu, tối đa 12 giây, chia 21 nhóm.
+- Link: https://github.com/longnhatcontact-source/autoeditvideo/tree/sfx-lib (`index.json` = danh sách + số đo).
+- Lấy về: `bash cloud/sfx-lib.sh` → `.work/cloud/public/sfx/lib/`. App trên máy tự lấy ở bước `setup`.
+- Dùng trong props: `callouts[].sounds = [{"id":"lib/whoosh/1-whoosh-swoosh.mp3","at":-0.1,"volume":0.6}]` (ghi đè tiếng mặc định của mẫu).
+- Không dùng nhóm `meme`; chọn theo nhóm + `dur` + `peak_db`/`mean_db`; liệt kê tiếng đã chọn để người dùng nghe duyệt.
 
 ## 6. Giới hạn — luôn báo người dùng nghe lại
 Claude không đánh giá được: giọng sau lọc có méo/rè/"robot" không · SFX có hay, có hợp không · nhịp cắt có tự nhiên,
