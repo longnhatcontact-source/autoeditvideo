@@ -12,6 +12,20 @@ Mục tiêu khi xong:
 Quy tắc chung: không xoá file nào của người dùng; không đẩy (push) gì lên repo (người dùng khác chỉ có quyền đọc);
 không gửi thông tin trong máy/tài khoản người dùng ra ngoài; bước nào lỗi → nói rõ lỗi + cách sửa, không đoán bừa.
 
+## Liên kết
+| Thứ | Link / vị trí |
+|---|---|
+| Repo mã nguồn (riêng tư, cần được mời làm Collaborator) | https://github.com/longnhatcontact-source/autoeditvideo |
+| Nhánh dùng | `feat/chu-nhan` — https://github.com/longnhatcontact-source/autoeditvideo/tree/feat/chu-nhan |
+| Skill (bản gốc) | `cloud/skill/SKILL.md` — https://github.com/longnhatcontact-source/autoeditvideo/blob/feat/chu-nhan/cloud/skill/SKILL.md |
+| Bộ cài Windows | `CAI-DAT.bat` — https://github.com/longnhatcontact-source/autoeditvideo/blob/feat/chu-nhan/CAI-DAT.bat |
+| Cách dựng trên cloud (lệnh, lỗi đã gặp) | `cloud/README.md` |
+| Cách dựng trên máy qua app (phiếu việc) | `cloud/LOCAL.md` |
+| Ảnh xem trước 104 mẫu chữ | `cloud/catalog/mau-chu-*.jpg` |
+| Hướng dẫn cho người dùng (dạng tài liệu) | https://claude.ai/code/artifact/0772c92e-3ae7-4eff-b4d7-833c43eec122 (chỉ mở được khi anh Nhật chia sẻ) |
+
+Repo riêng tư: link GitHub chỉ mở được sau khi người dùng được anh Nhật mời và bấm Accept (xem Phần 1).
+
 ---
 
 ## Phần 1 — Quyền đọc repo
